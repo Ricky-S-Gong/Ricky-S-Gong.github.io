@@ -213,7 +213,7 @@ main {
 .portrait-image {
   display: none;
   object-fit: cover;
-  object-position: center 62%;
+  object-position: center 72%;
   background: #657286;
 }
 
@@ -247,6 +247,11 @@ main {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28);
+}
+
+.intro-card h1 {
+  font-size: clamp(2.7rem, 6vw, 4.55rem);
+  max-width: 11ch;
 }
 
 .eyebrow,
@@ -463,6 +468,39 @@ h3 {
   gap: 1.4rem;
 }
 
+.home-about {
+  margin-top: 0.5rem;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.home-about-card {
+  padding: 1.35rem;
+}
+
+.home-about-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.home-about-card p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.home-about-card a {
+  color: var(--accent-2);
+}
+
+.home-about-card a:hover,
+.home-about-card a:focus-visible {
+  color: var(--accent);
+}
+
 .section-heading,
 .contact-section {
   grid-template-columns: 1fr 0.9fr;
@@ -631,6 +669,10 @@ h3 {
   .contact-section,
   .capability-grid,
   .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-about-grid {
     grid-template-columns: 1fr;
   }
 
