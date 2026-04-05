@@ -532,10 +532,10 @@ h3 {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle at 22% 25%, rgba(124, 247, 193, 0.22), transparent 24%),
-    radial-gradient(circle at 78% 70%, rgba(122, 198, 255, 0.18), transparent 28%),
-    linear-gradient(160deg, rgba(9, 21, 38, 0.92), rgba(10, 30, 54, 0.78));
+  background-color: rgba(9, 21, 38, 0.92);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .project-cover-label {
@@ -558,12 +558,6 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-soft);
   font-size: 0.78rem;
-}
-
-.project-subtitle {
-  margin: -0.12rem 0 0;
-  color: var(--text-muted);
-  font-size: 0.92rem;
 }
 
 .detail-shell {

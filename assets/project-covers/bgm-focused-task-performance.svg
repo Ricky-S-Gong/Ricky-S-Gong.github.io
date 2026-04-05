@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Behavior Study">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1626"/>
+      <stop offset="100%" stop-color="#143040"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#8ac9ff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#8ac9ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="84%" cy="72%" r="42%">
+      <stop offset="0%" stop-color="#79f0cf" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#79f0cf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glowA)"/>
+  <rect width="1200" height="750" fill="url(#glowB)"/>
+  <g opacity="0.08" stroke="#d7ecff" stroke-width="1">
+    <path d="M0 110 H1200"/><path d="M0 220 H1200"/><path d="M0 330 H1200"/><path d="M0 440 H1200"/><path d="M0 550 H1200"/><path d="M0 660 H1200"/>
+    <path d="M130 0 V750"/><path d="M290 0 V750"/><path d="M450 0 V750"/><path d="M610 0 V750"/><path d="M770 0 V750"/><path d="M930 0 V750"/><path d="M1090 0 V750"/>
+  </g>
+  <circle cx="350" cy="360" r="150" fill="#0d2138" stroke="#8ac9ff" stroke-opacity="0.18"/><path d="M306 420 C312 320, 312 300, 312 225 L410 205 L410 355" fill="none" stroke="#79f0cf" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="280" cy="458" r="40" fill="#8ac9ff" opacity="0.88"/><circle cx="410" cy="392" r="40" fill="#79f0cf" opacity="0.9"/><path d="M650 380 C680 320, 720 320, 750 380 C780 440, 820 440, 850 380 C880 320, 920 320, 950 380" fill="none" stroke="#f6d77a" stroke-width="12" stroke-linecap="round"/><path d="M650 300 C680 250, 720 250, 750 300 C780 350, 820 350, 850 300 C880 250, 920 250, 950 300" fill="none" stroke="#8ac9ff" stroke-width="8" opacity="0.55" stroke-linecap="round"/>
+</svg>

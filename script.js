@@ -176,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-27";
+const assetVersion = "20260405-home-tabs-28";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 
 const setText = (id, text) => {
@@ -307,12 +307,16 @@ if (projectCategories) {
               .map(
                 (project) => `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
-                    <div class="project-cover">
+                    <div
+                      class="project-cover"
+                      style="background-image:
+                        linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48)),
+                        url('./assets/project-covers/${project.slug}.svg?v=${assetVersion}')"
+                    >
                       <span class="project-cover-label">${project.coverLabel}</span>
                       <span class="project-status-pill">${project.status}</span>
                     </div>
                     <h3>${project.title}</h3>
-                    <p class="project-subtitle">${project.subtitle}</p>
                     <p>${project.miniDescription}</p>
                     <div class="tag-list">
                       ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="RAG + QLoRA">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08172a"/>
+      <stop offset="100%" stop-color="#123652"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#79f0cf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#79f0cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="84%" cy="72%" r="42%">
+      <stop offset="0%" stop-color="#88c6ff" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#88c6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glowA)"/>
+  <rect width="1200" height="750" fill="url(#glowB)"/>
+  <g opacity="0.08" stroke="#d7ecff" stroke-width="1">
+    <path d="M0 110 H1200"/><path d="M0 220 H1200"/><path d="M0 330 H1200"/><path d="M0 440 H1200"/><path d="M0 550 H1200"/><path d="M0 660 H1200"/>
+    <path d="M130 0 V750"/><path d="M290 0 V750"/><path d="M450 0 V750"/><path d="M610 0 V750"/><path d="M770 0 V750"/><path d="M930 0 V750"/><path d="M1090 0 V750"/>
+  </g>
+  <rect x="140" y="180" width="210" height="120" rx="26" fill="#10223c"/><rect x="140" y="330" width="210" height="120" rx="26" fill="#10223c"/><rect x="430" y="255" width="230" height="150" rx="30" fill="#122742"/><rect x="770" y="215" width="250" height="230" rx="32" fill="#10223c"/><g stroke="#88c6ff" stroke-width="7" opacity="0.55"><line x1="350" y1="240" x2="430" y2="310"/><line x1="350" y1="390" x2="430" y2="350"/><line x1="660" y1="330" x2="770" y2="330"/></g><g fill="#79f0cf"><rect x="190" y="220" width="110" height="12" rx="6"/><rect x="190" y="252" width="80" height="12" rx="6" opacity="0.6"/><rect x="190" y="370" width="120" height="12" rx="6"/><rect x="190" y="402" width="90" height="12" rx="6" opacity="0.6"/><circle cx="545" cy="330" r="42"/><rect x="815" y="260" width="145" height="14" rx="7" fill="#88c6ff"/><rect x="815" y="304" width="120" height="14" rx="7" fill="#79f0cf"/><rect x="815" y="348" width="95" height="14" rx="7" fill="#f6d77a"/></g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Nutrition Choice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1c30"/>
+      <stop offset="100%" stop-color="#123e49"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#7cf7c1" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#7cf7c1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="84%" cy="72%" r="42%">
+      <stop offset="0%" stop-color="#f6d77a" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#f6d77a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glowA)"/>
+  <rect width="1200" height="750" fill="url(#glowB)"/>
+  <g opacity="0.08" stroke="#d7ecff" stroke-width="1">
+    <path d="M0 110 H1200"/><path d="M0 220 H1200"/><path d="M0 330 H1200"/><path d="M0 440 H1200"/><path d="M0 550 H1200"/><path d="M0 660 H1200"/>
+    <path d="M130 0 V750"/><path d="M290 0 V750"/><path d="M450 0 V750"/><path d="M610 0 V750"/><path d="M770 0 V750"/><path d="M930 0 V750"/><path d="M1090 0 V750"/>
+  </g>
+  <rect x="250" y="150" width="330" height="420" rx="34" fill="#0b1326" stroke="#8ac9ff" stroke-opacity="0.18"/><rect x="300" y="210" width="230" height="28" rx="10" fill="#f6d77a" opacity="0.88"/><rect x="300" y="272" width="180" height="16" rx="8" fill="#7cf7c1" opacity="0.78"/><rect x="300" y="318" width="210" height="16" rx="8" fill="#7cf7c1" opacity="0.46"/><rect x="300" y="364" width="160" height="16" rx="8" fill="#7cf7c1" opacity="0.46"/><rect x="300" y="410" width="200" height="16" rx="8" fill="#7cf7c1" opacity="0.46"/><path d="M760 470 C760 350, 860 285, 930 240 C960 330, 940 430, 860 510 C820 548, 768 536, 760 470 Z" fill="#7cf7c1" opacity="0.9"/><path d="M782 486 C835 448, 882 396, 920 320" fill="none" stroke="#0b1326" stroke-width="10" stroke-linecap="round" opacity="0.4"/>
+</svg>
