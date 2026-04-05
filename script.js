@@ -11,8 +11,8 @@ const siteData = {
   heroLinks: [
     {
       label: "LinkedIn",
-      value: "Add your LinkedIn URL",
-      href: "https://www.linkedin.com/",
+      value: "linkedin.com/in/shangyu-ricky-gong",
+      href: "https://www.linkedin.com/in/shangyu-ricky-gong",
       icon: "in",
     },
     {
