@@ -274,6 +274,21 @@ const detailNarratives = {
   },
 };
 
+const introSectionHeadings = {
+  "nutrition-label-diet-choices": "Intervention question",
+  "email-funding-conversion-experiment": "Growth question",
+  "bgm-focused-task-performance": "Behavioral question",
+  "natural-gas-consumption-forecasting": "Forecasting question",
+  "bayesian-statistical-modeling": "Sampling problem",
+  "amazon-food-review-sentiment-analysis": "Prediction question",
+  "conversion-rate-modeling-optimization": "Business prediction question",
+  "trm-mechanistic-interpretability": "Interpretability question",
+  "tool-using-language-models": "Alignment question",
+  "trustworthy-rl-llm-reasoning": "Reasoning objective",
+  pennos: "Systems build",
+  penncloud: "Platform goal",
+};
+
 if (!project) {
   setNodeText("detail-category", "Project");
   setNodeText("detail-title", "Project not found");
@@ -316,9 +331,17 @@ if (!project) {
 
   const detailArticle = document.getElementById("detail-article");
   if (detailArticle) {
+    const sectionNarrative = buildNarrativeFromSections(project);
+    const narrativeBody = narrative.body || "";
+    const introHeading = introSectionHeadings[project.slug];
+    const bodyWithIntroHeading =
+      !sectionNarrative && introHeading && narrativeBody
+        ? narrativeBody.replace(/^\s*/, (match) => `${match}<h2>${introHeading}</h2>`)
+        : narrativeBody;
+
     detailArticle.innerHTML =
-      buildNarrativeFromSections(project) ||
-      narrative.body ||
+      sectionNarrative ||
+      bodyWithIntroHeading ||
       "<p>This project detail page is being expanded into a full narrative after a complete read of the underlying materials.</p>";
   }
 
