@@ -40,12 +40,12 @@ window.projectCatalog = {
     {
       slug: "minimum-wage-unemployment",
       title: "Minimum Wage Shocks on Unemployment",
-      subtitle: "Working Paper · Policy Evaluation",
+      subtitle: "Policy Evaluation",
       topic: "Labor Economics",
       primaryCategory: "Causal Inference & Experimentation",
       displayCategories: ["Causal Inference & Experimentation"],
       tags: ["DiD", "TWFE", "Labor", "Policy", "Panel Data"],
-      status: "Working Paper",
+      status: "Completed",
       yearLabel: "2025",
       coverLabel: "Policy Shock",
       miniDescription:
@@ -100,7 +100,7 @@ window.projectCatalog = {
     {
       slug: "nutrition-label-diet-choices",
       title: "Nutrition Label Education and Healthy Diet Choices",
-      subtitle: "Research Paper · Behavioral / Health Economics",
+      subtitle: "Behavioral Choice Analysis",
       topic: "Consumer Decision-Making",
       primaryCategory: "Causal Inference & Experimentation",
       displayCategories: ["Causal Inference & Experimentation"],
@@ -174,12 +174,12 @@ window.projectCatalog = {
     {
       slug: "bgm-focused-task-performance",
       title: "The Effect of Background Music on Focused Tasks",
-      subtitle: "Working Paper · Experimental Design",
+      subtitle: "Behavior and Focus Study",
       topic: "Behavioral Experiment",
       primaryCategory: "Causal Inference & Experimentation",
       displayCategories: ["Causal Inference & Experimentation", "Time Series & Statistical Modelling"],
       tags: ["Experimental Design", "Mixed Effects", "ANOVA", "Behavior", "Statistics"],
-      status: "Working Paper",
+      status: "Completed",
       yearLabel: "2024",
       coverLabel: "Behavior Study",
       miniDescription:
@@ -210,7 +210,7 @@ window.projectCatalog = {
     {
       slug: "natural-gas-consumption-forecasting",
       title: "U.S. Natural Gas Consumption Forecasting",
-      subtitle: "STAT 429 · Time Series Analysis",
+      subtitle: "Energy Demand Forecasting",
       topic: "Forecasting",
       primaryCategory: "Time Series & Statistical Modelling",
       displayCategories: ["Time Series & Statistical Modelling"],
@@ -246,7 +246,7 @@ window.projectCatalog = {
     {
       slug: "bayesian-statistical-modeling",
       title: "Bayesian Statistical Modeling for Final Project",
-      subtitle: "STAT 431 · Bayesian Analysis",
+      subtitle: "Bayesian Sampling and Inference",
       topic: "Bayesian Modelling",
       primaryCategory: "Time Series & Statistical Modelling",
       displayCategories: ["Time Series & Statistical Modelling"],
@@ -282,7 +282,7 @@ window.projectCatalog = {
     {
       slug: "champaign-rental-price-forecasting",
       title: "Forecasting Rental Prices in Champaign",
-      subtitle: "URES Fellow Project · Housing Forecasting",
+      subtitle: "Housing Market Forecasting",
       topic: "Housing Analytics",
       primaryCategory: "Time Series & Statistical Modelling",
       displayCategories: ["Time Series & Statistical Modelling", "Machine Learning & Deep Learning"],
@@ -344,7 +344,7 @@ window.projectCatalog = {
     {
       slug: "amazon-food-review-sentiment-analysis",
       title: "Amazon Food Review Sentiment Analysis",
-      subtitle: "Applied NLP Classification Project",
+      subtitle: "Customer Feedback Classification",
       topic: "Customer Feedback Analytics",
       primaryCategory: "Machine Learning & Deep Learning",
       displayCategories: ["Machine Learning & Deep Learning", "NLP & Large Language Model"],
@@ -380,7 +380,7 @@ window.projectCatalog = {
     {
       slug: "conversion-rate-modeling-optimization",
       title: "Conversion Rate Modeling and Optimization",
-      subtitle: "Applied Predictive Modeling Project",
+      subtitle: "Conversion Optimization",
       topic: "Business Conversion Analytics",
       primaryCategory: "Machine Learning & Deep Learning",
       displayCategories: ["Machine Learning & Deep Learning"],
@@ -411,7 +411,7 @@ window.projectCatalog = {
     {
       slug: "trm-mechanistic-interpretability",
       title: "Mechanistic Interpretability for TRM",
-      subtitle: "ESE 5460 Project",
+      subtitle: "Mechanistic Interpretability",
       topic: "Model Interpretability",
       primaryCategory: "Machine Learning & Deep Learning",
       displayCategories: ["Machine Learning & Deep Learning", "NLP & Large Language Model"],
@@ -447,7 +447,7 @@ window.projectCatalog = {
     {
       slug: "llm-powered-churn-analysis-system",
       title: "LLM-Powered Churn Analysis System",
-      subtitle: "Industry Project · Eth Tech",
+      subtitle: "Retention Intelligence System",
       topic: "Customer Retention Intelligence",
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model", "Machine Learning & Deep Learning"],
@@ -513,12 +513,12 @@ window.projectCatalog = {
     {
       slug: "tool-using-language-models",
       title: "Tool-Using Language Models",
-      subtitle: "CIS 6200 Project",
+      subtitle: "Tool-Use Alignment Study",
       topic: "LLM Reasoning & Tool Use",
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model"],
       tags: ["LLM", "Tool Use", "Agents", "Reasoning", "Evaluation"],
-      status: "In Progress",
+      status: "Completed",
       yearLabel: "2026",
       coverLabel: "Tool Use",
       miniDescription:
@@ -549,12 +549,12 @@ window.projectCatalog = {
     {
       slug: "trustworthy-rl-llm-reasoning",
       title: "Trustworthy RL with LLM-Based Reasoning",
-      subtitle: "CIS 5270 Project",
+      subtitle: "Trustworthy Reasoning Study",
       topic: "Trustworthy AI",
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model", "Machine Learning & Deep Learning"],
       tags: ["RL", "LLM", "Trustworthy AI", "Safety", "Evaluation"],
-      status: "In Progress",
+      status: "Completed",
       yearLabel: "2026",
       coverLabel: "Trustworthy Agent",
       miniDescription:
@@ -585,7 +585,7 @@ window.projectCatalog = {
     {
       slug: "pennos",
       title: "PennOS",
-      subtitle: "Operating Systems Project",
+      subtitle: "Operating Systems Build",
       topic: "Systems Programming",
       primaryCategory: "Data Systems & Infrastructure",
       displayCategories: ["Data Systems & Infrastructure"],
@@ -621,12 +621,12 @@ window.projectCatalog = {
     {
       slug: "penncloud",
       title: "PennCloud",
-      subtitle: "Distributed Systems Project",
+      subtitle: "Distributed Systems Build",
       topic: "Distributed Infrastructure",
       primaryCategory: "Data Systems & Infrastructure",
       displayCategories: ["Data Systems & Infrastructure"],
       tags: ["Distributed Systems", "C++", "KV Store", "Replication", "Backend"],
-      status: "In Progress",
+      status: "Completed",
       yearLabel: "2026",
       coverLabel: "Distributed Store",
       miniDescription:

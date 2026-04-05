@@ -552,7 +552,7 @@ h3 {
 }
 
 .project-subtitle {
-  margin: -0.45rem 0 0;
+  margin: -0.12rem 0 0;
   color: var(--text-muted);
   font-size: 0.92rem;
 }
@@ -582,7 +582,7 @@ h3 {
 }
 
 .project-detail-hero {
-  padding: 2rem;
+  padding: 0.5rem 0 0;
 }
 
 .project-detail-header {
@@ -619,21 +619,21 @@ h3 {
 }
 
 .project-detail-summary {
-  margin: 1.4rem 0 0;
+  margin: 0.9rem 0 0;
   color: var(--text-soft);
-  line-height: 1.8;
-  font-size: 1.03rem;
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
 .project-detail-summary a,
-.detail-section a {
+.project-detail-article a {
   color: var(--accent-2);
 }
 
 .project-detail-summary a:hover,
 .project-detail-summary a:focus-visible,
-.detail-section a:hover,
-.detail-section a:focus-visible {
+.project-detail-article a:hover,
+.project-detail-article a:focus-visible {
   color: var(--accent);
 }
 
@@ -644,37 +644,50 @@ h3 {
   margin-top: 1.4rem;
 }
 
-.project-detail-body {
-  display: grid;
-  gap: 1rem;
+.project-detail-article {
+  padding: 2rem;
 }
 
-.detail-section {
-  padding: 1.5rem;
+.project-detail-header h1 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(2.2rem, 4.3vw, 3.5rem);
+  line-height: 0.98;
 }
 
-.detail-section h2 {
-  margin: 0;
+.project-detail-header .hero-subtitle {
+  margin: 0.8rem 0 0;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
-.detail-section p {
+.project-detail-article h2 {
+  margin: 1.7rem 0 0;
+  font-size: 1.14rem;
+  letter-spacing: 0.01em;
+}
+
+.project-detail-article h2:first-child {
+  margin-top: 0;
+}
+
+.project-detail-article p {
   margin: 0.9rem 0 0;
   color: var(--text-soft);
-  line-height: 1.8;
+  line-height: 1.82;
 }
 
-.detail-section ul {
+.project-detail-article ul {
   margin: 0.95rem 0 0;
   padding-left: 1.2rem;
   color: var(--text-soft);
   line-height: 1.8;
 }
 
-.detail-section li + li {
+.project-detail-article li + li {
   margin-top: 0.45rem;
 }
 
-.detail-section code {
+.project-detail-article code {
   padding: 0.1rem 0.35rem;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.07);
@@ -775,7 +788,6 @@ h3 {
   background: radial-gradient(circle, rgba(124, 247, 193, 0.2), transparent 70%);
 }
 
-.card-topline,
 .timeline-date {
   color: var(--accent-3);
   font-size: 0.82rem;
@@ -924,6 +936,10 @@ h3 {
 
   .detail-resource-row {
     justify-content: flex-start;
+  }
+
+  .project-detail-article {
+    padding: 1.55rem;
   }
 }
 

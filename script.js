@@ -176,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-23";
+const assetVersion = "20260405-home-tabs-24";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 
 const setText = (id, text) => {
@@ -309,9 +309,8 @@ if (projectCategories) {
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
                     <div class="project-cover">
                       <span class="project-cover-label">${project.coverLabel}</span>
-                      <span class="project-status-pill">${project.status}</span>
+                      <span class="project-status-pill">Completed</span>
                     </div>
-                    <p class="card-topline">${project.topic}</p>
                     <h3>${project.title}</h3>
                     <p class="project-subtitle">${project.subtitle}</p>
                     <p>${project.miniDescription}</p>
