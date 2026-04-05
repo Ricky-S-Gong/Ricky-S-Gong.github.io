@@ -477,9 +477,9 @@ h3 {
 }
 
 .project-nav-pill {
-  border: 1px solid rgba(154, 207, 255, 0.16);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-soft);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 8, 14, 0.88);
+  color: var(--text);
   border-radius: 999px;
   padding: 0.65rem 1rem;
   font: inherit;
@@ -491,6 +491,7 @@ h3 {
 .project-nav-pill:focus-visible {
   color: var(--text);
   border-color: rgba(124, 247, 193, 0.34);
+  background: rgba(13, 18, 29, 0.96);
   transform: translateY(-1px);
 }
 
@@ -511,6 +512,23 @@ h3 {
 
 .project-category-heading .section-copy {
   font-size: 0.98rem;
+  max-width: 44rem;
+}
+
+.project-section-header {
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+
+.project-section-intro {
+  max-width: 980px;
+}
+
+.project-section-intro p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.78;
+  font-size: 1rem;
 }
 
 .project-card-link {

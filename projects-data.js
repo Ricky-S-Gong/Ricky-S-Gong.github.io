@@ -4,35 +4,35 @@ window.projectCatalog = {
       id: "causal-inference-experimentation",
       title: "Causal Inference & Experimentation",
       description:
-        "Projects in this section focus on estimating effects, designing experiments, and translating evidence into decision-ready recommendations.",
+        "Policy evaluation, behavioral studies, and product experiments where the main task is to identify effects clearly enough to support action.",
       order: 1,
     },
     {
       id: "time-series-statistical-modelling",
       title: "Time Series & Statistical Modelling",
       description:
-        "These projects emphasize forecasting, probabilistic reasoning, and structured statistical modelling on real-world data.",
+        "Forecasting and probabilistic modeling projects focused on market dynamics, demand patterns, and structured statistical inference over time.",
       order: 2,
     },
     {
       id: "machine-learning-deep-learning",
       title: "Machine Learning & Deep Learning",
       description:
-        "This section highlights predictive modelling, representation learning, and model-based decision support across applied domains.",
+        "Predictive modeling and representation-learning work built around customer signals, conversion behavior, and interpretable model analysis.",
       order: 3,
     },
     {
       id: "nlp-large-language-model",
       title: "NLP & Large Language Model",
       description:
-        "These projects explore language understanding, retrieval, generation, and LLM-based reasoning systems.",
+        "Language-focused projects spanning sentiment analysis, retrieval-augmented generation, tool use, and LLM-based reasoning systems.",
       order: 4,
     },
     {
       id: "data-systems-infrastructure",
       title: "Data Systems & Infrastructure",
       description:
-        "Projects here focus on the systems and infrastructure required to make data products reliable, scalable, and usable.",
+        "Systems builds that make computation usable in practice, from operating-system abstractions to distributed storage and service architecture.",
       order: 5,
     },
   ],

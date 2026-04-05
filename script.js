@@ -187,7 +187,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-36";
+const assetVersion = "20260405-home-tabs-37";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -331,19 +331,6 @@ renderList(
   "home-about-content"
 );
 
-document.getElementById("about-content").innerHTML = siteData.about.map((paragraph) => `<p>${paragraph}</p>`).join("");
-
-renderList(
-  siteData.capabilities,
-  (item) => `
-    <article class="capability-card">
-      <h3>${item.title}</h3>
-      <p>${item.body}</p>
-    </article>
-  `,
-  "capability-grid"
-);
-
 const projectNav = document.getElementById("projects-nav");
 if (projectNav) {
   const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
@@ -370,7 +357,6 @@ if (projectCategories) {
         <section class="project-category-block" id="${category.id}">
           <div class="section-heading project-category-heading">
             <div>
-              <p class="section-tag">Toolkit</p>
               <h2>${category.title}</h2>
             </div>
             <p class="section-copy">${category.description}</p>
