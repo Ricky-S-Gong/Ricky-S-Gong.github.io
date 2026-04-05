@@ -360,8 +360,7 @@ h3 {
 
 .panel,
 .toolbox,
-.contact-section,
-.hero-link {
+.contact-section {
   padding: 1.4rem;
 }
 
@@ -372,7 +371,7 @@ h3 {
   font-size: 0.9rem;
 }
 
-.hero-link {
+.home-hero .hero-link {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -386,13 +385,13 @@ h3 {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.hero-link:hover,
-.hero-link:focus-visible {
+.home-hero .hero-link:hover,
+.home-hero .hero-link:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(124, 247, 193, 0.34);
 }
 
-.hero-link-icon {
+.home-hero .hero-link-icon {
   width: 1.5rem;
   height: 1.5rem;
   display: grid;
@@ -401,30 +400,35 @@ h3 {
   flex: 0 0 auto;
 }
 
-.hero-link-svg {
+.home-hero .hero-link-svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.hero-link-text {
+.home-hero .hero-link-text {
   font-size: 1rem;
   line-height: 1;
 }
 
-.hero-link[href^="https://www.linkedin.com"] {
+.home-hero .hero-link {
+  padding: 0.95rem 1.25rem;
+  border-radius: 16px;
+}
+
+.home-hero .hero-link[href^="https://www.linkedin.com"] {
   background: linear-gradient(180deg, rgba(52, 102, 235, 0.96), rgba(46, 94, 222, 0.96));
   border-color: rgba(86, 138, 255, 0.35);
   color: #ffffff;
 }
 
-.hero-link[href^="https://github.com"] {
+.home-hero .hero-link[href^="https://github.com"] {
   background: rgba(18, 20, 24, 0.96);
   border-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
-.hero-link[href^="mailto:"] {
+.home-hero .hero-link[href^="mailto:"] {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
 }
@@ -621,7 +625,7 @@ h3 {
     gap: 1.6rem;
   }
 
-  .hero-link-row {
+  .home-hero .hero-link-row {
     flex-wrap: wrap;
   }
 }
