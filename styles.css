@@ -250,8 +250,9 @@ main {
 }
 
 .intro-card h1 {
-  font-size: clamp(2.35rem, 5.3vw, 3.95rem);
-  max-width: 11ch;
+  font-size: clamp(2rem, 4.5vw, 3.35rem);
+  max-width: none;
+  white-space: nowrap;
 }
 
 .eyebrow,
@@ -704,6 +705,10 @@ h3 {
 
   h1 {
     font-size: clamp(2.8rem, 16vw, 4rem);
+  }
+
+  .intro-card h1 {
+    white-space: normal;
   }
 
   .intro-card {
