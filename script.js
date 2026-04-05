@@ -5,7 +5,7 @@ const siteData = {
   heroSummary:
     "I work on data projects that start with ambiguous questions and end with decision-ready analysis. My strongest work combines statistical rigor, product sense, and communication that makes complex results usable for teams.",
   portrait: {
-    image: "",
+    image: "./assets/profile.png",
     fallback: "RG",
   },
   heroLinks: [
