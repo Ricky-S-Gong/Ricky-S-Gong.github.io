@@ -1,7 +1,7 @@
 const siteData = {
   heroName: "Ricky Gong",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
-  heroSubtitle: "M.S.E. in Data Science at Penn | B.S. in Statistics and Economics at UIUC",
+  heroSubtitle: "M.S.E. in Data Science at Penn",
   heroSummary:
     "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, subscription, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
   portrait: {
@@ -169,7 +169,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260404-home-tabs-1";
+const assetVersion = "20260404-home-tabs-2";
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
