@@ -249,3 +249,29 @@ renderList(
   `,
   "contact-links"
 );
+
+const views = ["home", "projects", "research", "experience", "contact"];
+const panels = document.querySelectorAll("[data-view]");
+const navLinks = document.querySelectorAll("[data-view-link]");
+
+const activateView = (viewName) => {
+  const activeView = views.includes(viewName) ? viewName : "home";
+
+  panels.forEach((panel) => {
+    panel.classList.toggle("is-active", panel.dataset.view === activeView);
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.viewLink === activeView);
+  });
+
+  window.scrollTo({ top: 0, behavior: "auto" });
+};
+
+const syncViewFromHash = () => {
+  const hash = window.location.hash.replace("#", "");
+  activateView(hash || "home");
+};
+
+window.addEventListener("hashchange", syncViewFromHash);
+syncViewFromHash();

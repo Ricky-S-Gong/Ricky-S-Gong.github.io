@@ -18,72 +18,68 @@
       <div class="ambient ambient-right"></div>
 
       <header class="site-header">
-        <a class="brand" href="#top">
+        <a class="brand" href="#home">
           <span class="brand-mark">RG</span>
           <span class="brand-text">Ricky Gong</span>
         </a>
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#research">Research</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <a href="#home" data-view-link="home">Home</a>
+          <a href="#projects" data-view-link="projects">Projects</a>
+          <a href="#research" data-view-link="research">Research</a>
+          <a href="#experience" data-view-link="experience">Experience</a>
+          <a href="#contact" data-view-link="contact">Contact</a>
         </nav>
       </header>
 
-      <main id="top">
-        <section class="hero section">
-          <div class="hero-copy">
-            <p class="eyebrow">Data science · analytics · product-minded research</p>
-            <h1>Building sharp data stories, useful models, and reliable decisions.</h1>
-            <p class="hero-text" id="hero-summary"></p>
+      <main id="top" class="view-stage">
+        <section id="home" class="view-panel is-active" data-view="home">
+          <div class="hero home-hero">
+            <div class="hero-copy">
+              <p class="eyebrow">Data science · analytics · product-minded research</p>
+              <h1>Building sharp data stories, useful models, and reliable decisions.</h1>
+              <p class="hero-text" id="hero-summary"></p>
 
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">View Portfolio</a>
-              <a class="button button-secondary" href="#contact">Contact Me</a>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#projects">View Portfolio</a>
+                <a class="button button-secondary" href="#contact">Contact Me</a>
+              </div>
+
+              <ul class="hero-metrics" id="hero-metrics"></ul>
             </div>
 
-            <ul class="hero-metrics" id="hero-metrics"></ul>
+            <aside class="hero-panel">
+              <div class="status-card glass">
+                <p class="status-label">Currently Focused On</p>
+                <p class="status-value" id="current-focus"></p>
+              </div>
+
+              <div class="spotlight-card glass">
+                <p class="spotlight-label">Job Search Snapshot</p>
+                <p class="spotlight-title">Data Scientist / Data Analyst roles</p>
+                <p class="spotlight-text">
+                  Open to applied analytics, experimentation, product data, and ML-adjacent roles where
+                  rigorous analysis drives decisions.
+                </p>
+              </div>
+            </aside>
           </div>
-
-          <aside class="hero-panel">
-            <div class="status-card glass">
-              <p class="status-label">Currently Focused On</p>
-              <p class="status-value" id="current-focus"></p>
-            </div>
-
-            <div class="spotlight-card glass">
-              <p class="spotlight-label">Job Search Snapshot</p>
-              <p class="spotlight-title">Data Scientist / Data Analyst roles</p>
-              <p class="spotlight-text">
-                Open to applied analytics, experimentation, product data, and ML-adjacent roles where
-                rigorous analysis drives decisions.
-              </p>
-            </div>
-          </aside>
         </section>
 
-        <section id="about" class="section two-column">
-          <div>
-            <p class="section-tag">Profile</p>
-            <h2>About</h2>
-          </div>
-          <div class="glass prose" id="about-content"></div>
-        </section>
-
-        <section class="section">
+        <section class="view-panel" data-view="projects">
           <div class="section-heading">
             <div>
-              <p class="section-tag">Strengths</p>
+              <p class="section-tag">Profile</p>
               <h2>What I bring</h2>
             </div>
+            <p class="section-copy">
+              A quick read on how I frame problems, communicate findings, and translate analysis into action.
+            </p>
           </div>
-          <div class="capability-grid" id="capability-grid"></div>
-        </section>
+          <div class="glass prose panel-block" id="about-content"></div>
+          <div class="capability-grid section-tight" id="capability-grid"></div>
 
-        <section id="projects" class="section">
-          <div class="section-heading">
+          <div id="projects" class="section-heading section-offset">
             <div>
               <p class="section-tag">Portfolio</p>
               <h2>Selected data projects</h2>
@@ -95,14 +91,14 @@
           <div class="project-grid" id="project-grid"></div>
         </section>
 
-        <section id="research" class="section">
+        <section id="research" class="view-panel" data-view="research">
           <div class="section-heading">
             <div>
               <p class="section-tag">Research & Teaching</p>
               <h2>Academic work that shaped my practice</h2>
             </div>
           </div>
-          <div class="split-grid">
+          <div class="split-grid section-offset">
             <div class="glass panel">
               <h3>Research</h3>
               <div class="stack-list" id="research-list"></div>
@@ -114,18 +110,16 @@
           </div>
         </section>
 
-        <section id="experience" class="section">
+        <section id="experience" class="view-panel" data-view="experience">
           <div class="section-heading">
             <div>
               <p class="section-tag">Timeline</p>
               <h2>Experience highlights</h2>
             </div>
           </div>
-          <div class="timeline" id="experience-timeline"></div>
-        </section>
+          <div class="timeline section-offset" id="experience-timeline"></div>
 
-        <section class="section">
-          <div class="section-heading">
+          <div class="section-heading section-offset">
             <div>
               <p class="section-tag">Toolkit</p>
               <h2>Tools and working style</h2>
@@ -134,16 +128,18 @@
           <div class="toolbox glass" id="toolbox"></div>
         </section>
 
-        <section id="contact" class="section contact-section glass">
-          <div>
-            <p class="section-tag">Next Step</p>
-            <h2>Let’s talk about data, product questions, and impact.</h2>
-            <p class="section-copy">
-              This site is structured for recruiters, hiring managers, and collaborators who want a fast read on
-              how I work.
-            </p>
+        <section id="contact" class="view-panel" data-view="contact">
+          <div class="contact-section glass">
+            <div>
+              <p class="section-tag">Next Step</p>
+              <h2>Let’s talk about data, product questions, and impact.</h2>
+              <p class="section-copy">
+                This site is structured for recruiters, hiring managers, and collaborators who want a fast read on
+                how I work.
+              </p>
+            </div>
+            <div class="contact-links" id="contact-links"></div>
           </div>
-          <div class="contact-links" id="contact-links"></div>
         </section>
       </main>
     </div>
