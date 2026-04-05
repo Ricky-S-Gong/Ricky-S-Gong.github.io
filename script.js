@@ -1,9 +1,9 @@
 const siteData = {
   heroName: "Ricky Gong",
-  heroTagline: "Data science · analytics · product-minded research",
-  heroSubtitle: "Data-focused builder translating analysis into clear decisions.",
+  heroTagline: "Data science · experimentation · causal inference",
+  heroSubtitle: "M.S.E. in Data Science at Penn | B.S. in Statistics and Economics at UIUC",
   heroSummary:
-    "I work on data projects that start with ambiguous questions and end with decision-ready analysis. My strongest work combines statistical rigor, product sense, and communication that makes complex results usable for teams.",
+    "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, subscription, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
   portrait: {
     image: "./assets/profile.png",
     fallback: "RG",
