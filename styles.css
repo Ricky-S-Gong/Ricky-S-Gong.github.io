@@ -589,17 +589,19 @@ h3 {
 }
 
 .project-detail-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 1.4rem;
-  align-items: start;
+  display: grid;
+  gap: 1rem;
+}
+
+.project-detail-title-block {
+  min-width: 0;
 }
 
 .detail-resource-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .detail-resource-button {
@@ -653,8 +655,9 @@ h3 {
 
 .project-detail-header h1 {
   margin: 0.2rem 0 0;
-  font-size: clamp(1.62rem, 2.5vw, 2.35rem);
-  line-height: 1.04;
+  font-size: clamp(1.34rem, 1.7vw, 1.92rem);
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .project-detail-header .hero-subtitle {
@@ -943,6 +946,10 @@ h3 {
 
   .project-detail-article {
     padding: 1.55rem;
+  }
+
+  .project-detail-header h1 {
+    white-space: normal;
   }
 }
 
