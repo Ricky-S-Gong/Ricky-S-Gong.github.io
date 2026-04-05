@@ -655,9 +655,12 @@ h3 {
 
 .project-detail-header h1 {
   margin: 0.2rem 0 0;
-  font-size: clamp(1.34rem, 1.7vw, 1.92rem);
+  font-size: clamp(1.08rem, 1.32vw, 1.56rem);
   line-height: 1.1;
+  letter-spacing: -0.015em;
   white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .project-detail-header .hero-subtitle {
