@@ -63,7 +63,7 @@ window.projectCatalog = {
         "A county-month labor economics paper evaluating California's January 2021 minimum wage increase as a quasi-experiment. The project combines difference-in-differences, two-way fixed effects, and dynamic lag control to separate the policy signal from persistent unemployment dynamics during the post-COVID recovery.",
       detailSections: {
         problemDefinition:
-          "<p>This paper asks a narrow causal question: did California's January 2021 minimum wage increase raise county-level unemployment relative to a comparable control state? The design focuses on whether the policy produced a measurable labor-market shock during the recovery period after the initial COVID downturn, and whether that effect differed across counties with different baseline unemployment conditions.</p>",
+          "<p>I worked on this paper under the guidance of <a href=\"https://sites.google.com/a/illinois.edu/eunyichung/\" target=\"_blank\" rel=\"noreferrer\">Prof. EunYi Chung</a>. The paper asks a narrow causal question: did California's January 2021 minimum wage increase raise county-level unemployment relative to a comparable control state? The design focuses on whether the policy produced a measurable labor-market shock during the recovery period after the initial COVID downturn, and whether that effect differed across counties with different baseline unemployment conditions.</p>",
         whyItMatters:
           "<p>Minimum wage policy sits at the center of an efficiency-versus-equity debate. For policy design, the real issue is not just whether wages rise, but whether labor markets absorb the shock symmetrically across places. A credible answer requires more than a raw before-after comparison, because the period also contains nationwide pandemic shocks, local labor-market persistence, and large baseline differences between counties.</p>",
         dataAndSetup:
@@ -245,17 +245,17 @@ window.projectCatalog = {
     },
     {
       slug: "bayesian-statistical-modeling",
-      title: "Bayesian Statistical Modeling for Final Project",
-      subtitle: "Bayesian Sampling and Inference",
-      topic: "Bayesian Modelling",
+      title: "Metropolis-Hastings for Bayesian Posterior Sampling",
+      subtitle: "Bayesian Inference and MCMC",
+      topic: "Metropolis-Hastings Algorithm",
       primaryCategory: "Time Series & Statistical Modelling",
       displayCategories: ["Time Series & Statistical Modelling"],
       tags: ["Bayesian", "MCMC", "Posterior Inference", "R", "Statistical Modelling"],
       status: "Completed",
       yearLabel: "2024",
-      coverLabel: "Bayesian Posterior",
+      coverLabel: "M-H Sampling",
       miniDescription:
-        "Uses Bayesian modelling and posterior inference to study a structured statistical question with probabilistic reasoning and computation.",
+        "Studies Bayesian posterior sampling through the Metropolis-Hastings algorithm, proposal design, and convergence diagnostics for probabilistic inference.",
       resources: [
         {
           label: "Report",
