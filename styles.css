@@ -680,8 +680,6 @@ h3 {
 
 .project-detail-article {
   padding: 2.1rem 2rem 2.25rem;
-  display: grid;
-  justify-items: center;
 }
 
 .project-detail-header h1 {
@@ -707,7 +705,6 @@ h3 {
   line-height: 1.35;
   letter-spacing: 0.01em;
   color: rgba(235, 242, 255, 0.96);
-  width: min(100%, 70ch);
 }
 
 .project-detail-article h2:first-child {
@@ -718,7 +715,8 @@ h3 {
   margin: 0.78rem 0 0;
   color: var(--text-soft);
   line-height: 1.86;
-  width: min(100%, 70ch);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .project-detail-article ul {
@@ -726,7 +724,8 @@ h3 {
   padding-left: 1.2rem;
   color: var(--text-soft);
   line-height: 1.8;
-  width: min(100%, 70ch);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .project-detail-article li + li {
@@ -747,7 +746,6 @@ h3 {
   border: 1px solid rgba(154, 207, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
   overflow-x: auto;
-  width: min(100%, 78ch);
 }
 
 .section-heading,
