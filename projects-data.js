@@ -518,7 +518,7 @@ window.projectCatalog = {
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model"],
       tags: ["LLM", "Tool Use", "Agents", "Reasoning", "Evaluation"],
-      status: "Completed",
+      status: "In Progress",
       yearLabel: "2026",
       coverLabel: "Tool Use",
       miniDescription:
@@ -554,7 +554,7 @@ window.projectCatalog = {
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model", "Machine Learning & Deep Learning"],
       tags: ["RL", "LLM", "Trustworthy AI", "Safety", "Evaluation"],
-      status: "Completed",
+      status: "In Progress",
       yearLabel: "2026",
       coverLabel: "Trustworthy Agent",
       miniDescription:
@@ -626,7 +626,7 @@ window.projectCatalog = {
       primaryCategory: "Data Systems & Infrastructure",
       displayCategories: ["Data Systems & Infrastructure"],
       tags: ["Distributed Systems", "C++", "KV Store", "Replication", "Backend"],
-      status: "Completed",
+      status: "In Progress",
       yearLabel: "2026",
       coverLabel: "Distributed Store",
       miniDescription:
