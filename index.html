@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ricky Gong | Data Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio site for Ricky Gong featuring data projects, research, teaching, and experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+
+      <header class="site-header">
+        <a class="brand" href="#top">
+          <span class="brand-mark">RG</span>
+          <span class="brand-text">Ricky Gong</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy">
+            <p class="eyebrow">Data science · analytics · product-minded research</p>
+            <h1>Building sharp data stories, useful models, and reliable decisions.</h1>
+            <p class="hero-text" id="hero-summary"></p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">View Portfolio</a>
+              <a class="button button-secondary" href="#contact">Contact Me</a>
+            </div>
+
+            <ul class="hero-metrics" id="hero-metrics"></ul>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="status-card glass">
+              <p class="status-label">Currently Focused On</p>
+              <p class="status-value" id="current-focus"></p>
+            </div>
+
+            <div class="spotlight-card glass">
+              <p class="spotlight-label">Job Search Snapshot</p>
+              <p class="spotlight-title">Data Scientist / Data Analyst roles</p>
+              <p class="spotlight-text">
+                Open to applied analytics, experimentation, product data, and ML-adjacent roles where
+                rigorous analysis drives decisions.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <section id="about" class="section two-column">
+          <div>
+            <p class="section-tag">Profile</p>
+            <h2>About</h2>
+          </div>
+          <div class="glass prose" id="about-content"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Strengths</p>
+              <h2>What I bring</h2>
+            </div>
+          </div>
+          <div class="capability-grid" id="capability-grid"></div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Portfolio</p>
+              <h2>Selected data projects</h2>
+            </div>
+            <p class="section-copy">
+              Project stories focused on business framing, data methods, and measurable outcomes.
+            </p>
+          </div>
+          <div class="project-grid" id="project-grid"></div>
+        </section>
+
+        <section id="research" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Research & Teaching</p>
+              <h2>Academic work that shaped my practice</h2>
+            </div>
+          </div>
+          <div class="split-grid">
+            <div class="glass panel">
+              <h3>Research</h3>
+              <div class="stack-list" id="research-list"></div>
+            </div>
+            <div class="glass panel">
+              <h3>Teaching</h3>
+              <div class="stack-list" id="teaching-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Timeline</p>
+              <h2>Experience highlights</h2>
+            </div>
+          </div>
+          <div class="timeline" id="experience-timeline"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Toolkit</p>
+              <h2>Tools and working style</h2>
+            </div>
+          </div>
+          <div class="toolbox glass" id="toolbox"></div>
+        </section>
+
+        <section id="contact" class="section contact-section glass">
+          <div>
+            <p class="section-tag">Next Step</p>
+            <h2>Let’s talk about data, product questions, and impact.</h2>
+            <p class="section-copy">
+              This site is structured for recruiters, hiring managers, and collaborators who want a fast read on
+              how I work.
+            </p>
+          </div>
+          <div class="contact-links" id="contact-links"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
