@@ -187,19 +187,59 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-33";
+const assetVersion = "20260405-home-tabs-34";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
     src: "./assets/project-covers-real/minimum-wage-unemployment.jpg",
     position: "center center",
   },
+  "nutrition-label-diet-choices": {
+    src: "./assets/project-covers-real/nutrition-label-diet-choices.png",
+    position: "center top",
+  },
+  "email-funding-conversion-experiment": {
+    src: "./assets/project-covers-real/email-funding-conversion-experiment.jpg",
+    position: "center center",
+  },
+  "bgm-focused-task-performance": {
+    src: "./assets/project-covers-real/bgm-focused-task-performance.jpg",
+    position: "center center",
+  },
+  "natural-gas-consumption-forecasting": {
+    src: "./assets/project-covers-real/natural-gas-consumption-forecasting.jpg",
+    position: "center center",
+  },
+  "bayesian-statistical-modeling": {
+    src: "./assets/project-covers-real/bayesian-statistical-modeling.jpg",
+    position: "center center",
+  },
   "champaign-rental-price-forecasting": {
     src: "./assets/project-covers-real/champaign-rental-price-forecasting.jpg",
     position: "center center",
   },
+  "amazon-food-review-sentiment-analysis": {
+    src: "./assets/project-covers-real/amazon-food-review-sentiment-analysis.jpg",
+    position: "center center",
+  },
+  "trm-mechanistic-interpretability": {
+    src: "./assets/project-covers-real/trm-mechanistic-interpretability.jpg",
+    position: "center center",
+  },
   "llm-powered-churn-analysis-system": {
     src: "./assets/project-covers-real/llm-powered-churn-analysis-system.jpg",
+    position: "center center",
+  },
+  "tool-using-language-models": {
+    src: "./assets/project-covers-real/tool-using-language-models.jpg",
+    position: "center center",
+  },
+  "trustworthy-rl-llm-reasoning": {
+    src: "./assets/project-covers-real/trustworthy-rl-llm-reasoning.png",
+    position: "center center",
+  },
+  pennos: {
+    src: "./assets/project-covers-real/pennos.jpg",
     position: "center center",
   },
   penncloud: {
