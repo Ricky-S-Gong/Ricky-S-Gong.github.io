@@ -505,12 +505,22 @@ h3 {
   gap: 1.4rem;
 }
 
+.project-category-heading {
+  align-items: start;
+}
+
+.project-category-heading > div {
+  align-self: start;
+}
+
 .project-category-heading h2 {
+  margin: 0;
   font-size: clamp(1.18rem, 1.8vw, 1.65rem);
   line-height: 1.15;
 }
 
 .project-category-heading .section-copy {
+  margin: 0;
   font-size: 0.98rem;
   max-width: 44rem;
 }
