@@ -232,7 +232,12 @@ window.projectCatalog = {
       coverLabel: "Bayesian Posterior",
       miniDescription:
         "Uses Bayesian modelling and posterior inference to study a structured statistical question with probabilistic reasoning and computation.",
-      resources: [],
+      resources: [
+        {
+          label: "Report",
+          href: "./project-resources/bayesian-statistical-modeling/report.pdf",
+        },
+      ],
       sourcePaths: ["/Users/ricky/Desktop/UIUC/STAT431/Project"],
       sourceTypes: ["rmd", "pdf", "html"],
       detailType: "research-paper",
