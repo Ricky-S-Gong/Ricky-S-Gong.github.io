@@ -176,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260404-home-tabs-11";
+const assetVersion = "20260405-home-tabs-12";
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
