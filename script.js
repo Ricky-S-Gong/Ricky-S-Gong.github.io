@@ -176,7 +176,8 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-21";
+const assetVersion = "20260405-home-tabs-22";
+const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
@@ -270,21 +271,72 @@ renderList(
   "capability-grid"
 );
 
-renderList(
-  siteData.projects,
-  (project) => `
-    <article class="project-card">
-      <p class="card-topline">${project.category}</p>
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-      <p><strong>${project.impact}</strong></p>
-      <div class="tag-list">
-        ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-      </div>
-    </article>
-  `,
-  "project-grid"
-);
+const projectNav = document.getElementById("projects-nav");
+if (projectNav) {
+  const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
+  projectNav.innerHTML = categories
+    .map(
+      (category) => `
+        <button class="project-nav-pill" type="button" data-category-target="${category.id}">${category.title}</button>
+      `
+    )
+    .join("");
+}
+
+const projectCategories = document.getElementById("projects-categories");
+if (projectCategories) {
+  const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
+
+  projectCategories.innerHTML = categories
+    .map((category) => {
+      const categoryProjects = projectCatalog.projects.filter((project) =>
+        project.displayCategories.includes(category.title)
+      );
+
+      return `
+        <section class="project-category-block" id="${category.id}">
+          <div class="section-heading">
+            <div>
+              <p class="section-tag">Toolkit</p>
+              <h2>${category.title}</h2>
+            </div>
+            <p class="section-copy">${category.description}</p>
+          </div>
+          <div class="project-grid section-tight">
+            ${categoryProjects
+              .map(
+                (project) => `
+                  <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
+                    <div class="project-cover">
+                      <span class="project-cover-label">${project.coverLabel}</span>
+                      <span class="project-status-pill">${project.status}</span>
+                    </div>
+                    <p class="card-topline">${project.topic}</p>
+                    <h3>${project.title}</h3>
+                    <p class="project-subtitle">${project.subtitle}</p>
+                    <p>${project.miniDescription}</p>
+                    <div class="tag-list">
+                      ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+                    </div>
+                  </a>
+                `
+              )
+              .join("")}
+          </div>
+        </section>
+      `;
+    })
+    .join("");
+}
+
+document.querySelectorAll("[data-category-target]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.getElementById(button.dataset.categoryTarget);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
 
 const renderStackItem = (item) => `
   <article class="stack-item">
