@@ -9,6 +9,17 @@ const setNodeText = (id, value) => {
   if (node) node.textContent = value || "";
 };
 
+const setNodeHtml = (id, value) => {
+  const node = document.getElementById(id);
+  if (node) node.innerHTML = value || "";
+};
+
+const typesetMath = () => {
+  if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+    window.MathJax.typesetPromise();
+  }
+};
+
 if (!project) {
   setNodeText("detail-category", "Project");
   setNodeText("detail-title", "Project not found");
@@ -19,9 +30,10 @@ if (!project) {
   setNodeText("detail-category", project.primaryCategory);
   setNodeText("detail-title", project.title);
   setNodeText("detail-subtitle", project.subtitle);
-  setNodeText(
+  setNodeHtml(
     "detail-summary",
-    "This page is intentionally scaffolded first. Full narrative content will be added after a complete read of the project materials, with sections tailored to the project's technical and decision-making emphasis."
+    project.detailSummary ||
+      "This page is intentionally scaffolded first. Full narrative content will be added after a complete read of the project materials, with sections tailored to the project's technical and decision-making emphasis."
   );
 
   const resourceRow = document.getElementById("detail-resource-row");
@@ -66,13 +78,20 @@ if (!project) {
         ([key, label]) => `
           <article class="glass panel detail-section" data-section-key="${key}">
             <h2>${label}</h2>
-            <p>
+            ${
+              project.detailSections && project.detailSections[key]
+                ? project.detailSections[key]
+                : `<p>
               Section scaffold ready. Final content for <strong>${label}</strong> will be written after a full read of the
               project's source materials.
-            </p>
+            </p>`
+            }
           </article>
         `
       )
       .join("");
   }
+
+  typesetMath();
+  window.addEventListener("load", typesetMath, { once: true });
 }

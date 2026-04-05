@@ -59,6 +59,30 @@ window.projectCatalog = {
       sourcePaths: ["/Users/ricky/Desktop/找工/文书/作品集/Minimum_Wage_Working_Paper.pdf"],
       sourceTypes: ["pdf"],
       detailType: "research-paper",
+      detailSummary:
+        "A county-month labor economics paper evaluating California's January 2021 minimum wage increase as a quasi-experiment. The project combines difference-in-differences, two-way fixed effects, and dynamic lag control to separate the policy signal from persistent unemployment dynamics during the post-COVID recovery.",
+      detailSections: {
+        problemDefinition:
+          "<p>This paper asks a narrow causal question: did California's January 2021 minimum wage increase raise county-level unemployment relative to a comparable control state? The design focuses on whether the policy produced a measurable labor-market shock during the recovery period after the initial COVID downturn, and whether that effect differed across counties with different baseline unemployment conditions.</p>",
+        whyItMatters:
+          "<p>Minimum wage policy sits at the center of an efficiency-versus-equity debate. For policy design, the real issue is not just whether wages rise, but whether labor markets absorb the shock symmetrically across places. A credible answer requires more than a raw before-after comparison, because the period also contains nationwide pandemic shocks, local labor-market persistence, and large baseline differences between counties.</p>",
+        dataAndSetup:
+          "<p>The empirical setup uses monthly county-level unemployment data from the Bureau of Labor Statistics for California and New York from January 2018 through January 2025. The final panel contains 10,200 county-month observations, with log unemployment as the main outcome. California is the treated state, New York supplies the control counties, and the post period begins in January 2021. The paper deliberately uses high-frequency administrative data rather than survey measures because the identification strategy depends on a stable panel with broad geographic coverage.</p>",
+        methodDesign:
+          "<p>The identification strategy follows the Rubin causal model and targets the average treatment effect on treated California counties. The key assumption is parallel trends: absent the policy, unemployment in California and New York counties would have evolved similarly. To probe that assumption, the paper combines pre-treatment trend plots with polynomial state-specific time-trend tests and placebo-style reasoning. It then adds a heterogeneity design based on high-versus-low baseline unemployment counties to test whether the effect varies with local labor-market conditions.</p>",
+        modelPath:
+          "<p>The analysis is estimated in three layers: a baseline DID, a two-way fixed-effects model with county and month effects, and a richer TWFE specification with a lagged dependent variable. That last step matters because unemployment is highly persistent, and the ACF/PACF diagnostics point to an AR(1)-like structure. Rather than letting persistence mechanically inflate the treatment coefficient, the final specification asks what policy effect remains once serial dependence is controlled for.</p>",
+        mathematicalCore:
+          "<p>The estimand is the average treatment effect on treated counties:</p><div class=\"math-block\">\\[ \\mathrm{ATT} = \\mathbb{E}\\left[Y_{it}(1) - Y_{it}(0) \\mid D_i^{\\text{treatment}} = 1,\\; t \\geq \\text{Jan 2021}\\right]. \\]</div><p>The core regression is a DID with fixed effects and dynamic persistence control:</p><div class=\"math-block\">\\[ \\log(Y_{it}) = \\beta_0 + \\beta_1 D_i^{\\text{treatment}} + \\beta_2 D_t^{\\text{post}} + \\beta_3 \\left(D_i^{\\text{treatment}} D_t^{\\text{post}}\\right) + \\rho \\log(Y_{i,t-1}) + \\gamma_i + \\delta_t + u_{it}. \\]</div><p>Here, \\(\\beta_3\\) is the policy effect of interest, while \\(\\gamma_i\\) and \\(\\delta_t\\) absorb county-level heterogeneity and common time shocks.</p>",
+        evaluation:
+          "<p>The naive DID and TWFE specifications both estimate a treatment coefficient of 0.213, which corresponds to a 23.7% relative increase in unemployment. Once lagged unemployment is added, the coefficient falls to 0.023 and remains statistically significant, implying a more modest 2.3% relative increase after accounting for persistence. The heterogeneity analysis finds no meaningful difference between high- and low-unemployment counties, and the pre-trend regressions show no statistically significant differential time trends across states before treatment. In other words, the paper's main signal is smaller than the naive estimate but still survives the key robustness checks.</p>",
+        decisionTakeaway:
+          "<p>The practical takeaway is not that minimum wage policy has a mechanically large employment cost, but that even a moderate policy shock can be detectable once the comparison group and time structure are chosen carefully. For decision-oriented analytics, this project shows how to move from a politically charged question to a disciplined empirical design: define the counterfactual, check the identifying assumptions, then report an effect size that reflects persistence rather than over-attributing trend continuation to the policy itself.</p>",
+        limitations:
+          "<p>The design still has the usual panel-DID limits. The control state may differ from California in ways not fully captured by fixed effects, the post-COVID recovery period is unusually volatile, and the paper does not include richer monthly county covariates such as industrial structure or demographics because those measures are not consistently available at the same frequency. The lagged-outcome specification also trades some interpretability for a more realistic treatment of serial correlation.</p>",
+        nextSteps:
+          "<p>The natural extensions are an event-study specification, alternative control-state constructions, and richer labor-market outcomes beyond headline unemployment. A further step would be to test whether sector composition or local wage exposure mediates the effect, which would move the paper from average treatment effects to a more policy-targeted understanding of where wage floors bind most strongly.</p>",
+      },
       sections: {
         problemDefinition: true,
         whyItMatters: true,
@@ -277,6 +301,32 @@ window.projectCatalog = {
       sourcePaths: ["/Users/ricky/Desktop/找工/文书/作品集/URES_Paper.pdf"],
       sourceTypes: ["pdf"],
       detailType: "research-paper",
+      detailSummary:
+        "A housing forecasting project built around Champaign's student-driven rental market. The paper compares classical time-series baselines, robust regression, tree-based methods, and lightweight deep learning, then shows why Prophet's trend-plus-seasonality structure is the best fit for this setting.",
+      detailSections: {
+        problemDefinition:
+          "<p>This project asks how to forecast rental prices in Champaign, Illinois with enough accuracy to support financial planning and local housing decisions. The modeling problem is interesting because the market is shaped by a strong academic cycle, persistent upward trends, and shocks such as COVID-era disruptions, which means a simple static regression misses the dynamics that matter most.</p>",
+        whyItMatters:
+          "<p>In a student-heavy city, rent is one of the most immediate budget constraints for households. Better forecasts help individual renters plan ahead, but they also help policymakers understand whether local price growth is cyclical, structural, or shock-driven. The project therefore sits at the intersection of practical forecasting and market interpretation: it is not just about minimizing forecast error, but about choosing a model family that respects the city's demand pattern.</p>",
+        dataAndSetup:
+          "<p>The response variable is Zillow's Observed Rent Index (ZORI) for Champaign. The feature set combines economic indicators, demographic and social indicators, and real-estate market variables, including CPI, hourly earnings, real interest rates, UIUC student counts, local population, poverty rate, vacancy rates, new housing supply, days on market, and a COVID shock proxy. Because the source data arrive at mixed frequencies, the pipeline converts all inputs to monthly frequency, forward-fills yearly and semesterly measures when appropriate, averages daily measures into months, and uses <code>IterativeImputer</code> to handle missing values while preserving relationships across variables. The final modeling window runs from July 2016 to July 2024.</p>",
+        methodDesign:
+          "<p>The project is designed as a model-comparison study rather than a single-model proof. It starts with interpretable baselines, then tests whether more flexible machine-learning models actually help once the problem is expressed as a time-dependent forecasting task. Evaluation is done in both an <em>n</em>-step-ahead setting and a rolling expanding-window setting, so the analysis can distinguish static holdout performance from the more realistic scenario where the model is updated as new observations arrive.</p>",
+        modelPath:
+          "<p>The modeling path includes linear regression with time trend, monthly dummies, lagged response terms, and 21 covariates; first-differenced KNN and decision trees; tree ensembles such as Random Forest, XGBoost, and LightGBM; Huber regression for outlier robustness; Prophet for trend-plus-seasonality forecasting; and lightweight deep-learning baselines such as MLP and LSTM. A clear lesson from the comparison is that models built around split-based extrapolation struggle with the market's upward trajectory, while methods that explicitly encode temporal structure or robustness to outliers behave much better.</p>",
+        systemPipeline:
+          "<p>The end-to-end workflow is: collect heterogeneous data sources, harmonize everything to monthly frequency, impute missing entries, run exploratory diagnostics such as seasonal decomposition and ACF/PACF, fit baseline and advanced models under a common evaluation framework, then use the strongest model for short-horizon forward forecasts. In practice, this pipeline matters as much as the final model choice, because the forecast quality depends on disciplined preprocessing and evaluation rather than on one isolated algorithmic trick.</p>",
+        mathematicalCore:
+          "<p>The baseline regression uses time trend, seasonality, lag structure, and exogenous covariates:</p><div class=\"math-block\">\\[ Y_t = \\beta_0 + \\beta_1 t + \\sum_{m=1}^{11} \\gamma_m D_m + \\delta_1 Y_{t-1} + \\sum_{k=1}^{21} \\theta_k X_{k,t} + \\varepsilon_t. \\]</div><p>The final winning model is Prophet, which decomposes the series additively:</p><div class=\"math-block\">\\[ y(t) = g(t) + s(t) + h(t) + \\varepsilon_t, \\]</div><p>where \\(g(t)\\) captures piecewise-linear trend, \\(s(t)\\) captures seasonality through a Fourier expansion, and \\(h(t)\\) accounts for irregular recurring effects. In this project, Prophet's changepoint prior scale was tuned to 0.001 and the seasonality prior scale to 1.0 to balance flexibility against overfitting.</p>",
+        evaluation:
+          "<p>The baselines already show the core pattern. Linear regression is strong and stable, with rolling MSE 198.51, but it is still outperformed by models built to absorb anomalies more gracefully. Huber regression improves robustness, yet Prophet produces the best overall results: test MSE 183.65, test MAE 10.68, rolling MSE 175.11, and rolling MAE 11.09. Tree-based methods and KNN perform materially worse because they cannot extrapolate a pronounced upward trend. The final Prophet forecast places the Champaign rental index for early 2025 roughly between 1324.90 and 1330.11.</p>",
+        decisionTakeaway:
+          "<p>The business-facing lesson is that forecasting quality comes from matching model structure to market structure. In this setting, the best-performing model is not the most complex one, but the one that explicitly represents trend shifts and recurring seasonality while staying robust to shocks. For rental-market planning, that makes the forecasts more usable for budgeting, policy conversations, and scenario framing than a black-box model that fails to extrapolate the city's trajectory.</p>",
+        limitations:
+          "<p>The study is still constrained by a relatively small local time series and by the need to harmonize mixed-frequency data. Some important local signals may also be imperfectly measured or lagged. More expressive deep-learning models were tested only lightly, and the project does not yet combine external event information or richer spatial signals that may matter for submarket-level forecasts.</p>",
+        nextSteps:
+          "<p>The clearest next steps are to extend the horizon with fresh post-2024 data, test hybrid models that combine Prophet-style structure with machine-learning residual correction, and incorporate richer external regressors such as permitting activity, university policy changes, or neighborhood-level supply shifts. Those extensions would make the framework more useful not just for one city, but for other university-driven rental markets with similar seasonal dynamics.</p>",
+      },
       sections: {
         problemDefinition: true,
         whyItMatters: true,
@@ -420,6 +470,32 @@ window.projectCatalog = {
       sourcePaths: ["/Users/ricky/Desktop/LLM-Project"],
       sourceTypes: ["readme", "paper", "ipynb", "py", "data"],
       detailType: "llm-system",
+      detailSummary:
+        "An end-to-end churn-analysis system that replaces opaque binary prediction with citation-backed natural-language analysis. The project combines hybrid retrieval, QLoRA fine-tuning, and deterministic post-processing so a business stakeholder can ask a question such as why a customer segment is churning and receive a structured, auditable answer.",
+      detailSections: {
+        problemDefinition:
+          "<p>Traditional churn models usually stop at a binary prediction. This project takes a different angle: given a natural-language question such as <em>Why are fiber optic customers churning?</em>, can a system retrieve the right customer records, explain the main failure modes, and return actionable recommendations in a structured format that a product or retention team can audit? The target is not just prediction, but analysis that a business stakeholder can actually use.</p>",
+        whyItMatters:
+          "<p>Retention work is expensive when the analytical output is hard to trust. Business teams need more than a churn score; they need interpretable reasons, concrete actions, and traceability back to real customer evidence. This project is a simplified open-source reproduction of an industry workflow, using public telecom data instead of restricted company data so the system can be demonstrated end-to-end without API cost or compliance issues.</p>",
+        dataAndSetup:
+          "<p>The system uses the Kaggle Telco Customer Churn with Realistic Feedback dataset, which contains 7,043 customer records, 21 structured features, a churn rate of 26.5%, and a free-text customer feedback field for every record. Each customer is converted into a unified document that merges demographics, account information, subscribed services, billing variables, churn label, and raw feedback text. That representation lets the retrieval layer search both structured and unstructured signals at once.</p>",
+        methodDesign:
+          "<p>The workflow is intentionally staged. First, a RAG pipeline retrieves a small set of relevant customer records for each query. Second, a teacher-student distillation process uses a larger Qwen2.5-14B teacher to generate domain-specific JSON training data across 122 churn-analysis queries and three retrieval depths. Third, a 7B student model is fine-tuned with QLoRA. Finally, post-processing is added after evaluation revealed that fine-tuning improved structure and detail but introduced citation regression. The result is a hybrid system rather than a pure generative model.</p>",
+        modelPath:
+          "<p>The retrieval layer combines dense and sparse search: <code>BAAI/bge-base-en-v1.5</code> embeddings are indexed with FAISS <code>IndexFlatIP</code>, BM25 handles exact keyword matching, and Reciprocal Rank Fusion merges the two rankings. Generation is handled by 4-bit quantized <code>Qwen2.5-7B-Instruct</code>. Fine-tuning uses QLoRA with LoRA rank 16, alpha 32, dropout 0.05, and coverage over both attention and MLP projection layers, training about 40.4 million parameters while keeping the frozen base model in NF4 quantization. The adapter itself is only about 77 MB, which makes the workflow feasible on a free or low-cost Colab setup.</p>",
+        systemPipeline:
+          "<p>The deployed logic follows three stages. <strong>Stage 1:</strong> ingest CSV data, build customer documents, compute embeddings, and run hybrid retrieval. <strong>Stage 2:</strong> generate supervised examples with a 14B teacher and fine-tune the 7B student with QLoRA. <strong>Stage 3:</strong> run an improved inference pipeline that validates citations against retrieved customer IDs and overrides subjective LLM risk labels with a deterministic risk score. That last stage is important because it turns the system from a polished demo into something closer to a production-grade analytics copilot.</p>",
+        mathematicalCore:
+          "<p>The retrieval score uses Reciprocal Rank Fusion across dense and sparse search:</p><div class=\"math-block\">\\[ \\mathrm{RRF}(d) = \\sum_{r \\in \\{\\text{vector},\\,\\text{BM25}\\}} \\frac{w_r}{k + \\mathrm{rank}_r(d)}. \\]</div><p>The fine-tuning objective is standard supervised causal language modeling:</p><div class=\"math-block\">\\[ \\mathcal{L}(\\theta; x, y) = -\\frac{1}{T} \\sum_{t=1}^{T} \\log P_\\theta(y_t \\mid y_{<t}, x). \\]</div><p>At inference time, the final risk score is computed deterministically from churn rate, tenure, charges, and contract type:</p><div class=\"math-block\">\\[ R_{\\mathrm{total}} = 0.35R_{\\mathrm{churn}} + 0.25R_{\\mathrm{tenure}} + 0.20R_{\\mathrm{charge}} + 0.20R_{\\mathrm{contract}}. \\]</div><p>This combination is what makes the system both expressive and auditable: the LLM writes the narrative, but critical trust-sensitive pieces are still grounded in explicit algorithms.</p>",
+        evaluation:
+          "<p>The initial Phase 8 comparison showed a mixed outcome. Both the base and fine-tuned models achieved 100% JSON validity, field completeness, and type correctness, but fine-tuning hurt citation accuracy, dropping it from 85% to 70%, while risk alignment stayed at 60%. Rather than retraining again, the project added post-processing. In the final three-way comparison, the improved pipeline reached 100% JSON compliance, 100% citation accuracy, and a 92% overall score, outperforming both the original base and fine-tuned systems. The key lesson is that post-training fixes can be more valuable than blindly pushing another tuning round.</p>",
+        decisionTakeaway:
+          "<p>This project is a strong example of how to connect modern NLP tooling to business decision support. The system turns a vague retention question into a compact analysis package with summary, top reasons, risk level, recommended actions, and evidence-linked citations. That is closer to how real business teams consume analytics than a standalone model score, and it shows how LLM systems can be made more decision-ready when retrieval, evaluation, and deterministic safeguards are designed together.</p>",
+        limitations:
+          "<p>The project still inherits the limitations of a public reproduction. The dataset is telecom-specific, the evaluation set is small, and the post-processing rules encode a particular view of what risk should mean. Fine-tuning also improved some behaviors while regressing others, which is a reminder that small domain datasets can teach format and style faster than they teach true reasoning robustness.</p>",
+        nextSteps:
+          "<p>The most promising extensions are broader offline evaluation, stronger retrieval diagnostics, better calibration of the deterministic risk formula, and a richer agent layer that can call tools for cohorting, trend decomposition, or customer-level drill-down. Another high-value direction would be to compare this RAG-plus-post-processing design against a pure classifier-plus-template baseline to quantify exactly where the LLM adds business value.</p>",
+      },
       sections: {
         problemDefinition: true,
         whyItMatters: true,
@@ -427,7 +503,7 @@ window.projectCatalog = {
         methodDesign: true,
         modelPath: true,
         systemPipeline: true,
-        mathematicalCore: false,
+        mathematicalCore: true,
         evaluation: true,
         decisionTakeaway: true,
         limitations: true,
