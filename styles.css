@@ -313,6 +313,16 @@ h3 {
   font-weight: 500;
 }
 
+.hero-subtitle-link {
+  display: inline-block;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.hero-subtitle-link:hover,
+.hero-subtitle-link:focus-visible {
+  color: var(--accent-2);
+}
+
 .hero-link-row {
   display: flex;
   flex-wrap: nowrap;

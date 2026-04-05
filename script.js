@@ -2,6 +2,7 @@ const siteData = {
   heroName: "Shangyu Gong",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
+  heroSubtitleHref: "https://dats.seas.upenn.edu/",
   heroSummary:
     "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, SaaS platforms, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
   portrait: {
@@ -175,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-20";
+const assetVersion = "20260405-home-tabs-21";
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
@@ -191,7 +192,15 @@ const renderList = (items, renderer, targetId) => {
 setText("hero-summary", siteData.heroSummary);
 setText("hero-name", siteData.heroName);
 setText("hero-tagline", siteData.heroTagline);
-setText("hero-subtitle", siteData.heroSubtitle);
+const heroSubtitle = document.getElementById("hero-subtitle");
+if (heroSubtitle) {
+  heroSubtitle.textContent = siteData.heroSubtitle;
+  if (siteData.heroSubtitleHref) {
+    heroSubtitle.href = siteData.heroSubtitleHref;
+    heroSubtitle.target = "_blank";
+    heroSubtitle.rel = "noreferrer";
+  }
+}
 
 const portraitImage = document.getElementById("hero-portrait-image");
 const portraitFallback = document.getElementById("hero-portrait-fallback");
