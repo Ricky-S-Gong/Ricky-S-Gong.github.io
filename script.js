@@ -5,7 +5,7 @@ const siteData = {
   heroSummary:
     "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, subscription, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
   portrait: {
-    image: "./assets/profile-extended-v2.png",
+    image: "./assets/profile-extended-v3.png",
     fallback: "RG",
   },
   heroLinks: [
@@ -169,7 +169,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260404-home-tabs-4";
+const assetVersion = "20260404-home-tabs-5";
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
