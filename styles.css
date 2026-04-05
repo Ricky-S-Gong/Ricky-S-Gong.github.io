@@ -504,6 +504,15 @@ h3 {
   gap: 1.4rem;
 }
 
+.project-category-heading h2 {
+  font-size: clamp(1.18rem, 1.8vw, 1.65rem);
+  line-height: 1.15;
+}
+
+.project-category-heading .section-copy {
+  font-size: 0.98rem;
+}
+
 .project-card-link {
   display: grid;
   gap: 0.95rem;

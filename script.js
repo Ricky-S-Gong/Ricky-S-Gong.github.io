@@ -176,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-24";
+const assetVersion = "20260405-home-tabs-25";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 
 const setText = (id, text) => {
@@ -295,7 +295,7 @@ if (projectCategories) {
 
       return `
         <section class="project-category-block" id="${category.id}">
-          <div class="section-heading">
+          <div class="section-heading project-category-heading">
             <div>
               <p class="section-tag">Toolkit</p>
               <h2>${category.title}</h2>
