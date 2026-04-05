@@ -679,7 +679,7 @@ h3 {
 }
 
 .project-detail-article {
-  padding: 2rem;
+  padding: 2.1rem 2rem 2.25rem;
 }
 
 .project-detail-header h1 {
@@ -699,9 +699,12 @@ h3 {
 }
 
 .project-detail-article h2 {
-  margin: 1.7rem 0 0;
-  font-size: 1.14rem;
+  margin: 1.85rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
   letter-spacing: 0.01em;
+  color: rgba(235, 242, 255, 0.96);
 }
 
 .project-detail-article h2:first-child {
@@ -709,9 +712,10 @@ h3 {
 }
 
 .project-detail-article p {
-  margin: 0.9rem 0 0;
+  margin: 0.78rem 0 0;
   color: var(--text-soft);
-  line-height: 1.82;
+  line-height: 1.86;
+  max-width: 70ch;
 }
 
 .project-detail-article ul {
@@ -733,7 +737,7 @@ h3 {
 }
 
 .math-block {
-  margin: 1rem 0 0;
+  margin: 0.95rem 0 0;
   padding: 1rem 1.1rem;
   border-radius: 16px;
   border: 1px solid rgba(154, 207, 255, 0.12);
