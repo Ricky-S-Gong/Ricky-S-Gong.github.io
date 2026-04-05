@@ -1,0 +1,102 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="42" fill="#08111F"/>
+  <rect x="40" y="40" width="1520" height="820" rx="34" fill="url(#bg)" stroke="rgba(255,255,255,0.08)"/>
+  <g opacity="0.22">
+    <circle cx="240" cy="180" r="180" fill="#4BC6FF"/>
+    <circle cx="1360" cy="760" r="220" fill="#6EF7C0"/>
+  </g>
+  <text x="120" y="130" fill="#D9E7F8" font-family="Avenir Next, Segoe UI, sans-serif" font-size="42" font-weight="700">ARC Reasoning</text>
+  <text x="120" y="178" fill="#9FB3CB" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">reward shaping · exact-match evaluation · refusal behavior</text>
+
+  <g transform="translate(120 250)">
+    <rect width="260" height="260" rx="26" fill="#0C1B2D" stroke="#244260"/>
+    <text x="24" y="36" fill="#A9BCD3" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">demo input</text>
+    <g transform="translate(25 60)">
+      <rect width="36" height="36" fill="#1D3557"/>
+      <rect x="40" width="36" height="36" fill="#1D3557"/>
+      <rect x="80" width="36" height="36" fill="#F94144"/>
+      <rect x="120" width="36" height="36" fill="#1D3557"/>
+      <rect x="160" width="36" height="36" fill="#1D3557"/>
+      <rect y="40" width="36" height="36" fill="#1D3557"/>
+      <rect x="40" y="40" width="36" height="36" fill="#F9C74F"/>
+      <rect x="80" y="40" width="36" height="36" fill="#F94144"/>
+      <rect x="120" y="40" width="36" height="36" fill="#F9C74F"/>
+      <rect x="160" y="40" width="36" height="36" fill="#1D3557"/>
+      <rect y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="40" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="80" y="80" width="36" height="36" fill="#F94144"/>
+      <rect x="120" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="160" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect y="120" width="36" height="36" fill="#1D3557"/>
+      <rect x="40" y="120" width="36" height="36" fill="#577590"/>
+      <rect x="80" y="120" width="36" height="36" fill="#F94144"/>
+      <rect x="120" y="120" width="36" height="36" fill="#577590"/>
+      <rect x="160" y="120" width="36" height="36" fill="#1D3557"/>
+      <rect y="160" width="36" height="36" fill="#1D3557"/>
+      <rect x="40" y="160" width="36" height="36" fill="#1D3557"/>
+      <rect x="80" y="160" width="36" height="36" fill="#F94144"/>
+      <rect x="120" y="160" width="36" height="36" fill="#1D3557"/>
+      <rect x="160" y="160" width="36" height="36" fill="#1D3557"/>
+    </g>
+  </g>
+
+  <g transform="translate(470 332)">
+    <path d="M0 48H160" stroke="#7CF7C1" stroke-width="8" stroke-linecap="round"/>
+    <path d="M118 0L168 48L118 96" stroke="#7CF7C1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(700 250)">
+    <rect width="260" height="260" rx="26" fill="#0C1B2D" stroke="#244260"/>
+    <text x="24" y="36" fill="#A9BCD3" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">predicted output</text>
+    <g transform="translate(25 60)">
+      <rect width="36" height="36" fill="#1D3557"/>
+      <rect x="40" width="36" height="36" fill="#F94144"/>
+      <rect x="80" width="36" height="36" fill="#F94144"/>
+      <rect x="120" width="36" height="36" fill="#F94144"/>
+      <rect x="160" width="36" height="36" fill="#1D3557"/>
+      <rect y="40" width="36" height="36" fill="#43AA8B"/>
+      <rect x="40" y="40" width="36" height="36" fill="#F9C74F"/>
+      <rect x="80" y="40" width="36" height="36" fill="#F9C74F"/>
+      <rect x="120" y="40" width="36" height="36" fill="#F9C74F"/>
+      <rect x="160" y="40" width="36" height="36" fill="#43AA8B"/>
+      <rect y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="40" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="80" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="120" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect x="160" y="80" width="36" height="36" fill="#43AA8B"/>
+      <rect y="120" width="36" height="36" fill="#1D3557"/>
+      <rect x="40" y="120" width="36" height="36" fill="#577590"/>
+      <rect x="80" y="120" width="36" height="36" fill="#577590"/>
+      <rect x="120" y="120" width="36" height="36" fill="#577590"/>
+      <rect x="160" y="120" width="36" height="36" fill="#1D3557"/>
+      <rect y="160" width="36" height="36" fill="#1D3557"/>
+      <rect x="40" y="160" width="36" height="36" fill="#F94144"/>
+      <rect x="80" y="160" width="36" height="36" fill="#F94144"/>
+      <rect x="120" y="160" width="36" height="36" fill="#F94144"/>
+      <rect x="160" y="160" width="36" height="36" fill="#1D3557"/>
+    </g>
+  </g>
+
+  <g transform="translate(1080 240)">
+    <rect width="360" height="290" rx="28" fill="#0D1829" stroke="#2A475F"/>
+    <text x="28" y="48" fill="#EAF4FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="700">Trustworthy policy</text>
+    <rect x="28" y="82" width="304" height="64" rx="18" fill="#13263D"/>
+    <text x="56" y="123" fill="#B8C7D9" font-family="Avenir Next, Segoe UI, sans-serif" font-size="26">exact-match reward</text>
+    <rect x="28" y="162" width="304" height="64" rx="18" fill="#13263D"/>
+    <text x="56" y="203" fill="#B8C7D9" font-family="Avenir Next, Segoe UI, sans-serif" font-size="26">cell-level reward</text>
+    <rect x="28" y="242" width="304" height="28" rx="14" fill="#7CF7C1" opacity="0.24"/>
+  </g>
+
+  <g transform="translate(1050 610)">
+    <rect width="390" height="120" rx="28" fill="#102133" stroke="#2C536B"/>
+    <path d="M56 60L86 92L142 36" stroke="#7CF7C1" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="180" y="72" fill="#F4FBFF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="42" font-weight="700">REFUSE</text>
+  </g>
+
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(310 140) rotate(35) scale(1460 980)">
+      <stop stop-color="#11294A"/>
+      <stop offset="1" stop-color="#08111F"/>
+    </radialGradient>
+  </defs>
+</svg>

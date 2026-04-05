@@ -187,7 +187,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-37";
+const assetVersion = "20260405-home-tabs-38";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -235,7 +235,7 @@ const realProjectCovers = {
     position: "center center",
   },
   "trustworthy-rl-llm-reasoning": {
-    src: "./assets/project-covers-real/trustworthy-rl-llm-reasoning.png",
+    src: "./assets/project-covers-real/trustworthy-rl-llm-reasoning.svg",
     position: "center center",
   },
   pennos: {
