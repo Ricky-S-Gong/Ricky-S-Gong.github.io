@@ -1,5 +1,5 @@
 const siteData = {
-  heroName: "Ricky Gong",
+  heroName: "Shangyu Gong",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSummary:
@@ -30,31 +30,11 @@ const siteData = {
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
   homeAbout: [
-    {
-      title: "Graduate study at Penn",
-      body:
-        "I am pursuing an M.S.E. in Data Science at the University of Pennsylvania, where I have been sharpening a systems-oriented view of data work. My current training emphasizes big data analytics, trustworthy machine learning, generative AI and LLMs, operating systems, and distributed systems, which together push me to think about both modeling quality and production realism.",
-    },
-    {
-      title: "Quantitative foundation at UIUC",
-      body:
-        "I completed my B.S. at the University of Illinois Urbana-Champaign with majors in Statistics and Economics and minors in Mathematics and Computer Science. That mix gave me a strong base in statistical learning, Bayesian analysis, time series, causal inference, design of experiments, econometrics, database systems, algorithms, numerical methods, and mathematical proof-based coursework.",
-    },
-    {
-      title: "Research mentors",
-      body:
-        'My undergraduate research was shaped by faculty mentors across economics and quantitative social science, including <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, <a href="https://economics.illinois.edu/profile/marcelom" target="_blank" rel="noreferrer">Prof. Marcelo Medeiros</a>, <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, and <a href="https://www.shuyangsi.com/" target="_blank" rel="noreferrer">Prof. Shuyang Si</a>. Working with them trained me to be careful about identification, evidence quality, and the difference between an interesting result and a defensible one.',
-    },
-    {
-      title: "How I work in industry",
-      body:
-        "In industry, I see myself as a practitioner who connects business context with analytical rigor. I do my best work when a team has a real product or operational decision to make and needs someone to turn ambiguous questions into metrics, experiments, models, dashboards, and recommendations that can actually change roadmap, pricing, retention, or go-to-market choices.",
-    },
-    {
-      title: "Beyond work",
-      body:
-        "Outside of school and analytics, I enjoy guandan, hiking, cooking and exploring great restaurants, and playing badminton. Those interests keep me social, curious, and energized in the same way good project work does.",
-    },
+    'Hi there. I am Shangyu Gong, and you can also call me Ricky. I am currently pursuing an M.S.E. in Data Science at the University of Pennsylvania, where my work increasingly sits at the intersection of data systems, modern machine learning, and decision-oriented analytics. My graduate coursework has focused on big data analytics, trustworthy machine learning, generative AI and LLMs, operating systems, and distributed systems, which has pushed me to think not only about model performance but also about reliability, scalability, and how analytical work actually gets operationalized.',
+    "Before Penn, I completed my B.S. at the University of Illinois Urbana-Champaign with majors in Statistics and Economics and minors in Mathematics and Computer Science. That combination gave me a strong technical base across statistical learning, Bayesian analysis, time series analysis, causal inference, design of experiments, econometrics, database systems, algorithms, numerical methods, and proof-based mathematics. It also gave me a habit I still keep: combining quantitative depth with a strong sense of what question matters in the first place.",
+    'My undergraduate research was shaped by mentors including <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, <a href="https://economics.illinois.edu/profile/marcelom" target="_blank" rel="noreferrer">Prof. Marcelo Medeiros</a>, <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, and <a href="https://www.shuyangsi.com/" target="_blank" rel="noreferrer">Prof. Shuyang Si</a>. Working with them trained me to care about identification, evidence quality, and the discipline required to distinguish an interesting pattern from a result that is genuinely defensible.',
+    "In industry, I see myself as a practitioner who translates business ambiguity into analytical structure. I am strongest when a team has a product, growth, retention, or operational question that needs more than just reporting. That usually means clarifying the decision, defining the right metrics, building experiments or models that match the business risk, and communicating outputs in a way that product managers, operators, or executives can actually use. I especially enjoy work around product analytics, experimentation, causal reasoning, predictive modeling, dashboards, and end-to-end data workflows that connect technical rigor to concrete business action.",
+    "Outside of work, I enjoy guandan, hiking, cooking and exploring great restaurants, and playing badminton. Those parts of my life keep me curious, social, and energized, and they matter to me for the same reason good analytics does: they are at their best when they bring people together around something engaging and memorable.",
   ],
   capabilities: [
     {
@@ -196,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260404-home-tabs-10";
+const assetVersion = "20260404-home-tabs-11";
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
@@ -265,12 +245,7 @@ renderList(
 
 renderList(
   siteData.homeAbout,
-  (item) => `
-    <article class="glass panel home-about-card">
-      <h3>${item.title}</h3>
-      <p>${item.body}</p>
-    </article>
-  `,
+  (paragraph) => `<p>${paragraph}</p>`,
   "home-about-content"
 );
 
