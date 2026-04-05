@@ -1,12 +1,32 @@
 const siteData = {
+  heroName: "Ricky Gong",
+  heroTagline: "Data science · analytics · product-minded research",
+  heroSubtitle: "Data-focused builder translating analysis into clear decisions.",
   heroSummary:
-    "I am a data-focused builder with experience turning messy questions into structured analysis, experiments, and decision-ready narratives. My work sits at the intersection of statistics, business context, and clear communication.",
-  currentFocus:
-    "Translating analytical depth into production-grade portfolio pieces and job-search-ready storytelling.",
-  heroMetrics: [
-    { value: "6+", label: "portfolio-ready analyses" },
-    { value: "3", label: "core tracks: data, research, teaching" },
-    { value: "1", label: "site designed to tell one coherent story" },
+    "I work on data projects that start with ambiguous questions and end with decision-ready analysis. My strongest work combines statistical rigor, product sense, and communication that makes complex results usable for teams.",
+  portrait: {
+    image: "",
+    fallback: "RG",
+  },
+  heroLinks: [
+    {
+      label: "LinkedIn",
+      value: "Add your LinkedIn URL",
+      href: "https://www.linkedin.com/",
+      icon: "in",
+    },
+    {
+      label: "GitHub",
+      value: "github.com/Ricky-S-Gong",
+      href: "https://github.com/Ricky-S-Gong",
+      icon: "GH",
+    },
+    {
+      label: "Email",
+      value: "sgong.recruiting@gmail.com",
+      href: "mailto:sgong.recruiting@gmail.com",
+      icon: "@",
+    },
   ],
   about: [
     "I care about analytical work that is both technically credible and operationally useful. That means defining the decision clearly, choosing methods that match the risk, and presenting results so non-specialists can act on them.",
@@ -164,17 +184,33 @@ const renderList = (items, renderer, targetId) => {
 };
 
 setText("hero-summary", siteData.heroSummary);
-setText("current-focus", siteData.currentFocus);
+setText("hero-name", siteData.heroName);
+setText("hero-tagline", siteData.heroTagline);
+setText("hero-subtitle", siteData.heroSubtitle);
+
+const portraitImage = document.getElementById("hero-portrait-image");
+const portraitFallback = document.getElementById("hero-portrait-fallback");
+
+portraitFallback.textContent = siteData.portrait.fallback;
+
+if (siteData.portrait.image) {
+  portraitImage.src = siteData.portrait.image;
+  portraitImage.classList.add("is-visible");
+  portraitFallback.classList.add("is-hidden");
+}
 
 renderList(
-  siteData.heroMetrics,
-  (metric) => `
-    <li>
-      <span class="metric-value">${metric.value}</span>
-      <span class="metric-label">${metric.label}</span>
-    </li>
+  siteData.heroLinks,
+  (link) => `
+    <a class="hero-link" href="${link.href}" target="_blank" rel="noreferrer">
+      <span class="hero-link-icon">${link.icon}</span>
+      <span>
+        <span class="hero-link-label">${link.label}</span>
+        <span class="hero-link-value">${link.value}</span>
+      </span>
+    </a>
   `,
-  "hero-metrics"
+  "hero-link-row"
 );
 
 document.getElementById("about-content").innerHTML = siteData.about.map((paragraph) => `<p>${paragraph}</p>`).join("");

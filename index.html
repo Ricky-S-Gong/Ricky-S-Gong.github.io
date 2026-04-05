@@ -35,34 +35,23 @@
       <main id="top" class="view-stage">
         <section id="home" class="view-panel is-active" data-view="home">
           <div class="hero home-hero">
-            <div class="hero-copy">
-              <p class="eyebrow">Data science · analytics · product-minded research</p>
-              <h1>Building sharp data stories, useful models, and reliable decisions.</h1>
-              <p class="hero-text" id="hero-summary"></p>
-
-              <div class="hero-actions">
-                <a class="button button-primary" href="#projects">View Portfolio</a>
-                <a class="button button-secondary" href="#contact">Contact Me</a>
+            <div class="hero-stage glass">
+              <div class="portrait-shell">
+                <div class="portrait-ring">
+                  <img id="hero-portrait-image" class="portrait-image" alt="Portrait of Ricky Gong" />
+                  <div id="hero-portrait-fallback" class="portrait-fallback">RG</div>
+                </div>
               </div>
 
-              <ul class="hero-metrics" id="hero-metrics"></ul>
+              <div class="intro-card">
+                <p class="eyebrow" id="hero-tagline"></p>
+                <h1 id="hero-name"></h1>
+                <p class="hero-subtitle" id="hero-subtitle"></p>
+                <p class="hero-text" id="hero-summary"></p>
+
+                <div class="hero-link-row" id="hero-link-row"></div>
+              </div>
             </div>
-
-            <aside class="hero-panel">
-              <div class="status-card glass">
-                <p class="status-label">Currently Focused On</p>
-                <p class="status-value" id="current-focus"></p>
-              </div>
-
-              <div class="spotlight-card glass">
-                <p class="spotlight-label">Job Search Snapshot</p>
-                <p class="spotlight-title">Data Scientist / Data Analyst roles</p>
-                <p class="spotlight-text">
-                  Open to applied analytics, experimentation, product data, and ML-adjacent roles where
-                  rigorous analysis drives decisions.
-                </p>
-              </div>
-            </aside>
           </div>
         </section>
 
