@@ -528,6 +528,7 @@ h3 {
 .project-section-header {
   grid-template-columns: 1fr;
   align-items: end;
+  margin-bottom: 0.5rem;
 }
 
 .project-section-intro {
