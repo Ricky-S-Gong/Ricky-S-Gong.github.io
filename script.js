@@ -176,7 +176,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-25";
+const assetVersion = "20260405-home-tabs-26";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 
 const setText = (id, text) => {
