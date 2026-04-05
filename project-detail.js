@@ -34,11 +34,20 @@ const orderedSectionKeys = [
   "nextSteps",
 ];
 
-const buildNarrativeFromSections = (detailSections = {}) =>
-  orderedSectionKeys
-    .map((key) => detailSections[key] || "")
+const buildNarrativeFromSections = (projectData = {}) => {
+  const detailSections = projectData.detailSections || {};
+  const detailSectionTitles = projectData.detailSectionTitles || {};
+
+  return orderedSectionKeys
+    .map((key) => {
+      const content = detailSections[key];
+      if (!content) return "";
+      const title = detailSectionTitles[key];
+      return title ? `<h2>${title}</h2>${content}` : content;
+    })
     .filter(Boolean)
     .join("");
+};
 
 const detailNarratives = {
   "minimum-wage-unemployment": {
@@ -308,7 +317,7 @@ if (!project) {
   const detailArticle = document.getElementById("detail-article");
   if (detailArticle) {
     detailArticle.innerHTML =
-      buildNarrativeFromSections(project.detailSections) ||
+      buildNarrativeFromSections(project) ||
       narrative.body ||
       "<p>This project detail page is being expanded into a full narrative after a complete read of the underlying materials.</p>";
   }

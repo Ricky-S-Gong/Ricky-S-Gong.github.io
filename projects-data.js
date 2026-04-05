@@ -83,6 +83,18 @@ window.projectCatalog = {
         nextSteps:
           "<p>The natural extensions are an event-study specification, alternative control-state constructions, and richer labor-market outcomes beyond headline unemployment. A further step would be to test whether sector composition or local wage exposure mediates the effect, which would move the paper from average treatment effects to a more policy-targeted understanding of where wage floors bind most strongly.</p>",
       },
+      detailSectionTitles: {
+        problemDefinition: "Policy question",
+        whyItMatters: "Why this needs causal design",
+        dataAndSetup: "Panel and comparison setup",
+        methodDesign: "Identification logic",
+        modelPath: "Specification choices",
+        mathematicalCore: "Estimand and regression",
+        evaluation: "What survives the checks",
+        decisionTakeaway: "What the result means in practice",
+        limitations: "Where the design can still break",
+        nextSteps: "What I would test next",
+      },
       sections: {
         problemDefinition: true,
         whyItMatters: true,
@@ -327,6 +339,19 @@ window.projectCatalog = {
         nextSteps:
           "<p>The clearest next steps are to extend the horizon with fresh post-2024 data, test hybrid models that combine Prophet-style structure with machine-learning residual correction, and incorporate richer external regressors such as permitting activity, university policy changes, or neighborhood-level supply shifts. Those extensions would make the framework more useful not just for one city, but for other university-driven rental markets with similar seasonal dynamics.</p>",
       },
+      detailSectionTitles: {
+        problemDefinition: "Forecasting question",
+        whyItMatters: "Why this market is tricky",
+        dataAndSetup: "Data and feature table",
+        methodDesign: "How I compared models",
+        modelPath: "Model families",
+        systemPipeline: "Forecasting workflow",
+        mathematicalCore: "Forecasting equations",
+        evaluation: "What actually won",
+        decisionTakeaway: "Why the output is useful",
+        limitations: "Current weak spots",
+        nextSteps: "How I would improve it",
+      },
       sections: {
         problemDefinition: true,
         whyItMatters: true,
@@ -495,6 +520,19 @@ window.projectCatalog = {
           "<p>The project still inherits the limitations of a public reproduction. The dataset is telecom-specific, the evaluation set is small, and the post-processing rules encode a particular view of what risk should mean. Fine-tuning also improved some behaviors while regressing others, which is a reminder that small domain datasets can teach format and style faster than they teach true reasoning robustness.</p>",
         nextSteps:
           "<p>The most promising extensions are broader offline evaluation, stronger retrieval diagnostics, better calibration of the deterministic risk formula, and a richer agent layer that can call tools for cohorting, trend decomposition, or customer-level drill-down. Another high-value direction would be to compare this RAG-plus-post-processing design against a pure classifier-plus-template baseline to quantify exactly where the LLM adds business value.</p>",
+      },
+      detailSectionTitles: {
+        problemDefinition: "Business question",
+        whyItMatters: "Why a score alone is not enough",
+        dataAndSetup: "Open-data reproduction setup",
+        methodDesign: "System design choices",
+        modelPath: "Retrieval and fine-tuning stack",
+        systemPipeline: "End-to-end pipeline",
+        mathematicalCore: "Ranking, training, and risk scoring",
+        evaluation: "What improved and what broke",
+        decisionTakeaway: "Why the final system is more usable",
+        limitations: "Current limits",
+        nextSteps: "What I would build next",
       },
       sections: {
         problemDefinition: true,
