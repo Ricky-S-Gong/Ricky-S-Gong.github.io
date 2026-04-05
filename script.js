@@ -169,6 +169,8 @@ const siteData = {
   ],
 };
 
+const assetVersion = "20260404-home-tabs-1";
+
 const setText = (id, text) => {
   const element = document.getElementById(id);
   if (element) element.textContent = text;
@@ -191,7 +193,7 @@ const portraitFallback = document.getElementById("hero-portrait-fallback");
 portraitFallback.textContent = siteData.portrait.fallback;
 
 if (siteData.portrait.image) {
-  portraitImage.src = siteData.portrait.image;
+  portraitImage.src = `${siteData.portrait.image}?v=${assetVersion}`;
   portraitImage.classList.add("is-visible");
   portraitFallback.classList.add("is-hidden");
 }
