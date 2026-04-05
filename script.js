@@ -176,8 +176,30 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260405-home-tabs-29";
+const assetVersion = "20260405-home-tabs-30";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
+const realProjectCovers = {
+  "minimum-wage-unemployment": {
+    src: "./assets/project-covers-real/minimum-wage-unemployment.jpg",
+    position: "center center",
+  },
+  "champaign-rental-price-forecasting": {
+    src: "./assets/project-covers-real/champaign-rental-price-forecasting.jpg",
+    position: "center center",
+  },
+  "llm-powered-churn-analysis-system": {
+    src: "./assets/project-covers-real/llm-powered-churn-analysis-system.jpg",
+    position: "center center",
+  },
+  penncloud: {
+    src: "./assets/project-covers-real/penncloud.jpg",
+    position: "center center",
+  },
+  "conversion-rate-modeling-optimization": {
+    src: "./assets/project-covers-real/conversion-rate-modeling-optimization.jpg",
+    position: "center center",
+  },
+};
 
 const setText = (id, text) => {
   const element = document.getElementById(id);
@@ -304,14 +326,20 @@ if (projectCategories) {
           </div>
           <div class="project-grid section-tight">
             ${categoryProjects
-              .map(
-                (project) => `
+              .map((project) => {
+                const coverAsset = realProjectCovers[project.slug];
+                const coverImage = coverAsset
+                  ? `${coverAsset.src}?v=${assetVersion}`
+                  : `./assets/project-covers/${project.slug}.svg?v=${assetVersion}`;
+                const coverPosition = coverAsset?.position || "center center";
+                return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
                     <div
                       class="project-cover"
                       style="background-image:
                         linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48)),
-                        url('./assets/project-covers/${project.slug}.svg?v=${assetVersion}')"
+                        url('${coverImage}');
+                        background-position: ${coverPosition};"
                     >
                       <span class="project-cover-label">${project.coverLabel}</span>
                       <span class="project-status-pill">${project.status}</span>
@@ -322,8 +350,8 @@ if (projectCategories) {
                       ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
                     </div>
                   </a>
-                `
-              )
+                `;
+              })
               .join("")}
           </div>
         </section>
