@@ -169,14 +169,25 @@ const siteData = {
     ],
   },
   contacts: [
-    { label: "Email", value: "yourname@email.com", href: "mailto:yourname@email.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/your-profile", href: "https://linkedin.com/in/your-profile" },
-    { label: "GitHub", value: "github.com/your-handle", href: "https://github.com/your-handle" },
-    { label: "Resume", value: "Add your PDF link", href: "#" },
+    {
+      label: "Email",
+      value: "sgong.recruiting@gmail.com",
+      href: "mailto:sgong.recruiting@gmail.com",
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/shangyu-ricky-gong",
+      href: "https://www.linkedin.com/in/shangyu-ricky-gong",
+    },
+    {
+      label: "GitHub",
+      value: "github.com/Ricky-S-Gong",
+      href: "https://github.com/Ricky-S-Gong",
+    },
   ],
 };
 
-const assetVersion = "20260405-home-tabs-32";
+const assetVersion = "20260405-home-tabs-33";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
