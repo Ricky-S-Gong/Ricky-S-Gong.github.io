@@ -1,31 +1,28 @@
 const siteData = {
   heroName: "Ricky Gong",
-  heroTagline: "Data science · experimentation · causal inference",
+  heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science at Penn | B.S. in Statistics and Economics at UIUC",
   heroSummary:
     "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, subscription, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
   portrait: {
-    image: "./assets/profile.png",
+    image: "./assets/profile-crop.png",
     fallback: "RG",
   },
   heroLinks: [
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/shangyu-ricky-gong",
       href: "https://www.linkedin.com/in/shangyu-ricky-gong",
-      icon: "in",
+      icon: "linkedin",
     },
     {
       label: "GitHub",
-      value: "github.com/Ricky-S-Gong",
       href: "https://github.com/Ricky-S-Gong",
-      icon: "GH",
+      icon: "github",
     },
     {
       label: "Email",
-      value: "sgong.recruiting@gmail.com",
       href: "mailto:sgong.recruiting@gmail.com",
-      icon: "@",
+      icon: "email",
     },
   ],
   about: [
@@ -199,15 +196,39 @@ if (siteData.portrait.image) {
   portraitFallback.classList.add("is-hidden");
 }
 
+const iconMarkup = {
+  linkedin: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M6.94 8.5H3.56V20h3.38V8.5Zm-1.69-1.56a1.97 1.97 0 1 0 0-3.94 1.97 1.97 0 0 0 0 3.94ZM20 13.04c0-3.46-1.85-5.07-4.33-5.07-1.99 0-2.88 1.09-3.38 1.86V8.5H8.91V20h3.38v-6.4c0-1.69.32-3.32 2.41-3.32 2.06 0 2.09 1.93 2.09 3.43V20H20v-6.96Z"
+      />
+    </svg>
+  `,
+  github: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.3 9.41 7.87 10.94.58.1.79-.25.79-.56 0-.28-.01-1.19-.02-2.16-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.71 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.19 1.18a10.98 10.98 0 0 1 5.8 0c2.22-1.49 3.18-1.18 3.18-1.18.64 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.08 0 4.44-2.68 5.41-5.24 5.7.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.54 11.54 0 0 0 23.5 12.03C23.5 5.66 18.35.5 12 .5Z"
+      />
+    </svg>
+  `,
+  email: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M3 5.5h18A1.5 1.5 0 0 1 22.5 7v10A1.5 1.5 0 0 1 21 18.5H3A1.5 1.5 0 0 1 1.5 17V7A1.5 1.5 0 0 1 3 5.5Zm0 1.74V17h18V7.24l-8.42 6.48a1 1 0 0 1-1.16 0L3 7.24Zm16.19 0H4.81L12 12.77l7.19-5.53Z"
+      />
+    </svg>
+  `,
+};
+
 renderList(
   siteData.heroLinks,
   (link) => `
     <a class="hero-link" href="${link.href}" target="_blank" rel="noreferrer">
-      <span class="hero-link-icon">${link.icon}</span>
-      <span>
-        <span class="hero-link-label">${link.label}</span>
-        <span class="hero-link-value">${link.value}</span>
-      </span>
+      <span class="hero-link-icon">${iconMarkup[link.icon] || ""}</span>
+      <span class="hero-link-text">${link.label}</span>
     </a>
   `,
   "hero-link-row"
