@@ -168,6 +168,13 @@ const siteData = {
       icon: "calendar",
       tone: "blue",
     },
+    {
+      label: "Resume Request",
+      detail: "Request a copy of my resume without exposing it publicly on the site.",
+      href: "mailto:sgong.recruiting@gmail.com?subject=Resume%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AHere%20is%20some%20context%20on%20my%20interest%20or%20role%3A%0A%0AThanks%21",
+      icon: "resume",
+      tone: "slate",
+    },
   ],
   contacts: [
     {
@@ -191,7 +198,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-87";
+const assetVersion = "20260406-home-tabs-88";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -349,6 +356,14 @@ const iconMarkup = {
       <path
         fill="currentColor"
         d="M7 2.75a.75.75 0 0 1 1.5 0V4H15V2.75a.75.75 0 0 1 1.5 0V4h1A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4h1V2.75ZM5.5 9v8.5c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V9h-13Zm13-1.5V6.5c0-.55-.45-1-1-1h-1V6a.75.75 0 0 1-1.5 0v-.5H8.5V6A.75.75 0 0 1 7 6v-.5h-.5c-.55 0-1 .45-1 1v1h13Zm-9.75 3.25h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5Zm0 3.5h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Z"
+      />
+    </svg>
+  `,
+  resume: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M7 3.5h7.38c.4 0 .78.16 1.06.44l2.62 2.62c.28.28.44.66.44 1.06V18.5A2.5 2.5 0 0 1 16 21H8a2.5 2.5 0 0 1-2.5-2.5v-12A3 3 0 0 1 8.5 3.5H7Zm8 1.81V7h1.69L15 5.31ZM8.5 5A1.5 1.5 0 0 0 7 6.5v12c0 .55.45 1 1 1h8a1 1 0 0 0 1-1V8.5H14.5A1.5 1.5 0 0 1 13 7V5H8.5Zm.25 5.25h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm0 3.5h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm0 3.5h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"
       />
     </svg>
   `,

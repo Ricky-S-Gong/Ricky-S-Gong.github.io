@@ -1072,6 +1072,16 @@ h3 {
   border-color: rgba(154, 207, 255, 0.42);
 }
 
+.contact-action-card--slate {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.contact-action-card--slate:hover,
+.contact-action-card--slate:focus-visible {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
 .contact-action-icon {
   width: 2.4rem;
   height: 2.4rem;
