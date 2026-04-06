@@ -297,7 +297,7 @@ const siteChrome = {
     researchHeading: "Research",
     teachingHeading: "Teaching",
     contactTag: "Contact",
-    contactHeading: "Let’s talk about data, coffee chats, and potential opportunities.",
+    contactHeading: "Open to conversations about data, coffee chats, and potential opportunities.",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
     documentTitle: "Ricky Gong | Data Portfolio",
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-98";
+const assetVersion = "20260406-home-tabs-99";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
