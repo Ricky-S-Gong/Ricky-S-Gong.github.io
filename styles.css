@@ -562,6 +562,26 @@ h3 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-color: rgba(9, 21, 38, 0.92);
+}
+
+.project-cover-image,
+.project-cover-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.project-cover-image {
+  z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-cover-overlay {
+  z-index: 1;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -569,6 +589,7 @@ h3 {
 
 .project-cover-label {
   position: absolute;
+  z-index: 2;
   left: 1rem;
   bottom: 1rem;
   font-family: "Baskerville", "Times New Roman", serif;
@@ -579,6 +600,7 @@ h3 {
 
 .project-status-pill {
   position: absolute;
+  z-index: 2;
   top: 0.9rem;
   right: 0.9rem;
   padding: 0.35rem 0.65rem;

@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-67";
+const assetVersion = "20260406-home-tabs-68";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -392,13 +392,15 @@ if (projectCategories) {
                   "linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48))";
                 return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
-                    <div
-                      class="project-cover"
-                      style="background-image:
-                        ${coverOverlay},
-                        url('${coverImage}');
-                        background-position: ${coverPosition};"
-                    >
+                    <div class="project-cover">
+                      <div
+                        class="project-cover-image"
+                        style="background-image: url('${coverImage}'); background-position: ${coverPosition};"
+                      ></div>
+                      <div
+                        class="project-cover-overlay"
+                        style="background-image: ${coverOverlay};"
+                      ></div>
                       <span class="project-cover-label">${project.coverLabel}</span>
                       <span class="project-status-pill">${project.status}</span>
                     </div>
