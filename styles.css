@@ -580,6 +580,14 @@ h3 {
   background-size: cover;
 }
 
+.project-cover--white-canvas .project-cover-image {
+  background-color: #ffffff;
+  background-size: contain;
+  background-origin: content-box;
+  background-clip: content-box;
+  padding: 0.9rem 1rem;
+}
+
 .project-cover-overlay {
   z-index: 1;
   background-position: center;

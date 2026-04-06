@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-73";
+const assetVersion = "20260406-home-tabs-74";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -272,6 +272,7 @@ const realProjectCovers = {
     position: "center center",
     overlay: "linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.08))",
     textTone: "dark",
+    canvasTone: "white",
   },
   penncloud: {
     src: "./assets/project-covers-real/penncloud.jpg",
@@ -409,9 +410,11 @@ if (projectCategories) {
                   coverAsset?.textTone === "dark"
                     ? "project-cover--dark-text"
                     : "project-cover--light-text";
+                const coverCanvasClass =
+                  coverAsset?.canvasTone === "white" ? "project-cover--white-canvas" : "";
                 return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
-                    <div class="project-cover ${coverToneClass}">
+                    <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
                       <div
                         class="project-cover-image"
                         style="background-image: url('${coverImage}'); background-position: ${coverPosition};"

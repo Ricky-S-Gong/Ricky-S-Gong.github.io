@@ -630,7 +630,7 @@ window.projectCatalog = {
       tags: ["Operating Systems", "C", "Shell", "Scheduling", "Systems"],
       status: "Completed",
       yearLabel: "2025",
-      coverLabel: "OS Runtime",
+      coverLabel: "Operating System",
       miniDescription:
         "Builds an operating-system-style environment with shell, scheduling, and systems programming components in C.",
       resources: [
