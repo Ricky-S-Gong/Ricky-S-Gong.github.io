@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-75";
+const assetVersion = "20260406-home-tabs-76";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -211,7 +211,7 @@ const realProjectCovers = {
   },
   "nutrition-label-diet-choices": {
     src: "./assets/project-covers-real/nutrition-label-header-banner.jpg",
-    position: "center 68%",
+    position: "center 84%",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.04), rgba(4, 13, 24, 0.14))",
     textTone: "dark",
   },
