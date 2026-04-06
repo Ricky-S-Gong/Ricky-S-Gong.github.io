@@ -155,18 +155,11 @@ const siteData = {
   ],
   contactBooking: [
     {
-      label: "Coffee Chat",
-      detail: "Open a lightweight intro request for a casual conversation.",
-      href: "mailto:sgong.recruiting@gmail.com?subject=Coffee%20Chat%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20set%20up%20a%20coffee%20chat.%20If%20it%20works%20for%20you%2C%20I%27m%20happy%20to%20meet%20over%20Google%20Meet%20or%20Zoom.%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
-      icon: "coffee",
-      tone: "mint",
-    },
-    {
-      label: "Book Appointment",
-      detail: "Send a structured request for a Zoom or Google Meet slot.",
-      href: "mailto:sgong.recruiting@gmail.com?subject=Appointment%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20like%20to%20book%20an%20appointment.%20A%20Google%20Meet%20or%20Zoom%20call%20works%20well%20for%20me.%0A%0AHere%20is%20the%20topic%20I%27d%20like%20to%20discuss%3A%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
+      label: "Schedule Coffee Chat",
+      detail: "Send one request for a conversation and I can follow up with a Google Meet or Zoom slot.",
+      href: "mailto:sgong.recruiting@gmail.com?subject=Coffee%20Chat%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20set%20up%20a%20coffee%20chat.%20If%20it%20works%20for%20you%2C%20Google%20Meet%20or%20Zoom%20both%20work%20well%20for%20me.%0A%0AHere%20is%20the%20topic%20I%27d%20like%20to%20discuss%3A%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
       icon: "calendar",
-      tone: "blue",
+      tone: "mint",
     },
     {
       label: "Resume Request",
@@ -198,7 +191,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-88";
+const assetVersion = "20260406-home-tabs-89";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -507,7 +500,7 @@ renderList(
 renderList(
   siteData.contacts,
   (item) => `
-    <a class="hero-link contact-link-button contact-link-button--${item.tone}" href="${item.href}" target="_blank" rel="noreferrer">
+    <a class="hero-link" href="${item.href}" target="_blank" rel="noreferrer">
       <span class="hero-link-icon">${iconMarkup[item.icon] || ""}</span>
       <span class="hero-link-text">${item.label}</span>
     </a>

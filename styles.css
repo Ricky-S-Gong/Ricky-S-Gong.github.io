@@ -387,7 +387,7 @@ h3 {
   font-size: 0.9rem;
 }
 
-.home-hero .hero-link {
+.hero-link-row .hero-link {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -401,13 +401,13 @@ h3 {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.home-hero .hero-link:hover,
-.home-hero .hero-link:focus-visible {
+.hero-link-row .hero-link:hover,
+.hero-link-row .hero-link:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(124, 247, 193, 0.34);
 }
 
-.home-hero .hero-link-icon {
+.hero-link-row .hero-link-icon {
   width: 1.5rem;
   height: 1.5rem;
   display: grid;
@@ -416,54 +416,54 @@ h3 {
   flex: 0 0 auto;
 }
 
-.home-hero .hero-link-svg {
+.hero-link-row .hero-link-svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.home-hero .hero-link-text {
+.hero-link-row .hero-link-text {
   font-size: 1rem;
   line-height: 1;
 }
 
-.home-hero .hero-link {
+.hero-link-row .hero-link {
   padding: 0.95rem 1.25rem;
   border-radius: 16px;
 }
 
-.home-hero .hero-link[href^="https://www.linkedin.com"] {
+.hero-link-row .hero-link[href^="https://www.linkedin.com"] {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(86, 138, 255, 0.2);
   color: var(--text);
 }
 
-.home-hero .hero-link[href^="https://github.com"] {
+.hero-link-row .hero-link[href^="https://github.com"] {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.12);
   color: var(--text);
 }
 
-.home-hero .hero-link[href^="mailto:"] {
+.hero-link-row .hero-link[href^="mailto:"] {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
 }
 
-.home-hero .hero-link[href^="https://www.linkedin.com"] .hero-link-icon {
+.hero-link-row .hero-link[href^="https://www.linkedin.com"] .hero-link-icon {
   color: #ffffff;
   background: #2f6fed;
   border-radius: 10px;
   padding: 0.22rem;
 }
 
-.home-hero .hero-link[href^="https://github.com"] .hero-link-icon {
+.hero-link-row .hero-link[href^="https://github.com"] .hero-link-icon {
   color: #ffffff;
   background: #17191d;
   border-radius: 999px;
   padding: 0.24rem;
 }
 
-.home-hero .hero-link[href^="mailto:"] .hero-link-icon {
+.hero-link-row .hero-link[href^="mailto:"] .hero-link-icon {
   color: #ffffff;
   background: rgba(124, 247, 193, 0.22);
   border-radius: 999px;
@@ -845,7 +845,7 @@ h3 {
 .section-heading,
 .contact-section {
   grid-template-columns: 1fr 0.9fr;
-  align-items: end;
+  align-items: center;
 }
 
 .panel-block {
@@ -1034,6 +1034,12 @@ h3 {
   gap: 0.95rem;
 }
 
+.contact-copy {
+  display: grid;
+  gap: 0.9rem;
+  align-content: center;
+}
+
 .contact-action-card {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1115,60 +1121,9 @@ h3 {
   gap: 0.8rem;
 }
 
-.contact-link-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  white-space: nowrap;
-  min-width: 0;
-  padding: 0.95rem 1.15rem;
-  font-weight: 600;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-
-.contact-link-button:hover,
-.contact-link-button:focus-visible {
-  transform: translateY(-2px);
-}
-
-.contact-link-button--mint {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(124, 247, 193, 0.2);
-  color: var(--text);
-}
-
-.contact-link-button--mint .hero-link-icon {
-  color: #ffffff;
-  background: rgba(124, 247, 193, 0.22);
-  border-radius: 999px;
-  padding: 0.24rem;
-}
-
-.contact-link-button--blue {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(86, 138, 255, 0.2);
-  color: var(--text);
-}
-
-.contact-link-button--blue .hero-link-icon {
-  color: #ffffff;
-  background: #2f6fed;
-  border-radius: 10px;
-  padding: 0.22rem;
-}
-
-.contact-link-button--slate {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: var(--text);
-}
-
-.contact-link-button--slate .hero-link-icon {
-  color: #ffffff;
-  background: #17191d;
-  border-radius: 999px;
-  padding: 0.24rem;
+.contact-link-row {
+  margin-top: 0;
+  flex-wrap: wrap;
 }
 
 .project-card,
