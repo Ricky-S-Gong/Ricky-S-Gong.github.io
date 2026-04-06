@@ -927,6 +927,20 @@ h3 {
   align-items: stretch;
 }
 
+.research-section-stack {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.research-subsection {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.research-subheading {
+  margin-bottom: 0;
+}
+
 .stack-list,
 .timeline {
   display: grid;
@@ -962,6 +976,11 @@ h3 {
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
+}
+
+.stack-item-header .stack-item-meta {
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .timeline-item {
