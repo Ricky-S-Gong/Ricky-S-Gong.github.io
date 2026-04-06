@@ -153,26 +153,45 @@ const siteData = {
         "I worked with students through the UIUC Economics Tutoring Center on post-class support across calculus, linear algebra, statistics, and econometrics. The role focused on helping students work through assignments, reinforce technical foundations, and connect mathematical tools to the kinds of empirical reasoning used in economics courses.",
     },
   ],
+  contactBooking: [
+    {
+      label: "Coffee Chat",
+      detail: "Open a lightweight intro request for a casual conversation.",
+      href: "mailto:sgong.recruiting@gmail.com?subject=Coffee%20Chat%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20set%20up%20a%20coffee%20chat.%20If%20it%20works%20for%20you%2C%20I%27m%20happy%20to%20meet%20over%20Google%20Meet%20or%20Zoom.%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
+      icon: "coffee",
+      tone: "mint",
+    },
+    {
+      label: "Book Appointment",
+      detail: "Send a structured request for a Zoom or Google Meet slot.",
+      href: "mailto:sgong.recruiting@gmail.com?subject=Appointment%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20like%20to%20book%20an%20appointment.%20A%20Google%20Meet%20or%20Zoom%20call%20works%20well%20for%20me.%0A%0AHere%20is%20the%20topic%20I%27d%20like%20to%20discuss%3A%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
+      icon: "calendar",
+      tone: "blue",
+    },
+  ],
   contacts: [
     {
       label: "Email",
-      value: "sgong.recruiting@gmail.com",
       href: "mailto:sgong.recruiting@gmail.com",
+      icon: "email",
+      tone: "mint",
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/shangyu-ricky-gong",
       href: "https://www.linkedin.com/in/shangyu-ricky-gong",
+      icon: "linkedin",
+      tone: "blue",
     },
     {
       label: "GitHub",
-      value: "github.com/Ricky-S-Gong",
       href: "https://github.com/Ricky-S-Gong",
+      icon: "github",
+      tone: "slate",
     },
   ],
 };
 
-const assetVersion = "20260406-home-tabs-86";
+const assetVersion = "20260406-home-tabs-87";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -317,6 +336,22 @@ const iconMarkup = {
       />
     </svg>
   `,
+  coffee: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M5 6.5h10.5a.5.5 0 0 1 .5.5v3h1.25a2.75 2.75 0 0 1 0 5.5H16a5 5 0 0 1-5 4.5H8A5 5 0 0 1 3 15V7a.5.5 0 0 1 .5-.5H5Zm0 1.5V15a3.5 3.5 0 0 0 3.5 3.5h3A3.5 3.5 0 0 0 15 15V8H5Zm11 3.5V14h1.25a1.25 1.25 0 0 0 0-2.5H16ZM7.25 4a.75.75 0 0 1 .75.75V6a.75.75 0 0 1-1.5 0V4.75A.75.75 0 0 1 7.25 4Zm3 0a.75.75 0 0 1 .75.75V6a.75.75 0 0 1-1.5 0V4.75A.75.75 0 0 1 10.25 4Zm3 0a.75.75 0 0 1 .75.75V6a.75.75 0 0 1-1.5 0V4.75A.75.75 0 0 1 13.25 4Z"
+      />
+    </svg>
+  `,
+  calendar: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
+      <path
+        fill="currentColor"
+        d="M7 2.75a.75.75 0 0 1 1.5 0V4H15V2.75a.75.75 0 0 1 1.5 0V4h1A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4h1V2.75ZM5.5 9v8.5c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V9h-13Zm13-1.5V6.5c0-.55-.45-1-1-1h-1V6a.75.75 0 0 1-1.5 0v-.5H8.5V6A.75.75 0 0 1 7 6v-.5h-.5c-.55 0-1 .45-1 1v1h13Zm-9.75 3.25h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5Zm0 3.5h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Z"
+      />
+    </svg>
+  `,
 };
 
 renderList(
@@ -441,11 +476,25 @@ renderList(siteData.research, renderResearchCard, "research-cards");
 renderList(siteData.teaching, renderResearchCard, "teaching-cards");
 
 renderList(
+  siteData.contactBooking,
+  (item) => `
+    <a class="contact-action-card contact-action-card--${item.tone}" href="${item.href}">
+      <span class="contact-action-icon">${iconMarkup[item.icon] || ""}</span>
+      <span class="contact-action-copy">
+        <strong>${item.label}</strong>
+        <span>${item.detail}</span>
+      </span>
+    </a>
+  `,
+  "contact-booking"
+);
+
+renderList(
   siteData.contacts,
   (item) => `
-    <a class="contact-chip" href="${item.href}" target="_blank" rel="noreferrer">
-      <strong>${item.label}</strong>
-      <span>${item.value}</span>
+    <a class="hero-link contact-link-button contact-link-button--${item.tone}" href="${item.href}" target="_blank" rel="noreferrer">
+      <span class="hero-link-icon">${iconMarkup[item.icon] || ""}</span>
+      <span class="hero-link-text">${item.label}</span>
     </a>
   `,
   "contact-links"

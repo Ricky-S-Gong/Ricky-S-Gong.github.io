@@ -1024,6 +1024,143 @@ h3 {
   color: var(--text);
 }
 
+.contact-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-booking-grid {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.contact-action-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1.05rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.contact-action-card:hover,
+.contact-action-card:focus-visible {
+  transform: translateY(-2px);
+}
+
+.contact-action-card--mint {
+  border-color: rgba(124, 247, 193, 0.22);
+  background: linear-gradient(135deg, rgba(124, 247, 193, 0.12), rgba(255, 255, 255, 0.04));
+}
+
+.contact-action-card--mint:hover,
+.contact-action-card--mint:focus-visible {
+  border-color: rgba(124, 247, 193, 0.42);
+}
+
+.contact-action-card--blue {
+  border-color: rgba(154, 207, 255, 0.22);
+  background: linear-gradient(135deg, rgba(122, 198, 255, 0.12), rgba(255, 255, 255, 0.04));
+}
+
+.contact-action-card--blue:hover,
+.contact-action-card--blue:focus-visible {
+  border-color: rgba(154, 207, 255, 0.42);
+}
+
+.contact-action-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(4, 16, 30, 0.56);
+  color: #ffffff;
+  flex: 0 0 auto;
+}
+
+.contact-action-copy {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.contact-action-copy strong {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.contact-action-copy span {
+  color: var(--text-soft);
+  line-height: 1.55;
+  font-size: 0.94rem;
+}
+
+.contact-link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.contact-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  white-space: nowrap;
+  min-width: 0;
+  padding: 0.95rem 1.15rem;
+  font-weight: 600;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.contact-link-button:hover,
+.contact-link-button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.contact-link-button--mint {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(124, 247, 193, 0.2);
+  color: var(--text);
+}
+
+.contact-link-button--mint .hero-link-icon {
+  color: #ffffff;
+  background: rgba(124, 247, 193, 0.22);
+  border-radius: 999px;
+  padding: 0.24rem;
+}
+
+.contact-link-button--blue {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(86, 138, 255, 0.2);
+  color: var(--text);
+}
+
+.contact-link-button--blue .hero-link-icon {
+  color: #ffffff;
+  background: #2f6fed;
+  border-radius: 10px;
+  padding: 0.22rem;
+}
+
+.contact-link-button--slate {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+.contact-link-button--slate .hero-link-icon {
+  color: #ffffff;
+  background: #17191d;
+  border-radius: 999px;
+  padding: 0.24rem;
+}
+
 .project-card,
 .capability-card,
 .timeline-item,
