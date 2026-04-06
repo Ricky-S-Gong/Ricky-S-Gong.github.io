@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-80";
+const assetVersion = "20260406-home-tabs-81";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -210,7 +210,7 @@ const realProjectCovers = {
     textTone: "light",
   },
   "nutrition-label-diet-choices": {
-    src: "./assets/project-covers-real/nutrition-coke-compare-banner.jpg",
+    src: "./assets/project-covers-real/nutrition-diet-vs-zero-banner.jpg",
     position: "center center",
     overlay: "linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.04))",
     textTone: "dark",
