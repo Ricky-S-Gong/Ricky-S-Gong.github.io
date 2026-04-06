@@ -153,42 +153,6 @@ const siteData = {
         "I worked with students through the UIUC Economics Tutoring Center on post-class support across calculus, linear algebra, statistics, and econometrics. The role focused on helping students work through assignments, reinforce technical foundations, and connect mathematical tools to the kinds of empirical reasoning used in economics courses.",
     },
   ],
-  experience: [
-    {
-      date: "Now",
-      role: "Building a job-search-ready data portfolio",
-      body:
-        "Turning previous analyses, coursework, and research into concise case studies with stronger business framing and cleaner presentation.",
-    },
-    {
-      date: "Recent",
-      role: "Research and instructional work",
-      body:
-        "Worked in academic settings that required careful reasoning, reproducibility, and clear communication of technical material.",
-    },
-    {
-      date: "Foundation",
-      role: "Data project development",
-      body:
-        "Built projects across analytics, experimentation, and forecasting to strengthen end-to-end thinking from question definition to recommendation.",
-    },
-  ],
-  toolbox: {
-    summary:
-      "Strongest fit: analytics projects that need structured thinking, reproducible workflows, and communication that lands with stakeholders.",
-    pills: [
-      "Python",
-      "SQL",
-      "Pandas",
-      "scikit-learn",
-      "Tableau / Power BI",
-      "Experimentation",
-      "Statistics",
-      "Data Visualization",
-      "Storytelling",
-      "Research Design",
-    ],
-  },
   contacts: [
     {
       label: "Email",
@@ -208,7 +172,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-85";
+const assetVersion = "20260406-home-tabs-86";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -477,25 +441,6 @@ renderList(siteData.research, renderResearchCard, "research-cards");
 renderList(siteData.teaching, renderResearchCard, "teaching-cards");
 
 renderList(
-  siteData.experience,
-  (item) => `
-    <article class="timeline-item">
-      <p class="timeline-date">${item.date}</p>
-      <h3>${item.role}</h3>
-      <p>${item.body}</p>
-    </article>
-  `,
-  "experience-timeline"
-);
-
-document.getElementById("toolbox").innerHTML = `
-  <p class="toolbox-copy">${siteData.toolbox.summary}</p>
-  <div class="tool-pills">
-    ${siteData.toolbox.pills.map((pill) => `<span class="pill">${pill}</span>`).join("")}
-  </div>
-`;
-
-renderList(
   siteData.contacts,
   (item) => `
     <a class="contact-chip" href="${item.href}" target="_blank" rel="noreferrer">
@@ -506,7 +451,7 @@ renderList(
   "contact-links"
 );
 
-const views = ["home", "projects", "research", "experience", "contact"];
+const views = ["home", "projects", "research", "contact"];
 const panels = document.querySelectorAll("[data-view]");
 const navLinks = document.querySelectorAll("[data-view-link]");
 
