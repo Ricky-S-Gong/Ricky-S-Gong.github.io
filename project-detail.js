@@ -23,14 +23,6 @@ const resolveLocale = () => {
   if (fromGlobals != null && fromGlobals !== "") {
     return normalizeLocale(fromGlobals);
   }
-  try {
-    const fromStorage = window.localStorage?.getItem("site-locale");
-    if (fromStorage != null && fromStorage !== "") {
-      return normalizeLocale(fromStorage);
-    }
-  } catch (error) {
-    // Ignore storage access failures and fall back to the URL/default.
-  }
   return normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
 };
 
@@ -58,7 +50,7 @@ const shellCopy = {
       "This detail page is reserved for project narratives that will be filled after a full read of the corresponding code, report, notebook, and paper materials.",
   },
   zh: {
-    backLink: "← 返回项目",
+    backLink: "← 返回项目列表",
     notFoundCategory: "项目",
     notFoundTitle: "未找到项目",
     notFoundSubtitle: "返回概览页面并选择一个项目卡片。",
@@ -76,7 +68,7 @@ const categoryTranslations = {
   "Causal Inference & Experimentation": "因果推断与实验",
   "Time Series & Statistical Modelling": "时间序列与统计建模",
   "Machine Learning & Deep Learning": "机器学习与深度学习",
-  "NLP & Large Language Model": "自然语言处理与大语言模型",
+  "NLP & Large Language Model": "自然语言处理与大模型",
   "Data Systems & Infrastructure": "数据系统与基础设施",
 };
 
@@ -980,7 +972,7 @@ if (!project) {
 } else {
   const narrative = getLocalizedNarrative(project.slug);
   const pageTitle = getProjectField(project, "title");
-  document.title = `${pageTitle} | ${locale === "zh" ? "龚尚禹" : "Ricky Gong"}`;
+  document.title = `${pageTitle} | ${locale === "zh" ? "宫商羽" : "Ricky Gong"}`;
   setNodeText("detail-category", translateCategory(project.primaryCategory));
   setNodeText("detail-title", pageTitle);
   setNodeText("detail-subtitle", getProjectField(project, "subtitle"));

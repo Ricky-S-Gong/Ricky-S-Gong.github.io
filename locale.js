@@ -1,16 +1,8 @@
 (function () {
-  const STORAGE_KEY = "site-locale";
   const SUPPORTED = new Set(["en", "zh"]);
   const params = new URLSearchParams(window.location.search);
   const urlLocale = params.get("lang");
-  const storedLocale = window.localStorage.getItem(STORAGE_KEY);
-  const browserLocale = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-
-  let currentLocale = SUPPORTED.has(urlLocale)
-    ? urlLocale
-    : SUPPORTED.has(storedLocale)
-      ? storedLocale
-      : browserLocale;
+  let currentLocale = SUPPORTED.has(urlLocale) ? urlLocale : "en";
 
   const applyLocaleToDocument = () => {
     document.documentElement.lang = currentLocale === "zh" ? "zh-CN" : "en";
@@ -55,7 +47,6 @@
   const notify = () => {
     applyLocaleToDocument();
     syncUrl();
-    window.localStorage.setItem(STORAGE_KEY, currentLocale);
     updateMountedToggles();
     window.dispatchEvent(new CustomEvent("site-locale-change", { detail: { locale: currentLocale } }));
   };
@@ -76,7 +67,6 @@
 
   applyLocaleToDocument();
   syncUrl();
-  window.localStorage.setItem(STORAGE_KEY, currentLocale);
 
   document.addEventListener("DOMContentLoaded", () => {
     updateMountedToggles();

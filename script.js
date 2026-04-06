@@ -194,18 +194,18 @@ const siteData = {
 
 const siteDataZh = {
   heroTagline: "数据科学、产品分析、LLM、机器学习",
-  heroSubtitle: "宾夕法尼亚大学数据科学硕士",
+  heroSubtitle: "宾夕法尼亚大学数据科学硕士在读",
   heroSummary:
-    "我专注于构建能够把严谨建模和清晰决策连接起来的产品与商业分析系统。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板和端到端数据工作流，把模糊问题转化为可解释、可落地的决策支持。",
+    "我主要做能够把严谨建模和清晰决策连接起来的产品与商业分析系统。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板和端到端数据工作流，把模糊问题整理成可解释、可落地的分析结论。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
   homeAbout: [
-    "你好 😉 我是龚尚禹，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读数据科学硕士，当前的工作越来越集中在分析、机器学习以及真实业务约束下的决策问题交叉处。研究生阶段的课程主要覆盖大数据分析、可信机器学习、深度学习、生成式 AI 与 LLM、操作系统和分布式系统，这也让我不仅关注模型效果，更关注可靠性、可扩展性，以及分析工作如何真正被落地。",
+    "你好 😉 我是宫商羽，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读数据科学硕士，最近的学习和项目越来越集中在分析、机器学习，以及真实业务约束下的决策问题交叉处。研究生阶段的课程主要覆盖大数据分析、可信机器学习、深度学习、生成式 AI 与 LLM、操作系统和分布式系统，这也让我不仅关注模型效果，更关注可靠性、可扩展性，以及分析工作如何真正被落地。",
     '在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修统计学与经济学，并辅修数学和计算机科学。一路以来，我系统学习了统计学习、贝叶斯分析、时间序列、因果推断、实验设计、计量经济学、数据库、算法、深度学习和计算机视觉。我的本科研究视角深受多位导师影响，包括 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a>。我的研究覆盖劳动经济学、社交媒体、住房市场、宏观预测和政策评估，也由此建立了扎实的因果推断与实证经济学基础，包括 IV、Bartik IV、2SLS、事件研究设计和双重差分。我以 UIUC Bronze Tablet Scholar（本科最高学术荣誉之一）及 Summa Cum Laude 毕业。',
-    "在行业场景里，我更把自己看作一个能把业务模糊性转化为分析结构的实践型数据科学家。我最擅长的情况，是团队面对一个产品、增长、留存或运营问题，单靠报表并不能回答，而需要把决策、指标、实验或模型系统化。我越来越相信，对数据科学家来说，真正理解业务往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。对我来说，这通常意味着先澄清要支持的决策，再定义正确的指标，选择与业务风险匹配的方法，最后把结果讲清楚，让产品经理、运营或管理层真正能用。",
+    "在行业场景里，我更把自己看作一个能把业务模糊性转化为分析结构的实践型数据科学家。我最擅长的场景，是团队面对一个产品、增长、留存或运营问题，单靠报表并不能回答，而需要把决策、指标、实验或模型系统化。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。对我来说，这通常意味着先澄清要支持的决策，再定义合适的指标，选择与业务风险匹配的方法，最后把结果讲清楚，让产品经理、运营或管理层真正能用。",
     "工作之外，我喜欢掼蛋、徒步、做饭和探索好餐厅，也喜欢打羽毛球。这些爱好让我保持好奇、社交性和能量，对我来说它们和好的分析工作有相似之处：最好的时候，都是把人们围绕一件有趣而值得记住的事情连接在一起。",
   ],
   research: [
@@ -263,8 +263,8 @@ const siteDataZh = {
   ],
   contactBooking: [
     {
-      label: "预约 Coffee Chat",
-      detail: "直接通过我的 Google Calendar 预约页面选择时间。",
+      label: "预约交流",
+      detail: "可以直接通过我的 Google Calendar 预约页面选择合适的时间。",
       href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
       icon: "calendar",
       tone: "mint",
@@ -272,7 +272,7 @@ const siteDataZh = {
     },
     {
       label: "请求简历",
-      detail: "如果你需要简历，可以私下发起请求，我不会把简历公开挂在网站上。",
+      detail: "如果你需要简历，可以私下向我索取；我不会把简历公开放在网站上。",
       href: "mailto:sgong.recruiting@gmail.com?subject=Resume%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AHere%20is%20some%20context%20on%20my%20interest%20or%20role%3A%0A%0AThanks%21",
       icon: "resume",
       tone: "slate",
@@ -315,12 +315,12 @@ const siteChrome = {
     contactHeading: "欢迎交流数据、coffee chat 和潜在合作机会。",
     contactCopy:
       "如果你希望联系我，可以直接预约交流、私下请求简历，或通过与首页相同的几个入口和我取得联系。",
-    documentTitle: "龚尚禹 | 数据作品集",
-    metaDescription: "龚尚禹的个人作品集网站，包含项目、研究与教学内容。",
+    documentTitle: "宫商羽 | 数据作品集",
+    metaDescription: "宫商羽的个人作品集网站，包含项目、研究与教学内容。",
   },
 };
 
-const assetVersion = "20260406-home-tabs-92";
+const assetVersion = "20260406-home-tabs-93";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
