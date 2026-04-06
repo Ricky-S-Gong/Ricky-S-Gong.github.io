@@ -192,7 +192,135 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-91";
+const siteDataZh = {
+  heroTagline: "数据科学、产品分析、LLM、机器学习",
+  heroSubtitle: "宾夕法尼亚大学数据科学硕士",
+  heroSummary:
+    "我专注于构建能够把严谨建模和清晰决策连接起来的产品与商业分析系统。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板和端到端数据工作流，把模糊问题转化为可解释、可落地的决策支持。",
+  heroLinks: [
+    { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
+    { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
+  ],
+  homeAbout: [
+    "你好 😉 我是龚尚禹，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读数据科学硕士，当前的工作越来越集中在分析、机器学习以及真实业务约束下的决策问题交叉处。研究生阶段的课程主要覆盖大数据分析、可信机器学习、深度学习、生成式 AI 与 LLM、操作系统和分布式系统，这也让我不仅关注模型效果，更关注可靠性、可扩展性，以及分析工作如何真正被落地。",
+    '在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修统计学与经济学，并辅修数学和计算机科学。一路以来，我系统学习了统计学习、贝叶斯分析、时间序列、因果推断、实验设计、计量经济学、数据库、算法、深度学习和计算机视觉。我的本科研究视角深受多位导师影响，包括 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a>。我的研究覆盖劳动经济学、社交媒体、住房市场、宏观预测和政策评估，也由此建立了扎实的因果推断与实证经济学基础，包括 IV、Bartik IV、2SLS、事件研究设计和双重差分。我以 UIUC Bronze Tablet Scholar（本科最高学术荣誉之一）及 Summa Cum Laude 毕业。',
+    "在行业场景里，我更把自己看作一个能把业务模糊性转化为分析结构的实践型数据科学家。我最擅长的情况，是团队面对一个产品、增长、留存或运营问题，单靠报表并不能回答，而需要把决策、指标、实验或模型系统化。我越来越相信，对数据科学家来说，真正理解业务往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。对我来说，这通常意味着先澄清要支持的决策，再定义正确的指标，选择与业务风险匹配的方法，最后把结果讲清楚，让产品经理、运营或管理层真正能用。",
+    "工作之外，我喜欢掼蛋、徒步、做饭和探索好餐厅，也喜欢打羽毛球。这些爱好让我保持好奇、社交性和能量，对我来说它们和好的分析工作有相似之处：最好的时候，都是把人们围绕一件有趣而值得记住的事情连接在一起。",
+  ],
+  research: [
+    {
+      title: "最低工资冲击对失业的影响",
+      org: '在 UIUC 经济系 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 指导下的独立研究',
+      period: "2025年1月 - 2025年5月",
+      body:
+        "我基于 BLS 数据构建了加州与纽约的 county-month 失业面板，用来研究加州 2021 年最低工资上调这一准自然实验。这个项目让我真正把因果推断当作研究设计问题，而不是单纯的回归练习：我用 TWFE 下的 DiD 估计 ATT，使用州特定多项式预趋势回归检查平行趋势，做了 placebo 日期和替代结果检验，并通过三重交互探索县层面的异质性。这个项目最深刻的收获，是认识到识别策略、稳健性检验和解释框架这些“看起来不华丽”的部分，才真正决定结果是否可信。",
+    },
+    {
+      title: "社交媒体中 AI 内容检测与扩散",
+      org: 'UIUC 经济系 <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a> 的研究助理',
+      period: "2024年6月 - 2024年11月",
+      body:
+        "这个项目里，我主要负责一个快速变化研究问题中的测量部分：在 ChatGPT 和 GPT-4 发布后，AI 生成内容究竟在 Reddit 社区中扩散到了什么程度。我参与把更大规模的 Academic Torrents 档案整理成 111GB 的 Reddit 面板，设计 subreddit-month 分层抽样，并在 6.2 万多条帖子上实现基于 GPTZero 的检测流程。除了事件研究分析本身，我还做了受控 placement 实验，研究检测器在 AI-human 混合内容场景下何时会系统性低估 AI 比例，并支持了相关标注和 field experiment 的可复现报告工作。",
+    },
+    {
+      title: "数据富集环境下的美国通胀预测",
+      org: 'UIUC Economics Data Lab，<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 与 <a href="https://scholar.google.com/citations?user=5f7xwS8AAAAJ" target="_blank" rel="noreferrer">Marcelo Medeiros 教授</a> 指导',
+      period: "2024年1月 - 2024年5月",
+      body:
+        "这个项目处在宏观经济学、预测和高维建模的交叉处。沿着 data-rich forecasting 文献的思路，我构建了包含 89 条宏观序列和 TCODE 变换的 FRED 流水线，并比较了 Random Walk、ARIMA、UCSV 等基准模型以及 Ridge、LASSO、Elastic Net 等收缩估计方法。这个过程让我更清楚地理解，不同模型分别对持续性、稀疏性和多重共线性做了什么假设，也让我意识到预测效果往往同样依赖于纪律严明的数据准备，而不仅仅是模型本身。",
+    },
+    {
+      title: "性别比例对女性劳动参与率的影响",
+      org: '在 UIUC 经济系 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a> 指导下的独立研究',
+      period: "2024年1月 - 2024年5月",
+      body:
+        "我构建了覆盖美国、德国、澳大利亚和加拿大的跨国面板，用来研究性别失衡是否会影响女性劳动参与率。识别策略使用滞后 20-30 年的出生性别比作为成年性别比的工具变量，并加入国家和年份固定效应以及 cluster-robust 推断。这个项目加深了我对应用微观识别策略的理解：真正重要的不只是跑出 2SLS，而是认真思考为什么这个工具变量能改变当前匹配条件，同时又不应被当期劳动市场冲击直接驱动。",
+    },
+    {
+      title: "营养标签教育与消费者健康饮食选择",
+      org: '西交利物浦大学经济系 <a href="https://www.shuyangsi.com/" target="_blank" rel="noreferrer">Shuyang Si 教授</a> 指导下的 SURF Fellow',
+      period: "2022年6月 - 2022年8月",
+      body:
+        "我设计并分析了一项随机问卷实验，研究营养标签教育是否会改变消费者为更健康产品支付溢价的意愿。项目同时涉及问卷设计、处理组构建、基线平衡检验，以及带有人口统计控制变量的双重差分设定，用来评估消费者的支付意愿和营养知识变化。这是我较早的一段研究经历，也让我第一次真正体会到：好的实验研究并不只是最后那张回归表，而是从干预设计、测量方式到控制设置都要严谨。",
+    },
+  ],
+  teaching: [
+    {
+      title: "助教",
+      org: "宾夕法尼亚大学 CIS 2450 Big Data Analytics",
+      period: "2026年1月 - 2026年5月",
+      body:
+        "这门课强调一种系统化的数据分析视角：当单机已经不够用时，如何把大规模、杂乱的数据真正转化为可用知识。我的教学工作也和我自己的研究方法很一致：我会帮助学生把数据清洗、可扩展编程模型、分布式计算和统计机器学习看成一个整体，而不是孤立模块。这门课最吸引我的地方，在于它把 analytics 理解为端到端工作流，要求数据工程、并行执行和模型设计一起协同，才能让过滤、图分析、聚类和分类等大规模任务真正有用。",
+    },
+    {
+      title: "经济学导师",
+      org: "UIUC Economics Tutoring Center",
+      period: "2024年8月 - 2025年1月",
+      body:
+        "我在 UIUC Economics Tutoring Center 为学生提供课后辅导，内容覆盖微积分、线性代数、统计和计量经济学。这个角色主要是帮助学生梳理作业、夯实技术基础，并把数学工具和经济学课程中的实证推理真正连接起来。",
+    },
+  ],
+  contactBooking: [
+    {
+      label: "预约 Coffee Chat",
+      detail: "直接通过我的 Google Calendar 预约页面选择时间。",
+      href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
+      icon: "calendar",
+      tone: "mint",
+      newTab: true,
+    },
+    {
+      label: "请求简历",
+      detail: "如果你需要简历，可以私下发起请求，我不会把简历公开挂在网站上。",
+      href: "mailto:sgong.recruiting@gmail.com?subject=Resume%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AHere%20is%20some%20context%20on%20my%20interest%20or%20role%3A%0A%0AThanks%21",
+      icon: "resume",
+      tone: "slate",
+    },
+  ],
+  contacts: [
+    { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email", tone: "mint" },
+    { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin", tone: "blue" },
+    { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github", tone: "slate" },
+  ],
+};
+
+const siteChrome = {
+  en: {
+    nav: { home: "Home", projects: "Projects", research: "Research", contact: "Contact" },
+    aboutHeading: "About Me",
+    projectsTag: "Portfolio",
+    projectsHeading: "Selected Projects",
+    projectsIntro:
+      "This section brings together the projects that best represent how I think and work, organized by toolkit so it is easy to move between causal analysis, modeling, language systems, and infrastructure-oriented builds.",
+    researchHeading: "Research",
+    teachingHeading: "Teaching",
+    contactTag: "Contact",
+    contactHeading: "Let’s talk about data, coffee chats, and potential opportunities.",
+    contactCopy:
+      "If you'd like to connect, you can schedule a conversation, request my resume privately, or reach out through the same channels listed on the homepage.",
+    documentTitle: "Ricky Gong | Data Portfolio",
+    metaDescription: "Portfolio site for Ricky Gong featuring data projects, research, and teaching.",
+  },
+  zh: {
+    nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
+    aboutHeading: "关于我",
+    projectsTag: "作品集",
+    projectsHeading: "精选项目",
+    projectsIntro:
+      "这里汇集了最能代表我思考方式和工作风格的项目，并按工具与方法分组，方便在因果分析、建模、语言系统和基础设施类构建之间快速切换。",
+    researchHeading: "研究",
+    teachingHeading: "教学",
+    contactTag: "联系",
+    contactHeading: "欢迎交流数据、coffee chat 和潜在合作机会。",
+    contactCopy:
+      "如果你希望联系我，可以直接预约交流、私下请求简历，或通过与首页相同的几个入口和我取得联系。",
+    documentTitle: "龚尚禹 | 数据作品集",
+    metaDescription: "龚尚禹的个人作品集网站，包含项目、研究与教学内容。",
+  },
+};
+
+const assetVersion = "20260406-home-tabs-92";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -277,6 +405,18 @@ const realProjectCovers = {
   },
 };
 
+const getLocale = () => window.__siteLocale?.getLocale() || "en";
+const pickLocale = (value) => window.__siteLocale?.pick(value) || value;
+const getActiveSiteData = () => (getLocale() === "zh" ? { ...siteData, ...siteDataZh } : siteData);
+const getSiteChrome = () => siteChrome[getLocale()] || siteChrome.en;
+const getCategoryTitle = (category) => (getLocale() === "zh" ? category.titleZh || category.title : category.title);
+const getCategoryDescription = (category) =>
+  getLocale() === "zh" ? category.descriptionZh || category.description : category.description;
+const getProjectField = (project, key) =>
+  getLocale() === "zh" ? project[`${key}Zh`] || project[key] : project[key];
+const getProjectTags = (project) => (getLocale() === "zh" ? project.tagsZh || project.tags : project.tags);
+const getProjectStatusLabel = (project) => (getLocale() === "zh" ? project.statusZh || project.status : project.status);
+
 const setText = (id, text) => {
   const element = document.getElementById(id);
   if (element) element.textContent = text;
@@ -288,19 +428,7 @@ const renderList = (items, renderer, targetId) => {
   target.innerHTML = items.map(renderer).join("");
 };
 
-setText("hero-summary", siteData.heroSummary);
-setText("hero-name", siteData.heroName);
-setText("hero-tagline", siteData.heroTagline);
 const heroSubtitle = document.getElementById("hero-subtitle");
-if (heroSubtitle) {
-  heroSubtitle.textContent = siteData.heroSubtitle;
-  if (siteData.heroSubtitleHref) {
-    heroSubtitle.href = siteData.heroSubtitleHref;
-    heroSubtitle.target = "_blank";
-    heroSubtitle.rel = "noreferrer";
-  }
-}
-
 const portraitImage = document.getElementById("hero-portrait-image");
 const portraitFallback = document.getElementById("hero-portrait-fallback");
 
@@ -363,113 +491,6 @@ const iconMarkup = {
   `,
 };
 
-renderList(
-  siteData.heroLinks,
-  (link) => `
-    <a class="hero-link" href="${link.href}" target="_blank" rel="noreferrer">
-      <span class="hero-link-icon">${iconMarkup[link.icon] || ""}</span>
-      <span class="hero-link-text">${link.label}</span>
-    </a>
-  `,
-  "hero-link-row"
-);
-
-renderList(
-  siteData.homeAbout,
-  (paragraph) => `<p>${paragraph}</p>`,
-  "home-about-content"
-);
-
-const projectNav = document.getElementById("projects-nav");
-if (projectNav) {
-  const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
-  projectNav.innerHTML = categories
-    .map(
-      (category) => `
-        <button class="project-nav-pill" type="button" data-category-target="${category.id}">${category.title}</button>
-      `
-    )
-    .join("");
-}
-
-const projectCategories = document.getElementById("projects-categories");
-if (projectCategories) {
-  const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
-
-  projectCategories.innerHTML = categories
-    .map((category) => {
-      const categoryProjects = projectCatalog.projects.filter((project) =>
-        project.displayCategories.includes(category.title)
-      );
-
-      return `
-        <section class="project-category-block" id="${category.id}">
-          <div class="section-heading project-category-heading">
-            <div>
-              <h2>${category.title}</h2>
-            </div>
-            <p class="section-copy">${category.description}</p>
-          </div>
-          <div class="project-grid section-tight">
-            ${categoryProjects
-              .map((project) => {
-                const coverAsset = realProjectCovers[project.slug];
-                const coverImage = coverAsset
-                  ? `${coverAsset.src}?v=${assetVersion}`
-                  : `./assets/project-covers/${project.slug}.svg?v=${assetVersion}`;
-                const coverPosition = coverAsset?.position || "center center";
-                const coverOverlay =
-                  coverAsset?.overlay ||
-                  "linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48))";
-                const coverToneClass =
-                  coverAsset?.textTone === "dark"
-                    ? "project-cover--dark-text"
-                    : "project-cover--light-text";
-                const coverCanvasClass =
-                  coverAsset?.canvasTone === "white" ? "project-cover--white-canvas" : "";
-                const statusClass =
-                  project.status === "In Progress"
-                    ? "project-status-pill--progress"
-                    : "project-status-pill--completed";
-                return `
-                  <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
-                    <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
-                      <div
-                        class="project-cover-image"
-                        style="background-image: url('${coverImage}'); background-position: ${coverPosition};"
-                      ></div>
-                      <div
-                        class="project-cover-overlay"
-                        style="background-image: ${coverOverlay};"
-                      ></div>
-                      <span class="project-cover-label">${project.coverLabel}</span>
-                      <span class="project-status-pill ${statusClass}">${project.status}</span>
-                    </div>
-                    <h3>${project.title}</h3>
-                    <p>${project.miniDescription}</p>
-                    <div class="tag-list">
-                      ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-                    </div>
-                  </a>
-                `;
-              })
-              .join("")}
-          </div>
-        </section>
-      `;
-    })
-    .join("");
-}
-
-document.querySelectorAll("[data-category-target]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const target = document.getElementById(button.dataset.categoryTarget);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-});
-
 const renderResearchCard = (item) => `
   <article class="glass panel research-card">
     <div class="stack-item-header">
@@ -481,35 +502,188 @@ const renderResearchCard = (item) => `
   </article>
 `;
 
-renderList(siteData.research, renderResearchCard, "research-cards");
-renderList(siteData.teaching, renderResearchCard, "teaching-cards");
+const bindProjectNav = () => {
+  document.querySelectorAll("[data-category-target]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = document.getElementById(button.dataset.categoryTarget);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+};
 
-renderList(
-  siteData.contactBooking,
-  (item) => `
-    <a class="contact-action-card contact-action-card--${item.tone}" href="${item.href}"${
-      item.newTab ? ' target="_blank" rel="noreferrer"' : ""
-    }>
-      <span class="contact-action-icon">${iconMarkup[item.icon] || ""}</span>
-      <span class="contact-action-copy">
-        <strong>${item.label}</strong>
-        <span>${item.detail}</span>
-      </span>
-    </a>
-  `,
-  "contact-booking"
-);
+const renderShellText = () => {
+  const chrome = getSiteChrome();
+  setText("nav-home", chrome.nav.home);
+  setText("nav-projects", chrome.nav.projects);
+  setText("nav-research", chrome.nav.research);
+  setText("nav-contact", chrome.nav.contact);
+  setText("about-heading", chrome.aboutHeading);
+  setText("projects-tag", chrome.projectsTag);
+  setText("projects-heading", chrome.projectsHeading);
+  setText("projects-intro", chrome.projectsIntro);
+  setText("research-heading", chrome.researchHeading);
+  setText("teaching-heading", chrome.teachingHeading);
+  setText("contact-tag", chrome.contactTag);
+  setText("contact-heading", chrome.contactHeading);
+  setText("contact-copy", chrome.contactCopy);
+  document.title = chrome.documentTitle;
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) metaDescription.setAttribute("content", chrome.metaDescription);
+};
 
-renderList(
-  siteData.contacts,
-  (item) => `
-    <a class="hero-link" href="${item.href}" target="_blank" rel="noreferrer">
-      <span class="hero-link-icon">${iconMarkup[item.icon] || ""}</span>
-      <span class="hero-link-text">${item.label}</span>
-    </a>
-  `,
-  "contact-links"
-);
+const renderHero = () => {
+  const activeSiteData = getActiveSiteData();
+  setText("hero-summary", activeSiteData.heroSummary);
+  setText("hero-name", activeSiteData.heroName);
+  setText("hero-tagline", activeSiteData.heroTagline);
+  if (heroSubtitle) {
+    heroSubtitle.textContent = activeSiteData.heroSubtitle;
+    if (activeSiteData.heroSubtitleHref) {
+      heroSubtitle.href = activeSiteData.heroSubtitleHref;
+      heroSubtitle.target = "_blank";
+      heroSubtitle.rel = "noreferrer";
+    }
+  }
+  renderList(
+    activeSiteData.heroLinks,
+    (link) => `
+      <a class="hero-link" href="${link.href}" target="_blank" rel="noreferrer">
+        <span class="hero-link-icon">${iconMarkup[link.icon] || ""}</span>
+        <span class="hero-link-text">${link.label}</span>
+      </a>
+    `,
+    "hero-link-row"
+  );
+  renderList(
+    activeSiteData.homeAbout,
+    (paragraph) => `<p>${paragraph}</p>`,
+    "home-about-content"
+  );
+};
+
+const renderProjects = () => {
+  const projectNav = document.getElementById("projects-nav");
+  const projectCategories = document.getElementById("projects-categories");
+  const categories = [...projectCatalog.categories].sort((a, b) => a.order - b.order);
+  if (projectNav) {
+    projectNav.innerHTML = categories
+      .map(
+        (category) => `
+          <button class="project-nav-pill" type="button" data-category-target="${category.id}">${getCategoryTitle(category)}</button>
+        `
+      )
+      .join("");
+  }
+
+  if (projectCategories) {
+    projectCategories.innerHTML = categories
+      .map((category) => {
+        const categoryProjects = projectCatalog.projects.filter((project) =>
+          project.displayCategories.includes(category.title)
+        );
+        return `
+          <section class="project-category-block" id="${category.id}">
+            <div class="section-heading project-category-heading">
+              <div>
+                <h2>${getCategoryTitle(category)}</h2>
+              </div>
+              <p class="section-copy">${getCategoryDescription(category)}</p>
+            </div>
+            <div class="project-grid section-tight">
+              ${categoryProjects
+                .map((project) => {
+                  const coverAsset = realProjectCovers[project.slug];
+                  const coverImage = coverAsset
+                    ? `${coverAsset.src}?v=${assetVersion}`
+                    : `./assets/project-covers/${project.slug}.svg?v=${assetVersion}`;
+                  const coverPosition = coverAsset?.position || "center center";
+                  const coverOverlay =
+                    coverAsset?.overlay ||
+                    "linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48))";
+                  const coverToneClass =
+                    coverAsset?.textTone === "dark"
+                      ? "project-cover--dark-text"
+                      : "project-cover--light-text";
+                  const coverCanvasClass =
+                    coverAsset?.canvasTone === "white" ? "project-cover--white-canvas" : "";
+                  const statusClass =
+                    project.status === "In Progress"
+                      ? "project-status-pill--progress"
+                      : "project-status-pill--completed";
+                  const detailHref = `./project.html?slug=${project.slug}${getLocale() === "zh" ? "&lang=zh" : ""}`;
+                  return `
+                    <a class="project-card project-card-link" href="${detailHref}">
+                      <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
+                        <div
+                          class="project-cover-image"
+                          style="background-image: url('${coverImage}'); background-position: ${coverPosition};"
+                        ></div>
+                        <div
+                          class="project-cover-overlay"
+                          style="background-image: ${coverOverlay};"
+                        ></div>
+                        <span class="project-cover-label">${getProjectField(project, "coverLabel")}</span>
+                        <span class="project-status-pill ${statusClass}">${getProjectStatusLabel(project)}</span>
+                      </div>
+                      <h3>${getProjectField(project, "title")}</h3>
+                      <p>${getProjectField(project, "miniDescription")}</p>
+                      <div class="tag-list">
+                        ${getProjectTags(project).map((tag) => `<span class="tag">${tag}</span>`).join("")}
+                      </div>
+                    </a>
+                  `;
+                })
+                .join("")}
+            </div>
+          </section>
+        `;
+      })
+      .join("");
+  }
+  bindProjectNav();
+};
+
+const renderResearchAndContact = () => {
+  const activeSiteData = getActiveSiteData();
+  renderList(activeSiteData.research, renderResearchCard, "research-cards");
+  renderList(activeSiteData.teaching, renderResearchCard, "teaching-cards");
+  renderList(
+    activeSiteData.contactBooking,
+    (item) => `
+      <a class="contact-action-card contact-action-card--${item.tone}" href="${item.href}"${
+        item.newTab ? ' target="_blank" rel="noreferrer"' : ""
+      }>
+        <span class="contact-action-icon">${iconMarkup[item.icon] || ""}</span>
+        <span class="contact-action-copy">
+          <strong>${item.label}</strong>
+          <span>${item.detail}</span>
+        </span>
+      </a>
+    `,
+    "contact-booking"
+  );
+  renderList(
+    activeSiteData.contacts,
+    (item) => `
+      <a class="hero-link" href="${item.href}" target="_blank" rel="noreferrer">
+        <span class="hero-link-icon">${iconMarkup[item.icon] || ""}</span>
+        <span class="hero-link-text">${item.label}</span>
+      </a>
+    `,
+    "contact-links"
+  );
+};
+
+const renderHomepage = () => {
+  renderShellText();
+  renderHero();
+  renderProjects();
+  renderResearchAndContact();
+};
+
+renderHomepage();
 
 const views = ["home", "projects", "research", "contact"];
 const panels = document.querySelectorAll("[data-view]");
@@ -535,4 +709,8 @@ const syncViewFromHash = () => {
 };
 
 window.addEventListener("hashchange", syncViewFromHash);
+window.addEventListener("site-locale-change", () => {
+  renderHomepage();
+  syncViewFromHash();
+});
 syncViewFromHash();

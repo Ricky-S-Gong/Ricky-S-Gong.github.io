@@ -16,12 +16,15 @@ const normalizeLocale = (value) => {
 };
 
 const resolveLocale = () => {
-  const fromGlobals = window.__siteLocale ?? window.__locale ?? window.__currentLocale;
+  const fromGlobals =
+    typeof window.__siteLocale?.getLocale === "function"
+      ? window.__siteLocale.getLocale()
+      : window.__siteLocale ?? window.__locale ?? window.__currentLocale;
   if (fromGlobals != null && fromGlobals !== "") {
     return normalizeLocale(fromGlobals);
   }
   try {
-    const fromStorage = window.localStorage?.getItem("siteLocale");
+    const fromStorage = window.localStorage?.getItem("site-locale");
     if (fromStorage != null && fromStorage !== "") {
       return normalizeLocale(fromStorage);
     }
@@ -32,7 +35,6 @@ const resolveLocale = () => {
 };
 
 const locale = resolveLocale();
-window.__siteLocale = locale;
 window.__locale = locale;
 window.__currentLocale = locale;
 window.__getLocale = () => locale;
@@ -67,6 +69,7 @@ const shellCopy = {
 const detailBackLink = document.getElementById("detail-back-link");
 if (detailBackLink) {
   detailBackLink.textContent = (shellCopy[locale] || shellCopy.en).backLink;
+  detailBackLink.href = locale === "zh" ? "./index.html?lang=zh#projects" : "./index.html#projects";
 }
 
 const categoryTranslations = {
@@ -174,6 +177,9 @@ const localizeSectionTitle = (title) => {
   if (locale !== "zh") return title;
   return sectionTitleTranslations[title] || title;
 };
+
+const getProjectField = (projectData, key) =>
+  locale === "zh" ? projectData?.[`${key}Zh`] || projectData?.[key] : projectData?.[key];
 
 const setNodeText = (id, value) => {
   const node = document.getElementById(id);
@@ -973,15 +979,15 @@ if (!project) {
   setNodeText("detail-summary", shell.notFoundSummary);
 } else {
   const narrative = getLocalizedNarrative(project.slug);
-  const pageTitle = pickLocale(project.title) || project.title;
-  document.title = `${pageTitle} | Ricky Gong`;
+  const pageTitle = getProjectField(project, "title");
+  document.title = `${pageTitle} | ${locale === "zh" ? "龚尚禹" : "Ricky Gong"}`;
   setNodeText("detail-category", translateCategory(project.primaryCategory));
   setNodeText("detail-title", pageTitle);
-  setNodeText("detail-subtitle", pickLocale(project.subtitle) || project.subtitle);
+  setNodeText("detail-subtitle", getProjectField(project, "subtitle"));
   setNodeHtml(
     "detail-summary",
     narrative.summary ||
-      pickLocale(project.detailSummary) ||
+      getProjectField(project, "detailSummary") ||
       localized(
         "This page is being expanded into a full narrative after a complete read of the project materials.",
         "这个页面正在根据完整项目材料逐步扩展为更完整的叙述。"
@@ -1026,3 +1032,7 @@ if (!project) {
   typesetMath();
   window.addEventListener("load", typesetMath, { once: true });
 }
+
+window.addEventListener("site-locale-change", () => {
+  window.location.reload();
+});

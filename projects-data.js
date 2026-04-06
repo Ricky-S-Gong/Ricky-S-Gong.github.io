@@ -694,3 +694,184 @@ window.projectCatalog = {
     },
   ],
 };
+
+const categoryTranslationsZh = {
+  "causal-inference-experimentation": {
+    title: "因果推断与实验设计",
+    description: "围绕政策评估、行为研究和产品实验，核心任务是清晰识别效应并支持后续行动。",
+  },
+  "time-series-statistical-modelling": {
+    title: "时间序列与统计建模",
+    description: "聚焦市场动态、需求变化和结构化统计推断的预测与概率建模项目。",
+  },
+  "machine-learning-deep-learning": {
+    title: "机器学习与深度学习",
+    description: "围绕客户信号、转化行为和可解释模型分析展开的预测建模与表征学习工作。",
+  },
+  "nlp-large-language-model": {
+    title: "自然语言处理与大语言模型",
+    description: "涵盖情感分析、检索增强生成、工具调用以及基于 LLM 的推理系统等语言相关项目。",
+  },
+  "data-systems-infrastructure": {
+    title: "数据系统与基础设施",
+    description: "让计算真正可用的系统构建，从操作系统抽象到分布式存储与服务架构。",
+  },
+};
+
+const projectTranslationsZh = {
+  "minimum-wage-unemployment": {
+    title: "最低工资冲击对失业的影响",
+    subtitle: "政策评估",
+    primaryCategory: "因果推断与实验设计",
+    coverLabel: "政策冲击",
+    miniDescription: "使用面板数据方法、双重差分和双向固定效应研究最低工资冲击如何影响失业。",
+    status: "已完成",
+    tags: ["双重差分", "TWFE", "劳动", "政策", "面板数据"],
+  },
+  "nutrition-label-diet-choices": {
+    title: "营养标签教育与健康饮食选择",
+    subtitle: "行为选择分析",
+    primaryCategory: "因果推断与实验设计",
+    coverLabel: "营养选择",
+    miniDescription: "通过问卷实验和因果处理效应估计，研究营养标签教育是否会改变消费者饮食选择。",
+    status: "已完成",
+    tags: ["实验设计", "双重差分", "问卷", "健康", "消费者行为"],
+  },
+  "email-funding-conversion-experiment": {
+    title: "邮件投放对入金转化的实验分析",
+    subtitle: "金融科技产品实验",
+    primaryCategory: "因果推断与实验设计",
+    coverLabel: "金融实验",
+    miniDescription: "设计并分析多臂邮件实验，从实验设计、漏斗分析和产品指标角度理解入金转化行为。",
+    status: "已完成",
+    tags: ["A/B测试", "实验设计", "金融科技", "漏斗分析", "产品分析"],
+  },
+  "bgm-focused-task-performance": {
+    title: "背景音乐对专注任务的影响",
+    subtitle: "行为与专注研究",
+    primaryCategory: "因果推断与实验设计",
+    coverLabel: "行为研究",
+    miniDescription: "通过受控实验设计和统计建模，检验不同背景音乐条件如何影响专注任务表现。",
+    status: "已完成",
+    tags: ["实验设计", "混合效应", "方差分析", "行为", "统计"],
+  },
+  "natural-gas-consumption-forecasting": {
+    title: "美国天然气消费预测",
+    subtitle: "能源需求预测",
+    primaryCategory: "时间序列与统计建模",
+    coverLabel: "能源预测",
+    miniDescription: "基于能源与宏观经济数据，使用时间序列分析和结构化统计建模预测美国天然气消费。",
+    status: "已完成",
+    tags: ["时间序列", "预测", "R", "能源", "统计建模"],
+  },
+  "bayesian-statistical-modeling": {
+    title: "用于贝叶斯后验采样的 Metropolis-Hastings",
+    subtitle: "贝叶斯计算",
+    primaryCategory: "时间序列与统计建模",
+    coverLabel: "贝叶斯采样",
+    miniDescription: "围绕 Metropolis-Hastings 的提议分布设计、混合行为和收敛诊断展开的贝叶斯计算项目。",
+    status: "已完成",
+    tags: ["贝叶斯", "MCMC", "后验采样", "统计计算", "Python"],
+  },
+  "champaign-rental-price-forecasting": {
+    title: "Champaign 租金价格预测",
+    subtitle: "房地产预测",
+    primaryCategory: "时间序列与统计建模",
+    coverLabel: "租金预测",
+    miniDescription: "比较回归、稳健回归与 Prophet 等方法，对 Champaign 租金指数进行预测。",
+    status: "已完成",
+    tags: ["预测", "房地产", "Prophet", "回归", "时间序列"],
+  },
+  "amazon-food-review-sentiment-analysis": {
+    title: "Amazon 食品评论情感分析",
+    subtitle: "评论文本建模",
+    primaryCategory: "机器学习与深度学习",
+    coverLabel: "评论情感",
+    miniDescription: "构建大规模 NLP 流程分析 Amazon 食品评论，并将负面评论识别作为核心业务目标。",
+    status: "已完成",
+    tags: ["NLP", "TF-IDF", "分类", "情感分析", "文本建模"],
+  },
+  "conversion-rate-modeling-optimization": {
+    title: "转化率建模与优化",
+    subtitle: "增长分析与建模",
+    primaryCategory: "机器学习与深度学习",
+    coverLabel: "转化建模",
+    miniDescription: "结合校准预测、阈值调优和分层行动设计，支持产品和营销中的转化优化决策。",
+    status: "已完成",
+    tags: ["转化率", "建模", "分类", "增长", "优化"],
+  },
+  "trm-mechanistic-interpretability": {
+    title: "TRM 的机制可解释性研究",
+    subtitle: "模型内部机制分析",
+    primaryCategory: "机器学习与深度学习",
+    coverLabel: "模型电路",
+    miniDescription: "通过稀疏特征解释和因果消融分析 Tiny Recursive Model 在 ARC-AGI-1 上的内部行为。",
+    status: "已完成",
+    tags: ["可解释性", "稀疏自编码器", "消融", "ARC", "模型分析"],
+  },
+  "llm-powered-churn-analysis-system": {
+    title: "LLM 驱动的流失分析系统",
+    subtitle: "留存智能系统",
+    primaryCategory: "自然语言处理与大语言模型",
+    coverLabel: "留存 Copilot",
+    miniDescription: "使用 hybrid retrieval RAG、微调和结构化 JSON 输出构建自然语言流失分析系统。",
+    status: "已完成",
+    tags: ["LLM", "RAG", "微调", "流失", "预测建模"],
+  },
+  "tool-using-language-models": {
+    title: "工具调用型语言模型",
+    subtitle: "工具使用对齐研究",
+    primaryCategory: "自然语言处理与大语言模型",
+    coverLabel: "工具智能体",
+    miniDescription: "比较 SFT、DPO、PPO 和 GRPO 在小语言模型工具使用对齐中的表现与权衡。",
+    status: "进行中",
+    tags: ["工具调用", "LLM", "RLHF", "对齐", "代理系统"],
+  },
+  "trustworthy-rl-llm-reasoning": {
+    title: "可信 RL 与 LLM 推理",
+    subtitle: "ARC 推理训练设计",
+    primaryCategory: "自然语言处理与大语言模型",
+    coverLabel: "可信推理",
+    miniDescription: "围绕 ARC-AGI-1 任务，设计 SFT、RFT 和 DPO 风格训练中的精确与密集奖励。",
+    status: "进行中",
+    tags: ["强化学习", "LLM", "推理", "ARC", "可信性"],
+  },
+  pennos: {
+    title: "PennOS",
+    subtitle: "操作系统构建",
+    primaryCategory: "数据系统与基础设施",
+    coverLabel: "操作系统",
+    miniDescription: "用 C 构建带有 shell、调度和系统编程组件的类操作系统环境。",
+    status: "已完成",
+    tags: ["操作系统", "C", "Shell", "调度", "系统"],
+  },
+  penncloud: {
+    title: "PennCloud",
+    subtitle: "分布式云平台",
+    primaryCategory: "数据系统与基础设施",
+    coverLabel: "云平台",
+    miniDescription: "围绕无状态前端、复制式键值存储和服务架构集成构建分布式云平台。",
+    status: "进行中",
+    tags: ["分布式系统", "云", "键值存储", "后端", "基础设施"],
+  },
+};
+
+window.projectCatalog.categories = window.projectCatalog.categories.map((category) => ({
+  ...category,
+  titleZh: categoryTranslationsZh[category.id]?.title || category.title,
+  descriptionZh: categoryTranslationsZh[category.id]?.description || category.description,
+}));
+
+window.projectCatalog.projects = window.projectCatalog.projects.map((project) => {
+  const translation = projectTranslationsZh[project.slug] || {};
+  return {
+    ...project,
+    titleZh: translation.title || project.title,
+    subtitleZh: translation.subtitle || project.subtitle,
+    primaryCategoryZh: translation.primaryCategory || project.primaryCategory,
+    coverLabelZh: translation.coverLabel || project.coverLabel,
+    miniDescriptionZh: translation.miniDescription || project.miniDescription,
+    statusZh: translation.status || project.status,
+    tagsZh: translation.tags || project.tags,
+  };
+});

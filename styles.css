@@ -81,6 +81,12 @@ main {
   align-items: center;
 }
 
+.site-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -131,6 +137,36 @@ main {
   border-color: rgba(124, 247, 193, 0.26);
 }
 
+.locale-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(154, 207, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-soft);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.locale-toggle:hover,
+.locale-toggle:focus-visible {
+  color: var(--text);
+  border-color: rgba(124, 247, 193, 0.34);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.locale-toggle-option.is-active {
+  color: var(--text);
+}
+
+.locale-toggle-divider {
+  color: var(--text-muted);
+}
+
 main {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
@@ -139,6 +175,13 @@ main {
 
 .view-stage {
   min-height: calc(100vh - 7rem);
+}
+
+.detail-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .view-panel {
