@@ -141,7 +141,7 @@ const siteData = {
     {
       title: "Teaching Assistant",
       org: "UPenn CIS 2450 Big Data Analytics",
-      period: "University of Pennsylvania",
+      period: "Jan 2026 - May 2026",
       body:
         "This course is centered on a systems view of analytics: how to turn large, messy data into usable knowledge when a single machine is no longer enough. My teaching work fits naturally with how I approach research. I help students connect data wrangling, scalable programming models, distributed computation, and statistical machine learning rather than treating them as separate topics. What I value most in the course is that it frames analytics as an end-to-end workflow, where data engineering, parallel execution, and model design all have to work together for filtering, graph analysis, clustering, classification, and other common large-scale tasks to be genuinely useful.",
     },
@@ -208,7 +208,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-84";
+const assetVersion = "20260406-home-tabs-85";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
