@@ -201,72 +201,87 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-69";
+const assetVersion = "20260406-home-tabs-70";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
     src: "./assets/project-covers-real/minimum-wage-coins-illustration.png",
     position: "center 56%",
+    textTone: "light",
   },
   "nutrition-label-diet-choices": {
     src: "./assets/project-covers-real/nutrition-label-header-banner.jpg",
     position: "center 42%",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.04), rgba(4, 13, 24, 0.14))",
+    textTone: "dark",
   },
   "email-funding-conversion-experiment": {
     src: "./assets/project-covers-real/email-funding-conversion-experiment.jpg",
     position: "center center",
+    textTone: "light",
   },
   "bgm-focused-task-performance": {
     src: "./assets/project-covers-real/bgm-focused-task-performance.jpg",
     position: "center center",
+    textTone: "light",
   },
   "natural-gas-consumption-forecasting": {
     src: "./assets/project-covers-real/natural-gas-consumption-forecasting.jpg",
     position: "center center",
+    textTone: "light",
   },
   "bayesian-statistical-modeling": {
     src: "./assets/project-covers-real/bayesian-statistical-modeling.jpg",
     position: "center center",
+    textTone: "light",
   },
   "champaign-rental-price-forecasting": {
     src: "./assets/project-covers-real/champaign-rental-price-forecasting.jpg",
     position: "center center",
+    textTone: "light",
   },
   "amazon-food-review-sentiment-analysis": {
     src: "./assets/project-covers-real/amazon-food-review-sentiment-analysis.jpg",
     position: "center center",
+    textTone: "dark",
   },
   "trm-mechanistic-interpretability": {
     src: "./assets/project-covers-real/trm-transformer-illustration.png",
     position: "center center",
+    textTone: "light",
   },
   "llm-powered-churn-analysis-system": {
     src: "./assets/project-covers-real/llm-powered-churn-rag-pipeline.webp",
     position: "center 54%",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.16))",
+    textTone: "dark",
   },
   "tool-using-language-models": {
     src: "./assets/project-covers-real/tool-using-language-models-agent-workflow.webp",
     position: "center center",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.16))",
+    textTone: "dark",
   },
   "trustworthy-rl-llm-reasoning": {
     src: "./assets/project-covers-real/trustworthy-rl-llm-reasoning.svg",
     position: "center center",
+    textTone: "light",
   },
   pennos: {
     src: "./assets/project-covers-real/pennos-abstraction-layers.svg",
     position: "center center",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.02), rgba(4, 13, 24, 0.10))",
+    textTone: "dark",
   },
   penncloud: {
     src: "./assets/project-covers-real/penncloud.jpg",
     position: "center center",
+    textTone: "light",
   },
   "conversion-rate-modeling-optimization": {
     src: "./assets/project-covers-real/conversion-rate-modeling-optimization.jpg",
     position: "center center",
+    textTone: "light",
   },
 };
 
@@ -390,9 +405,13 @@ if (projectCategories) {
                 const coverOverlay =
                   coverAsset?.overlay ||
                   "linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48))";
+                const coverToneClass =
+                  coverAsset?.textTone === "dark"
+                    ? "project-cover--dark-text"
+                    : "project-cover--light-text";
                 return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
-                    <div class="project-cover">
+                    <div class="project-cover ${coverToneClass}">
                       <div
                         class="project-cover-image"
                         style="background-image: url('${coverImage}'); background-position: ${coverPosition};"
