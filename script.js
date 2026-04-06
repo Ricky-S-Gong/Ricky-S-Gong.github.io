@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-78";
+const assetVersion = "20260406-home-tabs-79";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -455,8 +455,8 @@ document.querySelectorAll("[data-category-target]").forEach((button) => {
   });
 });
 
-const renderStackItem = (item) => `
-  <article class="stack-item">
+const renderResearchCard = (item) => `
+  <article class="glass panel research-card">
     <div class="stack-item-header">
       <h3>${item.title}</h3>
       <span class="stack-item-meta">${item.period}</span>
@@ -466,8 +466,7 @@ const renderStackItem = (item) => `
   </article>
 `;
 
-renderList(siteData.research, renderStackItem, "research-list");
-renderList(siteData.teaching, renderStackItem, "teaching-list");
+renderList([...siteData.research, ...siteData.teaching], renderResearchCard, "research-cards");
 
 renderList(
   siteData.experience,

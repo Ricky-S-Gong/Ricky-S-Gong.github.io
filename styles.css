@@ -920,10 +920,31 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.research-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
 .stack-list,
 .timeline {
   display: grid;
   gap: 1rem;
+}
+
+.research-card {
+  display: grid;
+  gap: 0.95rem;
+  align-content: start;
+}
+
+.research-card .stack-item-meta {
+  margin-top: 0;
+}
+
+.research-card p:last-child {
+  margin-bottom: 0;
 }
 
 .stack-item {
@@ -1006,6 +1027,7 @@ h3 {
   .home-hero,
   .section-heading,
   .split-grid,
+  .research-card-grid,
   .contact-section,
   .capability-grid,
   .project-grid {
