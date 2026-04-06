@@ -298,7 +298,7 @@ const siteChrome = {
     contactTag: "Contact",
     contactHeading: "Let’s talk about data, coffee chats, and potential opportunities.",
     contactCopy:
-      "If you'd like to connect, you can schedule a conversation, request my resume privately, or reach out through the same channels listed on the homepage.",
+      "If you'd like to connect, you can schedule a conversation, request my resume privately, or reach out by email or social media.",
     documentTitle: "Ricky Gong | Data Portfolio",
     metaDescription: "Portfolio site for Ricky Gong featuring data projects, research, and teaching.",
   },
@@ -314,13 +314,13 @@ const siteChrome = {
     contactTag: "联系",
     contactHeading: "欢迎交流数据、coffee chat 和潜在合作机会。",
     contactCopy:
-      "如果你希望联系我，可以直接预约交流、私下请求简历，或通过与首页相同的几个入口和我取得联系。",
+      "如果你希望联系我，可以直接预约交流、私下索取简历，或者通过邮件和社交媒体进一步联系我。",
     documentTitle: "宫商羽 | 数据作品集",
     metaDescription: "宫商羽的个人作品集网站，包含项目、研究与教学内容。",
   },
 };
 
-const assetVersion = "20260406-home-tabs-93";
+const assetVersion = "20260406-home-tabs-94";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
