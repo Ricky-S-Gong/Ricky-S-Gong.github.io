@@ -187,12 +187,12 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-56";
+const assetVersion = "20260406-home-tabs-57";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
-    src: "./assets/project-covers-real/minimum-wage-unemployment.jpg",
-    position: "center 42%",
+    src: "./assets/project-covers-real/minimum-wage-coins-illustration.png",
+    position: "center 56%",
   },
   "nutrition-label-diet-choices": {
     src: "./assets/project-covers-real/nutrition-label-centered.png",
@@ -223,7 +223,7 @@ const realProjectCovers = {
     position: "center center",
   },
   "trm-mechanistic-interpretability": {
-    src: "./assets/project-covers-real/trm-mechanistic-interpretability-circuits.svg",
+    src: "./assets/project-covers-real/trm-transformer-illustration.png",
     position: "center center",
   },
   "llm-powered-churn-analysis-system": {
@@ -231,8 +231,8 @@ const realProjectCovers = {
     position: "center center",
   },
   "tool-using-language-models": {
-    src: "./assets/project-covers-real/tool-using-language-models-agents.svg",
-    position: "center center",
+    src: "./assets/project-covers-real/tool-using-language-models-illustration.png",
+    position: "center 44%",
   },
   "trustworthy-rl-llm-reasoning": {
     src: "./assets/project-covers-real/trustworthy-rl-llm-reasoning.svg",
