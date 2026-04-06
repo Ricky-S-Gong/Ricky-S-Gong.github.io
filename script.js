@@ -187,7 +187,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-58";
+const assetVersion = "20260406-home-tabs-59";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -195,8 +195,9 @@ const realProjectCovers = {
     position: "center 56%",
   },
   "nutrition-label-diet-choices": {
-    src: "./assets/project-covers-real/nutrition-label-centered.png",
-    position: "center 18%",
+    src: "./assets/project-covers-real/nutrition-label-banner.jpg",
+    position: "center center",
+    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.04), rgba(4, 13, 24, 0.14))",
   },
   "email-funding-conversion-experiment": {
     src: "./assets/project-covers-real/email-funding-conversion-experiment.jpg",
@@ -369,12 +370,15 @@ if (projectCategories) {
                   ? `${coverAsset.src}?v=${assetVersion}`
                   : `./assets/project-covers/${project.slug}.svg?v=${assetVersion}`;
                 const coverPosition = coverAsset?.position || "center center";
+                const coverOverlay =
+                  coverAsset?.overlay ||
+                  "linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48))";
                 return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
                     <div
                       class="project-cover"
                       style="background-image:
-                        linear-gradient(180deg, rgba(4, 13, 24, 0.12), rgba(4, 13, 24, 0.48)),
+                        ${coverOverlay},
                         url('${coverImage}');
                         background-position: ${coverPosition};"
                     >
