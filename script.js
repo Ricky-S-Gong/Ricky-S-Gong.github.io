@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-71";
+const assetVersion = "20260406-home-tabs-72";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -268,9 +268,9 @@ const realProjectCovers = {
     textTone: "light",
   },
   pennos: {
-    src: "./assets/project-covers-real/pennos-abstraction-layers.svg",
+    src: "./assets/project-covers-real/pennos-monolithic-kernel.svg",
     position: "center center",
-    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.02), rgba(4, 13, 24, 0.10))",
+    overlay: "linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.08))",
     textTone: "dark",
   },
   penncloud: {
