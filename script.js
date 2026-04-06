@@ -102,34 +102,48 @@ const siteData = {
   ],
   research: [
     {
-      title: "Research Assistant",
-      org: "University Lab / Faculty Collaboration",
-      period: "Example entry",
+      title: "Minimum Wage Shocks on Unemployment",
+      org: "Independent Research under Prof. EunYi Chung, Department of Economics, UIUC",
+      period: "Jan 2025 - May 2025",
       body:
-        "Describe the domain, your methods, and the concrete contribution: literature review, data collection, econometric modeling, survey analysis, NLP pipeline, or experimental design.",
+        "I built a county-month unemployment panel for California and New York from BLS data to study California's 2021 minimum wage increase as a quasi-experiment. The project pushed me to treat causal inference as a design problem rather than a regression exercise: I estimated the ATT with DiD under TWFE, checked parallel trends with state-specific polynomial pre-trend regressions, ran placebo dates and alternative-outcome tests, and used triple interactions to probe county-level heterogeneity. What stayed with me most was how much credibility comes from doing the unglamorous work around identification, robustness, and interpretation.",
     },
     {
-      title: "Independent Research Project",
-      org: "Graduate or undergraduate thesis",
-      period: "Example entry",
+      title: "AI Content Detection and Diffusion on Social Media",
+      org: "Research Assistant for Prof. Lena Song, Department of Economics, UIUC",
+      period: "Jun 2024 - Nov 2024",
       body:
-        "Summarize the question, dataset, approach, and what the result taught you about rigorous inference or domain-specific decision-making.",
+        "For this project, I worked on the measurement side of a fast-moving research question: how much AI-generated content was actually diffusing through Reddit communities after the launches of ChatGPT and GPT-4. I helped build a 111 GB Reddit panel from much larger Academic Torrents archives, designed stratified subreddit-month sampling, and implemented a GPTZero-based detection pipeline over more than 62,000 posts. Beyond the event-study analysis itself, I also ran controlled placement experiments to understand when the detector systematically understated mixed AI-human content, and supported related annotation and field-experiment work with reproducible reporting for the PI.",
+    },
+    {
+      title: "US Inflation Forecasting in a Data-Rich Environment",
+      org: "Economics Data Lab under Prof. Daniela Fontes and Prof. Marcelo Medeiros, UIUC",
+      period: "Jan 2024 - May 2024",
+      body:
+        "This project sat at the intersection of macroeconomics, forecasting, and high-dimensional modeling. Following the data-rich forecasting literature, I built a FRED pipeline with TCODE transformations across 89 macroeconomic series and compared benchmark models such as Random Walk, ARIMA, and UCSV against shrinkage estimators including Ridge, LASSO, and Elastic Net. The work taught me to think carefully about what different models assume about persistence, sparsity, and multicollinearity, and why forecasting performance often depends as much on disciplined data preparation as on model choice.",
+    },
+    {
+      title: "Gender Ratio Effects on Female Labor Force Participation",
+      org: "Independent Research under Prof. Joshua Shea, Department of Economics, UIUC",
+      period: "Jan 2024 - May 2024",
+      body:
+        "I constructed a cross-country panel for the United States, Germany, Australia, and Canada to study whether gender imbalance affects female labor force participation. The empirical strategy used sex ratio at birth lagged 20-30 years as an instrument for adult gender ratio, with country and year fixed effects and cluster-robust inference. Working through that project deepened my intuition for identification in applied microeconomics: the interesting part was not only estimating 2SLS, but thinking through why the instrument could plausibly move current matching conditions without being driven by contemporaneous labor-market shocks.",
+    },
+    {
+      title: "Nutrition Label Education and Consumer Diet Choices",
+      org: "SURF Fellow under Prof. Shuyang Si, Department of Economics, XJTLU",
+      period: "Jun 2022 - Aug 2022",
+      body:
+        "I designed and analyzed a randomized survey experiment on whether nutrition-label education changes consumers' willingness to pay for healthier products. The project combined survey design, treatment construction, baseline-balance checks, and a difference-in-differences specification with demographic controls to evaluate both revealed willingness to pay and nutrition knowledge acquisition. It was an early research experience that made experimental design feel concrete to me: a good intervention study depends just as much on careful measurement and control design as on the final regression table.",
     },
   ],
   teaching: [
     {
       title: "Teaching Assistant",
-      org: "Course / Department",
-      period: "Example entry",
+      org: "UPenn CIS 2450 Big Data Analytics",
+      period: "University of Pennsylvania",
       body:
-        "Include what you taught, how you explained quantitative ideas, how you supported students, and any process you improved for the course.",
-    },
-    {
-      title: "Workshop or Mentoring",
-      org: "Lab / student organization / tutoring",
-      period: "Example entry",
-      body:
-        "Highlight communication, curriculum design, office hours, code review, or coaching that shows you can make technical work understandable.",
+        "This course is centered on a systems view of analytics: how to turn large, messy data into usable knowledge when a single machine is no longer enough. My teaching work fits naturally with how I approach research. I help students connect data wrangling, scalable programming models, distributed computation, and statistical machine learning rather than treating them as separate topics. What I value most in the course is that it frames analytics as an end-to-end workflow, where data engineering, parallel execution, and model design all have to work together for filtering, graph analysis, clustering, classification, and other common large-scale tasks to be genuinely useful.",
     },
   ],
   experience: [
@@ -187,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-64";
+const assetVersion = "20260406-home-tabs-65";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
