@@ -187,16 +187,16 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-55";
+const assetVersion = "20260406-home-tabs-56";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
-    src: "./assets/project-covers-real/minimum-wage-employment-trends.svg",
-    position: "center center",
+    src: "./assets/project-covers-real/minimum-wage-unemployment.jpg",
+    position: "center 42%",
   },
   "nutrition-label-diet-choices": {
-    src: "./assets/project-covers-real/nutrition-label-centered.svg",
-    position: "center center",
+    src: "./assets/project-covers-real/nutrition-label-centered.png",
+    position: "center 18%",
   },
   "email-funding-conversion-experiment": {
     src: "./assets/project-covers-real/email-funding-conversion-experiment.jpg",
@@ -240,7 +240,7 @@ const realProjectCovers = {
   },
   pennos: {
     src: "./assets/project-covers-real/pennos-system-architecture.svg",
-    position: "center center",
+    position: "center 46%",
   },
   penncloud: {
     src: "./assets/project-covers-real/penncloud.jpg",

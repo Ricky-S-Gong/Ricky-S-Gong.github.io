@@ -1,29 +1,41 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="120" y1="120" x2="1460" y2="780" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#091626"/>
-      <stop offset="1" stop-color="#122842"/>
-    </linearGradient>
-  </defs>
-  <rect width="1600" height="900" rx="48" fill="url(#bg)"/>
-  <g opacity="0.95">
-    <rect x="270" y="210" width="1060" height="500" rx="36" fill="#101F31" stroke="#45678E" stroke-width="5"/>
-    <path d="M360 620H1240" stroke="#5E7FA5" stroke-width="5" stroke-linecap="round"/>
-    <path d="M360 620V300" stroke="#5E7FA5" stroke-width="5" stroke-linecap="round"/>
-    <path d="M360 405H1240" stroke="#29435F" stroke-width="3" stroke-dasharray="10 12"/>
-    <path d="M360 510H1240" stroke="#29435F" stroke-width="3" stroke-dasharray="10 12"/>
-    <path d="M780 620V280" stroke="#79EBDD" stroke-width="6" stroke-dasharray="14 12"/>
-    <path d="M420 560C500 520 560 480 650 470C730 460 760 430 780 405C815 360 870 340 950 360C1040 384 1110 335 1190 320" stroke="#7CEADD" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M420 585C520 560 610 565 700 545C760 532 790 505 820 470C870 415 940 425 1015 455C1090 485 1140 472 1200 448" stroke="#76B8FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-    <g fill="#E7F0FA">
-      <circle cx="420" cy="560" r="12"/>
-      <circle cx="780" cy="405" r="12"/>
-      <circle cx="1200" cy="448" r="12" fill="#76B8FF"/>
-    </g>
-  </g>
-  <g>
-    <circle cx="800" cy="180" r="78" fill="#16314A" stroke="#7CEADD" stroke-width="6"/>
-    <path d="M776 148C776 134 788 122 804 122C821 122 833 133 833 148C833 162 826 170 807 178C790 185 782 191 782 206C782 222 795 235 814 235C831 235 842 228 849 215" stroke="#EAF9F5" stroke-width="12" stroke-linecap="round"/>
-    <path d="M804 104V252" stroke="#EAF9F5" stroke-width="10" stroke-linecap="round"/>
-  </g>
-</svg>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Wikimedia Error</title>
+<style>
+* { margin: 0; padding: 0; }
+body { background: #fff; font: 15px/1.6 sans-serif; color: #333; }
+.content { margin: 7% auto 0; padding: 2em 1em 1em; max-width: 640px; display: flex; flex-direction: row; flex-wrap: wrap; }
+.footer { clear: both; margin-top: 14%; border-top: 1px solid #e5e5e5; background: #f9f9f9; padding: 2em 0; font-size: 0.8em; text-align: center; }
+img { margin: 0 2em 2em 0; }
+a img { border: 0; }
+h1 { margin-top: 1em; font-size: 1.2em; }
+.content-text { flex: 1; }
+p { margin: 0.7em 0 1em 0; }
+a { color: #0645ad; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: sans-serif; }
+summary { font-weight: bold; cursor: pointer; }
+details[open] { background: #970302; color: #dfdedd; }
+.text-muted { color: #777; }
+@media (prefers-color-scheme: dark) {
+  a { color: #9e9eff; }
+  body { background: transparent; color: #ddd; }
+  .footer { border-top: 1px solid #444; background: #060606; }
+  #logo { filter: invert(1) hue-rotate(180deg); }
+  .text-muted { color: #888; }
+}
+</style>
+<meta name="color-scheme" content="light dark">
+<div class="content" role="main">
+<a href="https://www.wikimedia.org"><img id="logo" src="https://www.wikimedia.org/static/images/wmf-logo.png" srcset="https://www.wikimedia.org/static/images/wmf-logo-2x.png 2x" alt="Wikimedia" width="135" height="101">
+</a>
+<div class="content-text">
+<h1>Error</h1>
+
+<p>Please set a proper user-agent and respect our robot policy https://w.wiki/4wJS. See also https://phabricator.wikimedia.org/T400119</p>
+</div>
+</div>
+<div class="footer"><p>If you report this error to the Wikimedia System Administrators, please include the details below.</p><p class="text-muted"><code>Request served via cp1106 cp1106, Varnish XID 178819980<br>Upstream caches: cp1106 int<br>Error: 429, Please set a proper user-agent and respect our robot policy https://w.wiki/4wJS. See also https://phabricator.wikimedia.org/T400119 at Mon, 06 Apr 2026 05:03:34 GMT<br><details><summary>Sensitive client information</summary>IP address: 2601:47:4486:34f0:3541:c2d6:f6ef:ef96</details></code></p>
+</div>
+</html>

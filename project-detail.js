@@ -35,8 +35,8 @@ const orderedSectionKeys = [
 ];
 
 const standardizedSectionGroups = [
-  { title: "Background / Motivation", keys: ["problemDefinition"] },
-  { title: "Problem Formulation", keys: ["whyItMatters"] },
+  { title: "Background / Motivation", keys: ["problemDefinition", "whyItMatters"] },
+  { title: "Problem Formulation", keys: ["problemDefinition"] },
   { title: "Data & Setup", keys: ["dataAndSetup"] },
   { title: "Methodology", keys: ["methodDesign", "modelPath", "mathematicalCore", "systemPipeline"] },
   { title: "Results", keys: ["evaluation"] },
@@ -44,159 +44,11 @@ const standardizedSectionGroups = [
   { title: "Limitations & Future Work", keys: ["limitations", "nextSteps"] },
 ];
 
-const standardizedSectionOrder = standardizedSectionGroups.map((group) => group.title);
-
-const headingToSection = {
-  "Background / Motivation": "Background / Motivation",
-  "Problem Formulation": "Problem Formulation",
-  "Data & Setup": "Data & Setup",
-  Methodology: "Methodology",
-  Results: "Results",
-  "Insights / Takeaways": "Insights / Takeaways",
-  "Limitations & Future Work": "Limitations & Future Work",
-  "Research setup": "Data & Setup",
-  "Identification strategy": "Methodology",
-  "Robustness and interpretation": "Results",
-  "How I thought about the problem": "Problem Formulation",
-  "Experiment structure": "Data & Setup",
-  "Metrics and decision logic": "Methodology",
-  "What the analysis changed": "Results",
-  "Experimental design": "Data & Setup",
-  "Modeling and takeaway": "Methodology",
-  "Data and model comparison": "Data & Setup",
-  "What I took from it": "Insights / Takeaways",
-  "Core idea": "Problem Formulation",
-  "Why proposal design matters": "Methodology",
-  "Data engineering and setup": "Data & Setup",
-  "What I compared": "Methodology",
-  "Data and business framing": "Problem Formulation",
-  "Modeling path": "Methodology",
-  "From prediction to action": "Insights / Takeaways",
-  "Technical path": "Methodology",
-  "System design": "Methodology",
-  "Why the final version is stronger": "Results",
-  "What I am comparing": "Problem Formulation",
-  "Planned approach": "Methodology",
-  "System scope": "Methodology",
-  "Why I keep it in the portfolio": "Insights / Takeaways",
-  "Architecture and responsibility": "Methodology",
-  "Why I am showing an in-progress system": "Insights / Takeaways",
-};
-
 const buildNarrativeFromSections = (projectData = {}) => {
   const detailSections = projectData.detailSections || {};
-  const summaryText = projectData.detailSummary || "";
-
   return standardizedSectionGroups
     .map(({ title, keys }) => {
-      const content = keys
-        .map((key) => detailSections[key] || "")
-        .filter(Boolean)
-        .join("");
-      const finalContent = content || getFallbackSectionHtml(projectData, title, summaryText);
-      if (!finalContent) return "";
-      return `<h2>${title}</h2>${finalContent}`;
-    })
-    .filter(Boolean)
-    .join("");
-};
-
-const getFallbackSectionHtml = (projectData = {}, title, summaryText = "") => {
-  const category = projectData.primaryCategory || "";
-  const status = projectData.status || "";
-  const isInProgress = status === "In Progress";
-  const titleText = projectData.title || "This project";
-  const summary = summaryText || "The project focuses on a concrete technical problem with a practical decision angle.";
-
-  if (title === "Background / Motivation") {
-    return `<p>${summary}</p>`;
-  }
-
-  if (title === "Problem Formulation") {
-    if (category === "Causal Inference & Experimentation") {
-      return `<p>I framed ${titleText} as an effect-estimation problem: identify whether the intervention or treatment changes a decision-relevant outcome relative to a credible baseline, and evaluate the answer with specification checks rather than raw before-and-after comparisons alone.</p>`;
-    }
-    if (category === "Time Series & Statistical Modelling") {
-      return `<p>I treated ${titleText} as a structured modeling problem in which the inputs are temporal or probabilistic signals and the output is either a forecast, posterior sample, or interpretable estimate. The evaluation focus is therefore out-of-sample stability, model fit, or convergence behavior rather than surface-level complexity.</p>`;
-    }
-    if (category === "Machine Learning & Deep Learning") {
-      return `<p>I structured ${titleText} as a predictive modeling task with clearly defined inputs, a target outcome, and evaluation metrics tied to practical use. The goal was not just to maximize one score, but to understand which operating point would be most useful once the model is used for real decisions.</p>`;
-    }
-    if (category === "NLP & Large Language Model") {
-      return `<p>I treated ${titleText} as a language-system problem with explicit inputs, outputs, and evaluation criteria. Depending on the project, that meant comparing reasoning traces, tool-use quality, retrieval quality, or structured-output reliability rather than relying on a single generic benchmark.</p>`;
-    }
-    if (category === "Data Systems & Infrastructure") {
-      return `<p>I approached ${titleText} as a systems-design task: define the interface, state transitions, and failure cases clearly enough that the build can be tested as an engineering system rather than just described as an idea. Evaluation is therefore tied to correctness, integration, and architectural consistency.</p>`;
-    }
-  }
-
-  if (title === "Data & Setup") {
-    if (category === "Data Systems & Infrastructure") {
-      return `<p>The setup for ${titleText} is primarily architectural rather than dataset-driven. The relevant inputs are the system components, interfaces, state model, and integration path, along with the test scenarios needed to check whether the system behaves correctly under expected operating conditions.</p>`;
-    }
-    if (category === "NLP & Large Language Model" && isInProgress) {
-      return `<p>The current setup uses the benchmark, prompt design, model choice, and evaluation protocol as the experimental substrate. Because the project is still in progress, the most important setup choice is keeping comparisons controlled enough that later improvements can be attributed to training or system design rather than shifting conditions.</p>`;
-    }
-    return `<p>The data and setup for ${titleText} are chosen to mirror the actual problem setting closely enough that the results mean something beyond a toy example. That includes the data source, preprocessing choices, and experimental split or evaluation design that make later comparisons interpretable.</p>`;
-  }
-
-  if (title === "Methodology") {
-    return `<p>The methodology for ${titleText} is built around matching model or system design to the actual structure of the problem. I focused on choices that improve interpretability, reliability, or decision usefulness instead of adding complexity for its own sake.</p>`;
-  }
-
-  if (title === "Results") {
-    if (isInProgress) {
-      return `<p>This project is still underway, so the most useful result at the moment is the experimental direction itself: the current setup has narrowed the design space, exposed the key failure modes, and clarified which comparisons or ablations matter most for the next iteration.</p>`;
-    }
-    return `<p>The results from ${titleText} matter less as isolated metrics than as evidence about which modeling or system choices actually held up. The strongest outcome is the one that survives comparison against simpler baselines and still produces a recommendation somebody could reasonably act on.</p>`;
-  }
-
-  if (title === "Insights / Takeaways") {
-    return `<p>The main takeaway from ${titleText} is that useful technical work depends on aligning the method with the real decision context. The project reinforced for me that a cleaner design, a better metric, or a better-structured pipeline is often more valuable than a superficially more sophisticated model.</p>`;
-  }
-
-  if (title === "Limitations & Future Work") {
-    if (isInProgress) {
-      return `<p>The main limitation right now is that ${titleText} is still evolving, so the design choices, evaluation protocol, and edge cases are not yet final. The next step is to keep tightening the setup until the comparison is stable enough that the conclusions will hold beyond a single run.</p>`;
-    }
-    return `<p>The main limitations of ${titleText} come from the scope of the data, the assumptions built into the modeling setup, and the fact that performance in one setting does not automatically generalize to another. A natural next step would be to broaden the data, stress-test the assumptions, and push the current design into a more realistic deployment or validation setting.</p>`;
-  }
-
-  return "";
-};
-
-const standardizeNarrativeBody = (projectData = {}, narrative = {}) => {
-  const rawBody = narrative.body || "";
-  if (!rawBody) return "";
-
-  const sections = {};
-  standardizedSectionOrder.forEach((title) => {
-    sections[title] = [];
-  });
-
-  const firstHeadingMatch = rawBody.match(/<h2>.*?<\/h2>/);
-  const introHtml = firstHeadingMatch ? rawBody.slice(0, firstHeadingMatch.index).trim() : rawBody.trim();
-  if (introHtml) {
-    sections["Background / Motivation"].push(introHtml);
-  }
-
-  const headingRegex = /<h2>(.*?)<\/h2>([\s\S]*?)(?=<h2>|$)/g;
-  let match;
-  while ((match = headingRegex.exec(rawBody))) {
-    const originalTitle = match[1].trim();
-    const mappedTitle = headingToSection[originalTitle] || originalTitle;
-    const content = match[2].trim();
-    if (!content) continue;
-    if (!sections[mappedTitle]) sections[mappedTitle] = [];
-    sections[mappedTitle].push(content);
-  }
-
-  return standardizedSectionOrder
-    .map((title) => {
-      let content = sections[title].join("");
-      if (!content) {
-        content = getFallbackSectionHtml(projectData, title, narrative.summary);
-      }
+      const content = keys.map((key) => detailSections[key] || "").filter(Boolean).join("");
       return content ? `<h2>${title}</h2>${content}` : "";
     })
     .filter(Boolean)
@@ -206,233 +58,347 @@ const standardizeNarrativeBody = (projectData = {}, narrative = {}) => {
 const detailNarratives = {
   "minimum-wage-unemployment": {
     summary:
-      "This project studies California's 2021 minimum wage increase as a real policy shock and asks how much county-level unemployment moved relative to a control state once persistence and common macro shocks are taken seriously.",
-    body: `
-      <p>I worked on this project under the guidance of <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>. The practical question was simple: when California raised the minimum wage in January 2021, did local unemployment move in a measurable way during the recovery period that followed the initial COVID shock? Rather than treating this as a before-and-after comparison, I framed it as a causal identification problem and used New York counties as the comparison group.</p>
+      "A county-level labor economics study that treats California's 2021 minimum wage increase as a policy shock and estimates how much unemployment moved once persistence and common macro shocks are handled carefully.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>I worked on this project under the guidance of <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>. The policy question is straightforward but politically loaded: when California raised its minimum wage in January 2021, did local unemployment increase in a measurable way during the post-COVID recovery? I liked the project because it forced me to treat a heavily debated topic as an identification problem rather than a rhetorical one.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the project as a causal panel-data problem. The outcome is county-level unemployment observed monthly, California counties are treated, New York counties form the comparison group, and the estimand is the post-policy treatment effect for California relative to that control. The challenge is separating the wage-floor effect from persistent county differences, statewide labor-market structure, and common macro shocks.</p>
       <h2>Data & Setup</h2>
-      <p>The panel covers monthly county-level unemployment from January 2018 through January 2025. California is the treated state and New York is the comparison state. That time span matters because it includes the COVID labor-market collapse, the recovery period, and the policy implementation itself. In other words, this is exactly the kind of setting where a casual trend comparison would be misleading.</p>
-      <p>I started with descriptive summaries and fixed-effects intuition before moving to formal estimation. California counties have much higher average unemployment counts and substantially more dispersion than New York counties, so the design needed county fixed effects to absorb persistent local differences and time fixed effects to absorb economy-wide shocks. The empirical task was not just estimating one coefficient; it was deciding which specification was credible enough to support a policy conclusion.</p>
+      <p>The data comes from the Bureau of Labor Statistics and covers monthly county-level unemployment in California and New York from January 2018 through January 2025. The final panel contains 10,200 county-month observations. I used a county-by-month design because it lets the model absorb permanent county heterogeneity and common month-level shocks. The report also shows strong serial dependence in unemployment, which is why a lagged outcome term becomes important in the final specification.</p>
       <h2>Methodology</h2>
-      <p>I compared three layers of models: a baseline DID, a two-way fixed-effects specification, and then a dynamic version that adds lagged unemployment. That last step ended up being important because unemployment is persistent by construction. If the model ignores that persistence, it can overstate the policy effect by attributing serial dependence to treatment.</p>
-      <div class="math-block">\\[ \\log(Y_{it}) = \\beta_0 + \\beta_1 D_i^{\\mathrm{treat}} + \\beta_2 D_t^{\\mathrm{post}} + \\beta_3 (D_i^{\\mathrm{treat}} D_t^{\\mathrm{post}}) + \\rho \\log(Y_{i,t-1}) + \\gamma_i + \\delta_t + u_{it}. \\]</div>
-      <p>In this equation, \\(Y_{it}\\) is unemployment in county \\(i\\) during month \\(t\\); \\(D_i^{\\mathrm{treat}}\\) indicates treated California counties; \\(D_t^{\\mathrm{post}}\\) indicates post-policy months; and \\(D_i^{\\mathrm{treat}} D_t^{\\mathrm{post}}\\) is the treatment interaction whose coefficient \\(\\beta_3\\) is the policy effect of interest. The lag term \\(\\rho \\log(Y_{i,t-1})\\) captures persistence, \\(\\gamma_i\\) are county fixed effects, \\(\\delta_t\\) are month fixed effects, and \\(u_{it}\\) is the remaining error. The equation looks simple, but each term corresponds to a specific modeling choice about what we are willing to treat as part of the counterfactual.</p>
+      <p>The analysis moves from a simple DID intuition to a two-way fixed-effects model and then to a dynamic fixed-effects specification that adds persistence. The preferred regression is</p>
+      <div class="math-block">\[ \log(Y_{it})=\beta_0+\beta_1 D_i^{\mathrm{treat}}+\beta_2 D_t^{\mathrm{post}}+\beta_3\left(D_i^{\mathrm{treat}}D_t^{\mathrm{post}}\right)+\rho \log(Y_{i,t-1})+\gamma_i+\delta_t+u_{it}. \]</div>
+      <p>Here \(Y_{it}\) is unemployment in county \(i\) at month \(t\), \(D_i^{\mathrm{treat}}\) indicates California counties, \(D_t^{\mathrm{post}}\) indicates the post-policy period, and \(\beta_3\) is the treatment effect of interest. The lag term \(\rho \log(Y_{i,t-1})\) captures persistence, \(\gamma_i\) are county fixed effects, \(\delta_t\) are time fixed effects, and \(u_{it}\) is the residual. I also checked pre-trends and heterogeneity by baseline unemployment to probe whether the identifying assumptions were remotely credible.</p>
+      <h2>Results</h2>
+      <p>The naive DID and plain TWFE specifications both imply a much larger post-policy increase, but once lagged unemployment is added, the estimated effect falls to roughly 2.3% and remains statistically significant. That comparison is the most important result in the paper. The point is not that one can force any answer from the data; it is that a more disciplined treatment of persistence yields a smaller and more credible estimate.</p>
       <h2>Insights / Takeaways</h2>
-      <p>I also checked the identifying assumptions in more than one way. The paper tests pre-trends, explores heterogeneity by baseline unemployment level, and compares the treatment effect across specifications. The main practical lesson is that the bigger coefficient is not automatically the better answer. The naive DID and standard TWFE both suggested a larger post-policy increase, but once lagged unemployment was added, the estimate dropped to roughly 2.3% and stayed statistically significant.</p>
-      <p>That shift is exactly why I value this project. It shows how causal work becomes useful only when the specification is disciplined enough to survive obvious objections. For a business or policy audience, the takeaway is not “minimum wage always hurts employment”; it is that in this particular setting, after accounting for common shocks and persistence, the data still point to a moderate increase in unemployment. That is a much more defensible conclusion than a headline effect from an under-specified model.</p>
+      <p>The strongest lesson was about specification discipline. In labor-market panels, persistence can easily masquerade as treatment if the model is too thin. This project reinforced that a coefficient only becomes decision-relevant after the obvious counterarguments, serial dependence included, have been addressed directly.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The design still depends on the comparability of California and New York and works with aggregate county data rather than sector or worker-level outcomes. The post-COVID recovery period is also unusually noisy. The next step would be an event-study extension with richer labor-market controls and sector-level outcomes to see where the treatment signal is actually coming from.</p>
     `,
   },
   "nutrition-label-diet-choices": {
     summary:
-      "A behavioral-choice study on whether nutrition-label education changes how people make food decisions, approached as an intervention problem rather than a descriptive survey.",
-    body: `
-      <p>I completed this project under the guidance of <a href="https://www.shuyangsi.com/" target="_blank" rel="noreferrer">Prof. Shuyang Si</a>. The core question was whether nutrition-label education actually shifts healthy diet choices in a measurable way. I treated it as a decision problem about information design: if labels are supposed to improve choices, what evidence would make that claim credible?</p>
+      "A randomized behavioral-choice study on whether nutrition-label education changes willingness to pay for healthier foods, written as an intervention analysis instead of a descriptive survey.",
+    body: String.raw`
       <h2>Background / Motivation</h2>
-      <p>The motivation for the project was straightforward. Nutrition labels are everywhere, but their practical value depends on whether they actually change choices instead of merely increasing awareness. That gap between information availability and behavioral change is what made the topic interesting to me. I wanted to evaluate nutrition-label education as an intervention problem, not just as a descriptive survey about what participants say they believe.</p>
+      <p>I completed this project under the guidance of <a href="https://www.shuyangsi.com/" target="_blank" rel="noreferrer">Prof. Shuyang Si</a>. The project starts from a simple public-health question: nutrition labels are common, but do they actually change consumer decisions? I wanted to study the issue as an intervention problem because awareness alone is not useful unless it shifts behavior at the point of choice.</p>
       <h2>Problem Formulation</h2>
-      <p>I framed the task as an applied treatment-effect question. The goal was to estimate whether exposure to nutrition-label education changes downstream food-choice behavior after accounting for baseline differences in respondents. In that setup, the input is each participant's treatment status plus demographic and baseline-preference covariates, the output is a measurable post-intervention choice outcome, and the main quantity of interest is the treatment coefficient rather than a generic correlation.</p>
+      <p>I treated the study as a randomized intervention on consumer valuation. The core estimand is the effect of nutrition-label education on willingness to pay for healthier products relative to conventional alternatives. Inputs include treatment assignment and product-pair survey responses, and the output is a concrete behavioral measure rather than an attitude-only response.</p>
       <h2>Data & Setup</h2>
-      <p>The study uses respondent-level behavioral and survey data, including participant characteristics, prior eating patterns, and post-intervention decision outcomes. The design compares exposed and unexposed groups on concrete choice variables rather than on attitudes alone. The practical importance of that setup is that it keeps the evaluation tied to behavior at the point of decision, which is much closer to how a public-health team or consumer-information team would judge whether an educational intervention is worth scaling.</p>
+      <p>The study uses an RCT with \(n=115\) participants. Respondents were randomly assigned to a treatment or control group. The treatment group received nutrition-label education, while the control group received placebo-style information. Participants then evaluated several product pairs in which one option was nutritionally stronger than the other. The poster also reports baseline-comparison checks and does not find significant pre-treatment imbalance between groups.</p>
       <h2>Methodology</h2>
-      <p>The empirical strategy centers on a regression that isolates the incremental effect of education while controlling for baseline heterogeneity. I used that structure because the main risk in this kind of project is attributing pre-existing differences in preferences or demographics to the treatment itself.</p>
-      <div class="math-block">\\[ Y_i = \\alpha + \\tau \\cdot \\mathrm{Educated}_i + X_i'\\beta + \\varepsilon_i. \\]</div>
-      <p>Here \\(Y_i\\) is the downstream food-choice outcome for respondent \\(i\\), \\(\\alpha\\) is the intercept, \\(\\mathrm{Educated}_i\\) indicates whether the respondent received the nutrition-label intervention, \\(X_i\\) is the vector of observed controls, \\(\\beta\\) is the associated coefficient vector, and \\(\\varepsilon_i\\) is the residual term. The coefficient \\(\\tau\\) is the effect of interest: the estimated shift in behavior attributable to education once those controls are held fixed. I like this specification because it makes the question very explicit: the intervention matters only if it moves choices after we account for who the respondent already is.</p>
+      <p>The main behavioral outcome is modeled with a treatment-effect regression:</p>
+      <div class="math-block">\[ y_i = \beta_0 + \beta_1\,\mathrm{Treat}_i + \beta_2\,\mathrm{Price}_i + \varepsilon_i. \]</div>
+      <p>Here \(y_i\) is respondent \(i\)'s willingness to pay for the healthier product, \(\mathrm{Treat}_i\) indicates whether the respondent received nutrition-label education, \(\mathrm{Price}_i\) captures the price context of the product comparison, and \(\varepsilon_i\) is the residual. The coefficient \(\beta_1\) is the object of interest because it measures whether education shifts product valuation after accounting for price conditions.</p>
       <h2>Results</h2>
-      <p>The main result is not simply that participants reported labels to be useful. The stronger result is that the treatment analysis is structured around whether exposed respondents make different downstream choices in a statistically interpretable way. In other words, the project pushes past descriptive awareness and forces the analysis to focus on measurable behavioral movement, which is the more decision-relevant outcome.</p>
+      <p>The poster reports the clearest positive treatment effects for Product Pairs 2, 5, and 6. In those cases, educated participants became more willing to pay for the healthier option. The project also makes those wins interpretable by tying them to nutritional differences such as lower sodium, lower fat, and higher vitamin content rather than treating all product pairs as interchangeable.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The biggest takeaway for me was conceptual: information is only valuable if it changes decisions. That sounds obvious, but it is easy for education-oriented analysis to stop at attitudes or self-reported usefulness. This project reinforced a habit I now carry into product and business analytics as well: if a dashboard, message, or intervention does not change behavior at the decision point, then its value is still unproven.</p>
+      <p>The project reinforced a habit I care about in both research and product work: information only matters if it changes a real decision. Nutrition-label education is not valuable because participants say it sounds useful; it is valuable only if it changes how they trade off healthier and less healthy options in a concrete purchasing scenario.</p>
       <h2>Limitations & Future Work</h2>
-      <p>The main limitations come from what the current setup can and cannot observe. Behavioral outcomes are richer than attitude measures, but they still depend on the scope of the intervention design, the available controls, and the way the choice outcome is operationalized. A natural next step would be to extend the analysis with a larger sample, clearer longitudinal follow-up, or more granular outcome definitions so that the persistence and magnitude of the educational effect can be evaluated more convincingly.</p>
+      <p>The biggest limitations are sample size and external validity. With 115 respondents, the study is informative but still relatively small, and stated willingness to pay is not identical to observed purchase behavior. The natural follow-up would be a larger sample, stronger treatment design, and longer-run observation of whether the effect persists outside the survey setting.</p>
     `,
   },
   "email-funding-conversion-experiment": {
     summary:
-      "A growth experiment on whether targeted email campaigns can causally increase the probability that approved-but-unfunded fintech users complete their first deposit.",
-    body: `
-      <p>This project was built around a classic growth problem for a retail investing platform: many users finish account approval but never fund the account. The question was whether a better email strategy could move that last step in a measurable way.</p>
+      "A multi-arm growth experiment on whether targeted emails can causally increase first-deposit funding among approved-but-unfunded fintech users.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project was built around a specific growth bottleneck for a retail investing platform: many users completed account approval but never made the first deposit. That last step mattered because funded accounts drive downstream engagement and monetization. The real business question was not whether emails looked helpful, but whether they produced incremental funding beyond what high-intent users would have done anyway.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the task as a multi-arm causal experiment on a binary conversion outcome. The primary metric was funding rate, and the main estimand for each treatment arm was incremental lift over its matched control group. The objective was to determine which treatment combinations created true movement at the bottom of the funnel rather than just better top-of-funnel engagement.</p>
       <h2>Data & Setup</h2>
-      <p>The setup covered 480,000 approved-but-unfunded users over a five-week period. We tested 10 ML-generated templates across 12 behavioral segments and two delivery cadences, which created 24 treatment arms plus matched controls. That structure let the analysis answer three practical questions at once: which messages attract attention, which combinations drive clicks, and which treatments actually lead to funded accounts.</p>
+      <p>The experiment covered roughly 480,000 approved-but-unfunded users over five weeks. Users were partitioned into 12 behavioral segments built from account age, bank-link status, recent activity, and recent trading behavior. Those segments were crossed with two cadences, daily and twice-weekly, producing 24 treatment arms. Ten ML-generated templates were randomized across treated users. The analysis used user-level event data, email logs, treatment-order files, and segment-level control-rate tables.</p>
       <h2>Methodology</h2>
-      <p>I treated the funnel as layered rather than collapsing everything into one endpoint. Open rate measured message resonance, link rate captured deeper engagement, and funding rate served as the final business outcome. I also tracked unsubscribe and spam-report rates as guardrails, because a campaign that improves funding while degrading trust or deliverability is not a sustainable win.</p>
-      <div class="math-block">\\[ \\widehat{\\Delta}_g = \\hat{p}^{\\mathrm{treat}}_g - \\hat{p}^{\\mathrm{ctrl}}_g, \\qquad z_g = \\frac{\\widehat{\\Delta}_g}{\\sqrt{\\hat{p}_g(1-\\hat{p}_g)(1/n_t + 1/n_c)}}. \\]</div>
-      <p>The report uses one-sided proportions tests to compare each treatment arm against its control. In the formula, \\(\\widehat{\\Delta}_g\\) is the estimated lift for treatment group \\(g\\), \\(\\hat{p}^{\\mathrm{treat}}_g\\) and \\(\\hat{p}^{\\mathrm{ctrl}}_g\\) are the observed conversion rates in the treatment and control cohorts, \\(\\hat{p}_g\\) is the pooled conversion rate, and \\(n_t\\) and \\(n_c\\) are the treatment and control sample sizes. The resulting \\(z_g\\) statistic tests whether the observed lift is large enough to justify rollout. The executive summary also highlights aggregate business impact, estimating 500+ incremental funded users attributable to statistically significant groups. That translation from statistical lift to operational value is a big reason I like the project.</p>
+      <p>I treated the funnel as layered rather than collapsing everything into one outcome. Open rate measured resonance, link rate captured deeper engagement, and funding rate remained the final business objective. At the treatment-arm level, lift was defined as</p>
+      <div class="math-block">\[ \Delta_g = \hat p_{\mathrm{treat},g} - p_{\mathrm{control},g}. \]</div>
+      <p>For statistical testing, each arm was compared against its control with a one-sided proportions z-test:</p>
+      <div class="math-block">\[ z_g = \frac{\hat p_{\mathrm{treat},g}-p_{\mathrm{control},g}}{\sqrt{p_{\mathrm{control},g}(1-p_{\mathrm{control},g})/n_g}}. \]</div>
+      <p>Here \(\hat p_{\mathrm{treat},g}\) is the observed funding rate in treatment arm \(g\), \(p_{\mathrm{control},g}\) is the matched control funding rate, and \(n_g\) is the treatment-group sample size. I also tracked unsubscribe and spam-report rates as guardrails because a campaign that improves funding while hurting deliverability is not operationally viable.</p>
       <h2>Results</h2>
-      <p>The clearest pattern was cadence. Daily email delivery generally beat the twice-a-week schedule, and the <code>ml_funding_faq</code> template posted the highest open rate at roughly 31.5%, well above campaign average. More importantly, not every high-open treatment produced downstream funding lift, which is exactly why the layered funnel analysis mattered. The output is actionable because it tells a growth team what to send, to whom, and how often, rather than simply declaring the campaign “successful.”</p>
-      <p>I also like the project because it separates communication quality from business impact. A subject line can win opens and still fail to change conversion. That distinction is easy to miss if the analysis stops at top-of-funnel metrics. Here the value comes from carrying the experiment all the way to the funding decision and then translating lift into a rollout recommendation.</p>
+      <p>The best top-of-funnel performer was the <code>ml_funding_faq</code> template, which reached an open rate around 31.5%. More importantly, 7 of the 24 treatment arms showed statistically significant funding lift, and 6 of those 7 wins came from the daily-cadence condition. The project estimated that the significant arms together produced 500+ incremental funded users.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The useful lesson was that conversion experiments have to separate attention from actual business impact. A template can win opens without moving funded accounts, and a segment can have high baseline funding without being incrementally affected by email. FAQ-style content turned out to be especially effective, which suggests that friction and uncertainty were more important barriers than lack of interest.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The cadence comparison was weakened by incomplete maturation of some weekly arms near the end of the experiment window. The design also entangles segment, cadence, and content order. A better next step would isolate cadence and content testing more cleanly and then layer in send-time optimization or adaptive sequencing.</p>
     `,
   },
   "bgm-focused-task-performance": {
     summary:
-      "A controlled study on how music type and playback volume affect completion time on verbal and mathematical focus tasks.",
-    body: `
-      <p>I worked on this study with guidance from <a href="https://alexandrachron.wixsite.com/mysite" target="_blank" rel="noreferrer">Prof. Alexandra Chronopoulou</a>. The question was practical: does background music actually help people focus, or does it interfere with performance once task type and difficulty are taken into account?</p>
+      "A controlled mixed-effects study on how music type and playback volume affect completion time on verbal and mathematical focus tasks.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>I worked on this study under the guidance of <a href="https://alexandrachron.wixsite.com/mysite" target="_blank" rel="noreferrer">Prof. Alexandra Chronopoulou</a>. The motivating question was practical: does background music help focused work, or does it interfere once task type and difficulty are taken seriously? I liked the project because it turned a familiar everyday claim into a structured experimental-design problem.</p>
+      <h2>Problem Formulation</h2>
+      <p>The output variable is task completion time, so the problem is a performance-analysis task rather than a perception survey. The objective is to determine which experimental factors materially affect completion time and which combination of music type and volume minimizes it.</p>
       <h2>Data & Setup</h2>
-      <p>The design is more disciplined than the topic first suggests. Music type had two levels, volume had three levels nested within type, task type had verbal and math arms, and difficulty had easy and hard variants. Time interval and participant were introduced as blocking variables, which makes the project much more than a casual “music versus silence” comparison.</p>
-      <p>The outcome variable was completion time over 288 trial sessions. That matters because completion time gives a practical performance signal instead of relying on self-reported focus. In a workplace or study setting, the actual decision is not whether participants <em>feel</em> focused, but whether they complete work faster under a given environment.</p>
+      <p>The study uses a nested and blocked design with 288 total trial sessions. Music type has two levels, instrumental and lyrics. Volume is nested within music type with three levels: 0%, 50%, and 100%. Task type has verbal and math arms, difficulty has easy and hard variants, and time interval is treated as a random block. Each trial contains ten pre-generated tasks, and completion time is recorded in seconds.</p>
       <h2>Methodology</h2>
-      <div class="math-block">\\[ y_{ijklmn} = \\mu + \\alpha_i + \\beta_{j(i)} + \\gamma_k + \\delta_l + (\\alpha\\gamma)_{ik} + (\\beta\\gamma)_{j(i)k} + b_m + c_n + \\varepsilon_{ijklmn}. \\]</div>
-      <p>The analysis uses a linear mixed-effects framework to estimate the contribution of music type, volume, task type, difficulty, and their interactions while accounting for the blocked design. In the model, \\(y_{ijklmn}\\) is the completion time for a given trial, \\(\\mu\\) is the grand mean, \\(\\alpha_i\\) is the effect of music type, \\(\\beta_{j(i)}\\) is the nested volume effect within music type, \\(\\gamma_k\\) is task type, \\(\\delta_l\\) is difficulty, \\((\\alpha\\gamma)_{ik}\\) and \\((\\beta\\gamma)_{j(i)k}\\) are interaction terms, \\(b_m\\) is the block effect for time interval, \\(c_n\\) is the participant-level random effect, and \\(\\varepsilon_{ijklmn}\\) is the residual. The strongest result was not “music always helps.” It was narrower and more usable: instrumental music at 50% volume consistently produced the shortest completion times and outperformed silence as well as the lyric conditions.</p>
-      <p>The mixed-effects formulation matters because the design is nested and blocked rather than fully independent. Time interval and participant variation can otherwise leak into the treatment comparison. By modeling those sources explicitly, the recommendation becomes much more credible than a simple mean-difference table.</p>
-      <p>I like this project because it turns a familiar lifestyle question into a cleanly designed analysis with a recommendation you could actually implement. It also reflects a pattern I care about in applied work: even simple everyday decisions become much clearer when the design is structured correctly.</p>
+      <p>The report uses a linear mixed-effects model to respect both the nested treatment structure and the blocked design. The initial specification is</p>
+      <div class="math-block">\[ Y_{ijklmno} = \mu + \alpha_i + \beta_{j(i)} + \gamma_k + \delta_l + \phi_n + \tau_m + (\alpha\gamma)_{ik} + (\alpha\delta)_{il} + (\gamma\delta)_{kl} + (\alpha\gamma\delta)_{ikl} + \varepsilon_{ijklmno}. \]</div>
+      <p>Here \(Y_{ijklmno}\) is completion time, \(\mu\) is the grand mean, \(\alpha_i\) is music type, \(\beta_{j(i)}\) is volume nested within music type, \(\gamma_k\) is task type, \(\delta_l\) is difficulty, \(\phi_n\) is participant, \(\tau_m\) is the random time-block effect, and \(\varepsilon_{ijklmno}\) is the residual. After sequential testing, the final model retains the significant main effects and the task-type-by-difficulty interaction.</p>
+      <h2>Results</h2>
+      <p>The three-way interaction among music type, task type, and difficulty is not significant, nor are the music-type-by-task-type and music-type-by-difficulty interactions. The task-type-by-difficulty interaction is strongly significant, and the main effects remain highly significant. Tukey comparisons show that instrumental music at 50% volume yields the shortest completion times and significantly outperforms the other music settings.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The useful conclusion is not that music always helps. The result is narrower and more actionable: moderate-volume instrumental music appears beneficial, while lyrical music and other volume settings perform worse. The project also shows that language-heavy tasks are more vulnerable to difficulty-related slowdown than math tasks.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The study has a very small participant pool, manual timing introduces noise, and the project records speed but not accuracy. A stronger follow-up would expand the participant base, automate the audio-delivery and timing setup, and measure both completion time and error rate so any speed-accuracy tradeoff becomes visible.</p>
     `,
   },
   "natural-gas-consumption-forecasting": {
     summary:
-      "A forecasting project on U.S. natural gas consumption using time trend and external energy covariates to understand which signals genuinely improve out-of-sample prediction.",
-    body: `
-      <p>This project focuses on forecasting U.S. natural gas consumption with a combination of time-series thinking and structured regression. The dataset links natural gas demand with related energy and import variables over a long horizon, and the main objective was to build a model that generalizes to held-out periods rather than simply fit the observed curve.</p>
+      "A hybrid forecasting project that combines regression and seasonal ARIMA residual modeling to predict U.S. natural gas consumption more credibly out of sample.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>U.S. natural gas demand has strong seasonality, but seasonality alone does not explain the series. Consumption is also shaped by imports, coal substitution, electricity-generation needs, and long-run structural drift. The project started from a practical forecasting issue: a pure SARIMA model on the raw series left residual structure unresolved, so I moved toward a hybrid design that separates structural mean modeling from residual time dependence.</p>
+      <h2>Problem Formulation</h2>
+      <p>I treated the task as a univariate forecasting problem with exogenous covariates. The target is monthly U.S. natural gas total consumption, and the inputs are time together with natural gas imports, coal consumption, and electricity net generation. The success criterion is holdout forecast quality rather than only in-sample fit.</p>
       <h2>Data & Setup</h2>
-      <p>The data span monthly observations from 2005 onward and include natural gas consumption as the response, with imports, coal, electricity, and a time trend as candidate drivers. I split the sample into an 80% training window and a 20% test window so that evaluation reflected forecast performance rather than in-sample fit.</p>
-      <p>The modeling path began with two interpretable regressions: one with a linear trend and one with a quadratic trend. That comparison quickly exposed a practical forecasting trade-off. The linear-trend model achieved stronger fit and cleaner residual behavior, while the quadratic trend looked more flexible but generalized worse.</p>
-      <div class="math-block">\\[ \\widehat{gas}_t = \\beta_0 + \\beta_1 t + \\beta_2 import_t + \\beta_3 coal_t + \\beta_4 elec_t + \\varepsilon_t. \\]</div>
-      <p>This equation matters because each term is interpretable. Here \\(\\widehat{gas}_t\\) is predicted natural gas consumption at month \\(t\\), \\(\\beta_0\\) is the intercept, \\(\\beta_1\\) multiplies the linear time trend, \\(import_t\\), \\(coal_t\\), and \\(elec_t\\) are the contemporaneous import, coal, and electricity covariates, and \\(\\varepsilon_t\\) is the residual shock. The trend term captures long-run movement, imports proxy supply-side conditions, coal captures substitution in energy demand, and electricity contributes additional information about broader consumption dynamics. In the report, the linear-trend model reached an adjusted \\(R^2\\) of about 0.566 and outperformed the quadratic alternative on held-out data.</p>
-      <p>I also looked carefully at residual diagnostics rather than stopping at fit statistics. The linear specification produced more stable residual behavior, which reinforced the idea that a slightly simpler model can be more useful if its error structure is easier to trust. For forecasting work, that matters because the person consuming the result usually cares more about whether the next few predictions are stable than whether the model explains one more fraction of in-sample variance.</p>
+      <p>The dataset covers monthly observations from January 2005 through December 2023. The response variable is U.S. natural gas total consumption in billion cubic feet. The exogenous predictors are monthly natural gas imports, monthly coal consumption, and monthly electricity net generation, all from the U.S. Energy Information Administration. I used an 80/20 train-test split and then modeled the residual series after fitting the mean structure.</p>
+      <h2>Methodology</h2>
+      <p>The first layer models the conditional mean with exogenous drivers:</p>
+      <div class="math-block">\[ \mathrm{NaturalGasConsumption}_t = \beta_0 + \beta_1 \mathrm{Time}_t + \beta_2 \mathrm{Imports}_t + \beta_3 \mathrm{Coal}_t + \beta_4 \mathrm{Electricity}_t + \varepsilon_t. \]</div>
+      <p>I also compared a quadratic-trend version. The second layer models the remaining residual dependence with seasonal ARIMA. For the linear-trend residuals, the preferred model is ARIMA\((0,1,1)\times(0,1,1)_{12}\). For the quadratic-trend residuals, the preferred model is ARIMA\((2,1,0)\times(0,1,1)_{12}\). Model selection used residual diagnostics, information criteria, and test-set MSE.</p>
+      <h2>Results</h2>
+      <p>The best-performing pipeline was the linear-trend regression plus ARIMA\((0,1,1)\times(0,1,1)_{12}\) on the residuals. It achieved a test MSE of about 415001.48, beating the best quadratic alternative at about 496704.48. The report's next five monthly forecasts were 2229.836, 2313.898, 2113.298, 2762.903, and 2407.874 Bcf.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The project reinforced a forecasting habit I still use: optimize for stability and test-set performance, not just curve-fitting. It also showed that even fairly simple models can be valuable when the real objective is to understand which external signals move the series and to produce a forecast that decision-makers can trust.</p>
+      <p>The main lesson is that neither regression alone nor seasonal ARIMA alone was sufficient. Regression handled the structural drivers; SARIMA handled the leftover temporal dependence. The hybrid worked because each layer was assigned a narrower and more realistic job.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The model still uses a small covariate set and keeps the mean structure linear. Weather, prices, policy shocks, and richer demand-side indicators could plausibly improve the forecasts. A natural next step would be dynamic regression or a state-space formulation that preserves interpretability while absorbing more evolving structure.</p>
     `,
   },
   "bayesian-statistical-modeling": {
     summary:
-      "A Bayesian computation project centered on Metropolis-Hastings, proposal design, and convergence diagnostics for posterior sampling when exact inference is unavailable.",
-    body: `
-      <p>This project is less about one domain application and more about a modeling habit that continues to matter in my work: understanding what happens when exact inference is not available and we need to sample from a posterior distribution instead. The focus here was Metropolis-Hastings and the practical trade-offs around proposal distributions and convergence behavior.</p>
+      "A Bayesian computation project centered on Metropolis-Hastings proposal design, mixing behavior, and convergence diagnostics when direct posterior sampling is unavailable.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project focuses on a basic Bayesian computation problem: in many useful models, the posterior is only known up to proportionality, so exact sampling is not available. That turns inference into an algorithm-design problem. I used Metropolis-Hastings to study that setting directly and then asked a practical question that always matters in MCMC: how much do convergence and mixing depend on the proposal distribution we choose?</p>
       <h2>Problem Formulation</h2>
-      <p>The report focuses on a common Bayesian reality: the posterior is known only up to proportionality, so exact sampling is not available. Metropolis-Hastings solves that by proposing a candidate state and then accepting or rejecting it based on how plausible that move is under the target distribution and proposal kernel.</p>
-      <div class="math-block">\\[ \\alpha(x, x') = \\min \\left\\{1, \\frac{\\pi(x' \\mid y) q(x \\mid x')}{\\pi(x \\mid y) q(x' \\mid x)} \\right\\}. \\]</div>
-      <p>This acceptance ratio is the heart of the algorithm. Here \\(x\\) is the current state of the Markov chain, \\(x'\\) is the proposed state, \\(\\pi(\\cdot \\mid y)\\) is the posterior density given observed data \\(y\\), and \\(q(x'\\mid x)\\) and \\(q(x\\mid x')\\) are the forward and reverse proposal densities. The posterior only needs to be known up to proportionality because the normalizing constant cancels in the ratio. The proposal term matters because the chain is not moving freely over the parameter space; it is moving according to a design choice that can make sampling efficient or painfully slow.</p>
+      <p>The task here is posterior sampling rather than prediction. The objective is to construct a Markov chain whose stationary distribution matches a target posterior \(\pi(\theta \mid y)\), even when that posterior can only be evaluated up to a normalizing constant.</p>
+      <h2>Data & Setup</h2>
+      <p>The project uses simulated examples rather than an applied observational dataset. The report illustrates the sampler on a target density proportional to a standard exponential distribution and compares behavior under different proposal mechanisms. Multiple chains are started from very different initial values, including large initial states such as 50 and 100, to make convergence behavior visible.</p>
       <h2>Methodology</h2>
-      <p>The project compares symmetric and asymmetric proposal setups, acceptance behavior, and convergence diagnostics. The practical lesson is that MCMC quality is not just about correctness in theory. A chain that mixes poorly or accepts too little is technically valid but operationally weak. In applied Bayesian work, useful uncertainty estimates depend on diagnostics just as much as on the underlying model.</p>
-      <p>What I found valuable here was how directly proposal design controls the analyst's experience. A very local proposal can make acceptance look healthy while the chain barely explores the posterior; an aggressive proposal can move far but spend too much time rejected. Looking at trace plots, acceptance rate, and convergence behavior together made the trade-off concrete rather than abstract.</p>
-      <p>That is why I keep this project in the portfolio. It sharpened my understanding of probabilistic inference as an engineering choice, not just a mathematical object. When a model is meant to inform decisions, uncertainty quantification is only useful if the sampling procedure itself is well behaved.</p>
+      <p>The posterior target is written in the standard form</p>
+      <div class="math-block">\[ \pi(\theta \mid y) \propto p(y \mid \theta)\,\pi(\theta). \]</div>
+      <p>Metropolis-Hastings proposes a candidate state \(x'\) from a proposal distribution \(q(x'\mid x)\) and accepts it with probability</p>
+      <div class="math-block">\[ \alpha(x,x') = \min\left\{1,\frac{\pi(x'\mid y)\,q(x\mid x')}{\pi(x\mid y)\,q(x'\mid x)}\right\}. \]</div>
+      <p>When the proposal is symmetric, the Hastings correction cancels and the rule simplifies to \(\alpha(x,x') = \min\{1,\pi(x'\mid y)/\pi(x\mid y)\}\). The project compares a symmetric Normal proposal \(q(x'\mid x)=\mathcal{N}(x,1)\) against an asymmetric Gamma-style proposal and evaluates both through trace plots, autocorrelation, and Gelman-Rubin diagnostics.</p>
+      <h2>Results</h2>
+      <p>The symmetric Normal proposal converged and mixed well in the illustrated setting, though chains started from more extreme initial values mixed more slowly early on. The asymmetric proposal also converged and showed comparably fast mixing. The report's useful conclusion is not that one proposal is universally best, but that proposal design materially affects practical sampler behavior even when asymptotic correctness is guaranteed.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The project reinforced that MCMC quality depends heavily on proposal choice. Metropolis-Hastings is general in principle, but in practice its usefulness depends on whether the proposal matches the geometry of the target distribution well enough to mix efficiently.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The examples are intentionally narrow and simulation-driven. A natural next step would be a more systematic proposal-tuning study and then an application to a substantive Bayesian model where poor mixing would have clearer inferential consequences.</p>
     `,
   },
   "champaign-rental-price-forecasting": {
     summary:
-      "A housing-market forecasting project for Champaign that compares statistical baselines, robust regression, and machine-learning models under a realistic rolling evaluation setup.",
-    body: `
-      <p>I worked on this project as a URES Fellow under <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>. The practical question was how to forecast rental prices in Champaign accurately enough to be useful for both student budgeting and local housing interpretation. The city is a good forecasting challenge because rent is shaped by academic seasonality, persistent upward drift, and disruptions such as the COVID period.</p>
+      "A URES forecasting project that compares statistical baselines and Prophet-style structure for predicting Champaign rents under realistic rolling evaluation.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>I worked on this project as a URES Fellow under <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>. The practical objective was to forecast rental prices in Champaign accurately enough to be useful for student budgeting and local housing interpretation. The city is a good forecasting case because rents are shaped by academic seasonality, persistent upward drift, and disruptions from the COVID period.</p>
+      <h2>Problem Formulation</h2>
+      <p>I treated the task as a time-series forecasting problem with exogenous covariates. The output is the monthly Zillow Observed Rent Index for Champaign, and the inputs include macroeconomic variables, demographics, UIUC student-population signals, poverty, vacancy, housing supply, and local market-liquidity measures.</p>
       <h2>Data & Setup</h2>
-      <p>The response variable was Zillow's Observed Rent Index for Champaign. I built the feature set by combining macroeconomic indicators, demographics, UIUC student population signals, poverty, vacancy, housing supply, market-liquidity variables such as days on market, and COVID-era disruption measures. One practical difficulty was that these sources arrived at different frequencies, so the pipeline had to aggregate yearly, semesterly, daily, and monthly signals into a common monthly table before modeling even began.</p>
-      <p>The final modeling window ran from July 2016 through July 2024. Missing values were imputed with <code>IterativeImputer</code>, and the exploratory stage included decomposition plots plus ACF/PACF checks to understand trend, seasonality, and persistence. Those diagnostics made it clear that Champaign's rental market is not just noisy; it is structurally seasonal and heavily tied to the academic calendar.</p>
+      <p>The response variable is Zillow's Observed Rent Index for Champaign. I assembled the feature table by merging yearly, semesterly, daily, and monthly sources into a common monthly series. The final modeling window ran from July 2016 through July 2024. Missing values were handled with <code>IterativeImputer</code>, and exploratory diagnostics included decomposition plots plus ACF/PACF analysis.</p>
       <h2>Methodology</h2>
-      <p>I compared linear regression baselines, first-differenced KNN and decision trees, tree ensembles, Huber regression, Prophet, and lightweight deep-learning models. The comparisons were run under both a held-out test split and a rolling evaluation, which matters because housing forecasts are only useful if they stay stable over time instead of winning one lucky split.</p>
-      <div class="math-block">\\[ y(t) = g(t) + s(t) + h(t) + \\varepsilon_t. \\]</div>
-      <p>In Prophet's formulation, \\(y(t)\\) is the observed rent index at time \\(t\\), \\(g(t)\\) captures long-run trend, \\(s(t)\\) captures seasonality, \\(h(t)\\) captures event-like or holiday-style adjustments, and \\(\\varepsilon_t\\) is the unexplained noise term. That decomposition fit the rental market much better than purely split-based models, which struggled to extrapolate a strong upward trend. In the final comparison, Prophet delivered the best test and rolling MSE, and the report used it to forecast the first quarter of 2025 around the low-1330 range.</p>
-      <p>One of the clearest findings was that split-based tree models underperformed not because they were too weak, but because the market's behavior was dominated by persistent upward movement and calendar-driven seasonality. Those are exactly the settings where a model with explicit structure can beat a more flexible model that extrapolates poorly.</p>
-      <p>The larger lesson is one I use often now: the best model is not automatically the most complicated one. It is the one whose structural assumptions match how the market actually behaves well enough to produce a forecast somebody can use.</p>
+      <p>I compared linear regression baselines, first-differenced KNN and decision trees, tree ensembles, Huber regression, Prophet, and lightweight deep-learning variants. Prophet was especially relevant because the series showed strong trend-plus-seasonality structure:</p>
+      <div class="math-block">\[ y(t)=g(t)+s(t)+h(t)+\varepsilon_t. \]</div>
+      <p>Here \(g(t)\) is long-run trend, \(s(t)\) captures seasonality, \(h(t)\) captures event-style adjustments, and \(\varepsilon_t\) is noise. I evaluated the models under both a held-out split and a rolling forecast setup because housing forecasts are only useful if they remain stable over time.</p>
+      <h2>Results</h2>
+      <p>Prophet delivered the best performance in both holdout and rolling evaluation and was used to forecast the first quarter of 2025 in the low-1330 range. The more flexible tree-based models underperformed because they extrapolated the strong upward trend poorly.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The strongest lesson was that the best forecasting model was not the most complex one. In a market dominated by drift and recurring academic seasonality, explicit structure was more valuable than flexible split-based nonlinear models.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The project is limited by the granularity of local covariates and by the relatively short post-COVID evaluation window. Better supply-side data, richer event features, and longer rolling-horizon tests would make the comparison more convincing.</p>
     `,
   },
   "amazon-food-review-sentiment-analysis": {
     summary:
-      "A large-scale review-classification workflow that treats negative-feedback detection as a business-priority problem rather than a pure accuracy contest.",
-    body: `
-      <p>This project uses the Amazon Fine Food Reviews dataset to build a binary sentiment classifier at production-like scale. The dataset contains more than 568,000 reviews and is strongly imbalanced, so the project was designed around a business-aware question: how do we identify dissatisfied customers reliably enough to act on them without optimizing for overall accuracy only?</p>
+      "A large-scale NLP pipeline for Amazon food reviews that treats negative-review detection as the operational objective rather than optimizing overall accuracy.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project starts from a familiar customer-feedback problem: negative reviews are rarer than positive ones, but they are the ones most likely to matter operationally. If the model misses dissatisfied customers, the business loses the chance to intervene early. That makes overall accuracy a weak target on an imbalanced review corpus.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the task as binary text classification on raw review text. The original five-point rating was collapsed into a positive-versus-negative label using</p>
+      <div class="math-block">\[ y_i=\begin{cases} 1 & \text{if } s_i > 3 \\ 0 & \text{if } s_i < 3 \\ \text{excluded} & \text{if } s_i = 3 \end{cases} \]</div>
+      <p>where \(s_i\) is the original star rating and \(y_i\) is the derived sentiment label for review \(i\). Neutral reviews were excluded to reduce label ambiguity. Because the negative class is the operational priority, I emphasized negative-class precision, recall, F1, and AUC rather than headline accuracy.</p>
       <h2>Data & Setup</h2>
-      <p>The workflow covers text preprocessing, TF-IDF and Word2Vec representations, class-imbalance handling, model selection, threshold tuning, and ensemble design. I compared a baseline-first sequence of models instead of jumping straight to a complex architecture, because the real objective was to learn what each modeling choice added.</p>
-      <p>Two decisions from the report are especially important. First, I preserved negation terms instead of using a generic stop-word list, because removing words like <code>not</code> and <code>can't</code> actually flips sentiment in short reviews. Second, I treated Truncated SVD as a utility for dense-input methods rather than a default NLP improvement, because the report showed that 1,000 components still retained well under the variance needed to justify aggressive compression.</p>
-      <div class="math-block">\\[ y_i = \\begin{cases} 1 & s_i > 3 \\\\ 0 & s_i < 3 \\end{cases} \\quad \\text{with neutral reviews removed when } s_i = 3. \\]</div>
-      <p>This label construction matters because it reduces ambiguity and makes the downstream business question sharper: identify strongly negative experiences well enough to intervene. In the rule, \\(s_i\\) is the original star rating for review \\(i\\), and \\(y_i\\) is the derived binary sentiment label after neutral three-star reviews are removed. The dataset ends up moderately imbalanced at roughly 78% positive and 22% negative, so recall for the negative class became a first-class metric instead of an afterthought.</p>
+      <p>The dataset contains 568,454 Amazon Fine Food Reviews after removing neutral observations. The final class distribution is 443,777 positive reviews and 124,677 negative reviews. Preprocessing included lowercasing, punctuation removal, tokenization, Snowball stemming, and a custom stop-word strategy that intentionally preserved negation terms such as <code>not</code>, <code>won't</code>, and <code>can't</code>.</p>
+      <h2>Methodology</h2>
+      <p>The primary representation was TF-IDF on 1-2 grams with 10,000 features:</p>
+      <div class="math-block">\[ \mathrm{TF\text{-}IDF}(t,d,D)=\mathrm{TF}(t,d)\times \mathrm{IDF}(t,D). \]</div>
+      <p>I compared Logistic Regression, class weighting, SMOTE, ElasticNet regularization, threshold tuning, Random Forest, and a soft-voting ensemble. Class weighting used</p>
+      <div class="math-block">\[ w_c = \frac{N}{K N_c}, \]</div>
+      <p>where \(N\) is the total sample count, \(K\) is the number of classes, and \(N_c\) is the number of observations in class \(c\). The strongest single model was balanced ElasticNet Logistic Regression with a tuned decision rule</p>
+      <div class="math-block">\[ \hat y=\begin{cases} 1 & \text{if } \hat p \ge \tau \\ 0 & \text{otherwise} \end{cases} \quad \text{with } \tau^*=0.37. \]</div>
       <h2>Results</h2>
-      <p>The strongest single model in the report was a balanced logistic regression with ElasticNet regularization and threshold tuning at \\(\\tau^* = 0.37\\), which produced a negative-class F1 of 0.784 and AUC of 0.951. A soft-voting ensemble matched the AUC while shifting the precision-recall balance. I also compared feature spaces carefully, which made it clear that classic sparse text representations remained surprisingly competitive once the objective was framed around actionable negative-review detection.</p>
-      <p>I like this project because it treats NLP as a decision system: the model is good only if it catches enough dissatisfied users without overwhelming the business with false positives. That framing is much closer to how customer-support or product teams would actually consume the model.</p>
+      <p>The best single operating point came from balanced ElasticNet Logistic Regression with threshold tuning at \(\tau^*=0.37\). That model reached negative-class precision 0.750, negative recall 0.821, negative-class F1 0.784, and AUC 0.951. The soft-voting ensemble matched the top AUC and pushed negative recall higher, though with lower precision.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The project showed that preprocessing and threshold policy mattered as much as model family. Preserving negation words was critical, and threshold tuning turned out to be a real modeling decision rather than an afterthought. Sparse linear models remained very strong once the objective was defined correctly.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The pipeline still uses classical text representations rather than contextual encoders, and neutral reviews are excluded entirely. Future work could extend the project toward transformer-based embeddings, topic-conditioned sentiment, or richer customer-support workflows built on top of the classifier.</p>
     `,
   },
   "conversion-rate-modeling-optimization": {
     summary:
-      "A conversion-diagnostics project that combines segmentation, predictive modeling, and business interpretation to identify where product and marketing should focus next.",
-    body: `
-      <p>This project started from a straightforward growth question: why do some users convert while others stall, and which segments create the largest practical upside if the experience improves? I treated it as a mix of predictive modeling and decision support rather than a one-off classification exercise.</p>
+      "An imbalanced conversion-modeling workflow that combines calibrated prediction, threshold tuning, and segment-level action design for product and marketing decisions.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project started from a practical lower-funnel problem: a large e-commerce site was attracting traffic, but only a small fraction of sessions ended in conversion. The useful version of the problem was not just whether conversion could be predicted, but whether those predictions could be turned into segmented interventions for product and marketing teams.</p>
       <h2>Problem Formulation</h2>
-      <p>The dataset contains 316,200 user sessions with country, age, new-versus-returning status, traffic source, pages visited, and a binary conversion outcome. Only about 3.2% of sessions convert, so from the beginning this was an imbalanced classification problem tied to a very practical business decision: whom should the team target, and which user groups are not moving through the funnel efficiently?</p>
+      <p>I framed the task as binary classification on session-level user data. For session \(i\), the input is</p>
+      <div class="math-block">\[ x_i = (\text{country}_i,\ \text{age}_i,\ \text{new\_user}_i,\ \text{source}_i,\ \text{pages}_i), \]</div>
+      <p>and the label is \(y_i \in \{0,1\}\), where \(y_i=1\) means the session converted. Because only about 3.2% of sessions convert, the real problem is minority-class detection under a business-relevant operating threshold rather than generic accuracy maximization.</p>
+      <h2>Data & Setup</h2>
+      <p>The source data contains 316,200 sessions and six columns: country, age, new-user status, traffic source, total pages visited, and conversion outcome. Categorical features were one-hot encoded and continuous variables were standardized. The train-test split used <code>test_size=0.3</code>, <code>stratify=y</code>, and <code>random_state=42</code> so that class proportions remained stable.</p>
       <h2>Methodology</h2>
-      <p>The notebook moves from exploratory analysis into a full classification stack: balanced logistic regression, SMOTE comparisons, ElasticNet regularization, random forest, XGBoost, SVM, LightGBM, soft voting, and stacking. I also tuned decision thresholds on the precision-recall curve instead of defaulting to 0.5, because in a low-conversion setting the cutoff is part of the business policy, not a fixed law of nature.</p>
-      <p>The project optimizes directly for minority-class F1, which is the right choice here: we want to identify likely converters without letting precision collapse. The final soft-voting model combined ElasticNet logistic regression and SVM with optimized weights and threshold, reaching an AUC of 0.9848 and a converted-class F1 around 0.769.</p>
+      <p>The modeling stack compared balanced Logistic Regression, SMOTE variants, ElasticNet Logistic Regression, Random Forest, XGBoost, SVM, LightGBM, soft voting, and stacking. For the logistic branch, the main objective is</p>
+      <div class="math-block">\[ \mathcal{L}(\beta)= -\frac{1}{n}\sum_{i=1}^{n}\left[y_i \log p_i + (1-y_i)\log(1-p_i)\right] + \lambda\left((1-\alpha)\frac{\|\beta\|_2^2}{2}+\alpha\|\beta\|_1\right), \]</div>
+      <p>where \(p_i = \sigma(x_i^\top \beta)\), \(\lambda\) is regularization strength, and \(\alpha\) is the ElasticNet mixing parameter. I then tuned the classification threshold against the converted-class F1 score rather than fixing it at 0.5. The final selected model was a soft-voting ensemble over ElasticNet Logistic Regression and SVM with weights \((12,1)\) and threshold \(\tau=0.9323\).</p>
+      <h2>Results</h2>
+      <p>The final soft-voting model achieved AUC 0.9848, converted-class precision 0.8198, recall 0.7239, and F1 0.7688. The broader pattern was more informative than the single best line: a plain balanced logistic model already ranked very well by AUC, but its default operating point was unusable because precision collapsed. Better calibration and thresholding mattered at least as much as model complexity.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The part I value most comes after the model. The notebook segments users into high-, medium-, and low-probability groups and then turns those scores into strategy: promotional nudges and checkout simplification for high-intent users, activation campaigns for medium-intent users, and onboarding or localization fixes for low-conversion segments. That is the version of predictive modeling I care about most: not scoring for its own sake, but turning scores into experiments and product changes.</p>
-      <p>This project also reinforced that thresholding is a business choice. The best operating point is not the one that looks mathematically elegant; it is the one that matches how many users the business can actually target, how costly false positives are, and which segment-specific interventions are feasible.</p>
+      <p>The strongest lesson was that behavior dominated channel. Returning-user status, browsing depth, age, and geography mattered more than traffic source alone. The project also reinforced that prediction becomes useful only when it is turned into action logic: high-propensity users support checkout simplification and offers, medium-propensity users support targeted nudges, and low-propensity users point to onboarding or localization problems.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The feature space is still narrow, and the threshold was tuned on held-out predictions rather than through a cleaner validation-only workflow. A stronger next step would optimize an ROI-aware objective instead of F1 alone and then connect the model-driven targeting policy to actual A/B tests.</p>
     `,
   },
   "trm-mechanistic-interpretability": {
     summary:
-      "An interpretability workflow for a Tiny Recursive Model on ARC-AGI-1 that links sparse internal features to puzzle-solving behavior through causal ablations.",
-    body: `
-      <p>This project studies how a Tiny Recursive Model solves ARC-style reasoning puzzles by opening up its internal state rather than judging it only by accuracy. The goal was to build a feature-level interpretability workflow: log stepwise latent trajectories, compress them into sparse features with an SAE, and then intervene on those features to see whether puzzle behavior changes.</p>
+      "A sparse-feature interpretability workflow for a Tiny Recursive Model on ARC-AGI-1 that connects latent features to behavior through causal ablations.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project started from a specific mechanistic question: if a Tiny Recursive Model can solve ARC-AGI-1 puzzles with only a few million parameters, what internal computation is it actually using? Final accuracy alone does not answer that. ARC puzzles require compositional transformations on color grids, which makes them a good setting for studying reasoning trajectories instead of outputs only.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the task as a feature-level interpretability problem. The objective was to determine whether sparse features extracted from the TRM lower-level latent stream \(z_L\) are behaviorally meaningful. In practice that meant asking whether a sparse autoencoder could recover a useful basis over the hidden states, whether those features could be ranked sensibly, and whether ablating them changed puzzle-solving behavior.</p>
+      <h2>Data & Setup</h2>
+      <p>The experiments use ARC-AGI-1 with trajectories drawn from the <code>arc1concept-aug-1000</code> setup. The ablation study itself focuses on 20 representative validation puzzles. The base model is a Tiny Recursive Model with hidden size 512, eight attention heads, a 16-token puzzle prefix, six lower-level cycles, three higher-level cycles, and up to 16 reasoning steps. The SAE is trained only on the \(z_L\) stream.</p>
       <h2>Methodology</h2>
-      <p>The setup uses a Tiny Recursive Model with adaptive computation time on ARC-AGI-1. Instead of looking only at final logits, I logged lower-level latent trajectories across the model's iterative reasoning steps, then trained a sparse autoencoder on those hidden states. That converts dense activations into a feature dictionary that can be ranked, inspected, and intervened on.</p>
-      <div class="math-block">\\[ z_n = \\mathrm{TopK}_{64}(\\mathrm{ReLU}(W_{enc}(z_L - b_{pre}) + b_{enc})). \\]</div>
-      <p>This encoding equation says that the final TRM latent state \\(z_L\\) is first centered by the learned bias \\(b_{pre}\\), then mapped by encoder weights \\(W_{enc}\\), shifted by encoder bias \\(b_{enc}\\), passed through a ReLU nonlinearity, and sparsified into the feature vector \\(z_n\\) by keeping only the top 64 activations. The point of that sparsity is interpretability: if only a small subset of features is active, it becomes easier to ask which features matter for a given reasoning trace and what happens when they are removed.</p>
-      <p>After training the SAE, I ranked features by activation statistics and ran both subtractive and reconstruction-based ablations, including progressive ablations across recurrent steps. That turns interpretability into a causal question: if a feature truly matters, intervening on it should change puzzle-solving behavior, not just produce a pretty visualization.</p>
-      <p>The project matters to me because it pushes interpretability from descriptive analysis toward mechanism. Instead of asking only which examples are solved, I am asking what internal structure seems to support those solutions and how stable that structure remains under intervention. That is a much more useful framing if interpretability is supposed to inform model design rather than just produce interesting plots.</p>
+      <p>The sparse autoencoder maps 512-dimensional hidden states into a 4096-feature dictionary and keeps only the top 64 active features per token:</p>
+      <div class="math-block">\[ z_n = \operatorname{TopK}_{64}\!\left(\operatorname{ReLU}\!\left(W_{\mathrm{enc}}(z_L - b_{\mathrm{pre}}) + b_{\mathrm{enc}}\right)\right). \]</div>
+      <p>The decoder reconstructs the latent as</p>
+      <div class="math-block">\[ \hat z_L = W_{\mathrm{dec}} z_n + b_{\mathrm{pre}}. \]</div>
+      <p>The training loss combines reconstruction with an auxiliary dead-feature term:</p>
+      <div class="math-block">\[ \mathcal{L}_{\mathrm{SAE}} = \operatorname{MSE}(\hat z_L, z_L) + \alpha\,\operatorname{MSE}(\hat e, e), \qquad \alpha = \frac{1}{32}. \]</div>
+      <p>After training, I ranked features by average activation and firing frequency and then applied both subtractive and reconstruction-based ablations. In the reconstruction version, the latent is rebuilt from the remaining sparse code after masking a selected feature set.</p>
+      <h2>Results</h2>
+      <p>The strongest result was behavioral rather than purely descriptive. Progressive ablation usually did not cause immediate collapse. Instead, the model often preserved coarse puzzle structure while making localized errors such as offsets, wrong turns, or segment misalignment. Across the archived progressive reconstruction sweeps, the 20-puzzle evaluation produced 55 prediction-change events under average-activation ranking and 42 under activation-frequency ranking, which shows that the ranking heuristic materially affects the apparent sensitivity of the model.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The project showed that the TRM reasoning trace can be manipulated in a structured way without immediately collapsing into noise. That is useful evidence that the latent state is not just an uninterpretable dense blob. At the same time, unchanged-prediction cases and non-monotonic ablation behavior suggest redundancy, interference, or important information living outside the SAE view of \(z_L\), especially in the higher-level stream \(z_H\).</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The delivered work is centered on SAE-based analysis rather than the full SAE-plus-ACDC plan from the proposal, and the current intervention pipeline only targets \(z_L\). The clearest next step is joint analysis of \(z_L\) and \(z_H\), ideally with a stronger puzzle-level sparse representation and a completed circuit-discovery stage.</p>
     `,
   },
   "llm-powered-churn-analysis-system": {
     summary:
-      "An end-to-end churn-analysis system that turns natural-language business questions into citation-backed retention analysis through hybrid retrieval, QLoRA fine-tuning, and deterministic safeguards.",
-    body: `
-      <p>This project grew out of an industry workflow and asks a business-centered question: can we replace a bare churn score with a system that explains why a segment is churning, cites the evidence, and recommends concrete next actions? To make the project reproducible, I rebuilt the pipeline on a public telecom dataset instead of private company data, but the design logic stayed the same.</p>
+      "An end-to-end churn analysis system that answers natural-language business questions with retrieval-grounded JSON, validated citations, and deterministic risk scoring.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project started from a practical analytics gap rather than a modeling benchmark. A plain churn score is not enough if a retention team also needs evidence, explanations, and next-step recommendations. I wanted to build a system that could answer natural-language business questions with grounded analysis instead of returning a single opaque probability.</p>
+      <h2>Problem Formulation</h2>
+      <p>I treated the task as a retrieval-grounded structured generation problem. Given a natural-language business query, the system retrieves relevant customer records and returns a JSON report with summary, top reasons, actions, risk level, and citations. Evaluation therefore focuses on schema correctness, citation validity, and risk alignment rather than only on generation fluency.</p>
       <h2>Data & Setup</h2>
-      <p>The system turns each customer record into a unified text document that combines demographics, services, contract information, billing, churn status, and free-text feedback. At query time, it runs a hybrid retrieval stack: dense vector search for semantic similarity, BM25 for exact keyword matches, and Reciprocal Rank Fusion to combine the two ranking lists. The retrieved records are then fed into a 4-bit Qwen2.5-7B model with a prompt template that requests structured JSON.</p>
-      <div class="math-block">\\[ \\mathrm{RRF}(d) = \\sum_{r \\in \\{\\mathrm{vector},\\mathrm{BM25}\\}} \\frac{w_r}{k + \\mathrm{rank}_r(d)}. \\]</div>
-      <p>RRF matters here because semantic retrieval and keyword retrieval fail in different ways. In the formula, \\(d\\) is a candidate retrieved document, \\(r\\) indexes the retrieval system, \\(w_r\\) is the weight assigned to retriever \\(r\\), \\(\\mathrm{rank}_r(d)\\) is the rank assigned to document \\(d\\) by that retriever, and \\(k\\) is the smoothing constant that prevents top-ranked items from dominating too aggressively. Dense retrieval catches paraphrases like “internet quality issues,” while BM25 is strong on exact fields such as contract type or service names. Fusing them produced much stronger context than either method alone.</p>
-      <p>I then used a 14B teacher to generate 305 domain-specific training samples and fine-tuned the 7B student with QLoRA. The model got better at structure and domain style, but an interesting regression appeared: citation accuracy dropped after fine-tuning, even though JSON formatting stayed perfect.</p>
-      <div class="math-block">\\[ \\mathcal{L}(\\theta; x, y) = -\\frac{1}{T} \\sum_{t=1}^{T} \\log P_\\theta(y_t \\mid y_{&lt;t}, x). \\]</div>
-      <p>In the training objective, \\(\\theta\\) denotes the LoRA-adapted model parameters, \\(x\\) is the retrieved customer context and prompt, \\(y\\) is the target structured answer, \\(T\\) is the output length, and \\(P_\\theta(y_t \\mid y_{&lt;t}, x)\\) is the probability of token \\(y_t\\) conditioned on the prompt and previously generated tokens.</p>
-      <div class="math-block">\\[ R_{\\mathrm{total}} = 0.35R_{\\mathrm{churn}} + 0.25R_{\\mathrm{tenure}} + 0.20R_{\\mathrm{charge}} + 0.20R_{\\mathrm{contract}}. \\]</div>
-      <p>In the final risk score, \\(R_{\\mathrm{churn}}\\), \\(R_{\\mathrm{tenure}}\\), \\(R_{\\mathrm{charge}}\\), and \\(R_{\\mathrm{contract}}\\) are normalized component scores for churn history, customer tenure, monthly charges, and contract structure, and the weights sum to one by design. That equation is the deterministic risk score I added in the improved pipeline. Instead of letting the LLM assign risk subjectively, the system computes it from churn rate, tenure, monthly charges, and contract type, then maps the score back into the structured report. I also added citation validation that checks generated IDs against the retrieved record set and repairs hallucinated references.</p>
+      <p>The project uses the Kaggle Telco Customer Churn dataset with realistic customer feedback. It contains 7,043 customer records, 21 structured features, a churn rate of 26.5%, and a feedback field for every customer. Each customer is converted into a unified document containing ID, churn status, services, contract details, billing information, demographics, and feedback text. Retrieval uses 768-dimensional BGE embeddings in FAISS together with BM25, and the generator is a 4-bit <code>Qwen2.5-7B-Instruct</code> model.</p>
+      <h2>Methodology</h2>
+      <p>The retrieval layer combines dense and sparse search through Reciprocal Rank Fusion:</p>
+      <div class="math-block">\[ \mathrm{RRF}(d)=\sum_{r\in\{\mathrm{vector},\mathrm{BM25}\}}\frac{w_r}{k+\mathrm{rank}_r(d)}. \]</div>
+      <p>Here \(d\) is a candidate record, \(r\) indexes the retriever, \(w_r\) is the retriever weight, and \(k\) is the smoothing constant. Fine-tuning uses QLoRA on 305 teacher-generated domain examples with the standard next-token objective</p>
+      <div class="math-block">\[ \mathcal{L}(\theta;x,y)=-\frac{1}{T}\sum_{t=1}^{T}\log P_\theta(y_t\mid y_{&lt;t},x). \]</div>
+      <p>In the final pipeline, I added deterministic post-processing for citation repair and an explicit risk score</p>
+      <div class="math-block">\[ R_{\mathrm{total}}=0.35R_{\mathrm{churn}}+0.25R_{\mathrm{tenure}}+0.20R_{\mathrm{charge}}+0.20R_{\mathrm{contract}}. \]</div>
+      <p>This separation matters because citation validity and risk labeling are too important to leave entirely to a sampled decoder.</p>
       <h2>Results</h2>
-      <p>The important lesson was that fine-tuning alone was not the finish line. The best-performing system was the one that combined retrieval, fine-tuning, and post-processing safeguards. In the final comparison, the improved pipeline reached 100% JSON compliance, 100% citation accuracy, and the highest overall evaluation score. For me, that is exactly what production-minded LLM work looks like: not betting everything on one model pass, but building a system where the weak points are explicitly constrained.</p>
+      <p>The most important result is that fine-tuning alone was not enough. JSON validity stayed strong, but citation accuracy regressed after fine-tuning. Once deterministic citation validation and risk scoring were added, the improved pipeline reached 100% JSON compliance, 100% citation accuracy, and a 92% overall evaluation score on the held-out business-query set.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The project reinforced that useful LLM systems are modular. Retrieval, generation, risk logic, and post-processing should each carry a distinct responsibility. Better model behavior is not automatically the same as better system behavior, and production reliability often comes from explicit safeguards rather than one bigger prompt.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The public telecom dataset is still only a proxy for the original business setting, and the fine-tuning set is relatively small. The next step would be larger evaluation sets, reranking or query-aware citation selection, and tighter calibration of the deterministic risk score against actual retention outcomes.</p>
     `,
   },
   "tool-using-language-models": {
     summary:
-      "An alignment study comparing SFT, DPO, PPO, and GRPO for small language models that need to call external tools correctly and consistently.",
-    body: `
-      <p>This project is still in progress, but the core idea is already clear. I want to understand which training paradigm best teaches a small language model not just to answer, but to use tools correctly: pick the right tool, format its arguments properly, and integrate the result into a final response.</p>
+      "An in-progress alignment study comparing SFT, DPO, PPO, and GRPO for small models that need to select tools, format calls, and use outputs correctly.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project is still in progress, but the motivation is clear. I want to understand which training paradigm best teaches a small language model not just to answer in free text, but to use tools correctly. Practical agents fail in multiple ways: they can choose the wrong tool, format arguments incorrectly, or ignore the tool output even after a correct call.</p>
       <h2>Problem Formulation</h2>
-      <p>The proposal compares four training regimes on the same tool-use task family: SFT, DPO, PPO, and GRPO. The setup fixes the base model, tools, and evaluation protocol so the comparison isolates the training algorithm itself. That is important because most public benchmarks compare final systems without controlling for how the tool-use behavior was actually learned.</p>
-      <p>I am especially interested in the small-model regime because it is much closer to realistic cost constraints. A lot of alignment work is done on 7B+ models, but in deployment settings it matters whether a much smaller model can become competent at selecting tools, formatting arguments, and incorporating tool outputs into a final answer.</p>
-      <div class="math-block">\\[ r = \\alpha r_{\\mathrm{select}} + \\beta r_{\\mathrm{format}} + \\gamma r_{\\mathrm{answer}}. \\]</div>
-      <p>This reward decomposition is central to the project. Here \\(r\\) is the total reward, while \\(r_{\\mathrm{select}}\\), \\(r_{\\mathrm{format}}\\), and \\(r_{\\mathrm{answer}}\\) score tool selection, argument formatting, and final answer quality. The weights \\(\\alpha\\), \\(\\beta\\), and \\(\\gamma\\) determine how much the training signal emphasizes each failure mode. Tool-use is not one atomic action. The model can fail by choosing the wrong tool, formatting arguments badly, or generating the wrong answer after a correct tool call. Breaking the reward into those components makes it possible to study whether PPO and GRPO behave differently when the task reward is compositional and sparse.</p>
-      <p>A second reason this project matters is evaluation design. A model that can often choose the right tool but formats arguments unreliably is not yet useful, and a model that formats arguments correctly but ignores tool outputs is also not useful. Separating those failure modes should make the final comparison much more decision-relevant than reporting a single blended score.</p>
-      <p>What makes this project valuable to me is that it sits exactly at the boundary between modeling and systems. Tool-use alignment is not only about preference optimization; it is also about designing a task structure and reward signal that reflect what a usable agent actually needs to do.</p>
+      <p>I framed the project as a comparative training problem in the small-model regime. The task is tool-use learning under a fixed base model, common tool set, and shared evaluation harness. The outputs of interest are correct tool selection, correct argument formatting, and high-quality final answers. The point is to isolate the effect of the training algorithm rather than confound it with architecture or dataset changes.</p>
+      <h2>Data & Setup</h2>
+      <p>The setup compares four regimes on the same tool-use task family: supervised fine-tuning, DPO, PPO, and GRPO. All runs share the same tool schema and evaluation logic. I focused on smaller models because that regime is both more deployment-relevant and more revealing about sample efficiency.</p>
+      <h2>Methodology</h2>
+      <p>The project decomposes tool-use quality into multiple reward components:</p>
+      <div class="math-block">\[ r = \alpha r_{\mathrm{select}} + \beta r_{\mathrm{format}} + \gamma r_{\mathrm{answer}}. \]</div>
+      <p>Here \(r_{\mathrm{select}}\) rewards correct tool selection, \(r_{\mathrm{format}}\) rewards valid argument formatting, \(r_{\mathrm{answer}}\) rewards final-answer quality, and \(\alpha,\beta,\gamma\) determine their relative importance. I structured the project this way because tool use is not one atomic skill. A model can fail before the call, during the call, or after the call when it has to integrate the result.</p>
+      <h2>Results</h2>
+      <p>The project is still underway, so I do not yet have a final benchmark table I would treat as portfolio-ready. The main current result is that the evaluation scaffold now makes it possible to compare SFT, DPO, PPO, and GRPO under a shared task definition instead of comparing loosely related systems.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The strongest insight so far is conceptual: tool-use quality should not be measured by one blended score alone. The practically important failures are compositional, and decomposing them gives a clearer picture of which training method is actually improving the agent.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The obvious limitation is incompleteness. The next step is to finish controlled training runs, produce stable evaluation tables, and determine which regime gives the best tradeoff among reliability, sample efficiency, and final-answer quality for small tool-using models.</p>
     `,
   },
   "trustworthy-rl-llm-reasoning": {
     summary:
-      "A project on training a small model for ARC-style reasoning with a mix of supervised data generation, exact-match evaluation, and denser reward design.",
-    body: `
-      <p>This project is an in-progress exploration of trustworthy reasoning on ARC-AGI-1. The setup asks whether a small model can learn to solve abstract grid-transformation tasks more reliably when the training signal is shaped carefully instead of relying only on sparse exact-match success. I am working on it with Sunggun Lee.</p>
+      "An in-progress ARC-style reasoning project on whether denser rewards and refusal behavior can make a small model more trustworthy under structured reasoning tasks.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>This project is an in-progress exploration of trustworthy reasoning on ARC-style tasks. I am working on it with Sunggun Lee. The motivation is not only to improve exact-match accuracy, but to understand whether reward design can make a small reasoning model behave more reliably, including in cases where refusing to answer is the correct behavior.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the task as a reinforcement-learning problem for structured reasoning. The model takes an input grid and generates an output grid. The evaluation target includes exact task success, but the training objective also tries to provide denser feedback than an all-or-nothing reward. That makes the project partly about optimization and partly about how trustworthy behavior should be encoded.</p>
+      <h2>Data & Setup</h2>
+      <p>The current setup uses ARC-style reasoning tasks together with synthetic supervised examples generated by a stronger model for a smaller student model. The project also introduces refusal behavior for corrupted or contradictory tasks, which matters because trustworthy reasoning should include recognizing when the input itself is unreliable.</p>
       <h2>Methodology</h2>
-      <p>The pipeline uses GPT-mini to generate supervised examples for a GPT-nano student, then defines two complementary rewards: exact task success for evaluation and cell-level accuracy for denser training feedback. ARC is structurally hard, so a purely binary reward would make optimization unnecessarily brittle. The denser reward gives the model information even when an output grid is only partially correct.</p>
-      <div class="math-block">\\[ r_{\\mathrm{train}}(\\hat{y}, y^*) = \\frac{1}{H\\cdot W} \\sum_{i=1}^{H} \\sum_{j=1}^{W} \\mathbf{1}[\\hat{y}_{ij} = y^*_{ij}]. \\]</div>
-      <p>This formula measures cell-level agreement between the predicted grid and the target grid. Here \\(\\hat{y}\\) is the predicted output grid, \\(y^*\\) is the ground-truth grid, \\(H\\) and \\(W\\) are the grid height and width, and \\(\\mathbf{1}[\\hat{y}_{ij}=y^*_{ij}]\\) is an indicator that equals one when cell \\((i,j)\\) is correct. It is a useful training signal because it tells the model how close it is even when the exact output is wrong. The proposal also adds a refusal mechanism for corrupted or contradictory ARC tasks, where the right behavior is not to guess but to output a dedicated <code>REFUSE</code> token.</p>
-      <p>I also care about the refusal setting because it exposes a different notion of model quality. A trustworthy system is not just one that solves more tasks; it is one that recognizes when the input is unreliable and refuses in a principled way. That changes the optimization target from pure performance toward calibrated behavior.</p>
-      <p>I like this project because it is less about chasing a leaderboard and more about understanding how reward design shapes model behavior, including when the model should decline to answer. That makes it a natural bridge between reinforcement learning, reasoning, and trustworthy AI.</p>
+      <p>The central reward-shaping term is based on cell-level agreement:</p>
+      <div class="math-block">\[ r_{\mathrm{train}}(\hat{y},y^*)=\frac{1}{H\cdot W}\sum_{i=1}^{H}\sum_{j=1}^{W}\mathbf{1}[\hat{y}_{ij}=y^*_{ij}]. \]</div>
+      <p>Here \(\hat{y}\) is the predicted output grid, \(y^*\) is the target grid, and \(H,W\) are the grid dimensions. I used this because a purely exact-match reward is too sparse for stable optimization on ARC tasks. The refusal mechanism adds a second alignment objective: the model should not guess on malformed or contradictory inputs.</p>
+      <h2>Results</h2>
+      <p>The project is still underway, so I do not yet have a final benchmark table that I would treat as definitive. The main current result is that the setup now distinguishes among exact-match success, partial correctness, and refusal behavior, which makes evaluation more faithful to the trustworthy-reasoning objective than a single binary score.</p>
+      <h2>Insights / Takeaways</h2>
+      <p>The most useful shift in this project is the definition of quality itself. A trustworthy model is not just one that solves more tasks; it is one that behaves sensibly when the task is unreliable or underspecified. That changes both reward design and evaluation design in important ways.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The main limitation is that the project is still in progress and the current reward design has not yet been validated on a broad enough benchmark. The next step is to finish training and evaluation, compare sparse versus dense rewards more systematically, and test whether refusal behavior remains calibrated across more corrupted-task settings.</p>
     `,
   },
   pennos: {
     summary:
-      "A Unix-like operating-systems build that combines process scheduling, shell interaction, and a FAT-style file system inside a single-process guest OS.",
-    body: `
-      <p>PennOS is a systems project where the point was to build the pieces together, not study them in isolation. The system runs as a guest OS inside a host process and combines a priority scheduler, process lifecycle management, shell commands, and a FAT-style file system. I worked on it with Jichu Mao, Zihao Zhu, and Shibo Jin.</p>
+      "A Unix-like guest operating system that integrates scheduling, process management, shell interaction, and a FAT-style file system inside one coherent state model.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>PennOS is a systems project where the challenge was to make multiple low-level components work coherently rather than study them in isolation. I worked on it with Jichu Mao, Zihao Zhu, and Shibo Jin. I keep it in the portfolio because it demonstrates a different kind of rigor from my modeling projects: correctness here depends on state transitions, invariants, and interface boundaries rather than on leaderboard metrics.</p>
+      <h2>Problem Formulation</h2>
+      <p>I treated the project as a systems-build problem with several tightly coupled responsibilities: scheduling, process management, shell interaction, and a FAT-style filesystem. The relevant question is whether those components can coexist consistently inside a guest operating system process. The output is therefore a working system with correct lifecycle management and usable shell/file behavior.</p>
+      <h2>Data & Setup</h2>
+      <p>This project is code-driven rather than data-driven. The setup consists of a guest operating system implemented inside a host process, with <code>spthread</code>-style processes, scheduler queues, shell commands, and FAT-style storage abstractions. The meaningful inputs are command sequences, process-state transitions, file operations, and concurrency scenarios that stress the consistency of the system.</p>
       <h2>Methodology</h2>
-      <p>The operating-system side includes an <code>spthread</code>-based process model, preemptive weighted scheduling, process states such as blocked, stopped, and zombie, signal handling, and shell-facing job control. The file-system side implements a FAT-like storage model with block chains, root-directory entries, permissions, open-file state, and a layered interface from shell commands down to low-level storage operations.</p>
-      <p>Even though the Doxygen report is API-heavy, the engineering core is clear: the scheduler, process table, ready queues, blocked queues, and filesystem metadata all have to agree on system state. That means the hard part is not any one function. It is preserving consistent invariants while shell commands, syscalls, and storage operations all touch shared state.</p>
-      <p>What the project taught me in practice was how interface design substitutes for mathematical elegance in systems work. The scheduler only works if process states transition cleanly, and the filesystem only works if metadata and storage layout stay synchronized under command-level operations. That kind of rigor is less visible than a model metric, but it is just as important.</p>
+      <p>The system combines a weighted scheduler, process control blocks, ready and blocked queues, signal handling, shell-facing job control, and a FAT-style storage layer with block chains and metadata management. What mattered most in implementation was not one isolated algorithm, but ensuring that the scheduler, process table, shell, and filesystem all agreed on shared state. In systems work, interface and invariant design play the role that objective functions often play in modeling work.</p>
+      <h2>Results</h2>
+      <p>The project produced a working integrated OS build with process lifecycle management, shell commands, and filesystem functionality inside a single guest environment. The meaningful result is not a single benchmark number, but that the components operate coherently under a shared state model.</p>
       <h2>Insights / Takeaways</h2>
-      <p>I include PennOS because it shows a different kind of rigor from the analytics projects. Here the challenge is designing clean interfaces and state transitions under low-level constraints. That strengthened my intuition for reliability, abstraction boundaries, and the engineering discipline behind the data infrastructure I want to work on later.</p>
+      <p>PennOS strengthened my intuition for abstraction boundaries and low-level reliability. A clean implementation of one subsystem is not enough if the scheduler, shell, and storage layer disagree on system state. That kind of consistency work is the real core of the project.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>As with most course operating systems, the build is limited by instructional scope and by the simplified environment in which it runs. A natural next step would be broader stress testing, richer concurrency scenarios, and stronger fault handling so that the design can be pushed further beyond the baseline instructional setting.</p>
     `,
   },
   penncloud: {
     summary:
-      "A distributed cloud-platform build centered on stateless frontends, replicated key-value storage, and the integration path from minimal service demos to a more fault-tolerant architecture.",
-    body: `
-      <p>PennCloud is an ongoing distributed-systems project that aims to build a small cloud platform with webmail, file storage, user accounts, and an admin console on top of a replicated key-value backend. I am responsible primarily for frontend infrastructure, including the HTTP server, load-balancing path, user-account flows, and cross-layer integration, while the rest of the team focuses on storage, coordination, and application services.</p>
+      "An ongoing distributed cloud-platform build centered on stateless frontends, replicated key-value storage, and the integration path from basic services to a fault-tolerant architecture.",
+    body: String.raw`
+      <h2>Background / Motivation</h2>
+      <p>PennCloud is an ongoing distributed-systems project that aims to build a small cloud platform with webmail, file storage, user accounts, and an admin console on top of a replicated key-value backend. I keep it in the portfolio because it captures the kind of infrastructure work I want to get better at: integrating user-facing services with a backend architecture that has to remain correct under failure.</p>
+      <h2>Problem Formulation</h2>
+      <p>I framed the project as a distributed-platform design problem. The question is not just whether each component works in isolation, but whether the frontend and backend agree on semantics closely enough that the whole system remains usable as replication, coordination, and failover are introduced. The output is an integrated service platform rather than a benchmark score.</p>
+      <h2>Data & Setup</h2>
+      <p>The system uses stateless frontends that serve HTTP requests and backend storage nodes that expose key-value operations such as PUT, GET, CPUT, and DELETE. My own work has focused primarily on frontend infrastructure: the HTTP server, load-balancing path, cookie-backed account flows, and the integration boundary between frontend services and backend storage semantics.</p>
       <h2>Methodology</h2>
-      <p>The architecture follows a stateless-frontend pattern: frontends speak HTTP to browsers but do not own persistent state, while backend storage nodes expose a key-value abstraction with PUT, GET, CPUT, and DELETE operations. The full design then layers replication, fault detection, checkpointing, and recovery on top of that storage interface.</p>
-      <p>My own work is concentrated on the frontend side: the HTTP server, load-balancing path, cookie-backed user-account flows, and the integration work that connects those interfaces to the backend state model. That work is less glamorous than a single algorithm, but it is exactly where distributed systems become real. If the interfaces are loose or the assumptions are inconsistent, the whole platform breaks during integration.</p>
-      <p>What makes the project valuable even in its current state is that it forces architectural discipline early. The frontend cannot assume storage semantics that the backend does not guarantee, and the backend cannot evolve independently if the user-facing flows implicitly depend on unstable behavior. Working through those boundaries has been one of the most useful parts of the build.</p>
+      <p>The architecture follows a stateless-frontend pattern layered over a replicated key-value backend. That separation matters because it forces clear contracts. The frontend cannot assume stronger guarantees than the backend actually provides, and the backend cannot evolve freely if user-facing flows rely on unstable behavior. For me, the technical core of the project has been maintaining clean service boundaries while the underlying distributed system continues to mature.</p>
+      <h2>Results</h2>
+      <p>The current build already includes a multithreaded web server and initial layers of account, webmail, and drive functionality. Since the project is still in progress, the most meaningful result at this stage is that the frontend-backend service boundary is concrete enough to support real integration work while replication, coordination, and recovery logic continue to develop underneath it.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The current build already includes a multithreaded web server and the first layers of account, webmail, and drive functionality. What makes the project valuable at this stage is the transition it forces: moving from a minimal demo toward a platform that can stay available when a node fails. That means reasoning concretely about replication, failover, recovery, and the boundary between frontend convenience and backend correctness. Even before final completion, it is a good representation of how I like to approach infrastructure problems.</p>
+      <p>What I value most in PennCloud is the way it sharpens systems intuition at the boundary between product behavior and infrastructure guarantees. It has made the frontend-backend contract much more concrete for me, especially around what must stay stateless, what must be persisted carefully, and where failures can leak into user-facing behavior.</p>
+      <h2>Limitations & Future Work</h2>
+      <p>The obvious limitation is incompleteness. The platform still needs fuller replication, failover, recovery, and system-wide validation before it can be judged as a mature distributed system. The next step is to push the architecture beyond feature completeness toward stronger operational guarantees and failure-mode testing.</p>
     `,
   },
 };
@@ -479,12 +445,11 @@ if (!project) {
 
   const detailArticle = document.getElementById("detail-article");
   if (detailArticle) {
+    const narrativeHtml = narrative.body || "";
     const sectionNarrative = buildNarrativeFromSections(project);
-    const standardizedNarrative = !sectionNarrative ? standardizeNarrativeBody(project, narrative) : "";
-
     detailArticle.innerHTML =
+      narrativeHtml ||
       sectionNarrative ||
-      standardizedNarrative ||
       "<p>This project detail page is being expanded into a full narrative after a complete read of the underlying materials.</p>";
   }
 
