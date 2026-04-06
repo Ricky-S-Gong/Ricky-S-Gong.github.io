@@ -481,7 +481,7 @@ window.projectCatalog = {
       yearLabel: "2025",
       coverLabel: "Retention Copilot",
       miniDescription:
-        "Builds an LLM-powered churn analysis workflow using retrieval, fine-tuning, and structured feedback processing for decision support.",
+        "Builds an LLM-powered churn analysis system using hybrid retrieval RAG (vector + BM25), fine-tuning, and structured JSON outputs for decision support.",
       resources: [
         {
           label: "GitHub",

@@ -187,7 +187,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-59";
+const assetVersion = "20260406-home-tabs-60";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -228,8 +228,9 @@ const realProjectCovers = {
     position: "center center",
   },
   "llm-powered-churn-analysis-system": {
-    src: "./assets/project-covers-real/llm-powered-churn-analysis-system.png",
-    position: "center center",
+    src: "./assets/project-covers-real/llm-powered-churn-rag-pipeline.webp",
+    position: "center 54%",
+    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.16))",
   },
   "tool-using-language-models": {
     src: "./assets/project-covers-real/tool-using-language-models-illustration.png",
