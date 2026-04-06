@@ -187,16 +187,16 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-54";
+const assetVersion = "20260406-home-tabs-55";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
-    src: "./assets/project-covers-real/minimum-wage-unemployment.jpg",
+    src: "./assets/project-covers-real/minimum-wage-employment-trends.svg",
     position: "center center",
   },
   "nutrition-label-diet-choices": {
-    src: "./assets/project-covers-real/nutrition-label-diet-choices.png",
-    position: "center top",
+    src: "./assets/project-covers-real/nutrition-label-centered.svg",
+    position: "center center",
   },
   "email-funding-conversion-experiment": {
     src: "./assets/project-covers-real/email-funding-conversion-experiment.jpg",
@@ -223,7 +223,7 @@ const realProjectCovers = {
     position: "center center",
   },
   "trm-mechanistic-interpretability": {
-    src: "./assets/project-covers-real/trm-mechanistic-interpretability.jpg",
+    src: "./assets/project-covers-real/trm-mechanistic-interpretability-circuits.svg",
     position: "center center",
   },
   "llm-powered-churn-analysis-system": {
@@ -231,7 +231,7 @@ const realProjectCovers = {
     position: "center center",
   },
   "tool-using-language-models": {
-    src: "./assets/project-covers-real/tool-using-language-models.jpg",
+    src: "./assets/project-covers-real/tool-using-language-models-agents.svg",
     position: "center center",
   },
   "trustworthy-rl-llm-reasoning": {
@@ -239,7 +239,7 @@ const realProjectCovers = {
     position: "center center",
   },
   pennos: {
-    src: "./assets/project-covers-real/pennos.jpg",
+    src: "./assets/project-covers-real/pennos-system-architecture.svg",
     position: "center center",
   },
   penncloud: {
