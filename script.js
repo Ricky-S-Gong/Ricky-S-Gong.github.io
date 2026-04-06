@@ -156,8 +156,8 @@ const siteData = {
   contactBooking: [
     {
       label: "Schedule Coffee Chat",
-      detail: "Send one request for a conversation and I can follow up with a Google Meet or Zoom slot.",
-      href: "mailto:sgong.recruiting@gmail.com?subject=Coffee%20Chat%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20set%20up%20a%20coffee%20chat.%20If%20it%20works%20for%20you%2C%20Google%20Meet%20or%20Zoom%20both%20work%20well%20for%20me.%0A%0AHere%20is%20the%20topic%20I%27d%20like%20to%20discuss%3A%0A%0AHere%20are%20a%20few%20time%20windows%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A-%20%0A%0AThanks%21",
+      detail: "Choose a time directly through my Google Calendar booking page.",
+      href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
       icon: "calendar",
       tone: "mint",
     },
@@ -191,7 +191,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-89";
+const assetVersion = "20260406-home-tabs-90";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
