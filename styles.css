@@ -1097,6 +1097,11 @@ h3 {
   align-content: center;
 }
 
+.contact-copy h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.45rem);
+  line-height: 1.04;
+}
+
 .contact-action-card {
   display: grid;
   grid-template-columns: auto 1fr;
