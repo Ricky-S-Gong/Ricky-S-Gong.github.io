@@ -1,5 +1,5 @@
 const siteData = {
-  heroName: "Shangyu Gong",
+  heroName: "Ricky Gong",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
@@ -193,6 +193,7 @@ const siteData = {
 };
 
 const siteDataZh = {
+  heroName: "宫商羽",
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学数据科学硕士在读",
   heroSummary:
@@ -320,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-96";
+const assetVersion = "20260406-home-tabs-97";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
