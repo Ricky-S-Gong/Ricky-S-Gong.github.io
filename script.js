@@ -160,6 +160,7 @@ const siteData = {
       href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
       icon: "calendar",
       tone: "mint",
+      newTab: true,
     },
     {
       label: "Resume Request",
@@ -191,7 +192,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-90";
+const assetVersion = "20260406-home-tabs-91";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -486,7 +487,9 @@ renderList(siteData.teaching, renderResearchCard, "teaching-cards");
 renderList(
   siteData.contactBooking,
   (item) => `
-    <a class="contact-action-card contact-action-card--${item.tone}" href="${item.href}">
+    <a class="contact-action-card contact-action-card--${item.tone}" href="${item.href}"${
+      item.newTab ? ' target="_blank" rel="noreferrer"' : ""
+    }>
       <span class="contact-action-icon">${iconMarkup[item.icon] || ""}</span>
       <span class="contact-action-copy">
         <strong>${item.label}</strong>
