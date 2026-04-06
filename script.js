@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-76";
+const assetVersion = "20260406-home-tabs-77";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -412,6 +412,10 @@ if (projectCategories) {
                     : "project-cover--light-text";
                 const coverCanvasClass =
                   coverAsset?.canvasTone === "white" ? "project-cover--white-canvas" : "";
+                const statusClass =
+                  project.status === "In Progress"
+                    ? "project-status-pill--progress"
+                    : "project-status-pill--completed";
                 return `
                   <a class="project-card project-card-link" href="./project.html?slug=${project.slug}">
                     <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
@@ -424,7 +428,7 @@ if (projectCategories) {
                         style="background-image: ${coverOverlay};"
                       ></div>
                       <span class="project-cover-label">${project.coverLabel}</span>
-                      <span class="project-status-pill">${project.status}</span>
+                      <span class="project-status-pill ${statusClass}">${project.status}</span>
                     </div>
                     <h3>${project.title}</h3>
                     <p>${project.miniDescription}</p>

@@ -621,8 +621,6 @@ h3 {
 }
 
 .project-cover--light-text .project-status-pill {
-  background: rgba(4, 13, 24, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-soft);
 }
 
@@ -632,9 +630,17 @@ h3 {
 }
 
 .project-cover--dark-text .project-status-pill {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(9, 21, 38, 0.12);
   color: #091526;
+}
+
+.project-status-pill--completed {
+  background: rgba(61, 150, 96, 0.26);
+  border: 1px solid rgba(123, 220, 154, 0.44);
+}
+
+.project-status-pill--progress {
+  background: rgba(72, 125, 214, 0.24);
+  border: 1px solid rgba(126, 176, 255, 0.42);
 }
 
 .detail-shell {
