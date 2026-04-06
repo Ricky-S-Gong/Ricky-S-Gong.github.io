@@ -187,7 +187,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-53";
+const assetVersion = "20260406-home-tabs-54";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {

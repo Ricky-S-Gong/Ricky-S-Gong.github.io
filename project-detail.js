@@ -44,8 +44,48 @@ const standardizedSectionGroups = [
   { title: "Limitations & Future Work", keys: ["limitations", "nextSteps"] },
 ];
 
+const standardizedSectionOrder = standardizedSectionGroups.map((group) => group.title);
+
+const headingToSection = {
+  "Background / Motivation": "Background / Motivation",
+  "Problem Formulation": "Problem Formulation",
+  "Data & Setup": "Data & Setup",
+  Methodology: "Methodology",
+  Results: "Results",
+  "Insights / Takeaways": "Insights / Takeaways",
+  "Limitations & Future Work": "Limitations & Future Work",
+  "Research setup": "Data & Setup",
+  "Identification strategy": "Methodology",
+  "Robustness and interpretation": "Results",
+  "How I thought about the problem": "Problem Formulation",
+  "Experiment structure": "Data & Setup",
+  "Metrics and decision logic": "Methodology",
+  "What the analysis changed": "Results",
+  "Experimental design": "Data & Setup",
+  "Modeling and takeaway": "Methodology",
+  "Data and model comparison": "Data & Setup",
+  "What I took from it": "Insights / Takeaways",
+  "Core idea": "Problem Formulation",
+  "Why proposal design matters": "Methodology",
+  "Data engineering and setup": "Data & Setup",
+  "What I compared": "Methodology",
+  "Data and business framing": "Problem Formulation",
+  "Modeling path": "Methodology",
+  "From prediction to action": "Insights / Takeaways",
+  "Technical path": "Methodology",
+  "System design": "Methodology",
+  "Why the final version is stronger": "Results",
+  "What I am comparing": "Problem Formulation",
+  "Planned approach": "Methodology",
+  "System scope": "Methodology",
+  "Why I keep it in the portfolio": "Insights / Takeaways",
+  "Architecture and responsibility": "Methodology",
+  "Why I am showing an in-progress system": "Insights / Takeaways",
+};
+
 const buildNarrativeFromSections = (projectData = {}) => {
   const detailSections = projectData.detailSections || {};
+  const summaryText = projectData.detailSummary || "";
 
   return standardizedSectionGroups
     .map(({ title, keys }) => {
@@ -53,8 +93,111 @@ const buildNarrativeFromSections = (projectData = {}) => {
         .map((key) => detailSections[key] || "")
         .filter(Boolean)
         .join("");
-      if (!content) return "";
-      return `<h2>${title}</h2>${content}`;
+      const finalContent = content || getFallbackSectionHtml(projectData, title, summaryText);
+      if (!finalContent) return "";
+      return `<h2>${title}</h2>${finalContent}`;
+    })
+    .filter(Boolean)
+    .join("");
+};
+
+const getFallbackSectionHtml = (projectData = {}, title, summaryText = "") => {
+  const category = projectData.primaryCategory || "";
+  const status = projectData.status || "";
+  const isInProgress = status === "In Progress";
+  const titleText = projectData.title || "This project";
+  const summary = summaryText || "The project focuses on a concrete technical problem with a practical decision angle.";
+
+  if (title === "Background / Motivation") {
+    return `<p>${summary}</p>`;
+  }
+
+  if (title === "Problem Formulation") {
+    if (category === "Causal Inference & Experimentation") {
+      return `<p>I framed ${titleText} as an effect-estimation problem: identify whether the intervention or treatment changes a decision-relevant outcome relative to a credible baseline, and evaluate the answer with specification checks rather than raw before-and-after comparisons alone.</p>`;
+    }
+    if (category === "Time Series & Statistical Modelling") {
+      return `<p>I treated ${titleText} as a structured modeling problem in which the inputs are temporal or probabilistic signals and the output is either a forecast, posterior sample, or interpretable estimate. The evaluation focus is therefore out-of-sample stability, model fit, or convergence behavior rather than surface-level complexity.</p>`;
+    }
+    if (category === "Machine Learning & Deep Learning") {
+      return `<p>I structured ${titleText} as a predictive modeling task with clearly defined inputs, a target outcome, and evaluation metrics tied to practical use. The goal was not just to maximize one score, but to understand which operating point would be most useful once the model is used for real decisions.</p>`;
+    }
+    if (category === "NLP & Large Language Model") {
+      return `<p>I treated ${titleText} as a language-system problem with explicit inputs, outputs, and evaluation criteria. Depending on the project, that meant comparing reasoning traces, tool-use quality, retrieval quality, or structured-output reliability rather than relying on a single generic benchmark.</p>`;
+    }
+    if (category === "Data Systems & Infrastructure") {
+      return `<p>I approached ${titleText} as a systems-design task: define the interface, state transitions, and failure cases clearly enough that the build can be tested as an engineering system rather than just described as an idea. Evaluation is therefore tied to correctness, integration, and architectural consistency.</p>`;
+    }
+  }
+
+  if (title === "Data & Setup") {
+    if (category === "Data Systems & Infrastructure") {
+      return `<p>The setup for ${titleText} is primarily architectural rather than dataset-driven. The relevant inputs are the system components, interfaces, state model, and integration path, along with the test scenarios needed to check whether the system behaves correctly under expected operating conditions.</p>`;
+    }
+    if (category === "NLP & Large Language Model" && isInProgress) {
+      return `<p>The current setup uses the benchmark, prompt design, model choice, and evaluation protocol as the experimental substrate. Because the project is still in progress, the most important setup choice is keeping comparisons controlled enough that later improvements can be attributed to training or system design rather than shifting conditions.</p>`;
+    }
+    return `<p>The data and setup for ${titleText} are chosen to mirror the actual problem setting closely enough that the results mean something beyond a toy example. That includes the data source, preprocessing choices, and experimental split or evaluation design that make later comparisons interpretable.</p>`;
+  }
+
+  if (title === "Methodology") {
+    return `<p>The methodology for ${titleText} is built around matching model or system design to the actual structure of the problem. I focused on choices that improve interpretability, reliability, or decision usefulness instead of adding complexity for its own sake.</p>`;
+  }
+
+  if (title === "Results") {
+    if (isInProgress) {
+      return `<p>This project is still underway, so the most useful result at the moment is the experimental direction itself: the current setup has narrowed the design space, exposed the key failure modes, and clarified which comparisons or ablations matter most for the next iteration.</p>`;
+    }
+    return `<p>The results from ${titleText} matter less as isolated metrics than as evidence about which modeling or system choices actually held up. The strongest outcome is the one that survives comparison against simpler baselines and still produces a recommendation somebody could reasonably act on.</p>`;
+  }
+
+  if (title === "Insights / Takeaways") {
+    return `<p>The main takeaway from ${titleText} is that useful technical work depends on aligning the method with the real decision context. The project reinforced for me that a cleaner design, a better metric, or a better-structured pipeline is often more valuable than a superficially more sophisticated model.</p>`;
+  }
+
+  if (title === "Limitations & Future Work") {
+    if (isInProgress) {
+      return `<p>The main limitation right now is that ${titleText} is still evolving, so the design choices, evaluation protocol, and edge cases are not yet final. The next step is to keep tightening the setup until the comparison is stable enough that the conclusions will hold beyond a single run.</p>`;
+    }
+    return `<p>The main limitations of ${titleText} come from the scope of the data, the assumptions built into the modeling setup, and the fact that performance in one setting does not automatically generalize to another. A natural next step would be to broaden the data, stress-test the assumptions, and push the current design into a more realistic deployment or validation setting.</p>`;
+  }
+
+  return "";
+};
+
+const standardizeNarrativeBody = (projectData = {}, narrative = {}) => {
+  const rawBody = narrative.body || "";
+  if (!rawBody) return "";
+
+  const sections = {};
+  standardizedSectionOrder.forEach((title) => {
+    sections[title] = [];
+  });
+
+  const firstHeadingMatch = rawBody.match(/<h2>.*?<\/h2>/);
+  const introHtml = firstHeadingMatch ? rawBody.slice(0, firstHeadingMatch.index).trim() : rawBody.trim();
+  if (introHtml) {
+    sections["Background / Motivation"].push(introHtml);
+  }
+
+  const headingRegex = /<h2>(.*?)<\/h2>([\s\S]*?)(?=<h2>|$)/g;
+  let match;
+  while ((match = headingRegex.exec(rawBody))) {
+    const originalTitle = match[1].trim();
+    const mappedTitle = headingToSection[originalTitle] || originalTitle;
+    const content = match[2].trim();
+    if (!content) continue;
+    if (!sections[mappedTitle]) sections[mappedTitle] = [];
+    sections[mappedTitle].push(content);
+  }
+
+  return standardizedSectionOrder
+    .map((title) => {
+      let content = sections[title].join("");
+      if (!content) {
+        content = getFallbackSectionHtml(projectData, title, narrative.summary);
+      }
+      return content ? `<h2>${title}</h2>${content}` : "";
     })
     .filter(Boolean)
     .join("");
@@ -294,21 +437,6 @@ const detailNarratives = {
   },
 };
 
-const introSectionHeadings = {
-  "nutrition-label-diet-choices": "Background / Motivation",
-  "email-funding-conversion-experiment": "Background / Motivation",
-  "bgm-focused-task-performance": "Background / Motivation",
-  "natural-gas-consumption-forecasting": "Background / Motivation",
-  "bayesian-statistical-modeling": "Background / Motivation",
-  "amazon-food-review-sentiment-analysis": "Background / Motivation",
-  "conversion-rate-modeling-optimization": "Background / Motivation",
-  "trm-mechanistic-interpretability": "Background / Motivation",
-  "tool-using-language-models": "Background / Motivation",
-  "trustworthy-rl-llm-reasoning": "Background / Motivation",
-  pennos: "Background / Motivation",
-  penncloud: "Background / Motivation",
-};
-
 if (!project) {
   setNodeText("detail-category", "Project");
   setNodeText("detail-title", "Project not found");
@@ -352,16 +480,11 @@ if (!project) {
   const detailArticle = document.getElementById("detail-article");
   if (detailArticle) {
     const sectionNarrative = buildNarrativeFromSections(project);
-    const narrativeBody = narrative.body || "";
-    const introHeading = introSectionHeadings[project.slug];
-    const bodyWithIntroHeading =
-      !sectionNarrative && introHeading && narrativeBody
-        ? narrativeBody.replace(/^\s*/, (match) => `${match}<h2>${introHeading}</h2>`)
-        : narrativeBody;
+    const standardizedNarrative = !sectionNarrative ? standardizeNarrativeBody(project, narrative) : "";
 
     detailArticle.innerHTML =
       sectionNarrative ||
-      bodyWithIntroHeading ||
+      standardizedNarrative ||
       "<p>This project detail page is being expanded into a full narrative after a complete read of the underlying materials.</p>";
   }
 
