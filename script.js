@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-77";
+const assetVersion = "20260406-home-tabs-78";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -210,9 +210,9 @@ const realProjectCovers = {
     textTone: "light",
   },
   "nutrition-label-diet-choices": {
-    src: "./assets/project-covers-real/nutrition-label-header-banner.jpg",
-    position: "center 84%",
-    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.04), rgba(4, 13, 24, 0.14))",
+    src: "./assets/project-covers-real/nutrition-package-card-banner.jpg",
+    position: "center center",
+    overlay: "linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.06))",
     textTone: "dark",
   },
   "email-funding-conversion-experiment": {
