@@ -73,13 +73,14 @@ const detailNarratives = {
       <h2>Background / Motivation</h2>
       <p>This study examines whether nutrition-label education affects healthy diet choices. The project is designed as a randomized experiment rather than a descriptive survey, so the focus is on whether education changes consumer willingness to pay for healthier products.</p>
       <h2>Problem Formulation</h2>
-      <p>The core outcome is willingness to pay for the healthier option in each product pair. Treatment assignment identifies whether the respondent received nutrition-label education, and the regression coefficient on treatment is the quantity used to measure the intervention effect.</p>
+      <p>The poster defines the main variable of interest as the survey taker's revealed willingness to pay for the healthier product (Product 2) conditional on knowing the fair market price of the conventional product (Product 1):</p>
+      <div class="math-block">\[ Y_{i,t} = WTP^{Product\ 2}_{i,t}\mid Price^{Product\ 1} \]</div>
       <h2>Data & Setup</h2>
       <p>The poster reports an RCT with \(n=115\) participants. Respondents were randomly assigned to treatment and control conditions. The treatment arm received nutrition-label education, the control arm received placebo-style information, and participants then evaluated multiple healthier-versus-conventional product pairs. The poster also reports no significant baseline difference between treatment and control groups.</p>
       <h2>Methodology</h2>
-      <p>The main regression in the poster is</p>
-      <div class="math-block">\[ y_i = \beta_0 + \beta_1\,\mathrm{Treat}_i + \beta_2\,\mathrm{Price}_i + \varepsilon_i. \]</div>
-      <p>Here \(y_i\) is the outcome for respondent \(i\), \(\mathrm{Treat}_i\) is the treatment indicator, and \(\mathrm{Price}_i\) captures the product-price term included in the specification. The project uses \(\beta_1\) to measure whether the education treatment changes the valuation of the healthier option.</p>
+      <p>To estimate the treatment effect of nutrition label education on survey taker's revealed willingness to pay for the healthier product, the poster estimates the following regression specification for all six product pairs in the survey following Twisk et al. (2018):</p>
+      <div class="math-block">\[ Y_{i,t} = \alpha + \beta_1 Time + \beta_2 Time \times treatment_i + \gamma^\prime Control_{i,t} + \epsilon_{i,t} \]</div>
+      <p>The poster states that the control variables included are Age, Gender, Education, and Income. It also states that the coefficient of the interaction term of Time and Treatment captures the treatment effect of nutrition label education on survey taker's revealed willingness to pay for the healthier product within each of the product pairs analyzed. The same regression specification is then used for the survey effect and treatment effect on consumer nutrition knowledge, with results reported in Table 3.</p>
       <h2>Results</h2>
       <p>The poster reports the clearest treatment effects in Product Pairs 2, 5, and 6. Those pairs are tied in the poster to lower sodium, lower fat, and higher vitamin content. The reported effect is therefore selective rather than uniform across all product comparisons.</p>
       <h2>Insights / Takeaways</h2>
