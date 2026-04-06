@@ -201,7 +201,7 @@ const siteData = {
   ],
 };
 
-const assetVersion = "20260406-home-tabs-74";
+const assetVersion = "20260406-home-tabs-75";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -243,7 +243,7 @@ const realProjectCovers = {
   "amazon-food-review-sentiment-analysis": {
     src: "./assets/project-covers-real/amazon-food-review-sentiment-analysis.jpg",
     position: "center center",
-    textTone: "dark",
+    textTone: "light",
   },
   "trm-mechanistic-interpretability": {
     src: "./assets/project-covers-real/trm-transformer-illustration.png",
