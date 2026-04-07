@@ -32,7 +32,7 @@ const siteData = {
   ],
   homeAbout: [
     'Hi there 😉. I am Shangyu Gong, and you can also call me Ricky. I am pursuing an <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">M.S.E. in Data Science</a> at the University of Pennsylvania. Before Penn, I studied <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a> at the University of Illinois Urbana-Champaign, with minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>; much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research. I graduated from UIUC as a Bronze Tablet Scholar and Summa Cum Laude.',
-    "I found myself strongest when a team had a business question that needed to be turned into analytical structure. I have come to believe that for a data scientist, understanding the business deeply matters more than knowing one more complex model or one more advanced tool, which is why I have deliberately pursued internships to build sharper product instinct and commercial judgment.",
+    "I am strongest when a team has a product, growth, retention, or operational question that needs more than just reporting. I have come to believe that for a data scientist, understanding the business deeply matters more than knowing one more complex model or one more advanced tool, which is why I have deliberately pursued internships to build sharper product instinct and commercial judgment.",
     "Outside of work, I enjoy guandan, hiking, cooking, exploring restaurants, and playing badminton. These parts of my life let me move across different rhythms and states of mind, and over time they have shaped the way I think about life. I have long believed that doing my best work depends on more than technical ability alone: it comes from physical well-being, a genuine love of life, and the social process of learning how to relate to different kinds of people. Those things help me work at a higher level, stay connected to the world, understand others more deeply, and know myself more clearly over time.",
   ],
   capabilities: [
@@ -204,7 +204,7 @@ const siteDataZh = {
   ],
   homeAbout: [
     '你好 😉 我是宫商羽，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读 <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学硕士</a>。在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>，并辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>；我本科阶段的大部分研究也主要围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。我以 UIUC Bronze Tablet Scholar 及 Summa Cum Laude 毕业。',
-    "我最能发挥价值的时候，往往是团队面前摆着一个业务问题，需要把它转化成清晰的分析结构的时候。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。",
+    "我最擅长的场景，是团队面对一个产品、增长、留存或运营问题，单靠报表并不能回答。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。",
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，做出最好的工作，靠的不只是技术能力本身；它同样来自健康的体魄、对生活的热爱，以及在与不同人相处中不断学习的过程。这些东西让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
   research: [
@@ -319,7 +319,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-zhcopy-1841";
+const assetVersion = "20260407-copy-1850";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
