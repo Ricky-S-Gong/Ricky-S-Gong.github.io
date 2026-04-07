@@ -558,7 +558,7 @@ window.projectCatalog = {
       tags: ["LLM", "Tool Use", "Agents", "Reasoning", "Evaluation"],
       status: "In Progress",
       yearLabel: "2026",
-      coverLabel: "Tool Use",
+      coverLabel: "LLM Alignment",
       miniDescription:
         "Explores how language models invoke external tools and structured actions to improve reasoning and task completion.",
       resources: [
