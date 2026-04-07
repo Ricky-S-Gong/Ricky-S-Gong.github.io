@@ -4,7 +4,7 @@ const siteData = {
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
   heroSummary:
-    "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, SaaS platforms, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights.",
+    "I build product and business analytics systems that connect rigorous modeling with clear decisions. Across edtech, SaaS platforms, finance, and real estate contexts, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows to turn messy questions into interpretable, decision-ready insights. I strongly believe real value comes from deep business understanding, not blind admiration for complex tools.",
   portrait: {
     image: "./assets/full-portrait.png",
     fallback: "RG",
@@ -197,7 +197,7 @@ const siteDataZh = {
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
-    "我希望用扎实的建模能力和清晰的分析表达，帮助团队把复杂问题真正转化为可以落地的业务决策。在教育科技、SaaS、金融和房地产等场景中，我做过 A/B 测试、因果推断、预测建模、仪表板搭建，以及端到端数据流程建设，也逐渐形成了把模糊问题梳理成可解释、可执行分析结论的工作方式。",
+    "我专注于用严谨的建模和分析方法，帮助团队把复杂问题转化为清晰、可执行的业务决策。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，也逐渐形成了把模糊问题梳理成可解释、可执行分析结论的工作方式。我坚信真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-106";
+const assetVersion = "20260406-home-tabs-107";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
