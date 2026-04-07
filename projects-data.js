@@ -301,7 +301,7 @@ window.projectCatalog = {
       tags: ["Time Series", "Forecasting", "Housing", "DuckDB", "LSTM"],
       status: "Completed",
       yearLabel: "2024",
-      coverLabel: "Housing Forecast",
+      coverLabel: "Time Series ML",
       miniDescription:
         "Forecasts rental prices in Champaign using time series methods and machine learning models on housing, demographic, and macroeconomic signals.",
       resources: [
