@@ -197,7 +197,7 @@ const siteDataZh = {
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学数据科学硕士在读",
   heroSummary:
-    "我主要做能够把严谨建模和清晰决策连接起来的产品与商业分析系统。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板和端到端数据工作流，把模糊问题整理成可解释、可落地的分析结论。",
+    "我专注于用严谨的建模和分析方法，帮助团队把复杂问题转化为清晰、可执行的业务决策。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，把原本模糊的问题沉淀为可解释、可落地的分析结论。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-103";
+const assetVersion = "20260406-home-tabs-104";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
