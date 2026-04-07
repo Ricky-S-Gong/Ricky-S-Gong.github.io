@@ -162,6 +162,10 @@ window.projectCatalog = {
         "Designs and analyzes a multi-arm email experiment to understand funding conversion behavior using experimentation, funnel analytics, and product metrics.",
       resources: [
         {
+          label: "GitHub",
+          href: "https://github.com/Ricky-S-Gong/email-ab-experiment-fintech",
+        },
+        {
           label: "Report",
           href: "./project-resources/email-funding-conversion-experiment/report.pdf",
         },
@@ -380,6 +384,10 @@ window.projectCatalog = {
       miniDescription:
         "Builds a sentiment classification workflow for customer reviews using feature engineering, NLP representations, and supervised learning.",
       resources: [
+        {
+          label: "GitHub",
+          href: "https://github.com/Ricky-S-Gong/amazon-food-review-sentiment",
+        },
         {
           label: "Paper",
           href: "./project-resources/amazon-food-review-sentiment-analysis/paper.pdf",
