@@ -195,7 +195,7 @@ const siteData = {
 const siteDataZh = {
   heroName: "宫商羽",
   heroTagline: "数据科学、产品分析、LLM、机器学习",
-  heroSubtitle: "宾夕法尼亚大学数据科学硕士在读",
+  heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
     "我希望用扎实的建模能力和清晰的分析表达，帮助团队把复杂问题真正转化为可以落地的业务决策。在教育科技、SaaS、金融和房地产等场景中，我做过 A/B 测试、因果推断、预测建模、仪表板搭建，以及端到端数据流程建设，也逐渐形成了把模糊问题梳理成可解释、可执行分析结论的工作方式。",
   heroLinks: [
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-105";
+const assetVersion = "20260406-home-tabs-106";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
