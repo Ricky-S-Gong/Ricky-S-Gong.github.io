@@ -193,7 +193,7 @@ window.projectCatalog = {
       tags: ["Experimental Design", "Mixed Effects", "ANOVA", "Behavior", "Statistics"],
       status: "Completed",
       yearLabel: "2024",
-      coverLabel: "Behavior Study",
+      coverLabel: "Nested Blocked Experiment",
       miniDescription:
         "Tests how background music conditions affect focused-task performance using controlled experimental design and statistical modelling.",
       resources: [
