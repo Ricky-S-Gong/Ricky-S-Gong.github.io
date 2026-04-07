@@ -376,7 +376,7 @@ window.projectCatalog = {
       tags: ["Sentiment Analysis", "TF-IDF", "Word2Vec", "Classification", "NLP"],
       status: "Completed",
       yearLabel: "2026",
-      coverLabel: "Review Signals",
+      coverLabel: "Sentiment Analysis",
       miniDescription:
         "Builds a sentiment classification workflow for customer reviews using feature engineering, NLP representations, and supervised learning.",
       resources: [
