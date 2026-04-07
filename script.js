@@ -117,7 +117,7 @@ const siteData = {
     },
     {
       title: "US Inflation Forecasting in a Data-Rich Environment",
-      org: 'Economics Data Lab under <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a> and <a href="https://scholar.google.com/citations?user=5f7xwS8AAAAJ" target="_blank" rel="noreferrer">Prof. Marcelo Medeiros</a>, UIUC',
+      org: 'Economics Data Lab under <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a> and <a href="https://sites.google.com/site/marcelocmedeiros" target="_blank" rel="noreferrer">Prof. Marcelo Medeiros</a>, UIUC',
       period: "Jan 2024 - May 2024",
       body:
         "This project sat at the intersection of macroeconomics, forecasting, and high-dimensional modeling. Following the data-rich forecasting literature, I built a FRED pipeline with TCODE transformations across 89 macroeconomic series and compared benchmark models such as Random Walk, ARIMA, and UCSV against shrinkage estimators including Ridge, LASSO, and Elastic Net. The work taught me to think carefully about what different models assume about persistence, sparsity, and multicollinearity, and why forecasting performance often depends as much on disciplined data preparation as on model choice.",
@@ -226,7 +226,7 @@ const siteDataZh = {
     },
     {
       title: "数据富集环境下的美国通胀预测",
-      org: 'UIUC Economics Data Lab，<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 与 <a href="https://scholar.google.com/citations?user=5f7xwS8AAAAJ" target="_blank" rel="noreferrer">Marcelo Medeiros 教授</a> 指导',
+      org: 'UIUC Economics Data Lab，<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 与 <a href="https://sites.google.com/site/marcelocmedeiros" target="_blank" rel="noreferrer">Marcelo Medeiros 教授</a> 指导',
       period: "2024年1月 - 2024年5月",
       body:
         "这个项目处在宏观经济学、预测和高维建模的交叉处。沿着 data-rich forecasting 文献的思路，我构建了包含 89 条宏观序列和 TCODE 变换的 FRED 流水线，并比较了 Random Walk、ARIMA、UCSV 等基准模型以及 Ridge、LASSO、Elastic Net 等收缩估计方法。这个过程让我更清楚地理解，不同模型分别对持续性、稀疏性和多重共线性做了什么假设，也让我意识到预测效果往往同样依赖于纪律严明的数据准备，而不仅仅是模型本身。",
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-102";
+const assetVersion = "20260406-home-tabs-103";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
