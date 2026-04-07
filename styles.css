@@ -670,7 +670,7 @@ h3 {
 .project-cover--light-text .project-cover-label {
   color: #f8fafc;
   text-shadow: none;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.76);
   border: 1px solid rgba(148, 163, 184, 0.26);
   box-shadow: 0 12px 26px rgba(15, 23, 42, 0.24);
 }
@@ -682,7 +682,7 @@ h3 {
 .project-cover--dark-text .project-cover-label {
   color: #f8fafc;
   text-shadow: none;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.76);
   border: 1px solid rgba(148, 163, 184, 0.24);
   box-shadow: 0 12px 26px rgba(2, 6, 23, 0.22);
 }
