@@ -297,7 +297,7 @@ const siteChrome = {
     researchHeading: "Research",
     teachingHeading: "Teaching",
     contactTag: "Contact",
-    contactHeading: "Data, coffee chats, and opportunities.",
+    contactHeading: "Connect, coffee chats, and potential opportunities.",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
     documentTitle: "Ricky Gong | Data Portfolio",
@@ -313,7 +313,7 @@ const siteChrome = {
     researchHeading: "研究",
     teachingHeading: "教学",
     contactTag: "联系",
-    contactHeading: "欢迎交流数据、coffee chat 与合作机会。",
+    contactHeading: "欢迎联系、预约 coffee chat，或交流合作机会。",
     contactCopy:
       "如果你希望联系我，可以直接预约交流、私下索取简历，或通过邮件和社交媒体进一步联系我。",
     documentTitle: "宫商羽 | 数据作品集",
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-101";
+const assetVersion = "20260406-home-tabs-102";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
