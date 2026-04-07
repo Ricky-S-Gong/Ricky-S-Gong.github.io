@@ -972,7 +972,7 @@ if (!project) {
 } else {
   const narrative = getLocalizedNarrative(project.slug);
   const pageTitle = getProjectField(project, "title");
-  document.title = `${pageTitle} | ${locale === "zh" ? "宫商羽" : "Ricky Gong"}`;
+  document.title = `${pageTitle} | ${locale === "zh" ? "宫商羽" : "Shangyu Gong"}`;
   setNodeText("detail-category", translateCategory(project.primaryCategory));
   setNodeText("detail-title", pageTitle);
   setNodeText("detail-subtitle", getProjectField(project, "subtitle"));

@@ -1,5 +1,5 @@
 const siteData = {
-  heroName: "Ricky Gong",
+  heroName: "Shangyu Gong",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
@@ -31,7 +31,7 @@ const siteData = {
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
   homeAbout: [
-    'Hi there 😉. I am Ricky Gong. I am currently pursuing an M.S.E. in Data Science at the University of Pennsylvania, where my work increasingly sits at the intersection of analytics, machine learning, and decision-making under real-world constraints. My graduate coursework has focused on big data analytics, trustworthy machine learning, deep learning, generative AI and LLMs, operating systems, and distributed systems, which has pushed me to think not only about model quality but also about reliability, scalability, and how analytical work actually gets operationalized.',
+    'Hi there 😉. I am Shangyu Gong, and you can also call me Ricky. I am currently pursuing an M.S.E. in Data Science at the University of Pennsylvania, where my work increasingly sits at the intersection of analytics, machine learning, and decision-making under real-world constraints. My graduate coursework has focused on big data analytics, trustworthy machine learning, deep learning, generative AI and LLMs, operating systems, and distributed systems, which has pushed me to think not only about model quality but also about reliability, scalability, and how analytical work actually gets operationalized.',
     'Before Penn, I studied Statistics and Economics at the University of Illinois Urbana-Champaign, with minors in Mathematics and Computer Science. Along the way, I built a technical base across statistical learning, Bayesian analysis, time series, causal inference, design of experiments, econometrics, databases, algorithms, deep learning, and computer vision. My undergraduate research perspective was shaped by mentors including <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>. My research spanned labor economics, social media, housing markets, macro forecasting, and policy evaluation. Across that research, I developed a strong foundation in causal inference and empirical economics, including IV, Bartik IV, 2SLS, event-study design, and difference-in-differences. I graduated from UIUC as a Bronze Tablet Scholar, the university\'s highest academic honor for undergraduates, and Summa Cum Laude.',
     "In industry, I see myself as a practitioner who translates business ambiguity into analytical structure. I am strongest when a team has a product, growth, retention, or operational question that needs more than just reporting. I have come to believe that for a data scientist, understanding the business deeply matters more than knowing one more complex model or one more advanced tool, which is why I have deliberately pursued internships to build sharper product instinct and commercial judgment. That usually means clarifying the decision, defining the right metrics, building experiments or models that match the business risk, and communicating outputs in a way that product managers, operators, or executives can actually use.",
     "Outside of work, I enjoy guandan, hiking, cooking, exploring restaurants, and playing badminton. These parts of my life let me move across different rhythms and states of mind, and over time they have shaped the way I think about life. I have long believed that doing my best work depends on more than technical ability alone: it comes from physical well-being, a genuine love of life, and the social process of learning how to relate to different kinds of people. Those things help me work at a higher level, stay connected to the world, understand others more deeply, and know myself more clearly over time.",
@@ -300,8 +300,8 @@ const siteChrome = {
     contactHeading: "Connect, coffee chats, and potential opportunities.",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
-    documentTitle: "Ricky Gong | Data Portfolio",
-    metaDescription: "Portfolio site for Ricky Gong featuring data projects, research, and teaching.",
+    documentTitle: "Shangyu Gong | Data Portfolio",
+    metaDescription: "Portfolio site for Shangyu Gong featuring data projects, research, and teaching.",
   },
   zh: {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260406-home-tabs-111";
+const assetVersion = "20260406-home-tabs-112";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
