@@ -670,9 +670,9 @@ h3 {
 .project-cover--light-text .project-cover-label {
   color: #f8fafc;
   text-shadow: none;
-  background: rgba(15, 23, 42, 0.76);
-  border: 1px solid rgba(148, 163, 184, 0.26);
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.24);
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
 }
 
 .project-cover--light-text .project-status-pill {
@@ -682,9 +682,9 @@ h3 {
 .project-cover--dark-text .project-cover-label {
   color: #f8fafc;
   text-shadow: none;
-  background: rgba(15, 23, 42, 0.76);
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.22);
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.16);
 }
 
 .project-cover--dark-text .project-status-pill {
