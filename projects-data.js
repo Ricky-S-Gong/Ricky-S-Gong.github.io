@@ -443,7 +443,7 @@ window.projectCatalog = {
       tags: ["Interpretability", "SAE", "Ablation", "PyTorch", "Deep Learning"],
       status: "Completed",
       yearLabel: "2026",
-      coverLabel: "Model Circuits",
+      coverLabel: "Circuits & Ablation Study",
       miniDescription:
         "Studies mechanistic interpretability through sparse autoencoders, ablation workflows, and model-behavior analysis in deep learning systems.",
       resources: [
