@@ -119,7 +119,7 @@ window.projectCatalog = {
       tags: ["Experiment Design", "DiD", "Survey", "Health", "Consumer Behavior"],
       status: "Completed",
       yearLabel: "2022",
-      coverLabel: "Nutrition Choice",
+      coverLabel: "RCT Design",
       miniDescription:
         "Examines whether nutrition label education shifts consumer diet choices through a survey-based experiment and causal treatment-effect estimation.",
       resources: [
