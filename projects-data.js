@@ -47,7 +47,7 @@ window.projectCatalog = {
       tags: ["DiD", "TWFE", "Labor", "Policy", "Panel Data"],
       status: "Completed",
       yearLabel: "2025",
-      coverLabel: "Policy Shock",
+      coverLabel: "Panel Regression",
       miniDescription:
         "Studies how minimum wage shocks affect unemployment using panel data methods, difference-in-differences, and two-way fixed effects.",
       resources: [
