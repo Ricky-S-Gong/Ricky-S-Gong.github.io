@@ -282,7 +282,7 @@ main {
 }
 
 .intro-card {
-  max-width: 600px;
+  max-width: 590px;
   padding: 2rem;
   border: 1px solid rgba(154, 207, 255, 0.14);
   border-radius: 28px;
@@ -344,7 +344,7 @@ h3 {
 
 .hero-text {
   margin: 1.25rem 0 0;
-  max-width: 53ch;
+  max-width: 51ch;
   text-align: justify;
   text-justify: inter-ideograph;
 }
