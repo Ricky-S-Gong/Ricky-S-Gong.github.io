@@ -321,7 +321,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-cover-zh-1722";
+const assetVersion = "20260407-brand-1739";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
