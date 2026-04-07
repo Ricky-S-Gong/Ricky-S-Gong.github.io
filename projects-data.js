@@ -666,7 +666,7 @@ window.projectCatalog = {
       tags: ["Distributed Systems", "C++", "KV Store", "Replication", "Backend"],
       status: "In Progress",
       yearLabel: "2026",
-      coverLabel: "Distributed Store",
+      coverLabel: "Distributed System",
       miniDescription:
         "Implements a distributed cloud-style system with backend coordination, storage, and service interfaces across multiple components.",
       resources: [
