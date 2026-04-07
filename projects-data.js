@@ -479,7 +479,7 @@ window.projectCatalog = {
       tags: ["LLM", "RAG", "Fine-Tuning", "Churn", "Predictive Modelling"],
       status: "Completed",
       yearLabel: "2025",
-      coverLabel: "Retention Copilot",
+      coverLabel: "RAG System",
       miniDescription:
         "Builds an LLM-powered churn analysis system using hybrid retrieval RAG (vector + BM25), fine-tuning, and structured JSON outputs for decision support.",
       resources: [
