@@ -196,17 +196,16 @@ const siteDataZh = {
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
-    "我专注于用严谨的建模和分析方法，帮助团队把复杂问题转化为清晰、可执行的业务决策。围绕教育科技、SaaS 平台、金融和房地产等场景，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，也逐渐形成了把模糊问题梳理成可解释、可执行分析结论的工作范式。我坚信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
+    "在教育科技、SaaS 平台、金融和房地产等实习场景中，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，也逐渐形成了一种工作方式：把模糊问题整理成可解释、可执行的分析结论。我始终相信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
   homeAbout: [
-    '你好 😉 我是宫商羽，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读 <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学硕士</a>，最近的学习和项目越来越集中在分析、机器学习，以及真实业务约束下的决策问题交叉处。研究生阶段的课程主要覆盖大数据分析、可信机器学习、深度学习、生成式 AI 与 LLM、操作系统和分布式系统，这也让我不仅关注模型效果，更关注可靠性、可扩展性，以及分析工作如何真正被落地。',
-    '在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>，并辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>。一路以来，我系统学习了统计学习、贝叶斯分析、时间序列、因果推断、实验设计、计量经济学、数据库、算法、深度学习和计算机视觉。我的本科研究视角深受多位导师影响，包括 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a>。我的研究覆盖劳动经济学、社交媒体、住房市场、宏观预测和政策评估，也由此建立了扎实的因果推断与实证经济学基础，包括 IV、Bartik IV、2SLS、事件研究设计和双重差分。我以 UIUC Bronze Tablet Scholar（本科最高学术荣誉之一）及 Summa Cum Laude 毕业。',
-    "在行业场景里，我更把自己看作一个能把业务模糊性转化为分析结构的实践型数据科学家。我最擅长的场景，是团队面对一个产品、增长、留存或运营问题，单靠报表并不能回答，而需要把决策、指标、实验或模型系统化。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。对我来说，这通常意味着先澄清要支持的决策，再定义合适的指标，选择与业务风险匹配的方法，最后把结果讲清楚，让产品经理、运营或管理层真正能用。",
-    "工作之余，我也喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态中切换，也逐渐塑造了我的生活哲学。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我更出色地工作，更持续地感受世界、理解他人，并更清楚地认识自己。",
+    '你好 😉 我是宫商羽，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读 <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学硕士</a>。在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>，并辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>；我本科阶段的大部分研究也主要围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。我以 UIUC Bronze Tablet Scholar 及 Summa Cum Laude 毕业。',
+    "我最能发挥价值的时候，往往是团队面前摆着一个业务问题，需要把它转化成清晰的分析结构的时候。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。",
+    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，做出最好的工作，靠的不只是技术能力本身；它同样来自健康的体魄、对生活的热爱，以及在与不同人相处中不断学习的过程。这些东西让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
   research: [
     {
@@ -320,7 +319,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-copy-1840";
+const assetVersion = "20260407-zhcopy-1841";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
