@@ -885,6 +885,8 @@ h3 {
   color: var(--text-soft);
   line-height: 1.75;
   font-size: 1.02rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .home-about-prose p:last-child {
