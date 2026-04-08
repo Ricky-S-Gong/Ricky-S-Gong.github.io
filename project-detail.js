@@ -240,7 +240,7 @@ const detailNarratives = {
       "A randomized survey experiment testing whether nutrition-label education changes willingness to pay for healthier product alternatives.",
     body: String.raw`
       <h2>Background / Motivation</h2>
-      <p>This study examines whether nutrition-label education affects healthy diet choices. The project is designed as a randomized experiment rather than a descriptive survey, so the focus is on whether education changes consumer willingness to pay for healthier products.</p>
+      <p>This study, developed through the <a href="https://www.xjtlu.edu.cn/en/study/surf" target="_blank" rel="noreferrer">XJTLU SURF program</a>, examines whether nutrition-label education affects healthy diet choices. The project is designed as a randomized experiment rather than a descriptive survey, so the focus is on whether education changes consumer willingness to pay for healthier products.</p>
       <h2>Problem Formulation</h2>
       <p>The poster defines the main variable of interest as the survey taker's revealed willingness to pay for the healthier product (Product 2) conditional on knowing the fair market price of the conventional product (Product 1):</p>
       <div class="math-block">\[ Y_{i,t} = WTP^{Product\ 2}_{i,t}\mid Price^{Product\ 1} \]</div>
@@ -612,7 +612,7 @@ const detailNarrativesZh = {
       "一项随机调查实验，检验营养标签教育是否会改变消费者对更健康产品的支付意愿。",
     body: String.raw`
       <h2>背景 / 动机</h2>
-      <p>这项研究考察营养标签教育是否会影响健康饮食选择。项目采用随机实验而不是描述性调查的设计，因此重点在于教育是否改变消费者对更健康产品的支付意愿。</p>
+      <p>这项研究源自 <a href="https://www.xjtlu.edu.cn/en/study/surf" target="_blank" rel="noreferrer">XJTLU SURF program</a>，考察营养标签教育是否会影响健康饮食选择。项目采用随机实验而不是描述性调查的设计，因此重点在于教育是否改变消费者对更健康产品的支付意愿。</p>
       <h2>问题定义</h2>
       <p>海报将核心变量定义为：在了解普通产品（Product 1）的公平市场价格后，调查对象对更健康产品（Product 2）的显性支付意愿：</p>
       <div class="math-block">\[ Y_{i,t} = WTP^{Product\ 2}_{i,t}\mid Price^{Product\ 1} \]</div>
