@@ -359,10 +359,10 @@ const detailNarratives = {
   },
   "champaign-rental-price-forecasting": {
     summary:
-      "A URES forecasting project comparing baseline regression, tree models, robust regression, and Prophet on Champaign rental-index data from 2016 to 2024.",
+      "A <a href=\"https://stat.illinois.edu/research/mures\" target=\"_blank\" rel=\"noreferrer\">URES</a> forecasting project comparing baseline regression, tree models, robust regression, and Prophet on Champaign rental-index data from 2016 to 2024.",
     body: String.raw`
       <h2>Background / Motivation</h2>
-      <p>This URES paper studies rental-price forecasting in Champaign, Illinois, where a large student population and academic-driven housing cycles shape the market. The response variable is the Zillow Observed Rent Index (ZORI) for Champaign, and the paper evaluates whether modern forecasting methods improve prediction accuracy in this setting.</p>
+      <p>This <a href="https://stat.illinois.edu/research/mures" target="_blank" rel="noreferrer">URES</a> paper studies rental-price forecasting in Champaign, Illinois, where a large student population and academic-driven housing cycles shape the market. The response variable is the Zillow Observed Rent Index (ZORI) for Champaign, and the paper evaluates whether modern forecasting methods improve prediction accuracy in this setting.</p>
       <h2>Problem Formulation</h2>
       <p>The paper's research question is how time-series analysis and data-driven methods can enhance rental-price forecasting in Champaign. The prediction target is monthly Champaign ZORI, and the covariates are drawn from economic indicators, demographic and social indicators, real-estate market indicators, and an external COVID-19 impact variable.</p>
       <h2>Data & Setup</h2>
@@ -731,10 +731,10 @@ const detailNarrativesZh = {
   },
   "champaign-rental-price-forecasting": {
     summary:
-      "一个 URES 预测项目，比较了基线回归、树模型、稳健回归和 Prophet 在香槟租金指数数据上的表现。",
+      "一个 <a href=\"https://stat.illinois.edu/research/mures\" target=\"_blank\" rel=\"noreferrer\">URES</a> 预测项目，比较了基线回归、树模型、稳健回归和 Prophet 在香槟租金指数数据上的表现。",
     body: String.raw`
       <h2>背景 / 动机</h2>
-      <p>这篇 URES 论文研究伊利诺伊州香槟市的租金预测问题。当地学生人口占比高，住房市场具有明显的学期周期性。响应变量是香槟市的 Zillow Observed Rent Index（ZORI），论文检验不同预测方法是否能提升该场景下的预测精度。</p>
+      <p>这篇 <a href="https://stat.illinois.edu/research/mures" target="_blank" rel="noreferrer">URES</a> 论文研究伊利诺伊州香槟市的租金预测问题。当地学生人口占比高，住房市场具有明显的学期周期性。响应变量是香槟市的 Zillow Observed Rent Index（ZORI），论文检验不同预测方法是否能提升该场景下的预测精度。</p>
       <h2>问题定义</h2>
       <p>论文关注的是如何用时间序列分析和数据驱动方法改善香槟市租金预测。预测目标是月度香槟 ZORI，协变量来自经济指标、人口与社会指标、房地产市场指标以及一个外生 COVID-19 影响变量。</p>
       <h2>数据与设置</h2>
