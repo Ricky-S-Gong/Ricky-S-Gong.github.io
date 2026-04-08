@@ -256,9 +256,9 @@ main {
 
 .portrait-image {
   display: none;
-  object-fit: contain;
-  object-position: center center;
-  background: radial-gradient(circle at 50% 30%, rgba(124, 198, 255, 0.24), rgba(14, 24, 39, 0.96) 72%);
+  object-fit: cover;
+  object-position: center 30%;
+  background: #657286;
 }
 
 .portrait-image.is-visible {
