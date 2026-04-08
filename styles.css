@@ -736,6 +736,7 @@ h3 {
 
 .project-detail-title-block {
   min-width: 0;
+  width: 100%;
 }
 
 .detail-resource-row {
@@ -808,6 +809,7 @@ h3 {
   margin: 0.8rem 0 0;
   font-size: 1rem;
   color: var(--text-muted);
+  max-width: none;
 }
 
 .project-detail-article h2 {
@@ -1265,6 +1267,15 @@ h3 {
 
   .project-detail-header h1 {
     white-space: normal;
+    text-wrap: balance;
+    font-size: clamp(1.45rem, 5.8vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .project-detail-header .hero-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
