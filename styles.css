@@ -800,6 +800,7 @@ h3 {
   font-size: clamp(1.08rem, 1.32vw, 1.56rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
+  max-width: none;
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
@@ -1270,6 +1271,7 @@ h3 {
     text-wrap: balance;
     font-size: clamp(1.45rem, 5.8vw, 2rem);
     line-height: 1.18;
+    max-width: none;
   }
 
   .project-detail-header .hero-subtitle {
