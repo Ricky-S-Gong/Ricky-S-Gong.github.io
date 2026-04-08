@@ -6,7 +6,7 @@ const siteData = {
   heroSummary:
     "Across internship settings in edtech, SaaS platforms, finance, and real estate, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows, and over time I have developed an analytical style that turns ambiguity into interpretable, executable conclusions. I strongly believe real value comes from deep business understanding, not blind admiration for complex tools.",
   portrait: {
-    image: "./assets/full-portrait.png",
+    image: "./assets/professional-portrait.JPG",
     fallback: "RG",
   },
   heroLinks: [
@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-copy-tune-2116";
+const assetVersion = "20260408-professional-portrait-0918";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
