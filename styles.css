@@ -676,7 +676,7 @@ h3 {
 }
 
 .project-cover--light-text .project-status-pill {
-  color: var(--text-soft);
+  color: #f8fafc;
 }
 
 .project-cover--dark-text .project-cover-label {
@@ -688,16 +688,16 @@ h3 {
 }
 
 .project-cover--dark-text .project-status-pill {
-  color: #091526;
+  color: #f8fafc;
 }
 
 .project-status-pill--completed {
-  background: rgba(61, 150, 96, 0.26);
+  background: rgba(61, 150, 96, 0.5);
   border: 1px solid rgba(123, 220, 154, 0.44);
 }
 
 .project-status-pill--progress {
-  background: rgba(72, 125, 214, 0.24);
+  background: rgba(72, 125, 214, 0.5);
   border: 1px solid rgba(126, 176, 255, 0.42);
 }
 
