@@ -257,7 +257,7 @@ main {
 .portrait-image {
   display: none;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 18%;
   background: #657286;
 }
 
