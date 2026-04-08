@@ -290,8 +290,7 @@ const siteChrome = {
     aboutHeading: "About Me",
     projectsTag: "Portfolio",
     projectsHeading: "Selected Projects",
-    projectsIntro:
-      "This section brings together the projects that best represent how I think and work, organized by toolkit so it is easy to move between causal analysis, modeling, language systems, and infrastructure-oriented builds.",
+    projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
     researchHeading: "Research",
     teachingHeading: "Teaching",
     contactTag: "Contact",
@@ -319,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-copy-1850";
+const assetVersion = "20260407-projects-2002";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
