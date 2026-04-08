@@ -205,7 +205,7 @@ const siteDataZh = {
   homeAbout: [
     '你好 😉 我是宫商羽，你也可以叫我 Ricky。我目前在宾夕法尼亚大学攻读 <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学硕士</a>。在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校主修<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>，并辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>；我本科阶段的大部分研究也主要围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。我以 UIUC Bronze Tablet Scholar 及 Summa Cum Laude 毕业。',
     "我最擅长的场景，是团队面对产品、增长、留存或运营问题，而这些问题并不是看看报表就能解决的。我越来越相信，对数据科学家来说，真正理解业务，往往比多掌握一个复杂模型或一个新工具更重要，所以我也刻意通过实习去训练更强的产品直觉和商业判断。",
-    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我更出色地工作，更持续地感受世界、理解他人，并更清楚地认识自己。",
+    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
   research: [
     {
@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260407-socialization-copy-2108";
+const assetVersion = "20260407-copy-tune-2116";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
