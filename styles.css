@@ -12,6 +12,8 @@
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
   --radius-lg: 28px;
   --max-width: 1180px;
+  --mouse-x: 50vw;
+  --mouse-y: 22vh;
 }
 
 * {
@@ -33,6 +35,23 @@ body {
     linear-gradient(160deg, #040a13 0%, #08111f 48%, #0d1930 100%);
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(34rem circle at var(--mouse-x) var(--mouse-y), rgba(124, 247, 193, 0.12), transparent 42%),
+    radial-gradient(22rem circle at calc(var(--mouse-x) + 10rem) calc(var(--mouse-y) + 7rem), rgba(122, 198, 255, 0.1), transparent 46%);
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+body.motion-ready::before {
+  opacity: 1;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -52,6 +71,7 @@ a {
   opacity: 0.18;
   pointer-events: none;
   z-index: 0;
+  animation: ambientDrift 14s ease-in-out infinite alternate;
 }
 
 .ambient-left {
@@ -64,6 +84,8 @@ a {
   top: 28rem;
   right: -14rem;
   background: #8fff96;
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
 }
 
 .site-header,
@@ -103,6 +125,20 @@ main {
   border-radius: 0.9rem;
   background: linear-gradient(135deg, var(--accent-2), var(--accent));
   color: #04101e;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: translateX(-120%) rotate(18deg);
+}
+
+.motion-ready .brand-mark::after {
+  animation: shimmerSweep 4.8s ease-in-out infinite;
 }
 
 .brand-text {
@@ -212,6 +248,7 @@ main {
   padding: 2.4rem;
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .hero-stage::before {
@@ -222,6 +259,24 @@ main {
     radial-gradient(circle at 15% 35%, rgba(122, 198, 255, 0.18), transparent 28%),
     radial-gradient(circle at 80% 70%, rgba(124, 247, 193, 0.14), transparent 26%);
   pointer-events: none;
+  animation: heroAurora 9s ease-in-out infinite alternate;
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: -35% -10%;
+  z-index: 0;
+  background:
+    linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.1) 44%, transparent 54%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 90px);
+  opacity: 0.34;
+  transform: translateX(-42%);
+  pointer-events: none;
+}
+
+.motion-ready .hero-stage::after {
+  animation: stageScan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .portrait-shell,
@@ -245,6 +300,20 @@ main {
   box-shadow:
     0 18px 45px rgba(0, 0, 0, 0.28),
     0 0 0 10px rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.portrait-ring::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  background: conic-gradient(from 0deg, rgba(124, 247, 193, 0), rgba(124, 247, 193, 0.58), rgba(122, 198, 255, 0.2), rgba(124, 247, 193, 0));
+  animation: portraitOrbit 8s linear infinite;
+}
+
+.portrait-ring > * {
+  position: relative;
+  z-index: 1;
 }
 
 .portrait-image,
@@ -369,6 +438,23 @@ h3 {
   color: var(--accent-2);
 }
 
+.hero-subtitle-link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 0.25rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.hero-subtitle-link:hover::after,
+.hero-subtitle-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
 .hero-link-row {
   display: flex;
   flex-wrap: nowrap;
@@ -444,13 +530,39 @@ h3 {
   color: var(--text);
   font-weight: 600;
   white-space: nowrap;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(800px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 220ms ease, border-color 180ms ease, background 180ms ease, box-shadow 220ms ease;
+}
+
+.hero-link-row .hero-link::after,
+.contact-action-card::after,
+.project-card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 0%), rgba(255, 255, 255, 0.2), transparent 32%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
 }
 
 .hero-link-row .hero-link:hover,
 .hero-link-row .hero-link:focus-visible {
-  transform: translateY(-2px);
+  transform: perspective(800px) translateY(-2px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   border-color: rgba(124, 247, 193, 0.34);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+.hero-link-row .hero-link:hover::after,
+.hero-link-row .hero-link:focus-visible::after,
+.contact-action-card:hover::after,
+.contact-action-card:focus-visible::after,
+.project-card-link:hover::before,
+.project-card-link:focus-visible::before {
+  opacity: 1;
 }
 
 .hero-link-row .hero-link-icon {
@@ -592,13 +704,17 @@ h3 {
   display: grid;
   gap: 0.95rem;
   align-content: start;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  animation: none;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, border-color 180ms ease, background 180ms ease, box-shadow 220ms ease;
 }
 
 .project-card-link:hover,
 .project-card-link:focus-visible {
-  transform: translateY(-4px);
+  transform: perspective(1000px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   border-color: rgba(124, 247, 193, 0.3);
+  box-shadow: 0 34px 86px rgba(0, 0, 0, 0.42);
 }
 
 .project-cover {
@@ -624,6 +740,13 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: transform 520ms ease, filter 520ms ease;
+}
+
+.project-card-link:hover .project-cover-image,
+.project-card-link:focus-visible .project-cover-image {
+  transform: scale(1.065);
+  filter: saturate(1.12) contrast(1.04);
 }
 
 .project-cover--white-canvas .project-cover-image {
@@ -949,6 +1072,13 @@ h3 {
   height: 9rem;
   border-radius: 999px;
   background: radial-gradient(circle, rgba(124, 247, 193, 0.2), transparent 70%);
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.project-card:hover::after,
+.project-card:focus-visible::after {
+  opacity: 0.9;
+  transform: translate(-8%, -8%) scale(1.15);
 }
 
 .timeline-date {
@@ -1133,12 +1263,16 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 220ms ease, border-color 180ms ease, background 180ms ease, box-shadow 220ms ease;
 }
 
 .contact-action-card:hover,
 .contact-action-card:focus-visible {
-  transform: translateY(-2px);
+  transform: perspective(900px) translateY(-3px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.25);
 }
 
 .contact-action-card--mint {
@@ -1209,11 +1343,37 @@ h3 {
   flex-wrap: wrap;
 }
 
-.project-card,
 .capability-card,
 .timeline-item,
 .glass {
   animation: rise 700ms ease both;
+}
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px) scale(0.985);
+  transition:
+    opacity 620ms ease var(--reveal-delay, 0ms),
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.motion-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.motion-ready .intro-card {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.motion-ready .project-nav-pill:nth-child(2n),
+.motion-ready .tag:nth-child(2n) {
+  animation: microFloat 4.8s ease-in-out infinite;
+}
+
+.motion-ready .project-nav-pill:nth-child(2n + 1),
+.motion-ready .tag:nth-child(2n + 1) {
+  animation: microFloat 5.6s ease-in-out infinite reverse;
 }
 
 @keyframes rise {
@@ -1224,6 +1384,99 @@ h3 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes ambientDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4rem, 2.2rem, 0) scale(1.08);
+  }
+}
+
+@keyframes shimmerSweep {
+  0%,
+  55% {
+    transform: translateX(-120%) rotate(18deg);
+  }
+  78%,
+  100% {
+    transform: translateX(120%) rotate(18deg);
+  }
+}
+
+@keyframes heroAurora {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.06);
+  }
+}
+
+@keyframes stageScan {
+  0%,
+  46% {
+    transform: translateX(-42%);
+  }
+  78%,
+  100% {
+    transform: translateX(42%);
+  }
+}
+
+@keyframes portraitOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes microFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .project-card-link,
+  .hero-link-row .hero-link,
+  .contact-action-card,
+  .project-card-link:hover,
+  .project-card-link:focus-visible,
+  .hero-link-row .hero-link:hover,
+  .hero-link-row .hero-link:focus-visible,
+  .contact-action-card:hover,
+  .contact-action-card:focus-visible {
+    transform: none;
   }
 }
 

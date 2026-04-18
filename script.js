@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260409-full-portrait-jpg-0004";
+const assetVersion = "20260418-motion-0001";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -683,6 +683,80 @@ const renderHomepage = () => {
 
 renderHomepage();
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let revealObserver = null;
+
+const setupMotion = () => {
+  const motionAllowed = !prefersReducedMotion.matches;
+  document.body.classList.toggle("motion-ready", motionAllowed);
+
+  const revealTargets = document.querySelectorAll(
+    ".hero-stage, .home-about, .project-section-header, .project-section-intro, .projects-nav, .project-category-block, .research-subsection, .contact-section"
+  );
+
+  if (revealObserver) {
+    revealObserver.disconnect();
+    revealObserver = null;
+  }
+
+  revealTargets.forEach((target, index) => {
+    target.dataset.reveal = "";
+    target.style.setProperty("--reveal-delay", `${Math.min(index * 60, 360)}ms`);
+    target.classList.toggle("is-revealed", !motionAllowed);
+  });
+
+  if (motionAllowed && "IntersectionObserver" in window) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    );
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
+  document.querySelectorAll(".project-card-link, .hero-link, .contact-action-card").forEach((card) => {
+    if (card.dataset.motionBound) return;
+    card.dataset.motionBound = "true";
+
+    card.addEventListener("pointermove", (event) => {
+      if (prefersReducedMotion.matches || event.pointerType === "touch") return;
+      const bounds = card.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      const xRatio = x / bounds.width - 0.5;
+      const yRatio = y / bounds.height - 0.5;
+
+      card.style.setProperty("--tilt-x", `${(-yRatio * 7).toFixed(2)}deg`);
+      card.style.setProperty("--tilt-y", `${(xRatio * 9).toFixed(2)}deg`);
+      card.style.setProperty("--glare-x", `${x}px`);
+      card.style.setProperty("--glare-y", `${y}px`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--tilt-x", "0deg");
+      card.style.setProperty("--tilt-y", "0deg");
+      card.style.removeProperty("--glare-x");
+      card.style.removeProperty("--glare-y");
+    });
+  });
+};
+
+const updatePointerGlow = (event) => {
+  if (prefersReducedMotion.matches) return;
+  document.documentElement.style.setProperty("--mouse-x", `${event.clientX}px`);
+  document.documentElement.style.setProperty("--mouse-y", `${event.clientY}px`);
+};
+
+window.addEventListener("pointermove", updatePointerGlow, { passive: true });
+prefersReducedMotion.addEventListener("change", setupMotion);
+setupMotion();
+
 const views = ["home", "projects", "research", "contact"];
 const panels = document.querySelectorAll("[data-view]");
 const navLinks = document.querySelectorAll("[data-view-link]");
@@ -709,6 +783,7 @@ const syncViewFromHash = () => {
 window.addEventListener("hashchange", syncViewFromHash);
 window.addEventListener("site-locale-change", () => {
   renderHomepage();
+  setupMotion();
   syncViewFromHash();
 });
 syncViewFromHash();
