@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260418-motion-0001";
+const assetVersion = "20260418-motion-0002";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -691,7 +691,7 @@ const setupMotion = () => {
   document.body.classList.toggle("motion-ready", motionAllowed);
 
   const revealTargets = document.querySelectorAll(
-    ".hero-stage, .home-about, .project-section-header, .project-section-intro, .projects-nav, .project-category-block, .research-subsection, .contact-section"
+    ".hero-stage, .home-about, .project-section-header, .project-section-intro, .projects-nav, .project-category-heading, .project-grid, .research-subsection, .contact-section"
   );
 
   if (revealObserver) {

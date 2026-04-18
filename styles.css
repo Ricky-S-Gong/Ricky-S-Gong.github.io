@@ -38,18 +38,25 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  left: var(--mouse-x);
+  top: var(--mouse-y);
+  width: 19rem;
+  height: 3.25rem;
   z-index: 0;
   pointer-events: none;
+  border-radius: 999px;
   background:
-    radial-gradient(34rem circle at var(--mouse-x) var(--mouse-y), rgba(124, 247, 193, 0.12), transparent 42%),
-    radial-gradient(22rem circle at calc(var(--mouse-x) + 10rem) calc(var(--mouse-y) + 7rem), rgba(122, 198, 255, 0.1), transparent 46%);
+    linear-gradient(90deg, transparent 0%, rgba(122, 198, 255, 0.08) 18%, rgba(124, 247, 193, 0.34) 50%, rgba(255, 209, 102, 0.12) 72%, transparent 100%),
+    linear-gradient(90deg, transparent 14%, rgba(255, 255, 255, 0.28) 50%, transparent 86%);
+  filter: blur(7px);
+  mix-blend-mode: screen;
   opacity: 0;
+  transform: translate3d(-50%, -50%, 0) rotate(-16deg) scaleX(0.86);
   transition: opacity 260ms ease;
 }
 
 body.motion-ready::before {
-  opacity: 1;
+  opacity: 0.72;
 }
 
 a {
@@ -661,6 +668,7 @@ h3 {
 .project-category-block {
   display: grid;
   gap: 1.4rem;
+  scroll-margin-top: 1.5rem;
 }
 
 .project-category-heading {
@@ -1366,12 +1374,10 @@ h3 {
   animation: floatSoft 6s ease-in-out infinite;
 }
 
-.motion-ready .project-nav-pill:nth-child(2n),
 .motion-ready .tag:nth-child(2n) {
   animation: microFloat 4.8s ease-in-out infinite;
 }
 
-.motion-ready .project-nav-pill:nth-child(2n + 1),
 .motion-ready .tag:nth-child(2n + 1) {
   animation: microFloat 5.6s ease-in-out infinite reverse;
 }
