@@ -594,17 +594,17 @@ window.projectCatalog = {
     },
     {
       slug: "trustworthy-rl-llm-reasoning",
-      title: "Trustworthy RL with LLM-Based Reasoning",
-      subtitle: "Trustworthy Reasoning Study",
+      title: "Failure-Aware Reasoning for ARC Tasks",
+      subtitle: "ARC Reasoning & Refusal Alignment",
       topic: "Trustworthy AI",
       primaryCategory: "NLP & Large Language Model",
       displayCategories: ["NLP & Large Language Model"],
-      tags: ["RL", "LLM", "Trustworthy AI", "Safety", "Evaluation"],
-      status: "In Progress",
+      tags: ["LLM", "ARC-AGI", "SFT", "DPO", "Evaluation"],
+      status: "Completed",
       yearLabel: "2026",
-      coverLabel: "Trustworthy Agent",
+      coverLabel: "ARC Refusal",
       miniDescription:
-        "Investigates trustworthy reinforcement learning with LLM-based reasoning, evaluation, and safety-oriented design constraints.",
+        "Studies how gpt-4.1-nano handles clean and corrupted ARC tasks, comparing prompting, SFT, balanced SFT, and DPO for reasoning-versus-refusal behavior.",
       resources: [
         {
           label: "GitHub",
@@ -614,9 +614,13 @@ window.projectCatalog = {
           label: "Report",
           href: "./project-resources/trustworthy-rl-llm-reasoning/report.pdf",
         },
+        {
+          label: "Presentation",
+          href: "./project-resources/trustworthy-rl-llm-reasoning/presentation.pptx",
+        },
       ],
       sourcePaths: ["/Users/ricky/Desktop/CIS5270/arc-llm-robustness-alignment"],
-      sourceTypes: ["github", "report", "proposal", "md"],
+      sourceTypes: ["github", "report", "presentation", "notebooks", "results"],
       detailType: "in-progress-llm",
       sections: {
         problemDefinition: true,
@@ -840,13 +844,13 @@ const projectTranslationsZh = {
     tags: ["工具调用", "LLM", "RLHF", "对齐", "代理系统"],
   },
   "trustworthy-rl-llm-reasoning": {
-    title: "可信 RL 与 LLM 推理",
-    subtitle: "ARC 推理训练设计",
+    title: "面向 ARC 任务的失败感知推理",
+    subtitle: "ARC 推理与拒答对齐",
     primaryCategory: "自然语言处理与大模型",
-    coverLabel: "可信智能体",
-    miniDescription: "围绕 ARC-AGI-1 任务，设计 SFT、RFT 和 DPO 风格训练中的精确奖励与密集奖励。",
-    status: "进行中",
-    tags: ["强化学习", "LLM", "推理", "ARC", "可信性"],
+    coverLabel: "ARC 拒答",
+    miniDescription: "比较 gpt-4.1-nano 在干净与损坏 ARC 任务上的 prompting、SFT、平衡 SFT 与 DPO，分析推理能力和拒答行为之间的权衡。",
+    status: "已完成",
+    tags: ["LLM", "ARC-AGI", "SFT", "DPO", "评估"],
   },
   pennos: {
     title: "PennOS",

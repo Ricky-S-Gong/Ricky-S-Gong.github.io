@@ -76,6 +76,7 @@ const resourceLabelTranslations = {
   Paper: "论文",
   Report: "报告",
   GitHub: "GitHub",
+  Presentation: "演示文稿",
 };
 
 const tagTranslations = {
@@ -518,26 +519,24 @@ const detailNarratives = {
   },
   "trustworthy-rl-llm-reasoning": {
     summary:
-      "A proposal-stage ARC-AGI-1 reasoning project using exact and dense grid rewards for SFT, RFT, and DPO-style training.",
+      "A failure-aware ARC-AGI-1 reasoning project that compares baseline prompting, supervised fine-tuning, balanced SFT, and DPO on the tradeoff between solving valid grid tasks and refusing inconsistent ones.",
     body: String.raw`
       <h2>Background / Motivation</h2>
-      <p>This course project studies GPT-nano on ARC-AGI-1 tasks using supervised fine-tuning, reward-based fine-tuning, and DPO-style preference construction. The project is built around dense reward design for grid prediction rather than around a generic language-generation objective.</p>
+      <p>This final project studies a failure-aware version of ARC-style grid reasoning. The model should infer a transformation rule and output the correct grid for valid tasks, but it should output exactly <code>REFUSE</code> when the demonstrations are contradictory. That framing turns ARC from a pure puzzle-solving benchmark into a small testbed for calibrated abstention under structured uncertainty.</p>
       <h2>Problem Formulation</h2>
-      <p>Each ARC task consists of demonstration input-output grids plus a test input grid, serialized as plain text. The model must infer the hidden transformation rule and generate the output grid in the same format. The proposal distinguishes between exact evaluation reward and dense training reward.</p>
+      <p>Each clean task contains several input-output grid demonstrations and a held-out test input. Grids are serialized as rows of space-separated integers. For corrupted tasks, one or more demonstrations are made inconsistent, and the target response is the special token <code>REFUSE</code>. The evaluation therefore has two goals: solve clean tasks when a rule exists, and refuse corrupted tasks when the examples no longer define a coherent rule.</p>
       <h2>Data & Setup</h2>
-      <p>The proposal uses the official 400 public ARC-AGI-1 training tasks, split into 350 training tasks and 50 held-out validation tasks. GPT-mini is used to generate supervised fine-tuning examples, and only completions whose predicted output grid exactly matches the gold answer are retained for SFT.</p>
+      <p>The experiments use the official ARC-AGI-1 tasks converted into chat-style prompts. The main split contains 330 clean training tasks, 70 clean validation tasks, and 400 clean test tasks, plus corrupted variants generated within the same split to avoid leakage. In the primary setup, 51 corrupted training examples, 13 validation examples, and 85 test examples are added by replacing demonstration outputs; later experiments also test balanced clean-corrupt training and a stronger permutation-style corruption strategy.</p>
       <h2>Methodology</h2>
-      <p>The source defines two rewards. The evaluation reward is</p>
-      <div class="math-block">\[ r_{\mathrm{eval}}(\hat{y}, y^*) = \mathbf{1}\left[\hat{y}=y^*\right]. \]</div>
-      <p>The dense training reward is</p>
-      <div class="math-block">\[ r_{\mathrm{train}}(\hat{y},y^*)=\frac{1}{H\cdot W}\sum_{i=1}^{H}\sum_{j=1}^{W}\mathbf{1}[\hat{y}_{ij}=y^*_{ij}]. \]</div>
-      <p>The proposal states that \(r_{\mathrm{train}}=1 \Leftrightarrow r_{\mathrm{eval}}=1\), so the dense reward is consistent with exact-match evaluation while giving finer-grained learning signal. For DPO pair generation, the project samples \(G=8\) completions per training task and selects the highest-scoring completion as \(y^+\) and the lowest-scoring completion as \(y^-\).</p>
+      <p>The project compares four families of behavior. The baseline evaluates <code>gpt-4.1-nano</code> with deterministic prompting. The SFT run fine-tunes <code>gpt-4.1-nano-2025-04-14</code> on chat-format clean and corrupted examples. Balanced SFT keeps all clean examples and adds an equal number of corrupted examples to test whether refusal behavior can be recovered. DPO is then trained on preference pairs where better clean-task grids are preferred over worse outputs, and <code>REFUSE</code> is preferred over generated grids for corrupted prompts.</p>
+      <p>The main metrics are exact match on clean tasks, cell-level accuracy for partial grid correctness, and refusal accuracy on corrupted tasks:</p>
+      <div class="math-block">\[ \mathrm{EM}=\mathbf{1}\{\hat y=y^*\},\quad \mathrm{CA}=\frac{1}{HW}\sum_{i,j}\mathbf{1}\{\hat y_{ij}=y^*_{ij}\},\quad \mathrm{RA}=\mathbf{1}\{\hat y=\texttt{REFUSE}\}. \]</div>
       <h2>Results</h2>
-      <p>This project is also at the proposal stage, so there is no final empirical benchmark yet. The current concrete result is the task specification, reward design, and preference-pair construction procedure for comparing SFT, RFT/PPO-style training, and DPO on ARC-AGI-1.</p>
+      <p>The base model achieved 0.000 exact match, 0.073 cell accuracy, and 0.282 refusal accuracy. SFT improved clean-task output quality, reaching 0.005 exact match and 0.380 cell accuracy, but refusal accuracy fell to 0.000. Balanced SFT reversed the failure mode: both old-corruption and permutation-corruption variants reached 1.000 refusal accuracy, but clean-task exact match and cell accuracy collapsed to 0.000. The improved DPO run showed the same abstention collapse, reaching 1.000 refusal accuracy while producing no useful clean-task performance.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The proposal's key design decision is to avoid training on exact-match reward alone. Instead, cell-level accuracy is used during training so that partially correct grid predictions still provide usable optimization signal.</p>
+      <p>The central finding is a sharp tradeoff between task-solving and abstention. With mostly clean supervised data, the model learns to produce more plausible grids but answers even when it should refuse. With stronger refusal signals, the model learns that <code>REFUSE</code> is a globally safe response and over-refuses on clean tasks. DPO did not solve this because the preference data did not penalize refusal on clean prompts strongly enough.</p>
       <h2>Limitations & Future Work</h2>
-      <p>The work is still pre-results. The next stage is the actual implementation and comparison of SFT, RFT, and DPO under the reward definitions laid out in the proposal.</p>
+      <p>The next step is not simply more refusal examples; it is better contrastive data. Future iterations should explicitly include <code>REFUSE</code> as a rejected clean-task response, sample more diverse candidate outputs, strengthen corruption generation, and tune the clean-versus-corrupt mixture so the model learns when to solve rather than only whether refusal is allowed.</p>
     `,
   },
   pennos: {
@@ -890,26 +889,24 @@ const detailNarrativesZh = {
   },
   "trustworthy-rl-llm-reasoning": {
     summary:
-      "一个处于提案阶段的 ARC-AGI-1 推理项目，使用精确与稠密网格奖励开展 SFT、RFT 和 DPO 风格训练。",
+      "一个面向 ARC-AGI-1 的失败感知推理项目，比较 baseline prompting、监督微调、平衡 SFT 与 DPO 在“解题”和“拒答”之间的权衡。",
     body: String.raw`
       <h2>背景 / 动机</h2>
-      <p>这门课题项目研究 GPT-nano 在 ARC-AGI-1 任务上的表现，并结合监督微调、基于奖励的微调与 DPO 风格的偏好构造。项目的重点是针对网格预测设计稠密奖励，而不是通用语言生成目标。</p>
+      <p>这个最终项目研究 ARC 风格网格推理中的失败感知行为：对于有效任务，模型需要推断变换规则并输出正确网格；对于示例彼此矛盾的任务，模型应当只输出 <code>REFUSE</code>。这样，ARC 不只是一个解题 benchmark，也变成了一个观察模型能否在结构化不确定性下校准拒答的小型实验场。</p>
       <h2>问题定义</h2>
-      <p>每个 ARC 任务都由若干示例输入输出网格和一个测试输入网格组成，并以纯文本形式序列化。模型需要推断隐藏的变换规则，并以相同格式生成输出网格。提案区分了精确评估奖励和稠密训练奖励。</p>
+      <p>每个干净任务包含若干输入-输出网格示例和一个保留测试输入，网格被序列化为由空格分隔的整数行。对于损坏任务，示例会被人为改造成不一致，目标回答则是特殊 token <code>REFUSE</code>。因此评估同时包含两件事：有规则时解题，没有一致规则时拒答。</p>
       <h2>数据与设置</h2>
-      <p>提案使用官方 400 个公开 ARC-AGI-1 训练任务，并拆分成 350 个训练任务和 50 个留出的验证任务。GPT-mini 被用于生成监督微调样本，只有那些预测输出网格与 gold answer 完全一致的 completion 才会保留用于 SFT。</p>
+      <p>实验使用官方 ARC-AGI-1 任务，并将其转换为 chat-style prompt。主实验包含 330 个干净训练任务、70 个干净验证任务和 400 个干净测试任务；损坏样本在同一 split 内生成，以避免数据泄漏。主设置中额外加入 51 个损坏训练样本、13 个验证样本和 85 个测试样本，后续还比较了平衡 clean-corrupt 训练以及更强的 permutation corruption。</p>
       <h2>方法</h2>
-      <p>材料中定义了两种奖励。评估奖励为</p>
-      <div class="math-block">\[ r_{\mathrm{eval}}(\hat{y}, y^*) = \mathbf{1}\left[\hat{y}=y^*\right]. \]</div>
-      <p>稠密训练奖励为</p>
-      <div class="math-block">\[ r_{\mathrm{train}}(\hat{y},y^*)=\frac{1}{H\cdot W}\sum_{i=1}^{H}\sum_{j=1}^{W}\mathbf{1}[\hat{y}_{ij}=y^*_{ij}]. \]</div>
-      <p>提案指出 \(r_{\mathrm{train}}=1 \Leftrightarrow r_{\mathrm{eval}}=1\)，因此稠密奖励与精确匹配评估保持一致，同时提供更细粒度的学习信号。对于 DPO 配对生成，项目在每个训练任务上采样 \(G=8\) 个 completion，并把得分最高者作为 \(y^+\)，得分最低者作为 \(y^-\)。</p>
+      <p>项目比较四类行为。Baseline 使用确定性 prompting 评估 <code>gpt-4.1-nano</code>。SFT 使用 chat-format 的干净和损坏样本微调 <code>gpt-4.1-nano-2025-04-14</code>。平衡 SFT 保留所有干净样本，并加入相同数量的损坏样本，用来测试拒答行为能否恢复。DPO 则基于偏好对训练：在干净任务上偏好更高质量的网格输出，在损坏任务上偏好 <code>REFUSE</code> 而不是生成网格。</p>
+      <p>主要指标是干净任务上的 exact match、衡量部分正确性的 cell-level accuracy，以及损坏任务上的 refusal accuracy：</p>
+      <div class="math-block">\[ \mathrm{EM}=\mathbf{1}\{\hat y=y^*\},\quad \mathrm{CA}=\frac{1}{HW}\sum_{i,j}\mathbf{1}\{\hat y_{ij}=y^*_{ij}\},\quad \mathrm{RA}=\mathbf{1}\{\hat y=\texttt{REFUSE}\}. \]</div>
       <h2>结果</h2>
-      <p>该项目同样还处于提案阶段，因此没有最终的实证 benchmark。当前的具体成果是任务定义、奖励设计，以及用于比较 SFT、RFT/PPO 风格训练和 DPO 的偏好对构造流程。</p>
+      <p>Base model 的 exact match 为 0.000，cell accuracy 为 0.073，refusal accuracy 为 0.282。SFT 明显提升了干净任务输出质量，exact match 达到 0.005，cell accuracy 达到 0.380，但 refusal accuracy 降为 0.000。平衡 SFT 则走向相反失败模式：旧 corruption 与 permutation corruption 版本都达到 1.000 refusal accuracy，但干净任务 exact match 和 cell accuracy 都降为 0.000。改进后的 DPO 也出现类似的拒答坍缩，refusal accuracy 达到 1.000，但无法保留有效的干净任务解题能力。</p>
       <h2>洞察 / 收获</h2>
-      <p>提案最重要的设计选择，是避免只依赖精确匹配奖励进行训练。相反，训练阶段使用 cell-level accuracy，使得即便是部分正确的网格预测也能提供有效优化信号。</p>
+      <p>核心发现是解题与拒答之间存在非常敏感的权衡。以干净数据为主时，模型会学会生成更像样的网格，但也会在应该拒答时继续回答；拒答信号变强后，模型又会把 <code>REFUSE</code> 学成全局安全答案，在干净任务上过度拒答。DPO 没有解决这一点，因为偏好数据对干净 prompt 上的拒答惩罚还不够强。</p>
       <h2>局限与未来工作</h2>
-      <p>当前工作仍是 pre-results。下一阶段是按照提案中的奖励定义，真正实现并比较 SFT、RFT 和 DPO。</p>
+      <p>下一步不是简单加入更多拒答样本，而是构造更好的对比信号。后续可以在干净任务中显式把 <code>REFUSE</code> 作为 rejected response，采样更多样的候选输出，增强 corruption 生成方式，并仔细调节 clean 与 corrupt 数据比例，让模型学会什么时候应该解题，而不只是学会拒答是允许的。</p>
     `,
   },
   pennos: {
