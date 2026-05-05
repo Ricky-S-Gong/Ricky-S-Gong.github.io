@@ -607,12 +607,16 @@ window.projectCatalog = {
         "Investigates trustworthy reinforcement learning with LLM-based reasoning, evaluation, and safety-oriented design constraints.",
       resources: [
         {
-          label: "PDF",
-          href: "./project-resources/trustworthy-rl-llm-reasoning/pdf.pdf",
+          label: "GitHub",
+          href: "https://github.com/Ricky-S-Gong/arc-llm-robustness-alignment",
+        },
+        {
+          label: "Report",
+          href: "./project-resources/trustworthy-rl-llm-reasoning/report.pdf",
         },
       ],
-      sourcePaths: ["/Users/ricky/Desktop/CIS5270/Project"],
-      sourceTypes: ["proposal", "md"],
+      sourcePaths: ["/Users/ricky/Desktop/CIS5270/arc-llm-robustness-alignment"],
+      sourceTypes: ["github", "report", "proposal", "md"],
       detailType: "in-progress-llm",
       sections: {
         problemDefinition: true,
