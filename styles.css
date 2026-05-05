@@ -1008,6 +1008,44 @@ h3 {
   font-size: 0.92em;
 }
 
+.project-detail-article pre {
+  margin: 0.95rem 0 0;
+  overflow-x: auto;
+}
+
+.project-detail-article pre code {
+  display: block;
+  padding: 0.9rem 1rem;
+  white-space: pre;
+}
+
+.project-detail-article table {
+  width: 100%;
+  margin: 1rem 0 0;
+  border-collapse: collapse;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.project-detail-article th,
+.project-detail-article td {
+  padding: 0.72rem 0.78rem;
+  border: 1px solid rgba(154, 207, 255, 0.14);
+  vertical-align: top;
+}
+
+.project-detail-article th {
+  color: rgba(235, 242, 255, 0.96);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.project-detail-article td {
+  background: rgba(255, 255, 255, 0.025);
+}
+
 .math-block {
   margin: 0.95rem 0 0;
   padding: 1rem 1.1rem;

@@ -522,21 +522,71 @@ const detailNarratives = {
       "A failure-aware ARC-AGI-1 reasoning project that compares baseline prompting, supervised fine-tuning, balanced SFT, and DPO on the tradeoff between solving valid grid tasks and refusing inconsistent ones.",
     body: String.raw`
       <h2>Background / Motivation</h2>
-      <p>This final project studies a failure-aware version of ARC-style grid reasoning. The model should infer a transformation rule and output the correct grid for valid tasks, but it should output exactly <code>REFUSE</code> when the demonstrations are contradictory. That framing turns ARC from a pure puzzle-solving benchmark into a small testbed for calibrated abstention under structured uncertainty.</p>
-      <h2>Problem Formulation</h2>
-      <p>Each clean task contains several input-output grid demonstrations and a held-out test input. Grids are serialized as rows of space-separated integers. For corrupted tasks, one or more demonstrations are made inconsistent, and the target response is the special token <code>REFUSE</code>. The evaluation therefore has two goals: solve clean tasks when a rule exists, and refuse corrupted tasks when the examples no longer define a coherent rule.</p>
-      <h2>Data & Setup</h2>
-      <p>The experiments use the official ARC-AGI-1 tasks converted into chat-style prompts. The main split contains 330 clean training tasks, 70 clean validation tasks, and 400 clean test tasks, plus corrupted variants generated within the same split to avoid leakage. In the primary setup, 51 corrupted training examples, 13 validation examples, and 85 test examples are added by replacing demonstration outputs; later experiments also test balanced clean-corrupt training and a stronger permutation-style corruption strategy.</p>
-      <h2>Methodology</h2>
-      <p>The project compares four families of behavior. The baseline evaluates <code>gpt-4.1-nano</code> with deterministic prompting. The SFT run fine-tunes <code>gpt-4.1-nano-2025-04-14</code> on chat-format clean and corrupted examples. Balanced SFT keeps all clean examples and adds an equal number of corrupted examples to test whether refusal behavior can be recovered. DPO is then trained on preference pairs where better clean-task grids are preferred over worse outputs, and <code>REFUSE</code> is preferred over generated grids for corrupted prompts.</p>
-      <p>The main metrics are exact match on clean tasks, cell-level accuracy for partial grid correctness, and refusal accuracy on corrupted tasks:</p>
-      <div class="math-block">\[ \mathrm{EM}=\mathbf{1}\{\hat y=y^*\},\quad \mathrm{CA}=\frac{1}{HW}\sum_{i,j}\mathbf{1}\{\hat y_{ij}=y^*_{ij}\},\quad \mathrm{RA}=\mathbf{1}\{\hat y=\texttt{REFUSE}\}. \]</div>
-      <h2>Results</h2>
-      <p>The base model achieved 0.000 exact match, 0.073 cell accuracy, and 0.282 refusal accuracy. SFT improved clean-task output quality, reaching 0.005 exact match and 0.380 cell accuracy, but refusal accuracy fell to 0.000. Balanced SFT reversed the failure mode: both old-corruption and permutation-corruption variants reached 1.000 refusal accuracy, but clean-task exact match and cell accuracy collapsed to 0.000. The improved DPO run showed the same abstention collapse, reaching 1.000 refusal accuracy while producing no useful clean-task performance.</p>
-      <h2>Insights / Takeaways</h2>
+      <p>This repo contains the CIS 5270 final project experiments on ARC-style grid reasoning under clean and corrupted demonstrations. The main comparison is between baseline prompting, SFT, DPO, and balanced SFT variants for preserving clean-task performance while improving refusal behavior on corrupted inputs.</p>
+      <p>The portfolio framing is failure-aware reasoning: the model should infer a transformation rule and output the correct grid for valid tasks, but it should output exactly <code>REFUSE</code> when the demonstrations are contradictory. That turns ARC from a pure puzzle-solving benchmark into a compact testbed for calibrated abstention under structured uncertainty.</p>
+      <h2>Repository Structure</h2>
+      <table>
+        <thead>
+          <tr><th>Path</th><th>Contents</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>data/eval/</code></td><td>Clean and corrupted ARC evaluation sets.</td></tr>
+          <tr><td><code>data/sft/</code></td><td>SFT train/validation JSONL files.</td></tr>
+          <tr><td><code>data/dpo/</code></td><td>DPO preference-pair train/validation JSONL files.</td></tr>
+          <tr><td><code>data/sft_balanced/</code></td><td>Balanced SFT datasets and eval sets for old/new corruption strategies.</td></tr>
+          <tr><td><code>notebooks/baselines/</code></td><td>Baseline prompting/evaluation notebooks.</td></tr>
+          <tr><td><code>notebooks/data-prep/</code></td><td>Data creation, prompting, balancing, and DPO pair-generation notebooks.</td></tr>
+          <tr><td><code>notebooks/training/</code></td><td>Azure OpenAI SFT/DPO training and evaluation pipelines.</td></tr>
+          <tr><td><code>notebooks/analysis/</code></td><td>Plotting and report-analysis notebooks.</td></tr>
+          <tr><td><code>src/</code></td><td>Reusable helper code used by the balanced SFT pipelines.</td></tr>
+          <tr><td><code>results/</code></td><td>Saved logs, predictions, metrics, figures, and baseline outputs.</td></tr>
+          <tr><td><code>docs/</code></td><td>Final paper, presentation, and planning document.</td></tr>
+        </tbody>
+      </table>
+      <h2>Colab Path Assumption</h2>
+      <p>The notebooks assume this repo is available in Google Drive at:</p>
+      <pre><code>/content/drive/MyDrive/arc-llm-robustness-alignment</code></pre>
+      <p>If the Drive folder lives somewhere else, set <code>PROJECT_DIR</code> in the relevant notebook before running. Azure notebooks read secrets from environment variables such as <code>AZURE_OPENAI_API_KEY</code>; no API key should be committed to the repo.</p>
+      <h2>Methods and Metrics</h2>
+      <p>For each ARC task, a prompt \(x\) contains demonstration input-output pairs and a test input. Clean examples use the target grid \(y^*\); corrupted examples use the target refusal string <code>REFUSE</code>.</p>
+      <p>SFT optimizes next-token likelihood on supervised pairs:</p>
+      <div class="math-block">\[ \mathcal{L}_{\mathrm{SFT}}(\theta) = -\mathbb{E}_{(x,y) \sim \mathcal{D}_{\mathrm{SFT}}}\left[\log \pi_\theta(y \mid x)\right]. \]</div>
+      <p>DPO uses preference pairs \((x, y_w, y_l)\), where \(y_w\) is preferred over \(y_l\). With reference policy \(\pi_{\mathrm{ref}}\), the implicit reward is:</p>
+      <div class="math-block">\[ r_\theta(x,y)=\beta \log \frac{\pi_\theta(y \mid x)}{\pi_{\mathrm{ref}}(y \mid x)}. \]</div>
+      <p>The DPO objective is:</p>
+      <div class="math-block">\[ \mathcal{L}_{\mathrm{DPO}}(\theta) = -\mathbb{E}_{(x,y_w,y_l) \sim \mathcal{D}_{\mathrm{DPO}}}\left[\log \sigma\left(\beta \left(\log \frac{\pi_\theta(y_w \mid x)}{\pi_{\mathrm{ref}}(y_w \mid x)} - \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\mathrm{ref}}(y_l \mid x)}\right)\right)\right]. \]</div>
+      <p>For the metrics below, \(N\) is the number of completed clean examples, \(M\) is the number of completed corrupted examples, \(\hat{y}\) is the model prediction, and \(y^*\) is the gold target. For clean grid outputs, \(G_i\) is the set of grid cells in example \(i\), and \(c \in G_i\) indexes one cell.</p>
+      <p>Exact match (EM) is:</p>
+      <div class="math-block">\[ \mathrm{EM}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\hat{y}_i=y_i^*\}. \]</div>
+      <p>Cell accuracy (CA) is computed over examples whose predicted and gold grids have matching shape:</p>
+      <div class="math-block">\[ \mathrm{CA}=\frac{1}{N}\sum_{i=1}^{N}\frac{1}{|G_i|}\sum_{c \in G_i}\mathbf{1}\{\hat{y}_{i,c}=y^*_{i,c}\}. \]</div>
+      <p>Refusal accuracy (RA) is:</p>
+      <div class="math-block">\[ \mathrm{RA}=\frac{1}{M}\sum_{j=1}^{M}\mathbf{1}\{\hat{y}_j=\texttt{REFUSE}\}. \]</div>
+      <h2>Results Comparison</h2>
+      <table>
+        <thead>
+          <tr><th>Run</th><th>EM</th><th>CA</th><th>RA</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Baseline</td><td>0.000</td><td>0.073</td><td>0.282</td><td><code>results/baseline/</code></td></tr>
+          <tr><td>SFT</td><td>0.005</td><td>0.380</td><td>0.000</td><td><code>results/sft/</code></td></tr>
+          <tr><td>DPO</td><td>0.000</td><td>0.000</td><td>0.988</td><td><code>results/dpo/</code></td></tr>
+          <tr><td>DPO improved w/ small val</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/dpo_improved_small/</code></td></tr>
+          <tr><td>SFT balanced old corrupt</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/sft_balanced_old_corrupt/</code></td></tr>
+          <tr><td>SFT balanced new corrupt</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/sft_balanced_new_corrupt/</code></td></tr>
+          <tr><td>DPO improved</td><td colspan="3">Unable to evaluate because of Azure API errors.</td><td><code>results/dpo_improved/</code></td></tr>
+        </tbody>
+      </table>
+      <h2>Notes</h2>
+      <ul>
+        <li>Baseline uses the same nonV2 split reported in the final paper.</li>
+        <li>EM is exact-match accuracy on clean ARC outputs.</li>
+        <li>CA is partial grid-cell accuracy on clean ARC outputs.</li>
+        <li>RA measures how often the model returns <code>REFUSE</code> on corrupted tasks.</li>
+        <li><code>results/dpo_improved/</code> contains run logs and pair-generation diagnostics, but the full evaluation could not be completed because of Azure API errors.</li>
+      </ul>
+      <h2>Portfolio Takeaway</h2>
       <p>The central finding is a sharp tradeoff between task-solving and abstention. With mostly clean supervised data, the model learns to produce more plausible grids but answers even when it should refuse. With stronger refusal signals, the model learns that <code>REFUSE</code> is a globally safe response and over-refuses on clean tasks. DPO did not solve this because the preference data did not penalize refusal on clean prompts strongly enough.</p>
-      <h2>Limitations & Future Work</h2>
-      <p>The next step is not simply more refusal examples; it is better contrastive data. Future iterations should explicitly include <code>REFUSE</code> as a rejected clean-task response, sample more diverse candidate outputs, strengthen corruption generation, and tune the clean-versus-corrupt mixture so the model learns when to solve rather than only whether refusal is allowed.</p>
     `,
   },
   pennos: {
@@ -892,21 +942,71 @@ const detailNarrativesZh = {
       "一个面向 ARC-AGI-1 的失败感知推理项目，比较 baseline prompting、监督微调、平衡 SFT 与 DPO 在“解题”和“拒答”之间的权衡。",
     body: String.raw`
       <h2>背景 / 动机</h2>
-      <p>这个最终项目研究 ARC 风格网格推理中的失败感知行为：对于有效任务，模型需要推断变换规则并输出正确网格；对于示例彼此矛盾的任务，模型应当只输出 <code>REFUSE</code>。这样，ARC 不只是一个解题 benchmark，也变成了一个观察模型能否在结构化不确定性下校准拒答的小型实验场。</p>
-      <h2>问题定义</h2>
-      <p>每个干净任务包含若干输入-输出网格示例和一个保留测试输入，网格被序列化为由空格分隔的整数行。对于损坏任务，示例会被人为改造成不一致，目标回答则是特殊 token <code>REFUSE</code>。因此评估同时包含两件事：有规则时解题，没有一致规则时拒答。</p>
-      <h2>数据与设置</h2>
-      <p>实验使用官方 ARC-AGI-1 任务，并将其转换为 chat-style prompt。主实验包含 330 个干净训练任务、70 个干净验证任务和 400 个干净测试任务；损坏样本在同一 split 内生成，以避免数据泄漏。主设置中额外加入 51 个损坏训练样本、13 个验证样本和 85 个测试样本，后续还比较了平衡 clean-corrupt 训练以及更强的 permutation corruption。</p>
-      <h2>方法</h2>
-      <p>项目比较四类行为。Baseline 使用确定性 prompting 评估 <code>gpt-4.1-nano</code>。SFT 使用 chat-format 的干净和损坏样本微调 <code>gpt-4.1-nano-2025-04-14</code>。平衡 SFT 保留所有干净样本，并加入相同数量的损坏样本，用来测试拒答行为能否恢复。DPO 则基于偏好对训练：在干净任务上偏好更高质量的网格输出，在损坏任务上偏好 <code>REFUSE</code> 而不是生成网格。</p>
-      <p>主要指标是干净任务上的 exact match、衡量部分正确性的 cell-level accuracy，以及损坏任务上的 refusal accuracy：</p>
-      <div class="math-block">\[ \mathrm{EM}=\mathbf{1}\{\hat y=y^*\},\quad \mathrm{CA}=\frac{1}{HW}\sum_{i,j}\mathbf{1}\{\hat y_{ij}=y^*_{ij}\},\quad \mathrm{RA}=\mathbf{1}\{\hat y=\texttt{REFUSE}\}. \]</div>
-      <h2>结果</h2>
-      <p>Base model 的 exact match 为 0.000，cell accuracy 为 0.073，refusal accuracy 为 0.282。SFT 明显提升了干净任务输出质量，exact match 达到 0.005，cell accuracy 达到 0.380，但 refusal accuracy 降为 0.000。平衡 SFT 则走向相反失败模式：旧 corruption 与 permutation corruption 版本都达到 1.000 refusal accuracy，但干净任务 exact match 和 cell accuracy 都降为 0.000。改进后的 DPO 也出现类似的拒答坍缩，refusal accuracy 达到 1.000，但无法保留有效的干净任务解题能力。</p>
-      <h2>洞察 / 收获</h2>
+      <p>这个 repo 包含 CIS 5270 final project 的实验：在干净与损坏 demonstration 下研究 ARC-style grid reasoning。主要比较 baseline prompting、SFT、DPO 和 balanced SFT variants，目标是在保留干净任务性能的同时改善模型在损坏输入上的拒答行为。</p>
+      <p>从作品集角度看，这是一个 failure-aware reasoning 项目：对于有效任务，模型需要推断变换规则并输出正确网格；对于示例彼此矛盾的任务，模型应当只输出 <code>REFUSE</code>。这样，ARC 不只是一个解题 benchmark，也变成了一个观察模型能否在结构化不确定性下校准拒答的小型实验场。</p>
+      <h2>Repository Structure</h2>
+      <table>
+        <thead>
+          <tr><th>Path</th><th>Contents</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>data/eval/</code></td><td>Clean and corrupted ARC evaluation sets.</td></tr>
+          <tr><td><code>data/sft/</code></td><td>SFT train/validation JSONL files.</td></tr>
+          <tr><td><code>data/dpo/</code></td><td>DPO preference-pair train/validation JSONL files.</td></tr>
+          <tr><td><code>data/sft_balanced/</code></td><td>Balanced SFT datasets and eval sets for old/new corruption strategies.</td></tr>
+          <tr><td><code>notebooks/baselines/</code></td><td>Baseline prompting/evaluation notebooks.</td></tr>
+          <tr><td><code>notebooks/data-prep/</code></td><td>Data creation, prompting, balancing, and DPO pair-generation notebooks.</td></tr>
+          <tr><td><code>notebooks/training/</code></td><td>Azure OpenAI SFT/DPO training and evaluation pipelines.</td></tr>
+          <tr><td><code>notebooks/analysis/</code></td><td>Plotting and report-analysis notebooks.</td></tr>
+          <tr><td><code>src/</code></td><td>Reusable helper code used by the balanced SFT pipelines.</td></tr>
+          <tr><td><code>results/</code></td><td>Saved logs, predictions, metrics, figures, and baseline outputs.</td></tr>
+          <tr><td><code>docs/</code></td><td>Final paper, presentation, and planning document.</td></tr>
+        </tbody>
+      </table>
+      <h2>Colab Path Assumption</h2>
+      <p>The notebooks assume this repo is available in Google Drive at:</p>
+      <pre><code>/content/drive/MyDrive/arc-llm-robustness-alignment</code></pre>
+      <p>If the Drive folder lives somewhere else, set <code>PROJECT_DIR</code> in the relevant notebook before running. Azure notebooks read secrets from environment variables such as <code>AZURE_OPENAI_API_KEY</code>; no API key should be committed to the repo.</p>
+      <h2>Methods and Metrics</h2>
+      <p>For each ARC task, a prompt \(x\) contains demonstration input-output pairs and a test input. Clean examples use the target grid \(y^*\); corrupted examples use the target refusal string <code>REFUSE</code>.</p>
+      <p>SFT optimizes next-token likelihood on supervised pairs:</p>
+      <div class="math-block">\[ \mathcal{L}_{\mathrm{SFT}}(\theta) = -\mathbb{E}_{(x,y) \sim \mathcal{D}_{\mathrm{SFT}}}\left[\log \pi_\theta(y \mid x)\right]. \]</div>
+      <p>DPO uses preference pairs \((x, y_w, y_l)\), where \(y_w\) is preferred over \(y_l\). With reference policy \(\pi_{\mathrm{ref}}\), the implicit reward is:</p>
+      <div class="math-block">\[ r_\theta(x,y)=\beta \log \frac{\pi_\theta(y \mid x)}{\pi_{\mathrm{ref}}(y \mid x)}. \]</div>
+      <p>The DPO objective is:</p>
+      <div class="math-block">\[ \mathcal{L}_{\mathrm{DPO}}(\theta) = -\mathbb{E}_{(x,y_w,y_l) \sim \mathcal{D}_{\mathrm{DPO}}}\left[\log \sigma\left(\beta \left(\log \frac{\pi_\theta(y_w \mid x)}{\pi_{\mathrm{ref}}(y_w \mid x)} - \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\mathrm{ref}}(y_l \mid x)}\right)\right)\right]. \]</div>
+      <p>For the metrics below, \(N\) is the number of completed clean examples, \(M\) is the number of completed corrupted examples, \(\hat{y}\) is the model prediction, and \(y^*\) is the gold target. For clean grid outputs, \(G_i\) is the set of grid cells in example \(i\), and \(c \in G_i\) indexes one cell.</p>
+      <p>Exact match (EM) is:</p>
+      <div class="math-block">\[ \mathrm{EM}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\hat{y}_i=y_i^*\}. \]</div>
+      <p>Cell accuracy (CA) is computed over examples whose predicted and gold grids have matching shape:</p>
+      <div class="math-block">\[ \mathrm{CA}=\frac{1}{N}\sum_{i=1}^{N}\frac{1}{|G_i|}\sum_{c \in G_i}\mathbf{1}\{\hat{y}_{i,c}=y^*_{i,c}\}. \]</div>
+      <p>Refusal accuracy (RA) is:</p>
+      <div class="math-block">\[ \mathrm{RA}=\frac{1}{M}\sum_{j=1}^{M}\mathbf{1}\{\hat{y}_j=\texttt{REFUSE}\}. \]</div>
+      <h2>Results Comparison</h2>
+      <table>
+        <thead>
+          <tr><th>Run</th><th>EM</th><th>CA</th><th>RA</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Baseline</td><td>0.000</td><td>0.073</td><td>0.282</td><td><code>results/baseline/</code></td></tr>
+          <tr><td>SFT</td><td>0.005</td><td>0.380</td><td>0.000</td><td><code>results/sft/</code></td></tr>
+          <tr><td>DPO</td><td>0.000</td><td>0.000</td><td>0.988</td><td><code>results/dpo/</code></td></tr>
+          <tr><td>DPO improved w/ small val</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/dpo_improved_small/</code></td></tr>
+          <tr><td>SFT balanced old corrupt</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/sft_balanced_old_corrupt/</code></td></tr>
+          <tr><td>SFT balanced new corrupt</td><td>0.000</td><td>0.000</td><td>1.000</td><td><code>results/sft_balanced_new_corrupt/</code></td></tr>
+          <tr><td>DPO improved</td><td colspan="3">Unable to evaluate because of Azure API errors.</td><td><code>results/dpo_improved/</code></td></tr>
+        </tbody>
+      </table>
+      <h2>Notes</h2>
+      <ul>
+        <li>Baseline uses the same nonV2 split reported in the final paper.</li>
+        <li>EM is exact-match accuracy on clean ARC outputs.</li>
+        <li>CA is partial grid-cell accuracy on clean ARC outputs.</li>
+        <li>RA measures how often the model returns <code>REFUSE</code> on corrupted tasks.</li>
+        <li><code>results/dpo_improved/</code> contains run logs and pair-generation diagnostics, but the full evaluation could not be completed because of Azure API errors.</li>
+      </ul>
+      <h2>作品集收获</h2>
       <p>核心发现是解题与拒答之间存在非常敏感的权衡。以干净数据为主时，模型会学会生成更像样的网格，但也会在应该拒答时继续回答；拒答信号变强后，模型又会把 <code>REFUSE</code> 学成全局安全答案，在干净任务上过度拒答。DPO 没有解决这一点，因为偏好数据对干净 prompt 上的拒答惩罚还不够强。</p>
-      <h2>局限与未来工作</h2>
-      <p>下一步不是简单加入更多拒答样本，而是构造更好的对比信号。后续可以在干净任务中显式把 <code>REFUSE</code> 作为 rejected response，采样更多样的候选输出，增强 corruption 生成方式，并仔细调节 clean 与 corrupt 数据比例，让模型学会什么时候应该解题，而不只是学会拒答是允许的。</p>
     `,
   },
   pennos: {
