@@ -155,8 +155,8 @@ const siteData = {
   contactBooking: [
     {
       label: "Schedule Coffee Chat",
-      detail: "Choose a time directly through my Google Calendar booking page.",
-      href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
+      detail: "Choose a time directly through my Calendly booking page.",
+      href: "https://calendly.com/rickygong74/30min",
       icon: "calendar",
       tone: "mint",
       newTab: true,
@@ -263,8 +263,8 @@ const siteDataZh = {
   contactBooking: [
     {
       label: "预约交流",
-      detail: "可以直接通过我的 Google Calendar 预约页面选择合适的时间。",
-      href: "https://calendar.app.google/xYadJnFyvrpuWXcSA",
+      detail: "可以直接通过我的 Calendly 预约页面选择合适的时间。",
+      href: "https://calendly.com/rickygong74/30min",
       icon: "calendar",
       tone: "mint",
       newTab: true,
@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260505-readme-detail-0004";
+const assetVersion = "20260505-calendly-0005";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
