@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260505-calendly-0005";
+const assetVersion = "20260508-no-reveal-0001";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -684,7 +684,6 @@ const renderHomepage = () => {
 renderHomepage();
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let revealObserver = null;
 let meteorLayer = null;
 let lastMeteorPoint = null;
 let lastMeteorTime = 0;
@@ -698,36 +697,6 @@ const setupMotion = () => {
     meteorLayer = null;
     lastMeteorPoint = null;
     lastMeteorTime = 0;
-  }
-
-  const revealTargets = document.querySelectorAll(
-    ".hero-stage, .home-about, .project-section-header, .project-section-intro, .projects-nav, .project-category-heading, .project-grid, .research-subsection, .contact-section"
-  );
-
-  if (revealObserver) {
-    revealObserver.disconnect();
-    revealObserver = null;
-  }
-
-  revealTargets.forEach((target, index) => {
-    target.dataset.reveal = "";
-    target.style.setProperty("--reveal-delay", `${Math.min(index * 60, 360)}ms`);
-    target.classList.toggle("is-revealed", !motionAllowed);
-  });
-
-  if (motionAllowed && "IntersectionObserver" in window) {
-    revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
-    );
-    revealTargets.forEach((target) => revealObserver.observe(target));
   }
 
   document.querySelectorAll(".project-card-link, .hero-link, .contact-action-card").forEach((card) => {
