@@ -615,10 +615,14 @@ const detailNarratives = {
     body: String.raw`
       <h2>Academic Integrity Note</h2>
       <p>This page is a portfolio-safe summary of PennCloud. I do not publish the repository, course handout, report, or solution-level implementation details, because the project belongs to a university course and the instructors asked students not to place code or course materials in public repositories. I am happy to discuss my design choices, debugging process, and engineering takeaways in interviews or private conversations.</p>
+      <h2>Project Overview</h2>
+      <p>PennCloud is a course-scale distributed cloud platform built by a four-person team. At a high level, it combines a browser-facing application layer, a load balancer, multiple stateless frontend servers, a coordinator, and replicated backend storage nodes into one working system.</p>
+      <p>The platform supports account management, webmail, drive-style file storage, an admin console, and an additional chat application. The engineering goal was to make these services feel like one product while keeping persistent state out of the frontend layer, so that requests could be routed across frontend machines and backed by a shared distributed key-value store.</p>
+      <p>My main contribution was the mail system and mail extensions, including user-facing mail flows, SMTP integration, folders, drafts, attachments, contacts, and the integration choices that connected mail behavior to the storage and recovery path. I also contributed to backend recovery work, especially around logs, checkpoints, committed replay, and replica catch-up.</p>
       <h2>Background / Motivation</h2>
       <p>PennCloud is a distributed systems project that recreates the core shape of a small cloud platform: users interact through web-facing services, while persistent state lives behind those services in a distributed storage layer. The interesting part is not any single feature in isolation, but the integration problem: networking, storage, session behavior, service routing, and failure handling all have to cooperate under one system model.</p>
       <figure class="detail-figure detail-figure-wide">
-        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260508-penncloud-safe-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260509-penncloud-overview-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
         <figcaption>High-level PennCloud architecture used for public portfolio context.</figcaption>
       </figure>
       <h2>Problem Formulation</h2>
@@ -1045,10 +1049,14 @@ const detailNarrativesZh = {
     body: String.raw`
       <h2>Academic Integrity 说明</h2>
       <p>这个页面是 PennCloud 的作品集安全版本。由于该项目属于大学课程，且任课老师明确要求不要把代码或课程材料放到公开仓库，我不会公开 repository、课程 handout、完整 report 或解法级实现细节。如果在面试或私下交流中需要，我可以讨论设计取舍、debug 过程和工程收获。</p>
+      <h2>项目概览</h2>
+      <p>PennCloud 是一个由四人团队完成的 course-scale 分布式云平台。从高层看，它把浏览器侧应用层、负载均衡器、多个无状态 frontend server、coordinator，以及复制式 backend storage node 组合成一个可以运行的完整系统。</p>
+      <p>平台支持账户管理、webmail、drive-style 文件存储、admin console，以及额外的 chat 应用。工程目标是让这些服务像一个统一产品一样协作，同时把持久状态从 frontend 层移出，使请求可以在多个 frontend 之间路由，并由共享的分布式 key-value store 承担存储。</p>
+      <p>我的主要贡献集中在 mail system 和 mail extensions，包括用户侧邮件流程、SMTP 集成、文件夹、草稿、附件、联系人，以及把 mail 行为接入存储与恢复路径时的一些集成取舍。我也参与了 backend recovery 相关工作，尤其是日志、checkpoint、已提交操作重放和副本追赶恢复。</p>
       <h2>背景 / 动机</h2>
       <p>PennCloud 是一个分布式系统项目，目标是搭建一个小型云平台的核心形态：用户通过 web-facing services 交互，而持久化状态由后端分布式存储层承担。这个项目真正有意思的地方不在单个功能，而在集成问题：网络、存储、session 行为、服务路由和故障处理都必须在同一个系统模型下协作。</p>
       <figure class="detail-figure detail-figure-wide">
-        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260508-penncloud-safe-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260509-penncloud-overview-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
         <figcaption>PennCloud 的高层系统架构图，用于公开作品集展示。</figcaption>
       </figure>
       <h2>问题定义</h2>
