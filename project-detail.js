@@ -611,22 +611,32 @@ const detailNarratives = {
   },
   penncloud: {
     summary:
-      "An ongoing distributed cloud-platform build centered on stateless frontends, replicated key-value storage, and the integration path from basic services to a fault-tolerant architecture.",
+      "A distributed cloud-platform build presented as a public portfolio summary. Because this was completed for a university systems course, the source code, course handout, and solution-level implementation details are intentionally not published.",
     body: String.raw`
+      <h2>Academic Integrity Note</h2>
+      <p>This page is a portfolio-safe summary of PennCloud. I do not publish the repository, course handout, report, or solution-level implementation details, because the project belongs to a university course and the instructors asked students not to place code or course materials in public repositories. I am happy to discuss my design choices, debugging process, and engineering takeaways in interviews or private conversations.</p>
       <h2>Background / Motivation</h2>
-      <p>PennCloud is an ongoing distributed cloud-platform build with three layers: a frontend load balancer, stateless frontend servers, and a distributed backend key-value store. The proposal positions the system as a platform for user accounts, webmail, drive, and an admin console.</p>
+      <p>PennCloud is a distributed systems project that recreates the core shape of a small cloud platform: users interact through web-facing services, while persistent state lives behind those services in a distributed storage layer. The interesting part is not any single feature in isolation, but the integration problem: networking, storage, session behavior, service routing, and failure handling all have to cooperate under one system model.</p>
+      <figure class="detail-figure detail-figure-wide">
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260508-penncloud-safe-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <figcaption>High-level PennCloud architecture used for public portfolio context.</figcaption>
+      </figure>
       <h2>Problem Formulation</h2>
-      <p>The central design question is how to keep application services usable while replication, coordinator-based metadata management, and node failure handling are introduced underneath them. The proposal explicitly keeps the coordinator off the critical path for normal data operations: actual GET/PUT/CPUT/DELETE requests go from frontend servers directly to storage nodes.</p>
-      <h2>Data & Setup</h2>
-      <p>The proposal and progress log state that frontend servers are stateless and communicate with backend nodes over persistent TCP connections using a text protocol such as <code>PUT row col &lt;len&gt;\r\n&lt;bytes&gt;</code>. Ricky's assigned scope is frontend HTTP infrastructure, load balancing, user accounts, and cross-layer integration. The progress log shows completed minimal solutions for backend KV, frontend HTTP, user accounts, webmail, and drive, with replicated KV, fault detection, and other intermediate components still in progress.</p>
+      <p>The central design question was how to separate user-facing application logic from persistent state, so that frontend processes could remain replaceable while backend services owned durability and coordination. That meant thinking carefully about where state should live, how services should communicate, how requests should be retried, and how to make component boundaries explicit enough for a team to integrate independently developed pieces.</p>
+      <h2>What We Built</h2>
+      <p>The completed system included user accounts and sessions, a custom HTTP server, a webmail service, a drive service, an admin console, a load balancer, a distributed key-value backend, and additional application features such as chat. The web-facing services were designed to remain stateless, with durable user data stored behind a shared storage interface.</p>
+      <p>Beyond the required platform behavior, the team extended the system with large-file support, per-user storage quotas, shareable drive links, mail folders and drafts, mail attachments, an address-book style contact flow, password hashing, HTTPS support, and an AWS deployment across separate virtual machines.</p>
+      <h2>My Contributions</h2>
+      <p>My primary ownership was the webmail system and mail-related extensions: core mail actions, SMTP receive/send paths, folders, drafts, attachments, contacts, and the product decision to use drive share links when external attachment delivery would require a much larger MIME implementation. I also contributed to backend recovery work, including versioned logs, checkpoints, committed-operation replay, and replica catch-up behavior.</p>
       <h2>Methodology</h2>
-      <p>The proposal chooses primary-based replication with a target of three replicas per tablet, coordinator heartbeats for failure detection, checkpoint-plus-WAL recovery, and tablet partitioning by row-key range. The progress log also documents concrete frontend integration details, including consuming the backend banner line in <code>connect_backend()</code>, implementing cookie-based sessions, and using CPUT retry loops to update webmail and drive index columns safely.</p>
+      <p>The architecture followed a few principles that matter in real distributed systems work: keep frontend state minimal, define narrow interfaces between components, treat network communication as an expected failure point, and integrate early rather than leaving cross-component behavior until the end. On the frontend side, I worked through request parsing, response generation, session-aware user flows, and service-level interactions for mail and file-style features. On the integration side, I helped connect those flows to backend storage semantics while keeping the public interface understandable to teammates.</p>
       <h2>Results</h2>
-      <p>As of the 2026-04-04 progress log, the completed pieces include a multithreaded frontend HTTP server with GET/POST/HEAD, cookies, and persistent connections; a backend KV server supporting PUT/GET/CPUT/DELETE; user login and registration; minimal internal webmail; and minimal drive upload/download. Intermediate goals such as chunked transfer encoding, frontend load balancing, replicated KV, admin console, and richer webmail/drive features are listed as not yet complete.</p>
+      <p>The final system brought together several cloud-platform behaviors in one course-scale build: account management, browser-facing application pages, mail-style interactions, file-style storage interactions, and backend persistence through a distributed storage abstraction. The most valuable outcome for me was learning how quickly small assumptions become system-level bugs when multiple networked components are developed in parallel.</p>
       <h2>Insights / Takeaways</h2>
-      <p>The source materials emphasize explicit schema and interface design. Examples include using <code>mail:&lt;username&gt;.__index__</code> for inbox indexing, UUID-based drive row keys, configurable heartbeat intervals, and frontend retry-through-coordinator behavior after backend connection failure.</p>
+      <p>PennCloud made distributed systems feel concrete. I became much more careful about interface contracts, request lifecycles, ownership of state, and observability during debugging. Several issues that looked like small edge cases at first, including protocol detection, DNS behavior, concurrent updates, and service handoff between machines, became reminders that distributed systems fail at the boundaries.</p>
+      <p>It also reinforced a portfolio lesson I care about: a good systems project is not just a collection of features, but a set of boundaries that let those features keep working as the codebase and team both get larger.</p>
       <h2>Limitations & Future Work</h2>
-      <p>The project is still in progress. The proposal and progress notes identify replicated KV, failover, recovery, chunked transfer encoding, load balancing, admin tooling, and complete application services as the major remaining milestones.</p>
+      <p>Because this is course work, the public version of this page deliberately omits code, detailed protocols, internal schemas, test procedures, and report materials. In a production continuation, I would focus on stronger operational visibility, more systematic failure testing, clearer service-level metrics, and a deployment setup that makes recovery and debugging easier to reason about.</p>
     `,
   },
 };
@@ -1031,22 +1041,32 @@ const detailNarrativesZh = {
   },
   penncloud: {
     summary:
-      "一个正在推进中的分布式云平台项目，围绕无状态前端、复制式键值存储，以及从基础服务走向容错架构的集成路线展开。",
+      "一个分布式云平台项目的公开作品集摘要。由于该项目来自大学系统课程，我不会公开源代码、课程 handout、完整报告或可复现解法级实现细节。",
     body: String.raw`
+      <h2>Academic Integrity 说明</h2>
+      <p>这个页面是 PennCloud 的作品集安全版本。由于该项目属于大学课程，且任课老师明确要求不要把代码或课程材料放到公开仓库，我不会公开 repository、课程 handout、完整 report 或解法级实现细节。如果在面试或私下交流中需要，我可以讨论设计取舍、debug 过程和工程收获。</p>
       <h2>背景 / 动机</h2>
-      <p>PennCloud 是一个正在推进中的分布式云平台项目，包含三层：前端负载均衡器、无状态前端服务器和分布式后端键值存储。项目提案将系统定位为用户账户、webmail、drive 和 admin console 的基础平台。</p>
+      <p>PennCloud 是一个分布式系统项目，目标是搭建一个小型云平台的核心形态：用户通过 web-facing services 交互，而持久化状态由后端分布式存储层承担。这个项目真正有意思的地方不在单个功能，而在集成问题：网络、存储、session 行为、服务路由和故障处理都必须在同一个系统模型下协作。</p>
+      <figure class="detail-figure detail-figure-wide">
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260508-penncloud-safe-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <figcaption>PennCloud 的高层系统架构图，用于公开作品集展示。</figcaption>
+      </figure>
       <h2>问题定义</h2>
-      <p>核心设计问题是：当复制、基于协调器的元数据管理和节点故障处理逐步加入底层系统时，如何保持应用服务仍然可用。提案明确将协调器移出正常数据操作的关键路径：实际的 GET/PUT/CPUT/DELETE 请求由前端服务器直接发送到存储节点。</p>
-      <h2>数据与设置</h2>
-      <p>提案与进展日志说明，前端服务器是无状态的，并通过持久 TCP 连接与后端节点通信，使用的文本协议形式例如 <code>PUT row col &lt;len&gt;\r\n&lt;bytes&gt;</code>。Ricky 负责的范围包括前端 HTTP 基础设施、负载均衡、用户账户以及跨层集成。进展日志显示，后端 KV、前端 HTTP、用户账户、webmail 和 drive 的最小可用版本都已完成，而复制式 KV、故障检测等组件仍在推进中。</p>
+      <p>核心设计问题是如何把用户侧应用逻辑和持久化状态分离，让前端进程尽可能可替换，而后端服务负责持久性与协调。这要求我们认真处理状态归属、服务通信、请求重试，以及团队协作中组件边界如何定义得足够清楚。</p>
+      <h2>我们构建了什么</h2>
+      <p>最终系统包含用户账户与 session、自定义 HTTP server、webmail、drive、admin console、load balancer、分布式 key-value backend，以及 chat 等额外应用功能。面向用户的服务尽量保持无状态，持久化用户数据则通过共享存储接口写入后端。</p>
+      <p>除了核心平台行为，团队还实现了大文件支持、用户存储配额、drive 分享链接、邮件文件夹与草稿、邮件附件、联系人流程、密码哈希、HTTPS 支持，以及部署在多台虚拟机上的 AWS 版本。</p>
+      <h2>我的贡献</h2>
+      <p>我主要负责 webmail 系统和 mail 相关扩展：核心邮件操作、SMTP 收发路径、文件夹、草稿、附件、联系人，以及在外部附件发送需要复杂 MIME 实现时，改用 drive share link 的产品与工程取舍。我也参与了后端恢复相关工作，包括版本化日志、checkpoint、只重放已提交操作，以及副本追赶恢复。</p>
       <h2>方法</h2>
-      <p>提案选择了基于 primary 的复制方案，每个 tablet 的目标副本数为 3，同时使用协调器心跳进行故障检测、checkpoint 加 WAL 的恢复机制，以及按 row-key 范围划分 tablet。进展日志还记录了具体的前端集成细节，包括在 <code>connect_backend()</code> 中消费后端 banner 行、实现 cookie-based session，以及用 CPUT 重试循环安全更新 webmail 和 drive 的索引列。</p>
+      <p>整体架构遵循几个真实分布式系统中很重要的原则：尽量减少前端状态、清晰定义组件接口、把网络通信视为可能失败的路径，以及尽早做跨组件集成。在前端侧，我处理了请求解析、响应生成、带 session 的用户流程，以及 mail 和 file-style 功能的服务交互。在集成侧，我参与把这些流程连接到后端存储语义，同时保持团队内部接口足够清晰。</p>
       <h2>结果</h2>
-      <p>截至 2026-04-04 的进展日志，已完成的部分包括：支持 GET/POST/HEAD、cookie 和持久连接的多线程前端 HTTP 服务器；支持 PUT/GET/CPUT/DELETE 的后端 KV 服务器；用户登录与注册；最小化内部 webmail；以及最小化 drive 上传/下载。chunked transfer encoding、前端负载均衡、复制式 KV、admin console 以及更完整的 webmail/drive 功能仍列在未完成项中。</p>
+      <p>最终系统把多个云平台行为整合到一个 course-scale build 中：账户管理、浏览器端应用页面、mail-style 交互、file-style storage 交互，以及通过分布式存储抽象完成后端持久化。对我来说，最有价值的结果是更深地理解了：当多个网络组件并行开发时，小的假设很容易变成系统级 bug。</p>
       <h2>洞察 / 收获</h2>
-      <p>材料强调了显式的 schema 与接口设计。例如，使用 <code>mail:&lt;username&gt;.__index__</code> 作为收件箱索引、使用 UUID 作为 drive row key、可配置的 heartbeat 间隔，以及在后端连接失败后通过协调器进行前端重试。</p>
+      <p>PennCloud 让我对分布式系统的理解变得更具体。我开始更谨慎地看待接口契约、请求生命周期、状态所有权和调试时的可观测性。一些一开始看起来很小的边界问题，包括协议识别、DNS 行为、并发更新以及跨机器服务交接，最后都提醒我：分布式系统往往是在边界处出问题。</p>
+      <p>它也强化了一个我很重视的作品集经验：好的系统项目不是一组功能堆叠，而是一组边界清晰、能让功能在代码和团队变大后继续协作的设计。</p>
       <h2>局限与未来工作</h2>
-      <p>该项目仍在进行中。提案与进展笔记把复制式 KV、故障转移、恢复、chunked transfer encoding、负载均衡、管理工具，以及完整的应用服务列为主要剩余里程碑。</p>
+      <p>由于这是课程项目，公开页面刻意省略代码、详细协议、内部 schema、测试步骤和 report 材料。如果作为 production continuation，我会重点补强系统可观测性、故障测试、服务级指标，以及让恢复和调试更容易推理的部署流程。</p>
     `,
   },
 };

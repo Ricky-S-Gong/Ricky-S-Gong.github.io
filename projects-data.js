@@ -679,18 +679,13 @@ window.projectCatalog = {
       topic: "Distributed Infrastructure",
       primaryCategory: "Data Systems & Infrastructure",
       displayCategories: ["Data Systems & Infrastructure"],
-      tags: ["Distributed Systems", "C++", "KV Store", "Replication", "Backend"],
-      status: "In Progress",
+      tags: ["Distributed Systems", "C++", "KV Store", "Webmail", "Replication"],
+      status: "Completed",
       yearLabel: "2026",
       coverLabel: "Distributed System",
       miniDescription:
-        "Implements a distributed cloud-style system with backend coordination, storage, and service interfaces across multiple components.",
-      resources: [
-        {
-          label: "Report",
-          href: "./project-resources/penncloud/report.pdf",
-        },
-      ],
+        "Builds a distributed cloud-style platform with stateless frontends, webmail, drive, chat, load balancing, and replicated backend storage.",
+      resources: [],
       sourcePaths: ["/Users/ricky/Desktop/CIS5050/26sp-CIS5050-Ricky-S-Gong/sp26-cis5050-T04"],
       sourceTypes: ["readme", "md", "pdf", "cc", "h", "py"],
       detailType: "systems-project",
@@ -867,8 +862,8 @@ const projectTranslationsZh = {
     primaryCategory: "数据系统与基础设施",
     coverLabel: "分布式系统",
     miniDescription: "围绕无状态前端、复制式键值存储和服务架构集成，构建分布式云系统。",
-    status: "进行中",
-    tags: ["分布式系统", "云", "键值存储", "后端", "基础设施"],
+    status: "已完成",
+    tags: ["分布式系统", "云", "键值存储", "Webmail", "复制"],
   },
 };
 
