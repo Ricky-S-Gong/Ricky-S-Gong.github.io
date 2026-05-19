@@ -611,36 +611,34 @@ const detailNarratives = {
   },
   penncloud: {
     summary:
-      "A distributed cloud-platform build presented as a public portfolio summary. Because this was completed for a university systems course, the source code, course handout, and solution-level implementation details are intentionally not published.",
+      "A distributed cloud-platform build with stateless frontends, a load balancer, a coordinator, replicated backend storage, webmail, drive, chat, and admin tooling.",
     body: String.raw`
       <h2>Academic Integrity Note</h2>
-      <p>This page is a portfolio-safe summary of PennCloud. I do not publish the repository, course handout, report, or solution-level implementation details, because the project belongs to a university course and the instructors asked students not to place code or course materials in public repositories. I am happy to discuss my design choices, debugging process, and engineering takeaways in interviews or private conversations.</p>
+      <p>To respect academic integrity, I do not publish the source code repository or the project specification materials. This page focuses on the system architecture, implemented functionality, and distributed-systems design ideas at a portfolio level.</p>
       <h2>Project Overview</h2>
-      <p>PennCloud is a course-scale distributed cloud platform built by a four-person team. At a high level, it combines a browser-facing application layer, a load balancer, multiple stateless frontend servers, a coordinator, and replicated backend storage nodes into one working system.</p>
-      <p>The platform supports account management, webmail, drive-style file storage, an admin console, and an additional chat application. The engineering goal was to make these services feel like one product while keeping persistent state out of the frontend layer, so that requests could be routed across frontend machines and backed by a shared distributed key-value store.</p>
-      <p>My main contribution was the mail system and mail extensions, including user-facing mail flows, SMTP integration, folders, drafts, attachments, contacts, and the integration choices that connected mail behavior to the storage and recovery path. I also contributed to backend recovery work, especially around logs, checkpoints, committed replay, and replica catch-up.</p>
-      <h2>Background / Motivation</h2>
-      <p>PennCloud is a distributed systems project that recreates the core shape of a small cloud platform: users interact through web-facing services, while persistent state lives behind those services in a distributed storage layer. The interesting part is not any single feature in isolation, but the integration problem: networking, storage, session behavior, service routing, and failure handling all have to cooperate under one system model.</p>
+      <p>PennCloud is a distributed cloud platform that brings together user-facing services and backend infrastructure in one end-to-end system. A browser first reaches a load balancer, which sends traffic to available frontend servers; the frontends run the application logic, while persistent state is stored in a replicated backend key-value store.</p>
+      <p>The platform includes account management, webmail, drive-style file storage, an admin console, and a chat application. The goal was not simply to implement separate features, but to make each feature depend on the same distributed substrate: stateless frontends, shared storage, coordinator-assisted routing, replica-aware writes, recovery, and operational visibility.</p>
       <figure class="detail-figure detail-figure-wide">
-        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260509-penncloud-overview-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260519-penncloud-distributed-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
         <figcaption>High-level PennCloud architecture used for public portfolio context.</figcaption>
       </figure>
-      <h2>Problem Formulation</h2>
-      <p>The central design question was how to separate user-facing application logic from persistent state, so that frontend processes could remain replaceable while backend services owned durability and coordination. That meant thinking carefully about where state should live, how services should communicate, how requests should be retried, and how to make component boundaries explicit enough for a team to integrate independently developed pieces.</p>
-      <h2>What We Built</h2>
-      <p>The completed system included user accounts and sessions, a custom HTTP server, a webmail service, a drive service, an admin console, a load balancer, a distributed key-value backend, and additional application features such as chat. The web-facing services were designed to remain stateless, with durable user data stored behind a shared storage interface.</p>
-      <p>Beyond the required platform behavior, the team extended the system with large-file support, per-user storage quotas, shareable drive links, mail folders and drafts, mail attachments, an address-book style contact flow, password hashing, HTTPS support, and an AWS deployment across separate virtual machines.</p>
-      <h2>My Contributions</h2>
-      <p>My primary ownership was the webmail system and mail-related extensions: core mail actions, SMTP receive/send paths, folders, drafts, attachments, contacts, and the product decision to use drive share links when external attachment delivery would require a much larger MIME implementation. I also contributed to backend recovery work, including versioned logs, checkpoints, committed-operation replay, and replica catch-up behavior.</p>
-      <h2>Methodology</h2>
-      <p>The architecture followed a few principles that matter in real distributed systems work: keep frontend state minimal, define narrow interfaces between components, treat network communication as an expected failure point, and integrate early rather than leaving cross-component behavior until the end. On the frontend side, I worked through request parsing, response generation, session-aware user flows, and service-level interactions for mail and file-style features. On the integration side, I helped connect those flows to backend storage semantics while keeping the public interface understandable to teammates.</p>
+      <h2>Distributed Architecture</h2>
+      <p>The frontend layer was designed to be stateless. Session data, mailbox state, file metadata, file chunks, chat history, and application records were stored in the backend rather than tied to a specific frontend process. This made the load balancer meaningful: if one frontend became unavailable, another frontend could continue serving users because the durable state lived behind a shared storage interface.</p>
+      <p>The coordinator tracked backend membership and routing metadata. Frontend servers used the coordinator to find the right backend path for a row, while normal data operations flowed directly between frontends and storage nodes. This kept the coordinator focused on metadata and liveness instead of placing it on every data request.</p>
+      <p>The backend was implemented as a distributed key-value store with partitioned tablets, replicated storage nodes, primary-based write coordination, write-ahead logging, periodic checkpointing, and recovery logic. That design connected core distributed-systems concepts to application behavior: a mail send, file upload, folder move, or chat message became a storage operation that had to survive concurrency, failures, and replica recovery.</p>
+      <h2>Implemented Functionality</h2>
+      <p>The account system supported registration, login, logout, password changes, cookie-based sessions, and password hashing. Because sessions were stored in the key-value store, users were not bound to a single frontend server.</p>
+      <p>The webmail service supported composing, reading, replying, forwarding, deleting, sent mail, trash, drafts, contacts, internal attachments, incoming SMTP, outgoing SMTP, and a practical fallback path for external attachment sharing through drive links. Mail state was modeled on top of the same distributed storage layer as the rest of the platform, so mailbox actions exercised the backend consistency and update path rather than relying on a separate mail database.</p>
+      <p>The drive service supported hierarchical folders, upload, download, rename, move, delete, large-file chunking, per-user quota checks, and public share links. Large files were split into chunks so the system could handle objects larger than a single storage value, while metadata operations used atomic update patterns to avoid folder-state races.</p>
+      <p>The chat service demonstrated that the backend could support applications beyond mail and drive. It stored room state and messages in the key-value layer and used short polling from the frontend, which fit the existing HTTP server model without requiring WebSocket support.</p>
+      <p>The admin console exposed operational state: frontend health, backend health, tablet placement, primary replicas, raw key-value browsing, and controlled backend shutdown/restart for testing. The system was also deployed on AWS with separate virtual machines for load balancing, frontend service, coordination, backend storage, and SMTP.</p>
       <h2>Results</h2>
-      <p>The final system brought together several cloud-platform behaviors in one course-scale build: account management, browser-facing application pages, mail-style interactions, file-style storage interactions, and backend persistence through a distributed storage abstraction. The most valuable outcome for me was learning how quickly small assumptions become system-level bugs when multiple networked components are developed in parallel.</p>
+      <p>The final system brought together cloud-style user workflows and distributed infrastructure in a single deployment. Users could interact with account, mail, drive, and chat features through browser pages, while the backend handled routing, replication, persistence, recovery, and administrative visibility.</p>
       <h2>Insights / Takeaways</h2>
-      <p>PennCloud made distributed systems feel concrete. I became much more careful about interface contracts, request lifecycles, ownership of state, and observability during debugging. Several issues that looked like small edge cases at first, including protocol detection, DNS behavior, concurrent updates, and service handoff between machines, became reminders that distributed systems fail at the boundaries.</p>
-      <p>It also reinforced a portfolio lesson I care about: a good systems project is not just a collection of features, but a set of boundaries that let those features keep working as the codebase and team both get larger.</p>
+      <p>PennCloud made distributed systems feel concrete. The key engineering lesson was that every product feature becomes a distributed-systems question once state is shared across processes: where state lives, how writes become durable, how concurrent updates are handled, how services discover each other, and how the system behaves when a node or connection fails.</p>
+      <p>It also reinforced a portfolio lesson I care about: a good systems project is not just a collection of features, but a set of boundaries that let those features keep working as the codebase, deployment, and team all get larger.</p>
       <h2>Limitations & Future Work</h2>
-      <p>Because this is course work, the public version of this page deliberately omits code, detailed protocols, internal schemas, test procedures, and report materials. In a production continuation, I would focus on stronger operational visibility, more systematic failure testing, clearer service-level metrics, and a deployment setup that makes recovery and debugging easier to reason about.</p>
+      <p>In a production continuation, I would focus on stronger observability, more systematic failure testing, clearer service-level metrics, broader security hardening, and deployment tooling that makes recovery and debugging easier to reason about.</p>
     `,
   },
 };
@@ -1045,36 +1043,34 @@ const detailNarrativesZh = {
   },
   penncloud: {
     summary:
-      "一个分布式云平台项目的公开作品集摘要。由于该项目来自大学系统课程，我不会公开源代码、课程 handout、完整报告或可复现解法级实现细节。",
+      "一个分布式云平台项目，整合了无状态前端、负载均衡、coordinator、复制式后端存储、webmail、drive、chat 和 admin tooling。",
     body: String.raw`
       <h2>Academic Integrity 说明</h2>
-      <p>这个页面是 PennCloud 的作品集安全版本。由于该项目属于大学课程，且任课老师明确要求不要把代码或课程材料放到公开仓库，我不会公开 repository、课程 handout、完整 report 或解法级实现细节。如果在面试或私下交流中需要，我可以讨论设计取舍、debug 过程和工程收获。</p>
+      <p>出于 academic integrity，我不会公开 source code repository 或项目 specification 材料。这个页面只在作品集层面介绍系统架构、已实现功能，以及它如何体现分布式系统设计。</p>
       <h2>项目概览</h2>
-      <p>PennCloud 是一个由四人团队完成的 course-scale 分布式云平台。从高层看，它把浏览器侧应用层、负载均衡器、多个无状态 frontend server、coordinator，以及复制式 backend storage node 组合成一个可以运行的完整系统。</p>
-      <p>平台支持账户管理、webmail、drive-style 文件存储、admin console，以及额外的 chat 应用。工程目标是让这些服务像一个统一产品一样协作，同时把持久状态从 frontend 层移出，使请求可以在多个 frontend 之间路由，并由共享的分布式 key-value store 承担存储。</p>
-      <p>我的主要贡献集中在 mail system 和 mail extensions，包括用户侧邮件流程、SMTP 集成、文件夹、草稿、附件、联系人，以及把 mail 行为接入存储与恢复路径时的一些集成取舍。我也参与了 backend recovery 相关工作，尤其是日志、checkpoint、已提交操作重放和副本追赶恢复。</p>
-      <h2>背景 / 动机</h2>
-      <p>PennCloud 是一个分布式系统项目，目标是搭建一个小型云平台的核心形态：用户通过 web-facing services 交互，而持久化状态由后端分布式存储层承担。这个项目真正有意思的地方不在单个功能，而在集成问题：网络、存储、session 行为、服务路由和故障处理都必须在同一个系统模型下协作。</p>
+      <p>PennCloud 是一个端到端的分布式云平台。用户首先通过浏览器访问负载均衡器，流量随后被转发到可用的 frontend server；frontend 负责应用逻辑，而持久化状态存放在复制式 backend key-value store 中。</p>
+      <p>平台包含账户管理、webmail、drive-style 文件存储、admin console 和 chat 应用。这个项目的重点不是把功能拆开实现，而是让每个功能都运行在同一套分布式基础设施上：无状态前端、共享存储、coordinator-assisted routing、replica-aware writes、恢复机制和运维可视化。</p>
       <figure class="detail-figure detail-figure-wide">
-        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260509-penncloud-overview-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
+        <img src="./assets/project-covers-real/penncloud-architecture.png?v=20260519-penncloud-distributed-0001" alt="PennCloud high-level architecture diagram showing browsers, a load balancer, frontend servers, a coordinator, and backend storage nodes." />
         <figcaption>PennCloud 的高层系统架构图，用于公开作品集展示。</figcaption>
       </figure>
-      <h2>问题定义</h2>
-      <p>核心设计问题是如何把用户侧应用逻辑和持久化状态分离，让前端进程尽可能可替换，而后端服务负责持久性与协调。这要求我们认真处理状态归属、服务通信、请求重试，以及团队协作中组件边界如何定义得足够清楚。</p>
-      <h2>我们构建了什么</h2>
-      <p>最终系统包含用户账户与 session、自定义 HTTP server、webmail、drive、admin console、load balancer、分布式 key-value backend，以及 chat 等额外应用功能。面向用户的服务尽量保持无状态，持久化用户数据则通过共享存储接口写入后端。</p>
-      <p>除了核心平台行为，团队还实现了大文件支持、用户存储配额、drive 分享链接、邮件文件夹与草稿、邮件附件、联系人流程、密码哈希、HTTPS 支持，以及部署在多台虚拟机上的 AWS 版本。</p>
-      <h2>我的贡献</h2>
-      <p>我主要负责 webmail 系统和 mail 相关扩展：核心邮件操作、SMTP 收发路径、文件夹、草稿、附件、联系人，以及在外部附件发送需要复杂 MIME 实现时，改用 drive share link 的产品与工程取舍。我也参与了后端恢复相关工作，包括版本化日志、checkpoint、只重放已提交操作，以及副本追赶恢复。</p>
-      <h2>方法</h2>
-      <p>整体架构遵循几个真实分布式系统中很重要的原则：尽量减少前端状态、清晰定义组件接口、把网络通信视为可能失败的路径，以及尽早做跨组件集成。在前端侧，我处理了请求解析、响应生成、带 session 的用户流程，以及 mail 和 file-style 功能的服务交互。在集成侧，我参与把这些流程连接到后端存储语义，同时保持团队内部接口足够清晰。</p>
+      <h2>分布式架构</h2>
+      <p>Frontend 层被设计为无状态。Session、mailbox 状态、文件元数据、文件 chunk、chat history 和应用记录都存放在后端，而不是绑定到某一个 frontend process 上。这让负载均衡真正有意义：当一个 frontend 不可用时，另一个 frontend 仍然可以继续服务用户，因为持久状态由共享存储接口承载。</p>
+      <p>Coordinator 负责维护 backend membership 和 routing metadata。Frontend 通过 coordinator 找到某个 row 应该访问的 backend 路径，但正常数据请求直接在 frontend 和 storage node 之间流动。这样 coordinator 主要负责元数据和 liveness，而不是成为每次数据操作的瓶颈。</p>
+      <p>Backend 是一个分布式 key-value store，包含 tablet partition、复制式 storage node、primary-based write coordination、write-ahead logging、周期性 checkpoint 和 recovery logic。这把分布式系统概念直接连接到应用行为上：发送邮件、上传文件、移动文件夹或发送聊天消息，本质上都变成了需要处理并发、故障和副本恢复的存储操作。</p>
+      <h2>具体功能</h2>
+      <p>账户系统支持注册、登录、登出、修改密码、cookie-based session 和密码哈希。由于 session 存储在 key-value store 中，用户不会被绑定到单一 frontend server。</p>
+      <p>Webmail 支持写信、读信、回复、转发、删除、Sent、Trash、Drafts、联系人、内部附件、接收 SMTP、发送 SMTP，以及通过 drive share link 处理外部附件分享的工程取舍。Mail 状态构建在同一个分布式存储层之上，因此 mailbox 操作会走 backend 的一致性和更新路径，而不是依赖单独的 mail database。</p>
+      <p>Drive 支持层级文件夹、上传、下载、重命名、移动、删除、大文件 chunking、用户配额检查和公开分享链接。大文件被切成多个 chunk，从而处理超过单个存储值大小的对象；元数据操作则使用原子更新模式来避免文件夹状态竞争。</p>
+      <p>Chat 展示了 backend 不只服务 mail 和 drive，也可以支撑新的应用。它把 room state 和 message 存在 key-value layer，并在 frontend 使用 short polling，贴合已有 HTTP server 模型而不需要 WebSocket。</p>
+      <p>Admin console 暴露了系统运维状态：frontend health、backend health、tablet placement、primary replica、raw key-value browsing，以及用于测试的 backend shutdown/restart。系统也部署到 AWS，用独立虚拟机承载 load balancer、frontend、coordinator、backend storage 和 SMTP。</p>
       <h2>结果</h2>
-      <p>最终系统把多个云平台行为整合到一个 course-scale build 中：账户管理、浏览器端应用页面、mail-style 交互、file-style storage 交互，以及通过分布式存储抽象完成后端持久化。对我来说，最有价值的结果是更深地理解了：当多个网络组件并行开发时，小的假设很容易变成系统级 bug。</p>
+      <p>最终系统把云平台的用户工作流和分布式基础设施整合在同一个部署中。用户可以通过浏览器使用账户、邮件、网盘和聊天功能，而后端负责 routing、replication、persistence、recovery 和 administrative visibility。</p>
       <h2>洞察 / 收获</h2>
-      <p>PennCloud 让我对分布式系统的理解变得更具体。我开始更谨慎地看待接口契约、请求生命周期、状态所有权和调试时的可观测性。一些一开始看起来很小的边界问题，包括协议识别、DNS 行为、并发更新以及跨机器服务交接，最后都提醒我：分布式系统往往是在边界处出问题。</p>
-      <p>它也强化了一个我很重视的作品集经验：好的系统项目不是一组功能堆叠，而是一组边界清晰、能让功能在代码和团队变大后继续协作的设计。</p>
+      <p>PennCloud 让我对分布式系统的理解变得更具体。核心工程经验是：一旦状态被多个进程共享，每个产品功能都会变成分布式系统问题，包括状态放在哪里、写入如何持久化、并发更新如何处理、服务如何发现彼此，以及节点或连接失败时系统如何表现。</p>
+      <p>它也强化了一个我很重视的作品集经验：好的系统项目不是一组功能堆叠，而是一组边界清晰、能让功能在代码、部署和团队都变大后继续协作的设计。</p>
       <h2>局限与未来工作</h2>
-      <p>由于这是课程项目，公开页面刻意省略代码、详细协议、内部 schema、测试步骤和 report 材料。如果作为 production continuation，我会重点补强系统可观测性、故障测试、服务级指标，以及让恢复和调试更容易推理的部署流程。</p>
+      <p>如果作为 production continuation，我会重点补强系统可观测性、更系统的故障测试、更清晰的服务级指标、更完整的安全加固，以及让恢复和调试更容易推理的部署工具。</p>
     `,
   },
 };
