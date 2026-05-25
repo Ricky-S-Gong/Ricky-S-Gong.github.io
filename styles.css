@@ -1051,30 +1051,33 @@ h3 {
 }
 
 .about-focus-list {
-  display: grid;
-  gap: 0.55rem;
+  display: block;
   margin-top: 0.85rem;
+  text-align: left;
 }
 
 .about-focus-list > span {
-  display: grid;
-  grid-template-columns: 0.65rem 1fr;
-  gap: 0.55rem;
-  text-align: left;
+  display: block;
+  position: relative;
+  margin-top: 0.55rem;
+  padding-left: 1.1rem;
 }
 
 .about-focus-list > span::before {
   content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
   width: 0.36rem;
   height: 0.36rem;
-  margin-top: 0.72rem;
   border-radius: 999px;
   background: rgba(154, 207, 255, 0.62);
 }
 
-.about-focus-list strong {
+.focus-role,
+.focus-emphasis {
   color: var(--accent-3);
-  font-weight: 800;
+  font-weight: inherit;
 }
 
 .home-about-prose a {
