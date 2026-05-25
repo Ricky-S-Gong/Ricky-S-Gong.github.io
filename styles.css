@@ -1050,6 +1050,28 @@ h3 {
   margin-bottom: 0;
 }
 
+.about-focus-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.about-focus-list span {
+  display: grid;
+  grid-template-columns: 0.65rem 1fr;
+  gap: 0.55rem;
+  text-align: left;
+}
+
+.about-focus-list span::before {
+  content: "";
+  width: 0.36rem;
+  height: 0.36rem;
+  margin-top: 0.72rem;
+  border-radius: 999px;
+  background: rgba(154, 207, 255, 0.62);
+}
+
 .home-about-prose a {
   color: var(--accent-2);
 }
