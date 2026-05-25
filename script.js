@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260519-penncloud-distributed-0001";
+const assetVersion = "20260524-no-cursor-trail-0001";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -684,20 +684,10 @@ const renderHomepage = () => {
 renderHomepage();
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let meteorLayer = null;
-let lastMeteorPoint = null;
-let lastMeteorTime = 0;
 
 const setupMotion = () => {
   const motionAllowed = !prefersReducedMotion.matches;
   document.body.classList.toggle("motion-ready", motionAllowed);
-
-  if (!motionAllowed && meteorLayer) {
-    meteorLayer.remove();
-    meteorLayer = null;
-    lastMeteorPoint = null;
-    lastMeteorTime = 0;
-  }
 
   document.querySelectorAll(".project-card-link, .hero-link, .contact-action-card").forEach((card) => {
     if (card.dataset.motionBound) return;
@@ -726,67 +716,6 @@ const setupMotion = () => {
   });
 };
 
-const updatePointerGlow = (event) => {
-  if (prefersReducedMotion.matches || event.pointerType === "touch") return;
-
-  if (!meteorLayer) {
-    meteorLayer = document.createElement("div");
-    meteorLayer.className = "meteor-trail-layer";
-    meteorLayer.setAttribute("aria-hidden", "true");
-    document.body.appendChild(meteorLayer);
-  }
-
-  const now = performance.now();
-  const currentPoint = { x: event.clientX, y: event.clientY };
-  const previousPoint = lastMeteorPoint || currentPoint;
-  const distance = Math.hypot(currentPoint.x - previousPoint.x, currentPoint.y - previousPoint.y);
-
-  if (now - lastMeteorTime < 18 && distance < 14) {
-    lastMeteorPoint = currentPoint;
-    return;
-  }
-
-  const angle = Math.atan2(currentPoint.y - previousPoint.y, currentPoint.x - previousPoint.x) || -0.4;
-  const speed = Math.min(Math.max(distance, 12), 90);
-  const fragmentCount = distance > 42 ? 3 : 2;
-
-  for (let index = 0; index < fragmentCount; index += 1) {
-    const fragment = document.createElement("span");
-    const offset = index * 8;
-    const drift = (Math.random() - 0.5) * 70;
-    const length = 52 + Math.random() * 76 + speed * 0.38;
-    const delay = index * 22;
-
-    fragment.className = index === 0 ? "meteor-fragment meteor-fragment--core" : "meteor-fragment";
-    fragment.style.left = `${currentPoint.x - Math.cos(angle) * offset}px`;
-    fragment.style.top = `${currentPoint.y - Math.sin(angle) * offset}px`;
-    fragment.style.width = `${length}px`;
-    fragment.style.setProperty("--meteor-angle", `${angle}rad`);
-    fragment.style.setProperty("--meteor-angle-end", `${angle - 0.18}rad`);
-    fragment.style.setProperty("--meteor-drift-x", `${Math.cos(angle + Math.PI) * (34 + speed * 0.16) + Math.cos(angle + Math.PI / 2) * drift}px`);
-    fragment.style.setProperty("--meteor-drift-y", `${Math.sin(angle + Math.PI) * (34 + speed * 0.16) + Math.sin(angle + Math.PI / 2) * drift}px`);
-    fragment.style.animationDelay = `${delay}ms`;
-    meteorLayer.appendChild(fragment);
-
-    window.setTimeout(() => fragment.remove(), 1050 + delay);
-  }
-
-  if (Math.random() > 0.35) {
-    const ember = document.createElement("span");
-    ember.className = "meteor-ember";
-    ember.style.left = `${currentPoint.x + (Math.random() - 0.5) * 16}px`;
-    ember.style.top = `${currentPoint.y + (Math.random() - 0.5) * 16}px`;
-    ember.style.setProperty("--ember-drift-x", `${(Math.random() - 0.5) * 96}px`);
-    ember.style.setProperty("--ember-drift-y", `${-20 - Math.random() * 76}px`);
-    meteorLayer.appendChild(ember);
-    window.setTimeout(() => ember.remove(), 1250);
-  }
-
-  lastMeteorPoint = currentPoint;
-  lastMeteorTime = now;
-};
-
-window.addEventListener("pointermove", updatePointerGlow, { passive: true });
 prefersReducedMotion.addEventListener("change", setupMotion);
 setupMotion();
 

@@ -38,54 +38,6 @@ a {
   text-decoration: none;
 }
 
-.meteor-trail-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-
-.meteor-fragment,
-.meteor-ember {
-  position: absolute;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  will-change: transform, opacity, filter;
-}
-
-.meteor-fragment {
-  height: 2px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 95% 50%, rgba(255, 255, 255, 0.95) 0 2px, transparent 5px),
-    linear-gradient(90deg, transparent 0%, rgba(122, 198, 255, 0.06) 18%, rgba(124, 247, 193, 0.62) 64%, rgba(255, 255, 255, 0.92) 100%);
-  box-shadow:
-    0 0 10px rgba(124, 247, 193, 0.35),
-    0 0 24px rgba(122, 198, 255, 0.2);
-  opacity: 0;
-  transform-origin: right center;
-  animation: meteorTrail 940ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.meteor-fragment--core {
-  height: 3px;
-  filter: blur(0.2px);
-}
-
-.meteor-ember {
-  width: 4px;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(255, 245, 204, 0.9);
-  box-shadow:
-    0 0 9px rgba(255, 209, 102, 0.7),
-    0 0 18px rgba(124, 247, 193, 0.32);
-  animation: meteorEmber 1100ms ease-out forwards;
-}
-
 .page-shell {
   position: relative;
   overflow: hidden;
@@ -1504,38 +1456,6 @@ h3 {
   }
   50% {
     transform: translateY(-3px);
-  }
-}
-
-@keyframes meteorTrail {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) rotate(var(--meteor-angle)) scaleX(0.2);
-    filter: blur(0);
-  }
-  14% {
-    opacity: 0.88;
-  }
-  100% {
-    opacity: 0;
-    transform:
-      translate3d(calc(-50% + var(--meteor-drift-x)), calc(-50% + var(--meteor-drift-y)), 0)
-      rotate(var(--meteor-angle-end))
-      scaleX(1.08);
-    filter: blur(5px);
-  }
-}
-
-@keyframes meteorEmber {
-  0% {
-    opacity: 0.9;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(calc(-50% + var(--ember-drift-x)), calc(-50% + var(--ember-drift-y)), 0) scale(0.3);
-    filter: blur(3px);
   }
 }
 
