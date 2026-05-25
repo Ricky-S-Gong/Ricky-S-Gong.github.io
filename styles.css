@@ -1072,6 +1072,11 @@ h3 {
   background: rgba(154, 207, 255, 0.62);
 }
 
+.about-focus-list strong {
+  color: var(--accent-2);
+  font-weight: 800;
+}
+
 .home-about-prose a {
   color: var(--accent-2);
 }
