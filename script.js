@@ -318,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260524-bs-double-major-0001";
+const assetVersion = "20260524-subtle-portrait-ring-0001";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
