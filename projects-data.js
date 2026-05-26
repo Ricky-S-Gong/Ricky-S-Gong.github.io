@@ -1,17 +1,17 @@
 window.projectCatalog = {
   categories: [
     {
+      id: "nlp-large-language-model",
+      title: "NLP & Large Language Model",
+      description:
+        "Language-focused projects spanning sentiment analysis, retrieval-augmented generation, tool use, and LLM-based reasoning systems.",
+      order: 1,
+    },
+    {
       id: "causal-inference-experimentation",
       title: "Causal Inference & Experimentation",
       description:
         "Policy evaluation, behavioral studies, and product experiments where the main task is to identify effects clearly enough to support action.",
-      order: 1,
-    },
-    {
-      id: "time-series-statistical-modelling",
-      title: "Time Series & Statistical Modelling",
-      description:
-        "Forecasting and probabilistic modeling projects focused on market dynamics, demand patterns, and structured statistical inference over time.",
       order: 2,
     },
     {
@@ -22,10 +22,10 @@ window.projectCatalog = {
       order: 3,
     },
     {
-      id: "nlp-large-language-model",
-      title: "NLP & Large Language Model",
+      id: "time-series-statistical-modelling",
+      title: "Time Series & Statistical Modelling",
       description:
-        "Language-focused projects spanning sentiment analysis, retrieval-augmented generation, tool use, and LLM-based reasoning systems.",
+        "Forecasting and probabilistic modeling projects focused on market dynamics, demand patterns, and structured statistical inference over time.",
       order: 4,
     },
     {
