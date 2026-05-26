@@ -218,8 +218,8 @@ main {
 .home-overview {
   min-height: calc(100vh - 8.5rem);
   display: grid;
-  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
-  gap: 1.15rem;
+  grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
+  gap: 1.25rem;
   align-items: stretch;
 }
 
@@ -235,11 +235,11 @@ main {
   min-height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.1rem;
+  gap: 1rem;
   align-items: center;
   justify-items: center;
   align-content: center;
-  padding: 1.35rem;
+  padding: 1.45rem;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -275,8 +275,8 @@ main {
 }
 
 .portrait-ring {
-  width: clamp(150px, 12vw, 190px);
-  height: clamp(150px, 12vw, 190px);
+  width: clamp(145px, 11vw, 178px);
+  height: clamp(145px, 11vw, 178px);
   border-radius: 999px;
   padding: 5px;
   overflow: hidden;
@@ -329,19 +329,19 @@ main {
 
 .intro-card {
   width: 100%;
-  max-width: 460px;
-  padding: 1.15rem;
-  border: 1px solid rgba(154, 207, 255, 0.14);
-  border-radius: 28px;
-  background: rgba(9, 20, 37, 0.54);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28);
+  max-width: 420px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
   text-align: center;
 }
 
 .intro-card h1 {
-  font-size: clamp(1.9rem, 3vw, 2.55rem);
+  font-size: clamp(2rem, 3.15vw, 2.7rem);
   max-width: none;
 }
 
@@ -405,15 +405,15 @@ h3 {
 }
 
 .hero-text {
-  margin: 0.85rem auto 0;
-  max-width: 51ch;
+  margin: 0.8rem auto 0;
+  max-width: 42ch;
   text-align: left;
-  line-height: 1.52;
-  font-size: 0.9rem;
+  line-height: 1.48;
+  font-size: 0.88rem;
 }
 
 .hero-subtitle {
-  margin: 0.65rem auto 0;
+  margin: 0.55rem auto 0;
   max-width: none;
   color: var(--text);
   font-size: clamp(1.05rem, 1.7vw, 1.38rem);
@@ -452,7 +452,7 @@ h3 {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.55rem;
-  margin-top: 1.25rem;
+  margin-top: 1.05rem;
   align-items: center;
   justify-content: center;
 }
@@ -1071,7 +1071,7 @@ h3 {
 
 .home-about {
   margin: 0;
-  padding: 1.35rem;
+  padding: 1.45rem 1.55rem;
   border: 1px solid rgba(154, 207, 255, 0.12);
   border-radius: 28px;
   background: rgba(7, 17, 32, 0.42);
@@ -1080,8 +1080,6 @@ h3 {
 
 .home-about-prose {
   max-width: 100%;
-  columns: 2 18rem;
-  column-gap: 1.6rem;
 }
 
 .home-about .section-tight {
@@ -1089,13 +1087,12 @@ h3 {
 }
 
 .home-about-prose p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
   color: var(--text-soft);
-  line-height: 1.5;
-  font-size: 0.86rem;
+  line-height: 1.48;
+  font-size: 0.9rem;
   text-align: justify;
   text-justify: inter-word;
-  break-inside: avoid;
 }
 
 .home-about-prose p:last-child {
@@ -1103,7 +1100,9 @@ h3 {
 }
 
 .about-focus-list {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
   margin-top: 0.55rem;
   text-align: left;
 }
@@ -1111,19 +1110,16 @@ h3 {
 .about-focus-list > span {
   display: block;
   position: relative;
-  margin-top: 0.36rem;
-  padding-left: 1.1rem;
+  margin-top: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(124, 247, 193, 0.16);
+  border-radius: 14px;
+  background: rgba(124, 247, 193, 0.045);
+  line-height: 1.42;
 }
 
 .about-focus-list > span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 0.36rem;
-  height: 0.36rem;
-  border-radius: 999px;
-  background: rgba(154, 207, 255, 0.62);
+  content: none;
 }
 
 .focus-role,
@@ -1661,6 +1657,10 @@ h3 {
 
   .home-about-prose {
     columns: 1;
+  }
+
+  .about-focus-list {
+    grid-template-columns: 1fr;
   }
 
   .project-grid {
