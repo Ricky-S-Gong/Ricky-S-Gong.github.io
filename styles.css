@@ -703,8 +703,8 @@ h3 {
 
 .project-cover {
   position: relative;
-  min-height: 150px;
-  border-radius: 20px;
+  min-height: 125px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-color: rgba(9, 21, 38, 0.92);
@@ -751,14 +751,14 @@ h3 {
 .project-cover-label {
   position: absolute;
   z-index: 2;
-  left: 1rem;
-  bottom: 1rem;
+  left: 0.75rem;
+  bottom: 0.75rem;
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.82rem;
+  padding: 0.38rem 0.68rem;
   border-radius: 999px;
   font-family: "Baskerville", "Times New Roman", serif;
-  font-size: 1.02rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
   line-height: 1;
   backdrop-filter: blur(10px);
@@ -768,11 +768,11 @@ h3 {
 .project-status-pill {
   position: absolute;
   z-index: 2;
-  top: 0.9rem;
-  right: 0.9rem;
-  padding: 0.35rem 0.65rem;
+  top: 0.7rem;
+  right: 0.7rem;
+  padding: 0.3rem 0.56rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
 }
 
 .project-cover--light-text .project-cover-label {
@@ -1119,20 +1119,34 @@ h3 {
   margin-top: 3rem;
 }
 
-.capability-grid,
-.project-grid {
+.capability-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
 }
 
-.capability-card,
-.project-card {
+.project-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.capability-card {
   padding: 1.25rem;
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
+  padding: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.project-card p {
+  font-size: 0.92rem;
+  line-height: 1.62;
 }
 
 .project-card::after {
@@ -1541,6 +1555,10 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .detail-resource-row {
     justify-content: flex-start;
   }
@@ -1589,6 +1607,10 @@ h3 {
 
   .intro-card {
     padding: 1.4rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-link-row {

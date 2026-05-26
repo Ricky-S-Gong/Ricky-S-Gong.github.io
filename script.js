@@ -320,7 +320,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-name-pronunciation-0009";
+const assetVersion = "20260525-project-grid-0010";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -372,12 +372,6 @@ const realProjectCovers = {
   "llm-powered-churn-analysis-system": {
     src: "./assets/project-covers-real/llm-powered-churn-rag-pipeline.webp",
     position: "center 54%",
-    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.16))",
-    textTone: "dark",
-  },
-  "tool-using-language-models": {
-    src: "./assets/project-covers-real/tool-using-language-models-agent-workflow.webp",
-    position: "center center",
     overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.16))",
     textTone: "dark",
   },
