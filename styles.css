@@ -1128,7 +1128,7 @@ h3 {
 
 .focus-role,
 .focus-emphasis {
-  color: var(--accent-3);
+  color: var(--accent);
   font-weight: inherit;
 }
 

@@ -1,6 +1,5 @@
 const siteData = {
   heroName: "Shangyu Gong",
-  heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
   heroSummary:
@@ -193,7 +192,6 @@ const siteData = {
 
 const siteDataZh = {
   heroName: "宫商羽",
-  heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
     "在教育科技、SaaS 平台、金融和房地产等实习场景中，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，也逐渐形成了一种工作方式：把模糊问题整理成可解释、可执行的分析结论。我始终相信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
@@ -318,7 +316,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-name-ipa-0015";
+const assetVersion = "20260525-card-keywords-0016";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -529,7 +527,6 @@ const renderHero = () => {
   const activeSiteData = getActiveSiteData();
   setText("hero-summary", activeSiteData.heroSummary);
   setText("hero-name", activeSiteData.heroName);
-  setText("hero-tagline", activeSiteData.heroTagline);
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
     if (activeSiteData.heroSubtitleHref) {
