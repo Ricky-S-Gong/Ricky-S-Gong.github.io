@@ -320,7 +320,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-project-nav-0012";
+const assetVersion = "20260525-home-overview-0013";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
