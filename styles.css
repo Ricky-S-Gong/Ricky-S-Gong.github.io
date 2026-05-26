@@ -220,7 +220,7 @@ main {
   display: grid;
   grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
   gap: 1.25rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .home-hero {
@@ -232,7 +232,7 @@ main {
 
 .hero-stage {
   width: 100%;
-  min-height: auto;
+  min-height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -329,7 +329,7 @@ main {
 
 .intro-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 430px;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -450,8 +450,8 @@ h3 {
 
 .hero-link-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
   margin-top: 1.05rem;
   align-items: center;
   justify-content: center;
@@ -560,8 +560,8 @@ h3 {
 }
 
 .hero-link-row .hero-link-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.35rem;
+  height: 1.35rem;
   display: grid;
   place-items: center;
   color: currentColor;
@@ -575,12 +575,12 @@ h3 {
 }
 
 .hero-link-row .hero-link-text {
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1;
 }
 
 .hero-link-row .hero-link {
-  padding: 0.62rem 0.78rem;
+  padding: 0.58rem 0.68rem;
   border-radius: 14px;
 }
 
@@ -1075,7 +1075,7 @@ h3 {
   border: 1px solid rgba(154, 207, 255, 0.12);
   border-radius: 28px;
   background: rgba(7, 17, 32, 0.42);
-  align-self: start;
+  align-self: stretch;
 }
 
 .home-about-prose {
