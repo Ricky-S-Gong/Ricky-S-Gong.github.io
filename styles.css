@@ -337,7 +337,18 @@ main {
 .intro-card h1 {
   font-size: clamp(2rem, 4.5vw, 3.35rem);
   max-width: none;
-  white-space: nowrap;
+}
+
+.name-pronunciation {
+  display: inline-block;
+  margin-left: 0.85rem;
+  color: var(--text-soft);
+  font-family: "Inter", "Avenir", "Helvetica Neue", sans-serif;
+  font-size: clamp(0.85rem, 1.25vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  vertical-align: middle;
 }
 
 .eyebrow,

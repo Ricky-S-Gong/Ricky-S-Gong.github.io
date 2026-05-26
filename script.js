@@ -1,5 +1,6 @@
 const siteData = {
   heroName: "Shangyu Gong",
+  heroPronunciation: "SHAHNG-yoo GOHNG",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
@@ -193,6 +194,7 @@ const siteData = {
 
 const siteDataZh = {
   heroName: "宫商羽",
+  heroPronunciation: "Gong Shangyu",
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
@@ -318,7 +320,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-about-focus-0008";
+const assetVersion = "20260525-name-pronunciation-0009";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -533,8 +535,11 @@ const renderShellText = () => {
 
 const renderHero = () => {
   const activeSiteData = getActiveSiteData();
+  const heroName = document.getElementById("hero-name");
   setText("hero-summary", activeSiteData.heroSummary);
-  setText("hero-name", activeSiteData.heroName);
+  if (heroName) {
+    heroName.innerHTML = `${activeSiteData.heroName}<span class="name-pronunciation">/${activeSiteData.heroPronunciation}/</span>`;
+  }
   setText("hero-tagline", activeSiteData.heroTagline);
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
