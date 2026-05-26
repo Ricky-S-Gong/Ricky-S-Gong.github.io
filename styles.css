@@ -211,11 +211,15 @@ main {
   display: block;
 }
 
+#home {
+  padding-top: 0.6rem;
+}
+
 .home-overview {
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 8.5rem);
   display: grid;
-  grid-template-columns: minmax(350px, 0.86fr) minmax(0, 1.14fr);
-  gap: 1.4rem;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+  gap: 1.15rem;
   align-items: stretch;
 }
 
@@ -231,11 +235,11 @@ main {
   min-height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.1rem;
   align-items: center;
   justify-items: center;
   align-content: center;
-  padding: 1.8rem;
+  padding: 1.35rem;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -249,24 +253,14 @@ main {
     radial-gradient(circle at 15% 35%, rgba(122, 198, 255, 0.18), transparent 28%),
     radial-gradient(circle at 80% 70%, rgba(124, 247, 193, 0.14), transparent 26%);
   pointer-events: none;
-  animation: heroAurora 9s ease-in-out infinite alternate;
 }
 
 .hero-stage::after {
-  content: "";
-  position: absolute;
-  inset: -35% -10%;
-  z-index: 0;
-  background:
-    linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.1) 44%, transparent 54%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 90px);
-  opacity: 0.34;
-  transform: translateX(-42%);
-  pointer-events: none;
+  content: none;
 }
 
 .motion-ready .hero-stage::after {
-  animation: stageScan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: none;
 }
 
 .portrait-shell,
@@ -281,8 +275,8 @@ main {
 }
 
 .portrait-ring {
-  width: clamp(170px, 15vw, 220px);
-  height: clamp(170px, 15vw, 220px);
+  width: clamp(150px, 12vw, 190px);
+  height: clamp(150px, 12vw, 190px);
   border-radius: 999px;
   padding: 5px;
   overflow: hidden;
@@ -335,18 +329,19 @@ main {
 
 .intro-card {
   width: 100%;
-  max-width: 520px;
-  padding: 1.45rem;
+  max-width: 460px;
+  padding: 1.15rem;
   border: 1px solid rgba(154, 207, 255, 0.14);
   border-radius: 28px;
   background: rgba(9, 20, 37, 0.54);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28);
+  text-align: center;
 }
 
 .intro-card h1 {
-  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
   max-width: none;
 }
 
@@ -391,6 +386,11 @@ h2 {
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
+.home-about h2 {
+  font-size: clamp(2.1rem, 3.1vw, 3rem);
+  line-height: 1;
+}
+
 h3 {
   font-size: 1.1rem;
 }
@@ -407,17 +407,18 @@ h3 {
 }
 
 .hero-text {
-  margin: 1rem 0 0;
+  margin: 0.85rem auto 0;
   max-width: 51ch;
-  text-align: justify;
-  text-justify: inter-ideograph;
+  text-align: left;
+  line-height: 1.52;
+  font-size: 0.9rem;
 }
 
 .hero-subtitle {
-  margin: 0.85rem 0 0;
-  max-width: 30ch;
+  margin: 0.65rem auto 0;
+  max-width: none;
   color: var(--text);
-  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.38rem);
   line-height: 1.3;
   font-weight: 500;
 }
@@ -452,9 +453,10 @@ h3 {
 .hero-link-row {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.85rem;
-  margin-top: 2rem;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
   align-items: center;
+  justify-content: center;
 }
 
 .button {
@@ -580,8 +582,18 @@ h3 {
 }
 
 .hero-link-row .hero-link {
-  padding: 0.95rem 1.25rem;
-  border-radius: 16px;
+  padding: 0.72rem 0.9rem;
+  border-radius: 14px;
+}
+
+.home-hero .hero-link-row .hero-link,
+.home-hero .hero-link-row .hero-link:hover,
+.home-hero .hero-link-row .hero-link:focus-visible {
+  transform: none;
+}
+
+.home-hero .hero-link-row .hero-link::after {
+  content: none;
 }
 
 .hero-link-row .hero-link[href^="https://www.linkedin.com"] {
@@ -1061,7 +1073,7 @@ h3 {
 
 .home-about {
   margin: 0;
-  padding: 2rem;
+  padding: 1.35rem;
   border: 1px solid rgba(154, 207, 255, 0.12);
   border-radius: 28px;
   background: rgba(7, 17, 32, 0.42);
@@ -1070,15 +1082,22 @@ h3 {
 
 .home-about-prose {
   max-width: 100%;
+  columns: 2 18rem;
+  column-gap: 1.6rem;
+}
+
+.home-about .section-tight {
+  margin-top: 0.85rem;
 }
 
 .home-about-prose p {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.85rem;
   color: var(--text-soft);
-  line-height: 1.68;
-  font-size: 0.98rem;
+  line-height: 1.5;
+  font-size: 0.86rem;
   text-align: justify;
   text-justify: inter-word;
+  break-inside: avoid;
 }
 
 .home-about-prose p:last-child {
@@ -1087,14 +1106,14 @@ h3 {
 
 .about-focus-list {
   display: block;
-  margin-top: 0.85rem;
+  margin-top: 0.55rem;
   text-align: left;
 }
 
 .about-focus-list > span {
   display: block;
   position: relative;
-  margin-top: 0.55rem;
+  margin-top: 0.36rem;
   padding-left: 1.1rem;
 }
 
@@ -1453,7 +1472,7 @@ h3 {
 }
 
 .motion-ready .intro-card {
-  animation: floatSoft 6s ease-in-out infinite;
+  animation: none;
 }
 
 .motion-ready .tag:nth-child(2n) {
@@ -1640,6 +1659,10 @@ h3 {
 
   .home-about {
     padding: 1.4rem;
+  }
+
+  .home-about-prose {
+    columns: 1;
   }
 
   .project-grid {

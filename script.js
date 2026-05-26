@@ -320,7 +320,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-home-overview-0013";
+const assetVersion = "20260525-home-compact-0014";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -688,7 +688,7 @@ const setupMotion = () => {
   const motionAllowed = !prefersReducedMotion.matches;
   document.body.classList.toggle("motion-ready", motionAllowed);
 
-  document.querySelectorAll(".project-card-link, .hero-link, .contact-action-card").forEach((card) => {
+  document.querySelectorAll(".project-card-link, .contact-action-card").forEach((card) => {
     if (card.dataset.motionBound) return;
     card.dataset.motionBound = "true";
 
