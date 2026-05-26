@@ -216,11 +216,11 @@ main {
 }
 
 .home-overview {
-  min-height: calc(100vh - 8.5rem);
+  min-height: auto;
   display: grid;
   grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .home-hero {
@@ -232,7 +232,7 @@ main {
 
 .hero-stage {
   width: 100%;
-  min-height: 100%;
+  min-height: auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -329,7 +329,7 @@ main {
 
 .intro-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 360px;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -450,8 +450,8 @@ h3 {
 
 .hero-link-row {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 0.55rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   margin-top: 1.05rem;
   align-items: center;
   justify-content: center;
@@ -580,7 +580,7 @@ h3 {
 }
 
 .hero-link-row .hero-link {
-  padding: 0.72rem 0.9rem;
+  padding: 0.62rem 0.78rem;
   border-radius: 14px;
 }
 
@@ -1075,7 +1075,7 @@ h3 {
   border: 1px solid rgba(154, 207, 255, 0.12);
   border-radius: 28px;
   background: rgba(7, 17, 32, 0.42);
-  align-self: stretch;
+  align-self: start;
 }
 
 .home-about-prose {
@@ -1100,26 +1100,28 @@ h3 {
 }
 
 .about-focus-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin-top: 0.55rem;
+  display: block;
+  margin-top: 0.5rem;
   text-align: left;
 }
 
 .about-focus-list > span {
   display: block;
   position: relative;
-  margin-top: 0;
-  padding: 0.7rem 0.75rem;
-  border: 1px solid rgba(124, 247, 193, 0.16);
-  border-radius: 14px;
-  background: rgba(124, 247, 193, 0.045);
-  line-height: 1.42;
+  margin-top: 0.38rem;
+  padding-left: 1.05rem;
+  line-height: 1.45;
 }
 
 .about-focus-list > span::before {
-  content: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 999px;
+  background: rgba(124, 247, 193, 0.72);
 }
 
 .focus-role,
@@ -1657,10 +1659,6 @@ h3 {
 
   .home-about-prose {
     columns: 1;
-  }
-
-  .about-focus-list {
-    grid-template-columns: 1fr;
   }
 
   .project-grid {
