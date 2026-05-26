@@ -345,16 +345,14 @@ main {
   max-width: none;
 }
 
-.name-pronunciation {
+.name-ipa {
   display: inline-block;
-  margin-left: 0.85rem;
+  margin: 0 0.12rem;
   color: var(--text-soft);
   font-family: "Inter", "Avenir", "Helvetica Neue", sans-serif;
-  font-size: clamp(0.85rem, 1.25vw, 1rem);
+  font-size: 0.86em;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.2;
-  vertical-align: middle;
+  letter-spacing: 0.01em;
 }
 
 .eyebrow,

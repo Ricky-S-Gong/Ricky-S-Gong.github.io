@@ -1,6 +1,5 @@
 const siteData = {
   heroName: "Shangyu Gong",
-  heroPronunciation: "SHAHNG-yoo GOHNG",
   heroTagline: "Data Science, Product Analytics, LLM, Machine Learning",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
@@ -32,7 +31,7 @@ const siteData = {
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
   homeAbout: [
-    'Hi there 😉. I am Shangyu Gong, and you can also call me Ricky. I am pursuing an <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">M.S.E. in Data Science</a> at the University of Pennsylvania. Before Penn, I received my B.S. in <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a> as a double major from the University of Illinois Urbana-Champaign, with minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>; much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research. I graduated from UIUC as a <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> and Summa Cum Laude.',
+    'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky. I am pursuing an <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">M.S.E. in Data Science</a> at the University of Pennsylvania. Before Penn, I received my B.S. in <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a> as a double major from the University of Illinois Urbana-Champaign, with minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>; much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research. I graduated from UIUC as a <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> and Summa Cum Laude.',
     'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, and metric design for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> predictive modeling, retrieval and evaluation pipelines, LLM application-layer workflows, and RL-based alignment for safer agent behavior under uncertainty.</span><span><span class="focus-role">AI, computational social science, and policy analytics:</span> LLM-assisted measurement, causal inference, survey experiments, and broader social, business, and economic problems where empirical evidence meets modern AI methods.</span></span>',
     "Outside of work, I enjoy guandan, hiking, cooking, exploring restaurants, and playing badminton. These parts of my life let me move across different rhythms and states of mind, and over time they have shaped the way I think about life. I have long believed that doing my best work depends on more than technical ability alone: it comes from physical well-being, a genuine love of life, and the social process of learning how to relate to different kinds of people. Those things help me work at a higher level, stay connected to the world, understand others more deeply, and know myself more clearly over time.",
   ],
@@ -194,7 +193,6 @@ const siteData = {
 
 const siteDataZh = {
   heroName: "宫商羽",
-  heroPronunciation: "Gong Shangyu",
   heroTagline: "数据科学、产品分析、LLM、机器学习",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
@@ -320,7 +318,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-home-compact-0014";
+const assetVersion = "20260525-name-ipa-0015";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -529,11 +527,8 @@ const renderShellText = () => {
 
 const renderHero = () => {
   const activeSiteData = getActiveSiteData();
-  const heroName = document.getElementById("hero-name");
   setText("hero-summary", activeSiteData.heroSummary);
-  if (heroName) {
-    heroName.innerHTML = `${activeSiteData.heroName}<span class="name-pronunciation">/${activeSiteData.heroPronunciation}/</span>`;
-  }
+  setText("hero-name", activeSiteData.heroName);
   setText("hero-tagline", activeSiteData.heroTagline);
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
