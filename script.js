@@ -303,8 +303,7 @@ const siteChrome = {
     aboutHeading: "关于我",
     projectsTag: "作品集",
     projectsHeading: "精选项目",
-    projectsIntro:
-      "这里汇集了最能代表我思考方式和工作风格的项目，并按工具与方法分组，方便在因果分析、建模、语言系统和基础设施类构建之间快速切换。",
+    projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
     researchHeading: "研究",
     teachingHeading: "教学",
     contactTag: "联系",
@@ -316,7 +315,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260525-home-balance-0018";
+const assetVersion = "20260525-projects-copy-0019";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
