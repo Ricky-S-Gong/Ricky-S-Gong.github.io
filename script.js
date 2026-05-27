@@ -3,7 +3,7 @@ const siteData = {
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
   heroSummary:
-    "I have worked across edtech, SaaS platforms, finance, and real estate through internship experiences.",
+    "I have worked across edtech, SaaS platforms, and finance through internship experiences. I strongly believe real value comes from deep business understanding, not blind admiration for complex tools.",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
     fallback: "RG",
@@ -195,7 +195,7 @@ const siteDataZh = {
   heroName: "宫商羽",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
-    "我曾在教育科技、SaaS 平台、金融和房地产等行业实习。",
+    "我曾在教育科技、SaaS 平台和金融行业实习。我始终相信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -317,7 +317,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260526-card-summary-0023";
+const assetVersion = "20260526-card-summary-0024";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
