@@ -3,7 +3,7 @@ const siteData = {
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
   heroSummary:
-    "Across internship settings in edtech, SaaS platforms, finance, and real estate, I have worked on A/B testing, causal inference, predictive modeling, dashboards, and end-to-end data workflows, and over time I have developed an analytical style that turns ambiguity into interpretable, executable conclusions. I strongly believe real value comes from deep business understanding, not blind admiration for complex tools.",
+    "I have worked across edtech, SaaS platforms, finance, and real estate through internship experiences.",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
     fallback: "RG",
@@ -195,7 +195,7 @@ const siteDataZh = {
   heroName: "宫商羽",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
   heroSummary:
-    "在教育科技、SaaS 平台、金融和房地产等实习场景中，我做过 A/B 测试、因果推断、预测建模、仪表板搭建以及端到端数据流程建设，也逐渐形成了一种工作方式：把模糊问题整理成可解释、可执行的分析结论。我始终相信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
+    "我曾在教育科技、SaaS 平台、金融和房地产等行业实习。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -317,7 +317,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260526-homepage-portrait-0022";
+const assetVersion = "20260526-card-summary-0023";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
