@@ -317,7 +317,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260526-card-summary-0024";
+const assetVersion = "20260526-portrait-size-0025";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {

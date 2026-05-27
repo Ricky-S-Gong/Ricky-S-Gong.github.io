@@ -275,8 +275,8 @@ main {
 }
 
 .portrait-ring {
-  width: clamp(145px, 11vw, 178px);
-  height: clamp(145px, 11vw, 178px);
+  width: clamp(175px, 13vw, 220px);
+  height: clamp(175px, 13vw, 220px);
   border-radius: 999px;
   padding: 5px;
   overflow: hidden;
