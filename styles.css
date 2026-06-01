@@ -329,7 +329,7 @@ main {
 
 .intro-card {
   width: 100%;
-  max-width: 430px;
+  max-width: 460px;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -406,10 +406,10 @@ h3 {
 
 .hero-text {
   margin: 0.8rem auto 0;
-  max-width: 42ch;
+  max-width: 46ch;
   text-align: left;
-  line-height: 1.48;
-  font-size: 0.88rem;
+  line-height: 1.56;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
 }
 
 .hero-subtitle {
@@ -1089,8 +1089,8 @@ h3 {
 .home-about-prose p {
   margin: 0 0 0.75rem;
   color: var(--text-soft);
-  line-height: 1.48;
-  font-size: 0.9rem;
+  line-height: 1.56;
+  font-size: clamp(0.98rem, 1.05vw, 1.07rem);
   text-align: justify;
   text-justify: inter-word;
 }

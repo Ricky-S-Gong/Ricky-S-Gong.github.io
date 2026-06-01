@@ -317,7 +317,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260526-summary-tone-0026";
+const assetVersion = "20260601-home-text-scale-0027";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
