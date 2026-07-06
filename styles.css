@@ -407,7 +407,7 @@ h3 {
 .hero-text {
   margin: 0.8rem auto 0;
   max-width: 46ch;
-  text-align: left;
+  text-align: center;
   line-height: 1.56;
   font-size: clamp(0.98rem, 1.1vw, 1.08rem);
 }
