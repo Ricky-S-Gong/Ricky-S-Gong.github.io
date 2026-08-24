@@ -317,9 +317,15 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260824-sar-system-0032";
+const assetVersion = "20260824-sar-featured-0033";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
+  "sar-cosmos-lab": {
+    src: "./assets/project-covers-real/sar-cosmos-lab-home.webp",
+    position: "center center",
+    overlay: "linear-gradient(180deg, rgba(4, 13, 24, 0.03), rgba(4, 13, 24, 0.14))",
+    textTone: "light",
+  },
   "minimum-wage-unemployment": {
     src: "./assets/project-covers-real/minimum-wage-coins-illustration.png",
     position: "center 56%",
@@ -606,8 +612,9 @@ const renderProjects = () => {
                     project.externalHref ||
                     `./project.html?slug=${project.slug}${getLocale() === "zh" ? "&lang=zh" : ""}`;
                   const externalAttributes = project.externalHref ? ' target="_blank" rel="noreferrer"' : "";
+                  const featuredClass = project.featured ? " project-card--featured" : "";
                   return `
-                    <a class="project-card project-card-link" href="${cardHref}"${externalAttributes}>
+                    <a class="project-card project-card-link${featuredClass}" href="${cardHref}"${externalAttributes}>
                       <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
                         <div
                           class="project-cover-image"

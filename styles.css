@@ -1188,6 +1188,37 @@ h3 {
   line-height: 1.62;
 }
 
+.project-card--featured {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.8fr);
+  grid-template-rows: auto auto 1fr;
+  gap: 1.15rem 1.5rem;
+  align-items: start;
+  padding: 1.25rem;
+}
+
+.project-card--featured .project-cover {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  min-height: 0;
+  aspect-ratio: 1920 / 889;
+}
+
+.project-card--featured h3 {
+  margin-top: 0.35rem;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+}
+
+.project-card--featured p {
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.project-card--featured .tag-list {
+  align-self: end;
+}
+
 .project-card::after {
   content: "";
   position: absolute;
@@ -1603,6 +1634,16 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .project-card--featured .project-cover {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .detail-resource-row {
     justify-content: flex-start;
   }
@@ -1663,6 +1704,10 @@ h3 {
 
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card--featured .project-cover {
+    aspect-ratio: 1.9 / 1;
   }
 
   .hero-link-row {

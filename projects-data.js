@@ -53,6 +53,7 @@ window.projectCatalog = {
       displayCategories: ["SAR System"],
       tags: ["Search", "Advertising", "Recommendation", "Evaluation", "Systems"],
       status: "In Progress",
+      featured: true,
       yearLabel: "2026",
       coverLabel: "SAR System",
       miniDescription:
