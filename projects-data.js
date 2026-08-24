@@ -1,42 +1,64 @@
 window.projectCatalog = {
   categories: [
     {
+      id: "sar-system",
+      title: "SAR System",
+      description:
+        "Search, Advertising, and Recommendation systems, with practical case studies covering algorithms, evaluation, and real-world implementation.",
+      order: 1,
+    },
+    {
       id: "nlp-large-language-model",
       title: "NLP & Large Language Model",
       description:
         "Language-focused projects spanning sentiment analysis, retrieval-augmented generation, tool use, and LLM-based reasoning systems.",
-      order: 1,
+      order: 2,
     },
     {
       id: "causal-inference-experimentation",
       title: "Causal Inference & Experimentation",
       description:
         "Policy evaluation, behavioral studies, and product experiments where the main task is to identify effects clearly enough to support action.",
-      order: 2,
+      order: 3,
     },
     {
       id: "machine-learning-deep-learning",
       title: "Machine Learning & Deep Learning",
       description:
         "Predictive modeling and representation-learning work built around customer signals, conversion behavior, and interpretable model analysis.",
-      order: 3,
+      order: 4,
     },
     {
       id: "time-series-statistical-modelling",
       title: "Time Series & Statistical Modelling",
       description:
         "Forecasting and probabilistic modeling projects focused on market dynamics, demand patterns, and structured statistical inference over time.",
-      order: 4,
+      order: 5,
     },
     {
       id: "data-systems-infrastructure",
       title: "Data Systems & Infrastructure",
       description:
         "Systems builds that make computation usable in practice, from operating-system abstractions to distributed storage and service architecture.",
-      order: 5,
+      order: 6,
     },
   ],
   projects: [
+    {
+      slug: "sar-cosmos-lab",
+      title: "SAR Cosmos Lab",
+      subtitle: "Search, Advertising & Recommendation Portfolio",
+      topic: "SAR Systems",
+      primaryCategory: "SAR System",
+      displayCategories: ["SAR System"],
+      tags: ["Search", "Advertising", "Recommendation", "Evaluation", "Systems"],
+      status: "In Progress",
+      yearLabel: "2026",
+      coverLabel: "SAR System",
+      miniDescription:
+        "Explores how Search, Advertising, and Recommendation algorithms work, how they are implemented and evaluated, and where they fit in real systems.",
+      externalHref: "https://ricky-s-gong.github.io/search-rec-ads-portfolio/en/",
+    },
     {
       slug: "minimum-wage-unemployment",
       title: "Minimum Wage Shocks on Unemployment",
@@ -671,6 +693,10 @@ window.projectCatalog = {
 };
 
 const categoryTranslationsZh = {
+  "sar-system": {
+    title: "SAR 系统",
+    description: "搜索、广告与推荐系统项目，聚焦算法原理、评估方法和真实系统中的落地实践。",
+  },
   "causal-inference-experimentation": {
     title: "因果推断与实验设计",
     description: "围绕政策评估、行为研究和产品实验，核心任务是清晰识别效应并支持后续行动。",
@@ -694,6 +720,15 @@ const categoryTranslationsZh = {
 };
 
 const projectTranslationsZh = {
+  "sar-cosmos-lab": {
+    title: "SAR Cosmos Lab",
+    subtitle: "搜索、广告与推荐技术作品集",
+    primaryCategory: "SAR 系统",
+    coverLabel: "SAR 系统",
+    miniDescription: "展示搜索、广告与推荐算法的工作原理、实现与评估方法，以及它们在真实系统中的应用位置。",
+    status: "进行中",
+    tags: ["搜索", "广告", "推荐", "评估", "系统"],
+  },
   "minimum-wage-unemployment": {
     title: "最低工资冲击对失业的影响",
     subtitle: "政策评估",

@@ -317,7 +317,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260813-agent-focus-0031";
+const assetVersion = "20260824-sar-system-0032";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "minimum-wage-unemployment": {
@@ -602,9 +602,12 @@ const renderProjects = () => {
                     project.status === "In Progress"
                       ? "project-status-pill--progress"
                       : "project-status-pill--completed";
-                  const detailHref = `./project.html?slug=${project.slug}${getLocale() === "zh" ? "&lang=zh" : ""}`;
+                  const cardHref =
+                    project.externalHref ||
+                    `./project.html?slug=${project.slug}${getLocale() === "zh" ? "&lang=zh" : ""}`;
+                  const externalAttributes = project.externalHref ? ' target="_blank" rel="noreferrer"' : "";
                   return `
-                    <a class="project-card project-card-link" href="${detailHref}">
+                    <a class="project-card project-card-link" href="${cardHref}"${externalAttributes}>
                       <div class="project-cover ${coverToneClass} ${coverCanvasClass}">
                         <div
                           class="project-cover-image"
