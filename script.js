@@ -29,12 +29,34 @@ const siteData = {
     "I care about analytical work that is both technically credible and operationally useful. That means defining the decision clearly, choosing methods that match the risk, and presenting results so non-specialists can act on them.",
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
+  homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
-    'I am pursuing an <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">M.S.E. in Data Science</a> at the University of Pennsylvania. Before Penn, I received my B.S. in <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a> from the University of Illinois Urbana-Champaign, with minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>; much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research. I graduated from UIUC as a <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> and Summa Cum Laude.',
     'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, metric design, and agent-powered decision support for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> predictive modeling, retrieval and evaluation pipelines, tool-using and multi-agent workflows, and RL-based alignment for safer agent behavior under uncertainty.</span><span><span class="focus-role">AI, computational social science, and policy analytics:</span> LLM- and agent-assisted measurement, causal inference, survey experiments, and broader social, business, and economic problems where empirical evidence meets modern AI methods.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton. These parts of life help me move across different rhythms, stay grounded, understand others more deeply, and bring a fuller version of myself to my work.',
   ],
+  education: [
+    {
+      school: "University of Pennsylvania",
+      period: "Aug 2025 – May 2027",
+      logo: "./assets/penn-shield.png",
+      logoAlt: "University of Pennsylvania shield",
+      degree: 'M.S.E. in <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">Data Science</a>',
+    },
+    {
+      school: "University of Illinois Urbana-Champaign",
+      period: "Aug 2022 – May 2025",
+      logo: "./assets/uiuc-block-i.svg",
+      logoAlt: "University of Illinois Block I logo",
+      degree:
+        'B.S. in <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a>',
+      minor:
+        'Minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>',
+      honors:
+        '<a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> <span aria-hidden="true">·</span> Summa Cum Laude',
+    },
+  ],
+  researchIntro:
+    'Much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research.',
   capabilities: [
     {
       title: "Problem framing",
@@ -201,12 +223,34 @@ const siteDataZh = {
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
+  homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    '你好 😉 我是宫商羽，你也可以叫我 Ricky。',
-    '我目前在宾夕法尼亚大学攻读 <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学硕士</a>。在 Penn 之前，我在伊利诺伊大学厄巴纳-香槟分校获得<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>本科学位，并辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>；我本科阶段的大部分研究也主要围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。我以 UIUC <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> 及 Summa Cum Laude 毕业。',
     '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding、指标设计和 agent-powered decision support，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测建模、检索与评估 pipeline、tool-using 与 multi-agent workflows，以及面向不确定场景下更安全 agent 行为的 RL-based alignment。</span><span><span class="focus-role">AI、Computational Social Science 与 Policy Analytics：</span>关注 LLM- and agent-assisted measurement、因果推断、问卷实验，以及更广泛的社会、商业和经济问题中现代 AI 方法与实证证据的结合。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
+  education: [
+    {
+      school: "宾夕法尼亚大学",
+      period: "2025年8月 – 2027年5月",
+      logo: "./assets/penn-shield.png",
+      logoAlt: "宾夕法尼亚大学校徽",
+      degree: '<a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学工程硕士</a>',
+    },
+    {
+      school: "伊利诺伊大学厄巴纳-香槟分校",
+      period: "2022年8月 – 2025年5月",
+      logo: "./assets/uiuc-block-i.svg",
+      logoAlt: "伊利诺伊大学 Block I 标志",
+      degree:
+        '<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>理学学士',
+      minor:
+        '辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>',
+      honors:
+        '<a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> <span aria-hidden="true">·</span> Summa Cum Laude',
+    },
+  ],
+  researchIntro:
+    '我本科阶段的大部分研究围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。',
   research: [
     {
       title: "最低工资冲击对失业的影响",
@@ -288,11 +332,14 @@ const siteChrome = {
   en: {
     nav: { home: "Home", projects: "Projects", research: "Research", contact: "Contact" },
     aboutHeading: "About Me",
+    educationHeading: "Education",
     projectsTag: "Portfolio",
     projectsHeading: "Selected Projects",
     projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
     researchHeading: "Research",
     teachingHeading: "Teaching",
+    viewDetails: "View details",
+    hideDetails: "Hide details",
     contactTag: "Contact",
     contactHeading: "Connect, coffee chats, and potential opportunities.",
     contactCopy:
@@ -303,11 +350,14 @@ const siteChrome = {
   zh: {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
     aboutHeading: "关于我",
+    educationHeading: "教育背景",
     projectsTag: "作品集",
     projectsHeading: "精选项目",
     projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
     researchHeading: "研究",
     teachingHeading: "教学",
+    viewDetails: "查看详情",
+    hideDetails: "收起详情",
     contactTag: "联系",
     contactHeading: "欢迎联系、预约 coffee chat，或交流合作机会。",
     contactCopy:
@@ -317,7 +367,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260824-sar-featured-0033";
+const assetVersion = "20260826-education-research-accordion-0002";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -488,16 +538,39 @@ const iconMarkup = {
   `,
 };
 
-const renderResearchCard = (item) => `
+const renderEducationEntry = (item) => `
+  <article class="education-entry">
+    <img class="education-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
+    <div class="education-copy">
+      <h4>${item.school}</h4>
+      <p class="education-degree">${item.degree}</p>
+      ${item.minor ? `<p class="education-minor">${item.minor}</p>` : ""}
+      ${item.honors ? `<p class="education-honors">${item.honors}</p>` : ""}
+    </div>
+    <p class="education-period">${item.period}</p>
+  </article>
+`;
+
+const renderResearchCard = (item) => {
+  const chrome = getSiteChrome();
+  return `
   <article class="glass panel research-card">
     <div class="stack-item-header">
       <h3>${item.title}</h3>
       <span class="stack-item-meta">${item.period}</span>
     </div>
     <p class="stack-item-meta">${item.org}</p>
-    <p>${item.body}</p>
+    <details class="research-details">
+      <summary>
+        <span class="details-label details-label-closed">${chrome.viewDetails}</span>
+        <span class="details-label details-label-open">${chrome.hideDetails}</span>
+        <span class="details-chevron" aria-hidden="true">⌄</span>
+      </summary>
+      <p>${item.body}</p>
+    </details>
   </article>
 `;
+};
 
 const bindProjectNav = () => {
   document.querySelectorAll("[data-category-target]").forEach((button) => {
@@ -517,6 +590,7 @@ const renderShellText = () => {
   setText("nav-research", chrome.nav.research);
   setText("nav-contact", chrome.nav.contact);
   setText("about-heading", chrome.aboutHeading);
+  setText("education-heading", chrome.educationHeading);
   setText("projects-tag", chrome.projectsTag);
   setText("projects-heading", chrome.projectsHeading);
   setText("projects-intro", chrome.projectsIntro);
@@ -552,6 +626,12 @@ const renderHero = () => {
     `,
     "hero-link-row"
   );
+  renderList(
+    [activeSiteData.homeIntro],
+    (paragraph) => `<p>${paragraph}</p>`,
+    "home-intro-content"
+  );
+  renderList(activeSiteData.education, renderEducationEntry, "education-list");
   renderList(
     activeSiteData.homeAbout,
     (paragraph) => `<p>${paragraph}</p>`,
@@ -647,6 +727,8 @@ const renderProjects = () => {
 
 const renderResearchAndContact = () => {
   const activeSiteData = getActiveSiteData();
+  const researchIntro = document.getElementById("research-intro");
+  if (researchIntro) researchIntro.innerHTML = `<p>${activeSiteData.researchIntro}</p>`;
   renderList(activeSiteData.research, renderResearchCard, "research-cards");
   renderList(activeSiteData.teaching, renderResearchCard, "teaching-cards");
   renderList(
