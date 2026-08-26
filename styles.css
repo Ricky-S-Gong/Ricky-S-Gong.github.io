@@ -1191,19 +1191,11 @@ h3 {
   color: var(--accent);
 }
 
-.industry-section {
-  margin-top: 1.15rem;
-}
-
-.industry-section h3 {
-  color: var(--text);
-  font-family: "Baskerville", "Times New Roman", serif;
-  font-size: clamp(1.35rem, 2vw, 1.65rem);
-}
-
-.industry-list {
+.hero-industry-list {
   display: grid;
-  margin-top: 0.7rem;
+  width: min(100%, 20rem);
+  margin: 1rem auto 0;
+  text-align: left;
 }
 
 .industry-entry {
@@ -1234,6 +1226,20 @@ h3 {
 
 .industry-entry strong {
   color: var(--text);
+}
+
+.hero-industry-list .industry-entry {
+  grid-template-columns: 1.85rem minmax(0, 1fr);
+  padding: 0.34rem 0;
+}
+
+.hero-industry-list .industry-logo {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.hero-industry-list .industry-entry p {
+  font-size: clamp(0.73rem, 1vw, 0.84rem);
 }
 
 .about-focus-list {

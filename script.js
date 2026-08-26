@@ -2,8 +2,6 @@ const siteData = {
   heroName: "Shangyu Gong",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
-  heroSummary:
-    "I have worked across edtech, gaming hardware, SaaS platforms, and finance through internship experiences. I believe real value comes from deep business understanding, not blind admiration for complex tools.",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
     fallback: "RG",
@@ -31,7 +29,8 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    "I am especially interested in AI, LLM, and agent application development: building reliable tool-using and multi-agent systems, retrieval and evaluation workflows, and production-ready AI experiences. I am also drawn to Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.",
+    'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, metric design, and agent-powered decision support for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> predictive modeling, retrieval and evaluation pipelines, tool-using and multi-agent workflows, and RL-based alignment for safer agent behavior under uncertainty.</span><span><span class="focus-role">AI, LLM, and agent application development:</span> building reliable tool-using and multi-agent systems, retrieval and evaluation workflows, and production-ready AI experiences; I am also interested in Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.</span></span>',
+    'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton. These parts of life help me move across different rhythms, stay grounded, understand others more deeply, and bring a fuller version of myself to my work.',
   ],
   education: [
     {
@@ -225,8 +224,6 @@ const siteData = {
 const siteDataZh = {
   heroName: "宫商羽",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
-  heroSummary:
-    "我曾在教育科技、游戏硬件、SaaS 平台和金融行业实习。我相信，真正的价值来自对业务的深刻理解，而不是对复杂工具的盲目崇拜。",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -234,7 +231,8 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    "我尤其关注 AI、LLM 和 Agent 应用层开发，包括构建可靠的 tool-using 与 multi-agent 系统、检索与评估流程，以及面向真实产品的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。",
+    '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding、指标设计和 agent-powered decision support，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测建模、检索与评估 pipeline、tool-using 与 multi-agent workflows，以及面向不确定场景下更安全 agent 行为的 RL-based alignment。</span><span><span class="focus-role">AI、LLM 和 Agent 应用层开发：</span>构建可靠的 tool-using 与 multi-agent 系统、检索与评估流程，以及面向真实产品的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。</span></span>',
+    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
   education: [
     {
@@ -351,7 +349,6 @@ const siteChrome = {
     nav: { home: "Home", projects: "Projects", research: "Research", contact: "Contact" },
     aboutHeading: "About Me",
     educationHeading: "Education",
-    industryHeading: "Industry Experience",
     projectsTag: "Portfolio",
     projectsHeading: "Selected Projects",
     projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
@@ -370,7 +367,6 @@ const siteChrome = {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
     aboutHeading: "关于我",
     educationHeading: "教育背景",
-    industryHeading: "行业经历",
     projectsTag: "作品集",
     projectsHeading: "精选项目",
     projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
@@ -387,7 +383,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260826-ai-agent-focus-0004";
+const assetVersion = "20260826-hero-industry-0005";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -618,7 +614,6 @@ const renderShellText = () => {
   setText("nav-contact", chrome.nav.contact);
   setText("about-heading", chrome.aboutHeading);
   setText("education-heading", chrome.educationHeading);
-  setText("industry-heading", chrome.industryHeading);
   setText("projects-tag", chrome.projectsTag);
   setText("projects-heading", chrome.projectsHeading);
   setText("projects-intro", chrome.projectsIntro);
@@ -634,7 +629,6 @@ const renderShellText = () => {
 
 const renderHero = () => {
   const activeSiteData = getActiveSiteData();
-  setText("hero-summary", activeSiteData.heroSummary);
   setText("hero-name", activeSiteData.heroName);
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
@@ -654,13 +648,13 @@ const renderHero = () => {
     `,
     "hero-link-row"
   );
+  renderList(activeSiteData.industryExperience, renderIndustryEntry, "hero-industry-list");
   renderList(
     [activeSiteData.homeIntro],
     (paragraph) => `<p>${paragraph}</p>`,
     "home-intro-content"
   );
   renderList(activeSiteData.education, renderEducationEntry, "education-list");
-  renderList(activeSiteData.industryExperience, renderIndustryEntry, "industry-list");
   renderList(
     activeSiteData.homeAbout,
     (paragraph) => `<p>${paragraph}</p>`,
