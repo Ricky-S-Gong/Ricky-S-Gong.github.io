@@ -31,8 +31,6 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, metric design, and agent-powered decision support for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> predictive modeling, retrieval and evaluation pipelines, tool-using and multi-agent workflows, and RL-based alignment for safer agent behavior under uncertainty.</span><span><span class="focus-role">AI, computational social science, and policy analytics:</span> LLM- and agent-assisted measurement, causal inference, survey experiments, and broader social, business, and economic problems where empirical evidence meets modern AI methods.</span></span>',
-    'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton. These parts of life help me move across different rhythms, stay grounded, understand others more deeply, and bring a fuller version of myself to my work.',
   ],
   education: [
     {
@@ -45,14 +43,24 @@ const siteData = {
     {
       school: "University of Illinois Urbana-Champaign",
       period: "Aug 2022 – May 2025",
-      logo: "./assets/uiuc-block-i.svg",
+      logo: "./assets/uiuc-block-i.png",
       logoAlt: "University of Illinois Block I logo",
       degree:
         'B.S. in <a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">Statistics</a> and <a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">Economics</a>',
       minor:
         'Minors in <a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">Mathematics</a> and <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">Computer Science</a>',
       honors:
-        '<a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> <span aria-hidden="true">·</span> Summa Cum Laude',
+        'Graduated with <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> and <span class="education-honor-summa">Summa Cum Laude</span>',
+    },
+  ],
+  industryExperience: [
+    { company: "Corsair", role: "Data Science Intern", logo: "./assets/corsair-logo.png", logoAlt: "Corsair logo" },
+    { company: "Eth Tech", role: "Data Science Intern", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech logo" },
+    {
+      company: "Huatai International",
+      role: "Quant Research Intern",
+      logo: "./assets/huatai-logo.png",
+      logoAlt: "Huatai International logo",
     },
   ],
   researchIntro:
@@ -225,8 +233,6 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding、指标设计和 agent-powered decision support，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测建模、检索与评估 pipeline、tool-using 与 multi-agent workflows，以及面向不确定场景下更安全 agent 行为的 RL-based alignment。</span><span><span class="focus-role">AI、Computational Social Science 与 Policy Analytics：</span>关注 LLM- and agent-assisted measurement、因果推断、问卷实验，以及更广泛的社会、商业和经济问题中现代 AI 方法与实证证据的结合。</span></span>',
-    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
   ],
   education: [
     {
@@ -239,14 +245,24 @@ const siteDataZh = {
     {
       school: "伊利诺伊大学厄巴纳-香槟分校",
       period: "2022年8月 – 2025年5月",
-      logo: "./assets/uiuc-block-i.svg",
+      logo: "./assets/uiuc-block-i.png",
       logoAlt: "伊利诺伊大学 Block I 标志",
       degree:
         '<a href="https://stat.illinois.edu/" target="_blank" rel="noreferrer">统计学</a>与<a href="https://economics.illinois.edu/" target="_blank" rel="noreferrer">经济学</a>理学学士',
       minor:
         '辅修<a href="https://math.illinois.edu/" target="_blank" rel="noreferrer">数学</a>和<a href="https://siebelschool.illinois.edu/" target="_blank" rel="noreferrer">计算机科学</a>',
       honors:
-        '<a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> <span aria-hidden="true">·</span> Summa Cum Laude',
+        '以 <a href="https://digital.library.illinois.edu/collections/81101fb0-e3fb-012f-c5b6-0019b9e633c5-5" target="_blank" rel="noreferrer">Bronze Tablet Scholar</a> 和 <span class="education-honor-summa">Summa Cum Laude</span> 荣誉毕业',
+    },
+  ],
+  industryExperience: [
+    { company: "Corsair", role: "数据科学实习生", logo: "./assets/corsair-logo.png", logoAlt: "Corsair 标志" },
+    { company: "Eth Tech", role: "数据科学实习生", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech 标志" },
+    {
+      company: "Huatai International",
+      role: "量化研究实习生",
+      logo: "./assets/huatai-logo.png",
+      logoAlt: "华泰国际标志",
     },
   ],
   researchIntro:
@@ -333,6 +349,7 @@ const siteChrome = {
     nav: { home: "Home", projects: "Projects", research: "Research", contact: "Contact" },
     aboutHeading: "About Me",
     educationHeading: "Education",
+    industryHeading: "Industry Experience",
     projectsTag: "Portfolio",
     projectsHeading: "Selected Projects",
     projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
@@ -351,6 +368,7 @@ const siteChrome = {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
     aboutHeading: "关于我",
     educationHeading: "教育背景",
+    industryHeading: "行业经历",
     projectsTag: "作品集",
     projectsHeading: "精选项目",
     projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
@@ -367,7 +385,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260826-education-research-accordion-0002";
+const assetVersion = "20260826-education-industry-0003";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -551,6 +569,13 @@ const renderEducationEntry = (item) => `
   </article>
 `;
 
+const renderIndustryEntry = (item) => `
+  <article class="industry-entry">
+    <img class="industry-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
+    <p><strong>${item.company}</strong><span aria-hidden="true"> / </span><span>${item.role}</span></p>
+  </article>
+`;
+
 const renderResearchCard = (item) => {
   const chrome = getSiteChrome();
   return `
@@ -591,6 +616,7 @@ const renderShellText = () => {
   setText("nav-contact", chrome.nav.contact);
   setText("about-heading", chrome.aboutHeading);
   setText("education-heading", chrome.educationHeading);
+  setText("industry-heading", chrome.industryHeading);
   setText("projects-tag", chrome.projectsTag);
   setText("projects-heading", chrome.projectsHeading);
   setText("projects-intro", chrome.projectsIntro);
@@ -632,6 +658,7 @@ const renderHero = () => {
     "home-intro-content"
   );
   renderList(activeSiteData.education, renderEducationEntry, "education-list");
+  renderList(activeSiteData.industryExperience, renderIndustryEntry, "industry-list");
   renderList(
     activeSiteData.homeAbout,
     (paragraph) => `<p>${paragraph}</p>`,

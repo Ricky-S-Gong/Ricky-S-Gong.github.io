@@ -1101,8 +1101,9 @@ h3 {
 
 .education-section {
   margin-top: 1.25rem;
-  padding-top: 1.2rem;
+  padding: 1.2rem 0;
   border-top: 1px solid rgba(154, 207, 255, 0.12);
+  border-bottom: 1px solid rgba(154, 207, 255, 0.12);
 }
 
 .education-section h3 {
@@ -1159,7 +1160,11 @@ h3 {
 }
 
 .education-honors {
-  color: var(--accent-3) !important;
+  color: var(--text-soft) !important;
+}
+
+.education-honor-summa {
+  color: var(--text);
 }
 
 .education-period {
@@ -1184,6 +1189,51 @@ h3 {
 .research-intro a:hover,
 .research-intro a:focus-visible {
   color: var(--accent);
+}
+
+.industry-section {
+  margin-top: 1.15rem;
+}
+
+.industry-section h3 {
+  color: var(--text);
+  font-family: "Baskerville", "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.industry-list {
+  display: grid;
+  margin-top: 0.7rem;
+}
+
+.industry-entry {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.62rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.46rem 0;
+}
+
+.industry-logo {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.38rem;
+  object-fit: contain;
+}
+
+.industry-entry p {
+  min-width: 0;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: clamp(0.76rem, 1.1vw, 0.9rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.industry-entry strong {
+  color: var(--text);
 }
 
 .about-focus-list {
