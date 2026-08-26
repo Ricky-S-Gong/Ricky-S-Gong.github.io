@@ -31,6 +31,7 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
+    "I am especially interested in AI, LLM, and agent application development: building reliable tool-using and multi-agent systems, retrieval and evaluation workflows, and production-ready AI experiences. I am also drawn to Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.",
   ],
   education: [
     {
@@ -233,6 +234,7 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
+    "我尤其关注 AI、LLM 和 Agent 应用层开发，包括构建可靠的 tool-using 与 multi-agent 系统、检索与评估流程，以及面向真实产品的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。",
   ],
   education: [
     {
@@ -385,7 +387,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260826-education-industry-0003";
+const assetVersion = "20260826-ai-agent-focus-0004";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
