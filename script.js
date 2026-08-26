@@ -383,7 +383,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260826-hero-industry-0005";
+const assetVersion = "20260826-industry-logos-0006";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
