@@ -66,8 +66,6 @@ const siteData = {
     {
       company: "Guotai Junan Securities",
       role: "Investment Analyst Intern",
-      companyHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
-      roleHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
       logo: "./assets/guotai-junan-logo.png",
       logoAlt: "Guotai Junan Securities logo",
     },
@@ -277,8 +275,6 @@ const siteDataZh = {
     {
       company: "国泰君安证券",
       role: "投资分析实习生",
-      companyHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
-      roleHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
       logo: "./assets/guotai-junan-logo.png",
       logoAlt: "国泰君安证券标志",
     },
@@ -401,7 +397,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-independent-research-cards-0012";
+const assetVersion = "20260827-remove-industry-links-0013";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -590,18 +586,12 @@ const renderEducationEntry = (item) => `
   </article>
 `;
 
-const renderIndustryEntry = (item) => {
-  const company = item.companyHref
-    ? `<a href="${item.companyHref}" target="_blank" rel="noreferrer">${item.company}</a>`
-    : item.company;
-  const role = item.roleHref ? `<a href="${item.roleHref}" target="_blank" rel="noreferrer">${item.role}</a>` : item.role;
-  return `
-    <article class="industry-entry">
-      <img class="industry-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
-      <p><strong>${company}</strong><span aria-hidden="true"> / </span><span>${role}</span></p>
-    </article>
-  `;
-};
+const renderIndustryEntry = (item) => `
+  <article class="industry-entry">
+    <img class="industry-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
+    <p><strong>${item.company}</strong><span aria-hidden="true"> / </span><span>${item.role}</span></p>
+  </article>
+`;
 
 const renderResearchCard = (item) => {
   const chrome = getSiteChrome();
