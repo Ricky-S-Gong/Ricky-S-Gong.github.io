@@ -2,6 +2,7 @@ const siteData = {
   heroName: "Shangyu Gong",
   heroSubtitle: "M.S.E. in Data Science @ Penn",
   heroSubtitleHref: "https://dats.seas.upenn.edu/",
+  heroLocation: "Philadelphia, PA",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
     fallback: "RG",
@@ -224,6 +225,7 @@ const siteData = {
 const siteDataZh = {
   heroName: "宫商羽",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
+  heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
@@ -383,7 +385,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260826-industry-logos-0006";
+const assetVersion = "20260827-research-layout-0007";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -528,6 +530,11 @@ const iconMarkup = {
       />
     </svg>
   `,
+  location: `
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-location-svg">
+      <path fill="currentColor" d="M12 2.5a7 7 0 0 0-7 7c0 5.2 5.28 10.78 6.45 11.96a.76.76 0 0 0 1.1 0C13.72 20.28 19 14.7 19 9.5a7 7 0 0 0-7-7Zm0 10.1a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Z" />
+    </svg>
+  `,
   coffee: `
     <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
       <path
@@ -578,9 +585,9 @@ const renderResearchCard = (item) => {
   const chrome = getSiteChrome();
   return `
   <article class="glass panel research-card">
-    <div class="stack-item-header">
-      <h3>${item.title}</h3>
-      <span class="stack-item-meta">${item.period}</span>
+    <div class="research-card-heading">
+      <h3 class="research-card-title" tabindex="0" title="${item.title}">${item.title}</h3>
+      <p class="stack-item-meta research-card-period">${item.period}</p>
     </div>
     <p class="stack-item-meta">${item.org}</p>
     <details class="research-details">
@@ -637,6 +644,10 @@ const renderHero = () => {
       heroSubtitle.target = "_blank";
       heroSubtitle.rel = "noreferrer";
     }
+  }
+  const heroLocation = document.getElementById("hero-location");
+  if (heroLocation) {
+    heroLocation.innerHTML = `<span class="hero-location-icon">${iconMarkup.location}</span><span>${activeSiteData.heroLocation}</span>`;
   }
   renderList(
     activeSiteData.heroLinks,
