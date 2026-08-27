@@ -63,6 +63,14 @@ const siteData = {
       logo: "./assets/huatai-logo.png",
       logoAlt: "Huatai International logo",
     },
+    {
+      company: "Guotai Junan Securities",
+      role: "Investment Analyst Intern",
+      companyHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
+      roleHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
+      logo: "./assets/guotai-junan-logo.png",
+      logoAlt: "Guotai Junan Securities logo",
+    },
   ],
   researchIntro:
     'Much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research.',
@@ -266,6 +274,14 @@ const siteDataZh = {
       logo: "./assets/huatai-logo.png",
       logoAlt: "华泰国际标志",
     },
+    {
+      company: "国泰君安证券",
+      role: "投资分析实习生",
+      companyHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
+      roleHref: "https://www.linkedin.com/in/shangyu-ricky-gong/details/experience/edit/forms/2045582423/",
+      logo: "./assets/guotai-junan-logo.png",
+      logoAlt: "国泰君安证券标志",
+    },
   ],
   researchIntro:
     '我本科阶段的大部分研究围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。',
@@ -385,7 +401,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-trim-lifestyle-copy-0010";
+const assetVersion = "20260827-add-guotai-junan-0011";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -574,12 +590,18 @@ const renderEducationEntry = (item) => `
   </article>
 `;
 
-const renderIndustryEntry = (item) => `
-  <article class="industry-entry">
-    <img class="industry-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
-    <p><strong>${item.company}</strong><span aria-hidden="true"> / </span><span>${item.role}</span></p>
-  </article>
-`;
+const renderIndustryEntry = (item) => {
+  const company = item.companyHref
+    ? `<a href="${item.companyHref}" target="_blank" rel="noreferrer">${item.company}</a>`
+    : item.company;
+  const role = item.roleHref ? `<a href="${item.roleHref}" target="_blank" rel="noreferrer">${item.role}</a>` : item.role;
+  return `
+    <article class="industry-entry">
+      <img class="industry-logo" src="${item.logo}?v=${assetVersion}" alt="${item.logoAlt}" />
+      <p><strong>${company}</strong><span aria-hidden="true"> / </span><span>${role}</span></p>
+    </article>
+  `;
+};
 
 const renderResearchCard = (item) => {
   const chrome = getSiteChrome();

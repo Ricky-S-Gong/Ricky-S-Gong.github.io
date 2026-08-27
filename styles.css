@@ -1252,6 +1252,17 @@ h3 {
   color: var(--text);
 }
 
+.industry-entry a {
+  color: inherit;
+  text-decoration-color: rgba(154, 207, 255, 0.52);
+  text-underline-offset: 0.16em;
+}
+
+.industry-entry a:hover,
+.industry-entry a:focus-visible {
+  color: var(--accent-2);
+}
+
 .hero-industry-list .industry-entry {
   grid-template-columns: 1.85rem minmax(0, 1fr);
   padding: 0.34rem 0;
