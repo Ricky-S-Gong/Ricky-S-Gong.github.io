@@ -31,7 +31,7 @@ const siteData = {
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
     'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, metric design, and agent-powered decision support for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> forecasting, search, advertising, and recommendation modeling; ranking and conversion optimization; and other predictive systems that improve relevance, growth, and operational decisions.</span><span><span class="focus-role">AI, LLM, and agent application development:</span> building reliable LLM-powered applications, tool-using and multi-agent systems, evaluation and observability workflows, and production-ready AI experiences; I am also interested in Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.</span></span>',
-    'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton. These parts of life help me move across different rhythms, stay grounded, understand others more deeply, and bring a fuller version of myself to my work.',
+    'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
   ],
   education: [
     {
@@ -385,7 +385,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-compact-education-0009";
+const assetVersion = "20260827-trim-lifestyle-copy-0010";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
