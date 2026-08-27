@@ -65,7 +65,7 @@ const siteData = {
     },
     {
       company: "Guotai Junan Securities",
-      role: "Investment Analyst Intern",
+      role: "Analyst Intern",
       logo: "./assets/guotai-junan-logo.png",
       logoAlt: "Guotai Junan Securities logo",
     },
@@ -274,7 +274,7 @@ const siteDataZh = {
     },
     {
       company: "国泰君安证券",
-      role: "投资分析实习生",
+      role: "分析师实习生",
       logo: "./assets/guotai-junan-logo.png",
       logoAlt: "国泰君安证券标志",
     },
@@ -397,7 +397,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-remove-industry-links-0013";
+const assetVersion = "20260827-rename-guotai-role-0014";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
