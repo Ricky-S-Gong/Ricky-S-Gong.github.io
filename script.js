@@ -397,7 +397,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-rename-guotai-role-0014";
+const assetVersion = "20260827-stitch-brand-0015";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {

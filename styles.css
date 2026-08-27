@@ -101,25 +101,10 @@ main {
 .brand-mark {
   width: 2.6rem;
   height: 2.6rem;
-  display: grid;
-  place-items: center;
   border-radius: 0.9rem;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  color: #04101e;
-  position: relative;
+  display: block;
   overflow: hidden;
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: -45%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
-  transform: translateX(-120%) rotate(18deg);
-}
-
-.motion-ready .brand-mark::after {
-  animation: shimmerSweep 4.8s ease-in-out infinite;
+  object-fit: cover;
 }
 
 .brand-text {
