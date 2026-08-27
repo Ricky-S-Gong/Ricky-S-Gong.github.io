@@ -401,7 +401,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-add-guotai-junan-0011";
+const assetVersion = "20260827-independent-research-cards-0012";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {

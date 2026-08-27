@@ -1451,7 +1451,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .research-section-stack {
