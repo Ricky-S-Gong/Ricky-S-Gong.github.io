@@ -30,7 +30,7 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, metric design, and agent-powered decision support for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> forecasting, search, advertising, and recommendation modeling; ranking and conversion optimization; and other predictive systems that improve relevance, growth, and operational decisions.</span><span><span class="focus-role">AI, LLM, and agent application development:</span> building reliable LLM-powered applications, tool-using and multi-agent systems, evaluation and observability workflows, and production-ready AI experiences; I am also interested in Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.</span></span>',
+    'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, and metric design for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> forecasting, search, advertising, and recommendation modeling; ranking and conversion optimization; and other predictive systems that improve relevance, growth, and operational decisions.</span><span><span class="focus-role">AI, LLM, and agent application development:</span> building reliable LLM-powered applications, tool-using and multi-agent systems, evaluation and observability workflows, and production-ready AI experiences; I am also interested in Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
   ],
   education: [
@@ -239,8 +239,8 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding、指标设计和 agent-powered decision support，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测、搜索/广告/推荐建模（搜广推）、排序与转化优化，以及提升相关性、增长和运营决策质量的预测系统。</span><span><span class="focus-role">AI、LLM 和 Agent 应用层开发：</span>构建可靠的 LLM 应用、tool-using 与 multi-agent 系统、评估与可观测性流程，以及面向生产环境的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。</span></span>',
-    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。一直以来，我都相信，只有健康的体魄、对生活的热爱，以及与不同人相处的社会化过程，才能让我能更好地工作，更真切地感受世界、更深入地理解他人，也更清楚地认识自己。",
+    '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding 和指标设计，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测、搜索/广告/推荐建模（搜广推）、排序与转化优化，以及提升相关性、增长和运营决策质量的预测系统。</span><span><span class="focus-role">AI、LLM 和 Agent 应用层开发：</span>构建可靠的 LLM 应用、tool-using 与 multi-agent 系统、评估与可观测性流程，以及面向生产环境的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。</span></span>',
+    "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
   ],
   education: [
     {
@@ -397,7 +397,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260827-stitch-brand-0015";
+const assetVersion = "20260831-home-copy-0016";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
