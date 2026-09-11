@@ -139,13 +139,13 @@ const siteData = {
   aiResearch: [
     {
       title: "Multimodal Search Simulation with Generative World Models",
-      org: "Supervisor: Prof. Boyuan Zheng",
+      org: "Supervisor: Boyuan Zheng, Ph.D. student at the University of Michigan",
       period: "2026 – Present",
       body: "Coming soon.",
     },
     {
       title: "Quantization-Aware Training for Reasoning LLMs",
-      org: "Supervisor: Prof. Boyuan Zheng",
+      org: "Supervisor: Boyuan Zheng, Ph.D. student at the University of Michigan",
       period: "2026 – Present",
       body: "Coming soon.",
     },
@@ -304,13 +304,13 @@ const siteDataZh = {
   aiResearch: [
     {
       title: "基于生成式世界模型的多模态搜索模拟",
-      org: "导师：Boyuan Zheng 教授",
+      org: "导师：密歇根大学博士生 Boyuan Zheng",
       period: "2026年 – 至今",
       body: "即将推出。",
     },
     {
       title: "面向推理型大语言模型的量化感知训练",
-      org: "导师：Boyuan Zheng 教授",
+      org: "导师：密歇根大学博士生 Boyuan Zheng",
       period: "2026年 – 至今",
       body: "即将推出。",
     },
@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260911-research-categories-0018";
+const assetVersion = "20260911-research-categories-0019";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
