@@ -71,7 +71,7 @@ const siteData = {
     },
   ],
   researchIntro:
-    'Much of my undergraduate research lived in economics, across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research.',
+    'My current work centers on AI research, while my undergraduate research focused on economics across labor, housing, and policy questions. Working with <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Prof. Joshua Shea</a>, <a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Prof. Lena Song</a>, <a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Prof. Hyoeun Lee</a>, <a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Prof. Daniela Fontes</a>, and <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a> shaped my perspective on data and research.',
   capabilities: [
     {
       title: "Problem framing",
@@ -136,7 +136,27 @@ const siteData = {
       tags: ["Causal Thinking", "Research Design", "Education", "R/Python"],
     },
   ],
-  research: [
+  aiResearch: [
+    {
+      title: "Multimodal Search Simulation with Generative World Models",
+      org: "Supervisor: Prof. Boyuan Zheng",
+      period: "2026 – Present",
+      body: "Coming soon.",
+    },
+    {
+      title: "Quantization-Aware Training for Reasoning LLMs",
+      org: "Supervisor: Prof. Boyuan Zheng",
+      period: "2026 – Present",
+      body: "Coming soon.",
+    },
+    {
+      title: "EnvDuels: Self-Play Evaluation and Adaptive Training in Executable Environments",
+      org: "Supervisor: Prof. Mayur Naik",
+      period: "2026 – Present",
+      body: "Coming soon.",
+    },
+  ],
+  economicsResearch: [
     {
       title: "Minimum Wage Shocks on Unemployment",
       org: 'Independent Research under <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">Prof. EunYi Chung</a>, Department of Economics, UIUC',
@@ -280,8 +300,28 @@ const siteDataZh = {
     },
   ],
   researchIntro:
-    '我本科阶段的大部分研究围绕经济学问题展开，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。',
-  research: [
+    '我目前主要开展 AI 相关研究；本科阶段的研究则更多围绕经济学问题，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。',
+  aiResearch: [
+    {
+      title: "基于生成式世界模型的多模态搜索模拟",
+      org: "导师：Boyuan Zheng 教授",
+      period: "2026年 – 至今",
+      body: "即将推出。",
+    },
+    {
+      title: "面向推理型大语言模型的量化感知训练",
+      org: "导师：Boyuan Zheng 教授",
+      period: "2026年 – 至今",
+      body: "即将推出。",
+    },
+    {
+      title: "EnvDuels：可执行环境中的自博弈评估与自适应训练",
+      org: "导师：Mayur Naik 教授",
+      period: "2026年 – 至今",
+      body: "即将推出。",
+    },
+  ],
+  economicsResearch: [
     {
       title: "最低工资冲击对失业的影响",
       org: '在 UIUC 经济系 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 指导下的独立研究',
@@ -367,6 +407,8 @@ const siteChrome = {
     projectsHeading: "Selected Projects",
     projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
     researchHeading: "Research",
+    aiResearchHeading: "AI Research",
+    economicsResearchHeading: "Economics Research",
     teachingHeading: "Teaching",
     viewDetails: "View details",
     hideDetails: "Hide details",
@@ -385,6 +427,8 @@ const siteChrome = {
     projectsHeading: "精选项目",
     projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
     researchHeading: "研究",
+    aiResearchHeading: "AI 研究",
+    economicsResearchHeading: "经济学研究",
     teachingHeading: "教学",
     viewDetails: "查看详情",
     hideDetails: "收起详情",
@@ -397,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260831-home-copy-0016";
+const assetVersion = "20260911-research-categories-0018";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -637,6 +681,8 @@ const renderShellText = () => {
   setText("projects-heading", chrome.projectsHeading);
   setText("projects-intro", chrome.projectsIntro);
   setText("research-heading", chrome.researchHeading);
+  setText("ai-research-heading", chrome.aiResearchHeading);
+  setText("economics-research-heading", chrome.economicsResearchHeading);
   setText("teaching-heading", chrome.teachingHeading);
   setText("contact-tag", chrome.contactTag);
   setText("contact-heading", chrome.contactHeading);
@@ -775,7 +821,8 @@ const renderResearchAndContact = () => {
   const activeSiteData = getActiveSiteData();
   const researchIntro = document.getElementById("research-intro");
   if (researchIntro) researchIntro.innerHTML = `<p>${activeSiteData.researchIntro}</p>`;
-  renderList(activeSiteData.research, renderResearchCard, "research-cards");
+  renderList(activeSiteData.aiResearch, renderResearchCard, "ai-research-cards");
+  renderList(activeSiteData.economicsResearch, renderResearchCard, "economics-research-cards");
   renderList(activeSiteData.teaching, renderResearchCard, "teaching-cards");
   renderList(
     activeSiteData.contactBooking,

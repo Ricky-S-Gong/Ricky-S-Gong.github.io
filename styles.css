@@ -1438,6 +1438,22 @@ h3 {
   gap: 0.95rem;
 }
 
+.research-category {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.research-category h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+#ai-research-cards .research-card-title {
+  overflow-x: visible;
+  white-space: normal;
+}
+
 .research-subheading {
   margin-bottom: 0;
 }
