@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260911-research-categories-0019";
+const assetVersion = "20260911-research-categories-0020";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {

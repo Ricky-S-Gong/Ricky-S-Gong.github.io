@@ -1449,11 +1449,6 @@ h3 {
   font-size: 1.05rem;
 }
 
-#ai-research-cards .research-card-title {
-  overflow-x: visible;
-  white-space: normal;
-}
-
 .research-subheading {
   margin-bottom: 0;
 }
