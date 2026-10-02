@@ -1,7 +1,7 @@
 const siteData = {
   heroName: "Shangyu Gong",
-  heroSubtitle: "M.S.E. in Data Science @ Penn",
-  heroSubtitleHref: "https://dats.seas.upenn.edu/",
+  heroSubtitle: "MSE in Data Science & Artificial Intelligence @ Penn",
+  heroSubtitleHref: "https://www.cis.upenn.edu/mse-in-dsai/",
   heroLocation: "Philadelphia, PA",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
@@ -39,7 +39,7 @@ const siteData = {
       period: "Aug 2025 – May 2027",
       logo: "./assets/penn-shield.png",
       logoAlt: "University of Pennsylvania shield",
-      degree: 'M.S.E. in <a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">Data Science</a>',
+      degree: 'MSE in <a href="https://www.cis.upenn.edu/mse-in-dsai/" target="_blank" rel="noreferrer">Data Science &amp; Artificial Intelligence</a>',
     },
     {
       school: "University of Illinois Urbana-Champaign",
@@ -250,7 +250,7 @@ const siteData = {
 
 const siteDataZh = {
   heroName: "宫商羽",
-  heroSubtitle: "宾夕法尼亚大学 · 数据科学硕士",
+  heroSubtitle: "宾夕法尼亚大学 · 数据科学与人工智能工程硕士",
   heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
@@ -268,7 +268,7 @@ const siteDataZh = {
       period: "2025年8月 – 2027年5月",
       logo: "./assets/penn-shield.png",
       logoAlt: "宾夕法尼亚大学校徽",
-      degree: '<a href="https://dats.seas.upenn.edu/" target="_blank" rel="noreferrer">数据科学工程硕士</a>',
+      degree: '<a href="https://www.cis.upenn.edu/mse-in-dsai/" target="_blank" rel="noreferrer">数据科学与人工智能工程硕士</a>',
     },
     {
       school: "伊利诺伊大学厄巴纳-香槟分校",
@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261002-research-order-teaching-0024";
+const assetVersion = "20261002-dsai-degree-0025";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
