@@ -56,7 +56,7 @@ const siteData = {
   ],
   industryExperience: [
     { company: "Corsair", role: "Data Science Intern", logo: "./assets/corsair-logo.png", logoAlt: "Corsair logo" },
-    { company: "Eth Tech", role: "Data Science Intern", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech logo" },
+    { company: "Eth Tech", role: "ML / DS Intern", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech logo" },
     {
       company: "Huatai International",
       role: "Quant Research Intern",
@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20260911-research-categories-0020";
+const assetVersion = "20261002-eth-ml-ds-0021";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
