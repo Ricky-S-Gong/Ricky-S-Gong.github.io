@@ -150,10 +150,10 @@ const siteData = {
       body: "Coming soon.",
     },
     {
-      title: "EnvDuels: Self-Play Evaluation and Adaptive Training in Executable Environments",
+      title: "Environment Duels: A Microcosm of LLM Co-Evolution",
       org: "Supervisor: Prof. Mayur Naik",
       period: "2026 – Present",
-      body: "Coming soon.",
+      body: "Through a tangle of real-world interactions, from synthetic training pipelines to data shared on the open web, frontier LLMs absorb what their predecessors and competitors create. How well does each model play its role in this ecosystem, as a creator and as a solver? We introduce Environment Duels, a dynamic agentic benchmark that evaluates both capabilities on interactive environments. Each model writes environments, each with a privileged hint, aiming for tasks that capable solvers fail without the hint and pass with it. Across nine frontier LLMs, solving and authoring prove to be distinct skills: the strongest solvers are not the strongest authors, while smaller models learn more from how others played and write the hardest environments and the most useful hints. Beyond the scores, the pairwise interactions form a microcosm of how models affect one another. Head-to-head outcomes are transitive and so yield a stable ranking; independent authors converge on the same designs; and in a reinforcement-learning study with Qwen3.8-27B, the learner’s hint lift on an author’s environments tracks how much training on those environments improves it on held-out reasoning and agentic benchmarks, whether the environments are its own or another model’s. Each of these patterns has a counterpart in how models shape one another outside the duel. By staging these interactions under controlled conditions, Environment Duels offers a window onto how LLMs teach, challenge and learn from one another.",
     },
   ],
   economicsResearch: [
@@ -315,10 +315,10 @@ const siteDataZh = {
       body: "即将推出。",
     },
     {
-      title: "EnvDuels：可执行环境中的自博弈评估与自适应训练",
+      title: "Environment Duels：大语言模型共同演化的缩影",
       org: "导师：Mayur Naik 教授",
       period: "2026年 – 至今",
-      body: "即将推出。",
+      body: "从合成训练流水线到开放网络上共享的数据，前沿大语言模型通过错综复杂的现实交互，吸收前代模型与竞争模型创造的内容。在这个生态系统中，每个模型作为创造者和求解者的表现如何？我们提出 Environment Duels，一个在交互式环境中评估这两种能力的动态智能体基准。每个模型编写环境，并为每个环境提供一条特权提示，目标是构造出有能力的求解者在没有提示时失败、获得提示后成功的任务。在九个前沿大语言模型上，求解与创作被证明是不同的技能：最强的求解者并非最强的创作者，而较小的模型能从其他模型的表现中学到更多，并编写出最难的环境和最有用的提示。除分数之外，模型之间的两两交互构成了模型相互影响的缩影。直接对决的结果具有传递性，因此产生稳定的排名；独立的创作者趋向相同的设计；在使用 Qwen3.8-27B 的强化学习研究中，学习者在某个创作者的环境中获得的提示增益，与在这些环境上训练后其在留出的推理和智能体基准上的提升相对应，无论这些环境由它自己还是其他模型编写。这些模式都能在对决之外的模型相互塑造过程中找到对应现象。通过在受控条件下呈现这些交互，Environment Duels 为观察大语言模型如何相互教导、挑战与学习提供了一个窗口。",
     },
   ],
   economicsResearch: [
@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261002-eth-ml-ds-0021";
+const assetVersion = "20261002-envduels-abstract-0022";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
