@@ -138,6 +138,12 @@ const siteData = {
   ],
   aiResearch: [
     {
+      title: "Environment Duels: A Microcosm of LLM Co-Evolution",
+      org: "Supervisor: Prof. Mayur Naik",
+      period: "2026 – Present",
+      body: "Through a tangle of real-world interactions, from synthetic training pipelines to data shared on the open web, frontier LLMs absorb what their predecessors and competitors create. How well does each model play its role in this ecosystem, as a creator and as a solver? We introduce Environment Duels, a dynamic agentic benchmark that evaluates both capabilities on interactive environments. Each model writes environments, each with a privileged hint, aiming for tasks that capable solvers fail without the hint and pass with it. Across nine frontier LLMs, solving and authoring prove to be distinct skills: the strongest solvers are not the strongest authors, while smaller models learn more from how others played and write the hardest environments and the most useful hints. Beyond the scores, the pairwise interactions form a microcosm of how models affect one another. Head-to-head outcomes are transitive and so yield a stable ranking; independent authors converge on the same designs; and in a reinforcement-learning study with Qwen3.8-27B, the learner’s hint lift on an author’s environments tracks how much training on those environments improves it on held-out reasoning and agentic benchmarks, whether the environments are its own or another model’s. Each of these patterns has a counterpart in how models shape one another outside the duel. By staging these interactions under controlled conditions, Environment Duels offers a window onto how LLMs teach, challenge and learn from one another.",
+    },
+    {
       title: "Multimodal Search Simulation with Generative World Models",
       org: "Supervisor: Boyuan Zheng, Ph.D. student at the University of Michigan",
       period: "2026 – Present",
@@ -148,12 +154,6 @@ const siteData = {
       org: "Supervisor: Boyuan Zheng, Ph.D. student at the University of Michigan",
       period: "2026 – Present",
       body: "Coming soon.",
-    },
-    {
-      title: "Environment Duels: A Microcosm of LLM Co-Evolution",
-      org: "Supervisor: Prof. Mayur Naik",
-      period: "2026 – Present",
-      body: "Through a tangle of real-world interactions, from synthetic training pipelines to data shared on the open web, frontier LLMs absorb what their predecessors and competitors create. How well does each model play its role in this ecosystem, as a creator and as a solver? We introduce Environment Duels, a dynamic agentic benchmark that evaluates both capabilities on interactive environments. Each model writes environments, each with a privileged hint, aiming for tasks that capable solvers fail without the hint and pass with it. Across nine frontier LLMs, solving and authoring prove to be distinct skills: the strongest solvers are not the strongest authors, while smaller models learn more from how others played and write the hardest environments and the most useful hints. Beyond the scores, the pairwise interactions form a microcosm of how models affect one another. Head-to-head outcomes are transitive and so yield a stable ranking; independent authors converge on the same designs; and in a reinforcement-learning study with Qwen3.8-27B, the learner’s hint lift on an author’s environments tracks how much training on those environments improves it on held-out reasoning and agentic benchmarks, whether the environments are its own or another model’s. Each of these patterns has a counterpart in how models shape one another outside the duel. By staging these interactions under controlled conditions, Environment Duels offers a window onto how LLMs teach, challenge and learn from one another.",
     },
   ],
   economicsResearch: [
@@ -196,10 +196,10 @@ const siteData = {
   teaching: [
     {
       title: "Teaching Assistant",
-      org: "UPenn CIS 2450 Big Data Analytics",
+      org: "UPenn CIS 2450 Big Data Analytics<br>UPenn CIS 5450 Big Data Analytics (Master’s level)",
       period: "Jan 2026 - May 2026",
       body:
-        "This course is centered on a systems view of analytics: how to turn large, messy data into usable knowledge when a single machine is no longer enough. My teaching work fits naturally with how I approach research. I help students connect data wrangling, scalable programming models, distributed computation, and statistical machine learning rather than treating them as separate topics. What I value most in the course is that it frames analytics as an end-to-end workflow, where data engineering, parallel execution, and model design all have to work together for filtering, graph analysis, clustering, classification, and other common large-scale tasks to be genuinely useful.",
+        "These courses are centered on a systems view of analytics: how to turn large, messy data into usable knowledge when a single machine is no longer enough. My teaching work fits naturally with how I approach research. I help students connect data wrangling, scalable programming models, distributed computation, and statistical machine learning rather than treating them as separate topics. What I value most in these courses is that they frame analytics as an end-to-end workflow, where data engineering, parallel execution, and model design all have to work together for filtering, graph analysis, clustering, classification, and other common large-scale tasks to be genuinely useful.",
     },
     {
       title: "Economics Tutor",
@@ -303,6 +303,12 @@ const siteDataZh = {
     '我目前主要开展 AI 相关研究；本科阶段的研究则更多围绕经济学问题，涵盖劳动、住房和政策分析。与 <a href="https://jkcshea.github.io/" target="_blank" rel="noreferrer">Joshua Shea 教授</a>、<a href="https://www.songlena.com/" target="_blank" rel="noreferrer">Lena Song 教授</a>、<a href="https://experts.illinois.edu/en/persons/hyoeun-lee/" target="_blank" rel="noreferrer">Hyoeun Lee 教授</a>、<a href="https://economics.illinois.edu/profile/dafontes" target="_blank" rel="noreferrer">Daniela Fontes 教授</a> 和 <a href="https://sites.google.com/a/illinois.edu/eunyichung/" target="_blank" rel="noreferrer">EunYi Chung 教授</a> 的合作，也塑造了我理解数据与研究的视角。',
   aiResearch: [
     {
+      title: "Environment Duels：大语言模型共同演化的缩影",
+      org: "导师：Mayur Naik 教授",
+      period: "2026年 – 至今",
+      body: "从合成训练流水线到开放网络上共享的数据，前沿大语言模型通过错综复杂的现实交互，吸收前代模型与竞争模型创造的内容。在这个生态系统中，每个模型作为创造者和求解者的表现如何？我们提出 Environment Duels，一个在交互式环境中评估这两种能力的动态智能体基准。每个模型编写环境，并为每个环境提供一条特权提示，目标是构造出有能力的求解者在没有提示时失败、获得提示后成功的任务。在九个前沿大语言模型上，求解与创作被证明是不同的技能：最强的求解者并非最强的创作者，而较小的模型能从其他模型的表现中学到更多，并编写出最难的环境和最有用的提示。除分数之外，模型之间的两两交互构成了模型相互影响的缩影。直接对决的结果具有传递性，因此产生稳定的排名；独立的创作者趋向相同的设计；在使用 Qwen3.8-27B 的强化学习研究中，学习者在某个创作者的环境中获得的提示增益，与在这些环境上训练后其在留出的推理和智能体基准上的提升相对应，无论这些环境由它自己还是其他模型编写。这些模式都能在对决之外的模型相互塑造过程中找到对应现象。通过在受控条件下呈现这些交互，Environment Duels 为观察大语言模型如何相互教导、挑战与学习提供了一个窗口。",
+    },
+    {
       title: "基于生成式世界模型的多模态搜索模拟",
       org: "导师：密歇根大学博士生 Boyuan Zheng",
       period: "2026年 – 至今",
@@ -313,12 +319,6 @@ const siteDataZh = {
       org: "导师：密歇根大学博士生 Boyuan Zheng",
       period: "2026年 – 至今",
       body: "即将推出。",
-    },
-    {
-      title: "Environment Duels：大语言模型共同演化的缩影",
-      org: "导师：Mayur Naik 教授",
-      period: "2026年 – 至今",
-      body: "从合成训练流水线到开放网络上共享的数据，前沿大语言模型通过错综复杂的现实交互，吸收前代模型与竞争模型创造的内容。在这个生态系统中，每个模型作为创造者和求解者的表现如何？我们提出 Environment Duels，一个在交互式环境中评估这两种能力的动态智能体基准。每个模型编写环境，并为每个环境提供一条特权提示，目标是构造出有能力的求解者在没有提示时失败、获得提示后成功的任务。在九个前沿大语言模型上，求解与创作被证明是不同的技能：最强的求解者并非最强的创作者，而较小的模型能从其他模型的表现中学到更多，并编写出最难的环境和最有用的提示。除分数之外，模型之间的两两交互构成了模型相互影响的缩影。直接对决的结果具有传递性，因此产生稳定的排名；独立的创作者趋向相同的设计；在使用 Qwen3.8-27B 的强化学习研究中，学习者在某个创作者的环境中获得的提示增益，与在这些环境上训练后其在留出的推理和智能体基准上的提升相对应，无论这些环境由它自己还是其他模型编写。这些模式都能在对决之外的模型相互塑造过程中找到对应现象。通过在受控条件下呈现这些交互，Environment Duels 为观察大语言模型如何相互教导、挑战与学习提供了一个窗口。",
     },
   ],
   economicsResearch: [
@@ -361,10 +361,10 @@ const siteDataZh = {
   teaching: [
     {
       title: "助教",
-      org: "宾夕法尼亚大学 CIS 2450 Big Data Analytics",
+      org: "宾夕法尼亚大学 CIS 2450 Big Data Analytics<br>宾夕法尼亚大学 CIS 5450 Big Data Analytics（硕士级课程）",
       period: "2026年1月 - 2026年5月",
       body:
-        "这门课强调一种系统化的数据分析视角：当单机已经不够用时，如何把大规模、杂乱的数据真正转化为可用知识。我的教学工作也和我自己的研究方法很一致：我会帮助学生把数据清洗、可扩展编程模型、分布式计算和统计机器学习看成一个整体，而不是孤立模块。这门课最吸引我的地方，在于它把 analytics 理解为端到端工作流，要求数据工程、并行执行和模型设计一起协同，才能让过滤、图分析、聚类和分类等大规模任务真正有用。",
+        "这些课程强调一种系统化的数据分析视角：当单机已经不够用时，如何把大规模、杂乱的数据真正转化为可用知识。我的教学工作也和我自己的研究方法很一致：我会帮助学生把数据清洗、可扩展编程模型、分布式计算和统计机器学习看成一个整体，而不是孤立模块。这些课程最吸引我的地方，在于它们把 analytics 理解为端到端工作流，要求数据工程、并行执行和模型设计一起协同，才能让过滤、图分析、聚类和分类等大规模任务真正有用。",
     },
     {
       title: "经济学导师",
@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261002-research-visibility-0023";
+const assetVersion = "20261002-research-order-teaching-0024";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
