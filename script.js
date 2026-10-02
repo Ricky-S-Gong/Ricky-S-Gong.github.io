@@ -441,7 +441,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261002-envduels-abstract-0022";
+const assetVersion = "20261002-research-visibility-0023";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
