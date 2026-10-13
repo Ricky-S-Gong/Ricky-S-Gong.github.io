@@ -403,7 +403,6 @@ const siteChrome = {
     nav: { home: "Home", projects: "Projects", research: "Research", contact: "Contact" },
     aboutHeading: "About Me",
     educationHeading: "Education",
-    projectsTag: "Portfolio",
     projectsHeading: "Selected Projects",
     projectsIntro: "This section brings together the projects that best represent how I think and work, organized by toolkit.",
     researchHeading: "Research",
@@ -412,7 +411,6 @@ const siteChrome = {
     teachingHeading: "Teaching",
     viewDetails: "View details",
     hideDetails: "Hide details",
-    contactTag: "Contact",
     contactHeading: "Connect, coffee chats, and potential opportunities.",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
@@ -423,7 +421,6 @@ const siteChrome = {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
     aboutHeading: "关于我",
     educationHeading: "教育背景",
-    projectsTag: "作品集",
     projectsHeading: "精选项目",
     projectsIntro: "这一部分汇集了最能代表我思考和工作方式的项目，并按所使用的工具体系组织。",
     researchHeading: "研究",
@@ -432,7 +429,6 @@ const siteChrome = {
     teachingHeading: "教学",
     viewDetails: "查看详情",
     hideDetails: "收起详情",
-    contactTag: "联系",
     contactHeading: "欢迎联系、预约 coffee chat，或交流合作机会。",
     contactCopy:
       "如果你希望联系我，可以直接预约交流、私下索取简历，或通过邮件和社交媒体进一步联系我。",
@@ -441,7 +437,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261002-dsai-degree-0025";
+const assetVersion = "20261013-remove-section-tags-0026";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -677,14 +673,12 @@ const renderShellText = () => {
   setText("nav-contact", chrome.nav.contact);
   setText("about-heading", chrome.aboutHeading);
   setText("education-heading", chrome.educationHeading);
-  setText("projects-tag", chrome.projectsTag);
   setText("projects-heading", chrome.projectsHeading);
   setText("projects-intro", chrome.projectsIntro);
   setText("research-heading", chrome.researchHeading);
   setText("ai-research-heading", chrome.aiResearchHeading);
   setText("economics-research-heading", chrome.economicsResearchHeading);
   setText("teaching-heading", chrome.teachingHeading);
-  setText("contact-tag", chrome.contactTag);
   setText("contact-heading", chrome.contactHeading);
   setText("contact-copy", chrome.contactCopy);
   document.title = chrome.documentTitle;
