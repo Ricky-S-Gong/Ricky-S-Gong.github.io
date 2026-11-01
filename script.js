@@ -149,12 +149,6 @@ const siteData = {
       period: "2026 – Present",
       body: "Coming soon.",
     },
-    {
-      title: "Quantization-Aware Training for Reasoning LLMs",
-      org: "Supervisor: Boyuan Zheng, Ph.D. student at the University of Michigan",
-      period: "2026 – Present",
-      body: "Coming soon.",
-    },
   ],
   economicsResearch: [
     {
@@ -437,7 +431,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-footer-spacing-0030";
+const assetVersion = "20261101-research-update-0031";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
