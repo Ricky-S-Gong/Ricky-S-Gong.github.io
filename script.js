@@ -424,7 +424,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-motto-type-0045";
+const assetVersion = "20261101-chinese-songti-0046";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {

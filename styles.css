@@ -25,7 +25,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Avenir Next", "Segoe UI", "Site Songti", "Songti SC", "SimSun", sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(122, 198, 255, 0.18), transparent 28%),
@@ -108,7 +108,7 @@ main {
 }
 
 .brand-text {
-  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: 1.15rem;
 }
 
@@ -301,7 +301,7 @@ main {
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.18), transparent 20%),
     linear-gradient(160deg, #143152 0%, #0f223b 55%, #0a1627 100%);
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: "Baskerville", "Times New Roman", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: clamp(3rem, 7vw, 4.6rem);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -358,14 +358,14 @@ h3 {
 
 h1 {
   margin-top: 0.65rem;
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: "Baskerville", "Times New Roman", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: clamp(3rem, 7vw, 5rem);
   line-height: 0.96;
   max-width: 12ch;
 }
 
 h2 {
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: "Baskerville", "Times New Roman", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
@@ -771,7 +771,7 @@ h3 {
   align-items: center;
   padding: 0.38rem 0.68rem;
   border-radius: 999px;
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: "Baskerville", "Times New Roman", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -1090,7 +1090,7 @@ h3 {
 
 .education-section h3 {
   color: var(--text);
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: "Baskerville", "Times New Roman", "Site Songti", "Songti SC", "SimSun", serif;
   font-size: clamp(1.2rem, 1.7vw, 1.45rem);
 }
 
@@ -2016,7 +2016,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-motto-type-0045') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-chinese-songti-0046') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2149,7 +2149,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-motto-type-0045'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-chinese-songti-0046'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2207,7 +2207,7 @@ body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
   font-family: 'Homepage KaiTi';
-  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-motto-type-0045') format('opentype');
+  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-chinese-songti-0046') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2236,3 +2236,12 @@ body[data-sky] .hero-motto {
 }
 body[data-sky] .hero-motto:lang(en) { font-style: italic; font-size: 1.5rem; }
 body[data-sky] .hero-motto:lang(zh) { font-family: 'Homepage KaiTi', 'Kaiti SC', 'STKaiti', 'KaiTi', serif; font-size: 1.25rem; }
+
+@font-face {
+  font-family: 'Site Songti';
+  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-chinese-songti-0046') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2018-201D, U+3000-303F, U+3400-9FFF, U+FF00-FFEF;
+}
