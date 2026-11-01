@@ -9,9 +9,9 @@
 ## 1. Glass Cube Cloud Whale：许可清晰的实时三维云鲸，造型仍不匹配
 
 - [仓库](https://github.com/csuyincs-creator/glass-whale-side-by-side)
-- [作者原始预览图](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/main/shots/side-by-side.webp)
-- [MIT 许可证](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/main/LICENSE)
-- [鲸体实现](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/main/right/src/whale.js)
+- [作者原始预览图](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/master/shots/side-by-side.webp)
+- [MIT 许可证](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/master/LICENSE)
+- [鲸体实现](https://github.com/csuyincs-creator/glass-whale-side-by-side/blob/master/right/src/whale.js)
 
 核实：根许可证为 MIT、作者 csuyincs-creator；鲸体由参数化管状几何、鳍与 shader 实时构建，未依赖外部鲸 GLB。README 标注左侧为星尘云鲸、右侧为参数化躯干与半透明琉璃材质。
 
