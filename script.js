@@ -1,5 +1,4 @@
 const siteData = {
-  heroName: "Shangyu Gong",
   heroSubtitle: "MSE in Data Science & Artificial Intelligence @ Penn",
   heroSubtitleHref: "https://www.cis.upenn.edu/mse-in-dsai/",
   heroLocation: "Philadelphia, PA",
@@ -244,7 +243,6 @@ const siteData = {
 };
 
 const siteDataZh = {
-  heroName: "宫商羽",
   heroSubtitle: "宾夕法尼亚大学 · 数据科学与人工智能工程硕士",
   heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
@@ -427,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-envduels-arxiv-0040";
+const assetVersion = "20261101-bilingual-name-0041";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -678,7 +676,6 @@ const renderShellText = () => {
 
 const renderHero = () => {
   const activeSiteData = getActiveSiteData();
-  setText("hero-name", activeSiteData.heroName);
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
     if (activeSiteData.heroSubtitleHref) {
