@@ -437,7 +437,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-poem-0027";
+const assetVersion = "20261101-poem-footer-0028";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
