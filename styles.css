@@ -2003,18 +2003,18 @@ h3 {
 .home-poem {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
-  gap: .4rem 1.5rem;
-  margin-top: 2rem;
+  gap: .3rem .8rem;
+  margin-top: 2.5rem;
   padding: 1rem 0 .25rem;
-  border-top: 1px solid var(--surface-border);
-  color: var(--text-soft);
+  text-align: center;
+  color: var(--text-muted);
 }
 .home-poem p { margin: 0; }
 .home-poem .poem-text {
   font-family: 'Homepage Poem', 'Kaiti SC', 'STKaiti', 'KaiTi', serif;
-  font-size: 1rem;
+  font-size: .95rem;
   font-weight: 400;
   letter-spacing: .05em;
   line-height: 1.8;
@@ -2032,7 +2032,7 @@ h3 {
 
 @font-face {
   font-family: 'Homepage Poem';
-  src: url('./assets/kunpeng/poem-calligraphy.ttf?v=20261101-poem-footer-0028') format('truetype');
+  src: url('./assets/kunpeng/poem-calligraphy.ttf?v=20261101-centered-footer-0029') format('truetype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
