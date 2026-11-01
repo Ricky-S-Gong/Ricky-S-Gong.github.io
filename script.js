@@ -30,7 +30,7 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    'I am seeking opportunities in the following priority order:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">AI Engineer (AIE):</span> building <span class="focus-key">multimodal RAG</span> and <span class="focus-key">multi-agent systems</span>, fine-tuning LLMs, and evaluating and deploying reliable AI applications with vLLM, FastAPI, and Docker.</span><span role="listitem"><span class="focus-role focus-role-ml">MLE / Modelling DS:</span> developing <span class="focus-key">retrieval and recommendation</span>, churn, and propensity models, with feature pipelines, model serving, monitoring, and retraining.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> using <span class="focus-key">A/B testing and causal inference</span>, funnel and retention analysis, and SQL/Tableau dashboards to inform product, growth, and customer decisions.</span></span>',
+    'I am seeking opportunities across three areas:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE / AIE:</span> building and operating <span class="focus-key">production ML and AI systems</span>, from data pipelines and model training to deployment, evaluation, and monitoring, including retrieval, ranking, LLM applications, and agents.</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS:</span> developing <span class="focus-key">predictive and statistical models</span> for forecasting, recommendation, and decision optimization, including <span class="focus-key">financial risk and fraud detection</span>, with rigorous validation, interpretability, and performance monitoring.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> defining <span class="focus-key">product metrics</span>, designing <span class="focus-key">A/B tests and causal analyses</span>, and studying funnels, retention, and user behavior to guide product strategy, prioritize opportunities, and measure impact.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
   ],
   education: [
@@ -253,7 +253,7 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    '我正在寻找以下方向的机会，按优先级排列：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">AI 工程师（AIE）：</span>构建<span class="focus-key">多模态 RAG</span>与<span class="focus-key">多智能体系统</span>，开展大模型微调和评估，并使用 vLLM、FastAPI、Docker 部署可靠的 AI 应用。</span><span role="listitem"><span class="focus-role focus-role-ml">MLE／建模数据科学（Modelling DS）：</span>开发<span class="focus-key">检索与推荐</span>、流失预测和购买倾向模型，覆盖特征流水线、模型服务、监控与再训练。</span><span role="listitem"><span class="focus-role focus-role-product">产品数据科学（Product DS）：</span>通过<span class="focus-key">A/B 测试与因果推断</span>、漏斗与留存分析，以及 SQL／Tableau 看板，支持产品、增长和客户决策。</span></span>',
+    '我正在寻找以下三个方向的机会：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE／AIE：</span>构建与运行<span class="focus-key">生产级机器学习和 AI 系统</span>，覆盖数据流水线、模型训练、部署、评估和监控，包括检索、排序、LLM 应用与智能体。</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS：</span>围绕预测、推荐与决策优化构建<span class="focus-key">预测模型和统计模型</span>，包括<span class="focus-key">金融风险建模与欺诈检测</span>，关注严谨验证、可解释性及模型表现监控。</span><span role="listitem"><span class="focus-role focus-role-product">Product DS：</span>定义<span class="focus-key">产品指标</span>，设计<span class="focus-key">A/B 测试与因果分析</span>，研究漏斗、留存和用户行为，为产品策略、机会优先级与效果衡量提供依据。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
   ],
   education: [
@@ -425,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-unified-sky-0033";
+const assetVersion = "20261101-open-sky-0034";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -847,32 +847,6 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const setupMotion = () => {
   const motionAllowed = !prefersReducedMotion.matches;
   document.body.classList.toggle("motion-ready", motionAllowed);
-
-  document.querySelectorAll(".project-card-link, .contact-action-card").forEach((card) => {
-    if (card.dataset.motionBound) return;
-    card.dataset.motionBound = "true";
-
-    card.addEventListener("pointermove", (event) => {
-      if (prefersReducedMotion.matches || event.pointerType === "touch") return;
-      const bounds = card.getBoundingClientRect();
-      const x = event.clientX - bounds.left;
-      const y = event.clientY - bounds.top;
-      const xRatio = x / bounds.width - 0.5;
-      const yRatio = y / bounds.height - 0.5;
-
-      card.style.setProperty("--tilt-x", `${(-yRatio * 7).toFixed(2)}deg`);
-      card.style.setProperty("--tilt-y", `${(xRatio * 9).toFixed(2)}deg`);
-      card.style.setProperty("--glare-x", `${x}px`);
-      card.style.setProperty("--glare-y", `${y}px`);
-    });
-
-    card.addEventListener("pointerleave", () => {
-      card.style.setProperty("--tilt-x", "0deg");
-      card.style.setProperty("--tilt-y", "0deg");
-      card.style.removeProperty("--glare-x");
-      card.style.removeProperty("--glare-y");
-    });
-  });
 };
 
 prefersReducedMotion.addEventListener("change", setupMotion);

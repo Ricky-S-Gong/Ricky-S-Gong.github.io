@@ -4,7 +4,7 @@ Every section and project detail page uses the selected cached cloud sea and the
 
 The shared `site-background.js` controller loads `home-sky.js` after the first paint. Navigation keeps the same scene running. Background tabs pause; reduced-motion preferences and data-saving connections keep the static poster. WebGL failure falls back to the poster. Cloud lighting is cached and recomputed only for a visible resize, with a short debounce. There are no homepage motion or credit controls; asset attribution appears in Contact.
 
-Cards share a pale surface at 82% opacity, dark ink and green/blue/copper role highlights. The bilingual homepage summary has three bullets, ordered AIE, MLE / Modelling DS, Product DS, based on the AI/MLE and Product DS resumes updated October 26, 2026.
+The site uses an open layout without card surfaces, shadows or pointer tilt. A continuous navy atmosphere protects warm-white text, with mint, blue and gold highlights. Project previews remain as images in a list; Research remains expandable. The bilingual homepage summary describes target responsibilities in three areas: MLE / AIE, Modelling DS (including financial risk and fraud), and Product DS. These are career interests, not claims of prior experience. Responsibilities were synthesized from employer postings checked November 1, 2026: [Atlassian ML / AI](https://www.atlassian.com/company/careers/details/26789), [Stripe Fraud Data Science](https://stripe.com/careers/listing/data-scientist-fraud/8113100), and [Airbnb Product Data Science](https://careers.airbnb.com/fr/positions/10191465/).
 
 Run `node tests/home-background.test.mjs`. Browser checks cover desktop and mobile layouts, language switching, shared navigation background, project details and static fallback.
 
