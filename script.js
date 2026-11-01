@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-research-teaser-balanced-0054";
+const assetVersion = "20261101-research-teaser-aligned-0056";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
