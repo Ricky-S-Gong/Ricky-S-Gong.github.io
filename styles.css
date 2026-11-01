@@ -2006,8 +2006,8 @@ h3 {
   justify-content: center;
   align-items: baseline;
   gap: .3rem .8rem;
-  margin-top: 2.5rem;
-  padding: 1rem 0 .25rem;
+  margin-top: 1.25rem;
+  padding: .75rem 0 .25rem;
   text-align: center;
   color: var(--text-muted);
 }
@@ -2024,7 +2024,6 @@ h3 {
   font-size: .75rem;
   letter-spacing: .03em;
 }
-.home-poem cite { font-style: normal; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .ambient { animation: none; }
@@ -2032,7 +2031,7 @@ h3 {
 
 @font-face {
   font-family: 'Homepage Poem';
-  src: url('./assets/kunpeng/poem-calligraphy.ttf?v=20261101-centered-footer-0029') format('truetype');
+  src: url('./assets/kunpeng/poem-calligraphy.ttf?v=20261101-footer-spacing-0030') format('truetype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
