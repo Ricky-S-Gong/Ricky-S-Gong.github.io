@@ -1,6 +1,5 @@
 const siteData = {
-  heroSubtitle: "MSE in Data Science & Artificial Intelligence @ Penn",
-  heroSubtitleHref: "https://www.cis.upenn.edu/mse-in-dsai/",
+  heroSubtitle: "“Audere est facere.”",
   heroLocation: "Philadelphia, PA",
   portrait: {
     image: "./assets/homepage-portrait-car.jpg",
@@ -243,7 +242,7 @@ const siteData = {
 };
 
 const siteDataZh = {
-  heroSubtitle: "宾夕法尼亚大学 · 数据科学与人工智能工程硕士",
+  heroSubtitle: "“道虽迩，不行不至”",
   heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
@@ -425,7 +424,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-kaiti-name-0043";
+const assetVersion = "20261101-home-motto-0044";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -678,11 +677,6 @@ const renderHero = () => {
   const activeSiteData = getActiveSiteData();
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
-    if (activeSiteData.heroSubtitleHref) {
-      heroSubtitle.href = activeSiteData.heroSubtitleHref;
-      heroSubtitle.target = "_blank";
-      heroSubtitle.rel = "noreferrer";
-    }
   }
   const heroLocation = document.getElementById("hero-location");
   if (heroLocation) {
