@@ -1,0 +1,6 @@
+Blue Whale - Textured by Bohdan Lvov
+Source: https://sketchfab.com/3d-models/blue-whale-textured-d24d19021c724c3a9134eebcb76b0e0f
+License: Creative Commons Attribution 4.0
+https://creativecommons.org/licenses/by/4.0/
+Retrieved from https://github.com/bob6664569/open-water at commit 285b6ce32057c70191a7fe16c31d979fa383ac64, site/assets/animals/blue_whale_-_textured.glb
+No model or animation keyframes changed. This site adds scene lighting, scale and a fixed flight path. Static background posters are renders of this scene.

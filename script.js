@@ -308,12 +308,6 @@ const siteDataZh = {
       period: "2026年 – 至今",
       body: "即将推出。",
     },
-    {
-      title: "面向推理型大语言模型的量化感知训练",
-      org: "导师：密歇根大学博士生 Boyuan Zheng",
-      period: "2026年 – 至今",
-      body: "即将推出。",
-    },
   ],
   economicsResearch: [
     {
@@ -431,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-research-update-0031";
+const assetVersion = "20261101-cloudsea-home-0032";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -888,8 +882,53 @@ const views = ["home", "projects", "research", "contact"];
 const panels = document.querySelectorAll("[data-view]");
 const navLinks = document.querySelectorAll("[data-view-link]");
 
+const skyCanvas = document.getElementById("home-sky");
+const skyToggle = document.getElementById("sky-motion-toggle");
+let skyBackground;
+let skyLoading = false;
+let skyFailed = false;
+let skyPaused = Boolean(navigator.connection?.saveData);
+
+const skyCanAnimate = () =>
+  document.body.dataset.view === "home" && !document.hidden &&
+  !prefersReducedMotion.matches && !skyPaused && !skyFailed;
+
+const updateSkyBackground = () => {
+  const zh = document.documentElement.lang.startsWith("zh");
+  skyToggle.hidden = prefersReducedMotion.matches || skyFailed;
+  skyToggle.textContent = skyPaused ? (zh ? "播放背景" : "Play background") : (zh ? "暂停背景" : "Pause background");
+  skyToggle.setAttribute("aria-pressed", String(skyPaused));
+  document.getElementById("sky-credits-label").textContent = zh ? "背景素材" : "Background credits";
+  document.getElementById("sky-license-note").textContent = zh ? "本站添加场景光照、缩放和飞行路径。" : "Scene lighting, scale and flight path adapted for this site.";
+  skyBackground?.setPlaying(skyCanAnimate());
+  if (!skyCanAnimate() || skyBackground || skyLoading) return;
+  skyLoading = true;
+  const load = async () => {
+    if (!skyCanAnimate()) { skyLoading = false; return; }
+    try {
+      const { createSkyBackground } = await import(`./home-sky.js?v=${assetVersion}`);
+      skyBackground = await createSkyBackground(skyCanvas, assetVersion);
+      skyBackground.setPlaying(skyCanAnimate());
+    } catch (error) {
+      skyFailed = true;
+      skyCanvas.dataset.ready = "false";
+      skyToggle.hidden = true;
+      console.warn("Using the static homepage sky.", error);
+    } finally {
+      skyLoading = false;
+    }
+  };
+  if ("requestIdleCallback" in window) window.requestIdleCallback(load, { timeout: 1500 });
+  else window.setTimeout(load, 250);
+};
+
+skyToggle.addEventListener("click", () => { skyPaused = !skyPaused; updateSkyBackground(); });
+document.addEventListener("visibilitychange", updateSkyBackground);
+prefersReducedMotion.addEventListener("change", updateSkyBackground);
+
 const activateView = (viewName) => {
   const activeView = views.includes(viewName) ? viewName : "home";
+  document.body.dataset.view = activeView;
 
   panels.forEach((panel) => {
     panel.classList.toggle("is-active", panel.dataset.view === activeView);
@@ -900,6 +939,7 @@ const activateView = (viewName) => {
   });
 
   window.scrollTo({ top: 0, behavior: "auto" });
+  updateSkyBackground();
 };
 
 const syncViewFromHash = () => {
@@ -908,6 +948,7 @@ const syncViewFromHash = () => {
 };
 
 window.addEventListener("hashchange", syncViewFromHash);
+window.addEventListener("load", syncViewFromHash, { once: true });
 window.addEventListener("site-locale-change", () => {
   renderHomepage();
   setupMotion();
