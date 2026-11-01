@@ -30,7 +30,7 @@ const siteData = {
   ],
   homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
   homeAbout: [
-    'I am actively seeking <span class="focus-emphasis">industry</span> or <span class="focus-emphasis">research</span> roles across:<span class="about-focus-list"><span><span class="focus-role">Product data science:</span> experimentation, funnel and retention analysis, dashboarding, and metric design for teams making growth, monetization, or user-behavior decisions.</span><span><span class="focus-role">Modeling data science:</span> forecasting, search, advertising, and recommendation modeling; ranking and conversion optimization; and other predictive systems that improve relevance, growth, and operational decisions.</span><span><span class="focus-role">AI, LLM, and agent application development:</span> building reliable LLM-powered applications, tool-using and multi-agent systems, evaluation and observability workflows, and production-ready AI experiences; I am also interested in Machine Learning Engineer roles that connect model development, experimentation, and practical product impact.</span></span>',
+    'I am seeking opportunities in the following priority order:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">AI Engineer (AIE):</span> building <span class="focus-key">multimodal RAG</span> and <span class="focus-key">multi-agent systems</span>, fine-tuning LLMs, and evaluating and deploying reliable AI applications with vLLM, FastAPI, and Docker.</span><span role="listitem"><span class="focus-role focus-role-ml">MLE / Modelling DS:</span> developing <span class="focus-key">retrieval and recommendation</span>, churn, and propensity models, with feature pipelines, model serving, monitoring, and retraining.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> using <span class="focus-key">A/B testing and causal inference</span>, funnel and retention analysis, and SQL/Tableau dashboards to inform product, growth, and customer decisions.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
   ],
   education: [
@@ -253,7 +253,7 @@ const siteDataZh = {
   ],
   homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
-    '我正在积极寻找 <span class="focus-emphasis">industry</span> 或 <span class="focus-emphasis">research</span> 方向机会，主要关注：<span class="about-focus-list"><span><span class="focus-role">Product Data Science：</span>围绕实验、漏斗与留存分析、dashboarding 和指标设计，支持增长、商业化和用户行为决策。</span><span><span class="focus-role">Modeling Data Science：</span>关注预测、搜索/广告/推荐建模（搜广推）、排序与转化优化，以及提升相关性、增长和运营决策质量的预测系统。</span><span><span class="focus-role">AI、LLM 和 Agent 应用层开发：</span>构建可靠的 LLM 应用、tool-using 与 multi-agent 系统、评估与可观测性流程，以及面向生产环境的 AI 体验；同时也希望探索连接模型开发、实验与实际产品价值的 Machine Learning Engineer 相关岗位。</span></span>',
+    '我正在寻找以下方向的机会，按优先级排列：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">AI 工程师（AIE）：</span>构建<span class="focus-key">多模态 RAG</span>与<span class="focus-key">多智能体系统</span>，开展大模型微调和评估，并使用 vLLM、FastAPI、Docker 部署可靠的 AI 应用。</span><span role="listitem"><span class="focus-role focus-role-ml">MLE／建模数据科学（Modelling DS）：</span>开发<span class="focus-key">检索与推荐</span>、流失预测和购买倾向模型，覆盖特征流水线、模型服务、监控与再训练。</span><span role="listitem"><span class="focus-role focus-role-product">产品数据科学（Product DS）：</span>通过<span class="focus-key">A/B 测试与因果推断</span>、漏斗与留存分析，以及 SQL／Tableau 看板，支持产品、增长和客户决策。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
   ],
   education: [
@@ -425,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-cloudsea-home-0032";
+const assetVersion = "20261101-unified-sky-0033";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -882,50 +882,6 @@ const views = ["home", "projects", "research", "contact"];
 const panels = document.querySelectorAll("[data-view]");
 const navLinks = document.querySelectorAll("[data-view-link]");
 
-const skyCanvas = document.getElementById("home-sky");
-const skyToggle = document.getElementById("sky-motion-toggle");
-let skyBackground;
-let skyLoading = false;
-let skyFailed = false;
-let skyPaused = Boolean(navigator.connection?.saveData);
-
-const skyCanAnimate = () =>
-  document.body.dataset.view === "home" && !document.hidden &&
-  !prefersReducedMotion.matches && !skyPaused && !skyFailed;
-
-const updateSkyBackground = () => {
-  const zh = document.documentElement.lang.startsWith("zh");
-  skyToggle.hidden = prefersReducedMotion.matches || skyFailed;
-  skyToggle.textContent = skyPaused ? (zh ? "播放背景" : "Play background") : (zh ? "暂停背景" : "Pause background");
-  skyToggle.setAttribute("aria-pressed", String(skyPaused));
-  document.getElementById("sky-credits-label").textContent = zh ? "背景素材" : "Background credits";
-  document.getElementById("sky-license-note").textContent = zh ? "本站添加场景光照、缩放和飞行路径。" : "Scene lighting, scale and flight path adapted for this site.";
-  skyBackground?.setPlaying(skyCanAnimate());
-  if (!skyCanAnimate() || skyBackground || skyLoading) return;
-  skyLoading = true;
-  const load = async () => {
-    if (!skyCanAnimate()) { skyLoading = false; return; }
-    try {
-      const { createSkyBackground } = await import(`./home-sky.js?v=${assetVersion}`);
-      skyBackground = await createSkyBackground(skyCanvas, assetVersion);
-      skyBackground.setPlaying(skyCanAnimate());
-    } catch (error) {
-      skyFailed = true;
-      skyCanvas.dataset.ready = "false";
-      skyToggle.hidden = true;
-      console.warn("Using the static homepage sky.", error);
-    } finally {
-      skyLoading = false;
-    }
-  };
-  if ("requestIdleCallback" in window) window.requestIdleCallback(load, { timeout: 1500 });
-  else window.setTimeout(load, 250);
-};
-
-skyToggle.addEventListener("click", () => { skyPaused = !skyPaused; updateSkyBackground(); });
-document.addEventListener("visibilitychange", updateSkyBackground);
-prefersReducedMotion.addEventListener("change", updateSkyBackground);
-
 const activateView = (viewName) => {
   const activeView = views.includes(viewName) ? viewName : "home";
   document.body.dataset.view = activeView;
@@ -939,7 +895,6 @@ const activateView = (viewName) => {
   });
 
   window.scrollTo({ top: 0, behavior: "auto" });
-  updateSkyBackground();
 };
 
 const syncViewFromHash = () => {

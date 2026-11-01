@@ -11,10 +11,10 @@
     <link rel="icon" type="image/jpeg" href="./assets/favicon.jpg?v=20260407-detail-mobile-2022" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./styles.css?v=20261101-cloudsea-home-0032" />
+    <link rel="stylesheet" href="./styles.css?v=20261101-unified-sky-0033" />
     <script src="./locale.js?v=20260407-detail-mobile-2022"></script>
   </head>
-  <body data-view="home">
+  <body data-view="home" data-sky>
     <div class="home-sky" aria-hidden="true">
       <canvas id="home-sky"></canvas>
     </div>
@@ -75,18 +75,7 @@
           <footer class="home-poem" lang="zh-Hans">
             <p class="poem-text">假令风歇时下来，犹能簸却沧溟水</p>
             <p class="poem-source">〔唐〕李白</p>
-            <div class="home-background-tools">
-              <button id="sky-motion-toggle" type="button" aria-pressed="false">Pause background</button>
-              <details class="sky-credits">
-                <summary id="sky-credits-label">Background credits</summary>
-                <div>
-                  <a href="https://sketchfab.com/3d-models/blue-whale-textured-d24d19021c724c3a9134eebcb76b0e0f" target="_blank" rel="noreferrer">Blue Whale — Bohdan Lvov</a> ·
-                  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>.
-                  <span id="sky-license-note">Scene lighting, scale and flight path adapted for this site.</span>
-                  <a href="https://github.com/pmndrs/assets#textures" target="_blank" rel="noreferrer">Cloud texture — pmndrs/assets, CC0</a>.
-                </div>
-              </details>
-            </div>
+
           </footer>
         </section>
 
@@ -150,11 +139,13 @@
               <div class="hero-link-row contact-link-row" id="contact-links"></div>
             </div>
           </div>
+          <p class="site-credits">Background artwork: <a href="https://sketchfab.com/3d-models/blue-whale-textured-d24d19021c724c3a9134eebcb76b0e0f" target="_blank" rel="noreferrer">Blue Whale — Bohdan Lvov</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>; scene lighting, scale and flight path adapted for this site. Cloud texture: <a href="https://github.com/pmndrs/assets#textures" target="_blank" rel="noreferrer">pmndrs/assets, CC0</a>.</p>
         </section>
       </main>
     </div>
 
     <script src="./projects-data.js?v=20260826-hero-industry-0005"></script>
-    <script src="./script.js?v=20261101-cloudsea-home-0032"></script>
+    <script src="./script.js?v=20261101-unified-sky-0033"></script>
+    <script src="./site-background.js?v=20261101-unified-sky-0033"></script>
   </body>
 </html>

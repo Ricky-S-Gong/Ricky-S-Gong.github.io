@@ -16,20 +16,21 @@ for(const aspect of [1440/900,390/844]){
 }
 const main=readFileSync(new URL('../script.js',import.meta.url),'utf8');
 assert(!main.includes('Quantization-Aware Training for Reasoning LLMs')&&!main.includes('面向推理型大语言模型的量化感知训练'),'Removed research must stay absent in both languages');
-const coordinator=main.slice(main.indexOf('const skyCanvas ='),main.indexOf('const activateView ='));
-function page({view='home',reduced=false,saveData=false,hidden=false}={}){
- const callbacks=new Map(),nodes=new Map();let queued=0;
- const node=id=>{if(!nodes.has(id))nodes.set(id,{hidden:false,textContent:'',dataset:{},setAttribute(){},addEventListener(type,fn){callbacks.set(id+':'+type,fn);}});return nodes.get(id);};
- const document={body:{dataset:{view}},documentElement:{lang:'en'},hidden,getElementById:node,addEventListener(){}};
- const window={requestIdleCallback(){queued++;},setTimeout(){queued++;}};
- const motion={matches:reduced,addEventListener(){}};
- const update=new Function('document','window','navigator','prefersReducedMotion','assetVersion',coordinator+';return updateSkyBackground;')(document,window,{connection:{saveData}},motion,'test');
- return {update,node,callbacks,get queued(){return queued;}};
+const coordinator=readFileSync(new URL('../site-background.js',import.meta.url),'utf8');
+function page({reduced=false,saveData=false,hidden=false}={}){
+ let queued=0;
+ const document={currentScript:{src:'http://localhost/site-background.js?v=test'},hidden,getElementById(){return {};},addEventListener(){}};
+ const window={matchMedia(){return {matches:reduced,addEventListener(){}};},requestIdleCallback(){queued++;},setTimeout(){queued++;}};
+ new Function('document','window','navigator',coordinator)(document,window,{connection:{saveData}});
+ return queued;
 }
-for(const options of [{view:'research'},{reduced:true},{saveData:true},{hidden:true}]){
- const p=page(options);p.update();assert.equal(p.queued,0,'Inactive, reduced-motion and data-saving pages must not load 3D assets');
+for(const options of [{reduced:true},{saveData:true},{hidden:true}])assert.equal(page(options),0,'Reduced-motion, hidden and data-saving pages must not load 3D assets');
+assert.equal(page(),1,'The shared background must load once without depending on a section');
+for(const file of ['index.html','project.html']){
+ const html=readFileSync(new URL('../'+file,import.meta.url),'utf8');
+ assert(html.includes('data-sky')&&html.includes('site-background.js?v='),'Both entry points must share the background');
+ assert(!html.includes('sky-motion-toggle')&&!html.includes('home-background-tools'),'No homepage background controls');
 }
-const p=page({saveData:true});p.update();p.callbacks.get('sky-motion-toggle:click')();assert.equal(p.queued,1,'Explicit play should enable a data-saving page');
 const model=readFileSync(new URL('../assets/sky/blue-whale.glb',import.meta.url));
 assert.equal(model.toString('utf8',0,4),'glTF');
 const gltf=JSON.parse(model.toString('utf8',20,20+model.readUInt32LE(12)).trim());

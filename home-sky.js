@@ -109,15 +109,15 @@ export async function createSkyBackground(canvas, version) {
   last=0;
   frames=0;measuredAt=performance.now();
   if(contextLost)return;
-  if(needsResize&&document.body.dataset.view==='home')resize();
+  if(needsResize&&document.body.hasAttribute('data-sky'))resize();
   renderer.setAnimationLoop(playing?render:null);
-  if(!playing&&document.body.dataset.view==='home'&&!document.hidden)render(performance.now());
+  if(!playing&&document.body.hasAttribute('data-sky')&&!document.hidden)render(performance.now());
  };
  let resizeTimer;
  addEventListener('resize',()=>{
   needsResize=true;clearTimeout(resizeTimer);
   resizeTimer=setTimeout(()=>{
-   if(contextLost||document.body.dataset.view!=='home')return;
+   if(contextLost||!document.body.hasAttribute('data-sky'))return;
    resize();last=0;render(performance.now());
   },150);
  });
