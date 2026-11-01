@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-research-teaser-0049";
+const assetVersion = "20261101-research-teaser-frame-0051";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -629,12 +629,11 @@ const renderResearchCard = (item) => {
   const chrome = getSiteChrome();
   return `
   <article class="glass panel research-card${item.image ? " research-card--teaser" : ""}">
-    ${item.image ? `<a class="research-teaser" href="${item.url}" target="_blank" rel="noreferrer"><img src="${item.image}?v=${assetVersion}" alt="${item.imageAlt}" width="1878" height="620" loading="lazy" decoding="async" /></a>` : ""}
-    <div class="research-card-content">
     <div class="research-card-heading">
       <h3 class="research-card-title" ${item.url ? "" : 'tabindex="0"'} title="${item.title}">${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">${item.title}</a>` : item.title}</h3>
       <p class="stack-item-meta research-card-period">${item.period}</p>
     </div>
+    <div class="research-card-content">
     <p class="stack-item-meta">${item.org}</p>
     <details class="research-details">
       <summary>
@@ -645,6 +644,7 @@ const renderResearchCard = (item) => {
       <p>${item.body}</p>
     </details>
     </div>
+    ${item.image ? `<a class="research-teaser" href="${item.url}" target="_blank" rel="noreferrer"><img src="${item.image}?v=${assetVersion}" alt="${item.imageAlt}" width="1878" height="620" loading="lazy" decoding="async" /></a>` : ""}
   </article>
 `;
 };
