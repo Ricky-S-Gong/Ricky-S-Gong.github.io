@@ -2025,7 +2025,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-research-teaser-aligned-0056') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-teaser-lightbox-0057') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2158,7 +2158,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-research-teaser-aligned-0056'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-teaser-lightbox-0057'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2216,7 +2216,7 @@ body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
   font-family: 'Homepage KaiTi';
-  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-research-teaser-aligned-0056') format('opentype');
+  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-teaser-lightbox-0057') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2248,7 +2248,7 @@ body[data-sky] .hero-motto:lang(zh) { font-family: 'Homepage KaiTi', 'Kaiti SC',
 
 @font-face {
   font-family: 'Site Songti';
-  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-research-teaser-aligned-0056') format('woff2');
+  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-teaser-lightbox-0057') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2261,6 +2261,11 @@ body[data-sky] .research-card--teaser .research-teaser { position: absolute; top
 .research-teaser { display: block; margin-top: 0; padding: .5rem; border: 1px solid rgba(216, 225, 232, .3); background: rgba(216, 225, 232, .06); border-radius: 8px; overflow: hidden; }
 body[data-sky] .research-card--teaser details[open] > p { padding-top: 1rem; }
 .research-teaser img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.research-teaser { cursor: zoom-in; }
+.teaser-dialog { position: fixed; inset: 0; width: min(1878px, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); margin: auto; padding: 2.75rem 1rem 1rem; border: 1px solid rgba(216, 225, 232, .4); border-radius: 10px; background: #172a3b; }
+.teaser-dialog::backdrop { background: rgba(5, 14, 24, .8); }
+.teaser-dialog img { display: block; width: 100%; max-height: calc(100dvh - 6rem); object-fit: contain; }
+.teaser-dialog button { position: absolute; top: .25rem; right: .5rem; width: 2.25rem; height: 2.25rem; padding: 0; border: 0; background: none; color: #fff; font-size: 1.75rem; cursor: pointer; }
 @media (max-width: 1000px) {
   body[data-sky] .research-card--teaser details[open] > p { padding-top: 0; }
   body[data-sky] .research-card--teaser .research-teaser { position: static; width: 100%; justify-self: end; }

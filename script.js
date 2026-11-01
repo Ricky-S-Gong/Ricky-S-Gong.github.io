@@ -251,7 +251,7 @@ const siteDataZh = {
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
-  homeIntro: "你好 😉 我是宫商羽 [name-audio]，你也可以叫我 Ricky。",
+  homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
   homeAbout: [
     '我正在寻找以下三个方向的机会：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE／AIE：</span>构建与运行生产级机器学习和 AI 系统，覆盖数据流水线、模型训练、部署、评估和监控，包括检索、排序、LLM 应用与智能体。</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS：</span>围绕预测、推荐与决策优化构建预测模型和统计模型，包括金融风险建模与欺诈检测，关注严谨验证、可解释性及模型表现监控。</span><span role="listitem"><span class="focus-role focus-role-product">Product DS：</span>定义产品指标，设计A/B 测试与因果分析，研究漏斗、留存和用户行为，为产品策略、机会优先级与效果衡量提供依据。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-research-teaser-aligned-0056";
+const assetVersion = "20261101-teaser-lightbox-0057";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -644,7 +644,7 @@ const renderResearchCard = (item) => {
       <p>${item.body}</p>
     </details>
     </div>
-    ${item.image ? `<a class="research-teaser" href="${item.url}" target="_blank" rel="noreferrer"><img src="${item.image}?v=${assetVersion}" alt="${item.imageAlt}" width="1878" height="620" loading="lazy" decoding="async" /></a>` : ""}
+    ${item.image ? `<a class="research-teaser" href="${item.image}?v=${assetVersion}" aria-haspopup="dialog"><img src="${item.image}?v=${assetVersion}" alt="${item.imageAlt}" width="1878" height="620" loading="lazy" decoding="async" /></a>` : ""}
   </article>
 `;
 };
@@ -845,6 +845,23 @@ const renderHomepage = () => {
 };
 
 renderHomepage();
+
+const teaserDialog = document.getElementById("teaser-dialog");
+document.getElementById("ai-research-cards").addEventListener("click", event => {
+  const teaser = event.target.closest(".research-teaser");
+  if (!teaser) return;
+  event.preventDefault();
+  const image = teaserDialog.querySelector("img");
+  image.src = teaser.href;
+  image.alt = teaser.querySelector("img").alt;
+  const zh = document.documentElement.lang.startsWith("zh");
+  teaserDialog.setAttribute("aria-label", zh ? "论文原图" : "Paper teaser, full image");
+  teaserDialog.querySelector("button").setAttribute("aria-label", zh ? "关闭图片" : "Close image");
+  teaserDialog.showModal();
+});
+teaserDialog.addEventListener("click", event => {
+  if (event.target === teaserDialog || event.target.closest("button")) teaserDialog.close();
+});
 
 let nameUtterance;
 const playNameAudio = () => {
