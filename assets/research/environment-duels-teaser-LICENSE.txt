@@ -1,0 +1,7 @@
+Environment Duels: A Microcosm of LLM Co-Evolution — Figure 1
+Authors: Shibo Jin, Zhiqiu Xu, Yiling Zou, Shangyu Gong, Mayur Naik
+Paper: https://arxiv.org/abs/2610.30116
+Original image: https://arxiv.org/html/2610.30116v1/duel_overview.png
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+License terms: https://creativecommons.org/licenses/by/4.0/
+The image is unchanged; the site scales it responsively without cropping.
