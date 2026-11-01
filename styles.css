@@ -330,15 +330,7 @@ main {
   max-width: none;
 }
 
-.name-ipa {
-  display: inline-block;
-  margin: 0 0.12rem;
-  color: var(--text-soft);
-  font-family: "Inter", "Avenir", "Helvetica Neue", sans-serif;
-  font-size: 0.86em;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}
+.name-pronunciation { white-space: nowrap; }
 
 .eyebrow,
 .section-tag,
@@ -2016,7 +2008,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-chinese-songti-0046') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-name-sounds-0047') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2149,7 +2141,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-chinese-songti-0046'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-name-sounds-0047'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2207,7 +2199,7 @@ body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
   font-family: 'Homepage KaiTi';
-  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-chinese-songti-0046') format('opentype');
+  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-name-sounds-0047') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2239,7 +2231,7 @@ body[data-sky] .hero-motto:lang(zh) { font-family: 'Homepage KaiTi', 'Kaiti SC',
 
 @font-face {
   font-family: 'Site Songti';
-  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-chinese-songti-0046') format('woff2');
+  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-name-sounds-0047') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

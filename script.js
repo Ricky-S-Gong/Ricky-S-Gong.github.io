@@ -26,7 +26,7 @@ const siteData = {
     "I care about analytical work that is both technically credible and operationally useful. That means defining the decision clearly, choosing methods that match the risk, and presenting results so non-specialists can act on them.",
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
-  homeIntro: 'Hi there 😉. I am Shangyu Gong <span class="name-ipa">/ˈʃɑːŋ juː ˈɡɔːŋ/</span>, and you can also call me Ricky.',
+  homeIntro: 'Hi there 😉. I am Shangyu Gong (pronounced roughly <span class="name-pronunciation">“shahng · yoo · goong”</span>), and you can also call me Ricky.',
   homeAbout: [
     'I am seeking opportunities across three areas:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE / AIE:</span> building and operating production ML and AI systems, from data pipelines and model training to deployment, evaluation, and monitoring, including retrieval, ranking, LLM applications, and agents.</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS:</span> developing predictive and statistical models for forecasting, recommendation, and decision optimization, including financial risk and fraud detection, with rigorous validation, interpretability, and performance monitoring.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> defining product metrics, designing A/B tests and causal analyses, and studying funnels, retention, and user behavior to guide product strategy, prioritize opportunities, and measure impact.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
@@ -424,7 +424,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-chinese-songti-0046";
+const assetVersion = "20261101-name-sounds-0047";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
