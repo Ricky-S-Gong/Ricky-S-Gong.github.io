@@ -26,7 +26,7 @@ const siteData = {
     "I care about analytical work that is both technically credible and operationally useful. That means defining the decision clearly, choosing methods that match the risk, and presenting results so non-specialists can act on them.",
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
-  homeIntro: 'Hi there 😉. I am Shangyu Gong [name-audio], and you can also call me Ricky.',
+  homeIntro: 'Hi there 😉. I am Shangyu Gong [name-audio], and you can also call me Ricky. I’m originally from <a href="https://en.wikipedia.org/wiki/Suzhou" target="_blank" rel="noreferrer">Suzhou</a>, China. I speak Mandarin, Suzhounese, English, and a little Spanish.',
   homeAbout: [
     'I am seeking opportunities across three areas:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE / AIE:</span> building and operating production ML and AI systems, from data pipelines and model training to deployment, evaluation, and monitoring, including retrieval, ranking, LLM applications, and agents.</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS:</span> developing predictive and statistical models for forecasting, recommendation, and decision optimization, including financial risk and fraud detection, with rigorous validation, interpretability, and performance monitoring.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> defining product metrics, designing A/B tests and causal analyses, and studying funnels, retention, and user behavior to guide product strategy, prioritize opportunities, and measure impact.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
@@ -251,7 +251,7 @@ const siteDataZh = {
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
-  homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
+  homeIntro: '你好 😉 我是宫商羽，你也可以叫我 Ricky。我来自中国<a href="https://en.wikipedia.org/wiki/Suzhou" target="_blank" rel="noreferrer">苏州</a>，会说普通话、苏州话、英语和一点西班牙语。',
   homeAbout: [
     '我正在寻找以下三个方向的机会：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE／AIE：</span>构建与运行生产级机器学习和 AI 系统，覆盖数据流水线、模型训练、部署、评估和监控，包括检索、排序、LLM 应用与智能体。</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS：</span>围绕预测、推荐与决策优化构建预测模型和统计模型，包括金融风险建模与欺诈检测，关注严谨验证、可解释性及模型表现监控。</span><span role="listitem"><span class="focus-role focus-role-product">Product DS：</span>定义产品指标，设计A/B 测试与因果分析，研究漏斗、留存和用户行为，为产品策略、机会优先级与效果衡量提供依据。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-lighter-projects-0061";
+const assetVersion = "20261101-suzhou-intro-0062";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
