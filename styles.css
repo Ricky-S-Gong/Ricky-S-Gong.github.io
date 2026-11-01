@@ -1999,3 +1999,46 @@ h3 {
     padding-left: 3.25rem;
   }
 }
+
+.home-poem {
+  position: relative;
+  margin: clamp(5rem, 11vh, 9rem) auto 2.5rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #e2e6e9;
+  text-shadow: 0 2px 20px #08111f;
+}
+.home-poem blockquote {
+  margin: 0;
+  font-family: 'Homepage Poem', 'Kaiti SC', 'STKaiti', 'KaiTi', serif;
+  font-size: clamp(1.5rem, 3.1vw, 2.65rem);
+  font-weight: 400;
+  letter-spacing: .13em;
+  line-height: 1.9;
+  text-wrap: balance;
+}
+.home-poem blockquote span { display: inline-block; }
+.home-poem figcaption {
+  margin-top: 1.65rem;
+  font-family: 'Homepage Poem', 'Kaiti SC', 'STKaiti', 'KaiTi', serif;
+  color: #b7c6db;
+  font-size: .9rem;
+  letter-spacing: .2em;
+}
+.home-poem cite { font-style: normal; }
+@media (max-width: 700px) {
+  .home-poem blockquote span { display: block; }
+  .home-poem { margin-top: 4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ambient { animation: none; }
+}
+
+@font-face {
+  font-family: 'Homepage Poem';
+  src: url('./assets/kunpeng/poem-calligraphy.ttf?v=20261101-poem-0027') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
