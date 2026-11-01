@@ -56,10 +56,10 @@ const siteData = {
   ],
   industryExperience: [
     { company: "Corsair", role: "Data Science Intern", logo: "./assets/corsair-logo.png", logoAlt: "Corsair logo" },
-    { company: "Eth Tech", role: "ML / DS Intern", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech logo" },
+    { company: "Eth Tech", role: "MLE Intern", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech logo" },
     {
       company: "Huatai International",
-      role: "Quant Research Intern",
+      role: "Data Science Intern",
       logo: "./assets/huatai-logo.png",
       logoAlt: "Huatai International logo",
     },
@@ -279,10 +279,10 @@ const siteDataZh = {
   ],
   industryExperience: [
     { company: "Corsair", role: "数据科学实习生", logo: "./assets/corsair-logo.png", logoAlt: "Corsair 标志" },
-    { company: "Eth Tech", role: "数据科学实习生", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech 标志" },
+    { company: "Eth Tech", role: "机器学习工程实习生", logo: "./assets/eth-tech-logo.png", logoAlt: "Eth Tech 标志" },
     {
       company: "Huatai International",
-      role: "量化研究实习生",
+      role: "数据科学实习生",
       logo: "./assets/huatai-logo.png",
       logoAlt: "华泰国际标志",
     },
@@ -425,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-contact-hover-0038";
+const assetVersion = "20261101-intern-titles-0039";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
