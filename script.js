@@ -26,7 +26,7 @@ const siteData = {
     "I care about analytical work that is both technically credible and operationally useful. That means defining the decision clearly, choosing methods that match the risk, and presenting results so non-specialists can act on them.",
     "This portfolio is designed for recruiting conversations: it shows how I frame ambiguous problems, work with real datasets, and communicate outcomes across project, research, and teaching contexts.",
   ],
-  homeIntro: 'Hi there 😉. I am Shangyu Gong (pronounced roughly <span class="name-pronunciation">“shahng · yoo · goong”</span>), and you can also call me Ricky.',
+  homeIntro: 'Hi there 😉. I am Shangyu Gong [name-audio], and you can also call me Ricky.',
   homeAbout: [
     'I am seeking opportunities across three areas:<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE / AIE:</span> building and operating production ML and AI systems, from data pipelines and model training to deployment, evaluation, and monitoring, including retrieval, ranking, LLM applications, and agents.</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS:</span> developing predictive and statistical models for forecasting, recommendation, and decision optimization, including financial risk and fraud detection, with rigorous validation, interpretability, and performance monitoring.</span><span role="listitem"><span class="focus-role focus-role-product">Product DS:</span> defining product metrics, designing A/B tests and causal analyses, and studying funnels, retention, and user behavior to guide product strategy, prioritize opportunities, and measure impact.</span></span>',
     'Outside of work, I enjoy playing <a href="https://en.wikipedia.org/wiki/Guandan" target="_blank" rel="noreferrer">Guandan</a>, hiking, cooking, exploring restaurants, and playing badminton.',
@@ -249,7 +249,7 @@ const siteDataZh = {
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
-  homeIntro: "你好 😉 我是宫商羽，你也可以叫我 Ricky。",
+  homeIntro: "你好 😉 我是宫商羽 [name-audio]，你也可以叫我 Ricky。",
   homeAbout: [
     '我正在寻找以下三个方向的机会：<span class="about-focus-list" role="list"><span role="listitem"><span class="focus-role focus-role-ai">MLE／AIE：</span>构建与运行生产级机器学习和 AI 系统，覆盖数据流水线、模型训练、部署、评估和监控，包括检索、排序、LLM 应用与智能体。</span><span role="listitem"><span class="focus-role focus-role-ml">Modelling DS：</span>围绕预测、推荐与决策优化构建预测模型和统计模型，包括金融风险建模与欺诈检测，关注严谨验证、可解释性及模型表现监控。</span><span role="listitem"><span class="focus-role focus-role-product">Product DS：</span>定义产品指标，设计A/B 测试与因果分析，研究漏斗、留存和用户行为，为产品策略、机会优先级与效果衡量提供依据。</span></span>',
     "工作之余，我喜欢掼蛋、徒步、做饭、探索餐厅，也会打羽毛球。这些事情让我在不同的节奏和状态之间切换，也慢慢塑造了我看待生活的方式。",
@@ -424,7 +424,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-name-sounds-0047";
+const assetVersion = "20261101-name-audio-0048";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -545,6 +545,7 @@ if (siteData.portrait.image) {
 }
 
 const iconMarkup = {
+  speaker: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3Z" fill="currentColor"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   linkedin: `
     <svg viewBox="0 0 24 24" aria-hidden="true" class="hero-link-svg">
       <path
@@ -695,7 +696,10 @@ const renderHero = () => {
   renderList(activeSiteData.industryExperience, renderIndustryEntry, "hero-industry-list");
   renderList(
     [activeSiteData.homeIntro],
-    (paragraph) => `<p>${paragraph}</p>`,
+    (paragraph) => {
+      const label = document.documentElement.lang.startsWith("zh") ? "听中文姓名发音" : "Hear my name in Mandarin";
+      return `<p>${paragraph.replace("[name-audio]", `<button class="name-audio-button" type="button" aria-label="${label}" title="${label}">${iconMarkup.speaker}</button>`)}</p><span id="name-audio-status" class="name-audio-status" role="status"></span>`;
+    },
     "home-intro-content"
   );
   renderList(activeSiteData.education, renderEducationEntry, "education-list");
@@ -834,6 +838,32 @@ const renderHomepage = () => {
 };
 
 renderHomepage();
+
+let nameUtterance;
+const playNameAudio = () => {
+  const status = document.getElementById("name-audio-status");
+  const zh = document.documentElement.lang.startsWith("zh");
+  status.textContent = "";
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+    status.textContent = zh ? "此浏览器暂不支持姓名朗读。" : "Name audio is unavailable in this browser.";
+    return;
+  }
+  window.speechSynthesis.cancel();
+  nameUtterance = new window.SpeechSynthesisUtterance("宫商羽");
+  nameUtterance.lang = "zh-CN";
+  nameUtterance.rate = .85;
+  const voices = window.speechSynthesis.getVoices();
+  const voice = voices.find(v => /^zh[-_]CN$/i.test(v.lang)) || voices.find(v => /^zh/i.test(v.lang));
+  if (voice) nameUtterance.voice = voice;
+  nameUtterance.onerror = event => {
+    if (event.error === "canceled" || event.error === "interrupted") return;
+    status.textContent = zh ? "暂时无法播放，请检查设备的中文语音支持。" : "Unable to play. Please check your device’s Chinese speech support.";
+  };
+  window.speechSynthesis.speak(nameUtterance);
+};
+document.getElementById("home-intro-content").addEventListener("click", event => {
+  if (event.target.closest(".name-audio-button")) playNameAudio();
+});
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

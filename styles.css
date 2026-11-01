@@ -330,7 +330,24 @@ main {
   max-width: none;
 }
 
-.name-pronunciation { white-space: nowrap; }
+.name-audio-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0 .15rem;
+  padding: .3rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: var(--accent-2);
+  cursor: pointer;
+}
+.name-audio-button svg { width: 100%; height: 100%; }
+.name-audio-button:hover { color: var(--accent); background: rgba(255, 255, 255, .16); }
+.name-audio-status { color: var(--text-soft); font-size: .85rem; }
 
 .eyebrow,
 .section-tag,
@@ -2008,7 +2025,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-name-sounds-0047') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-name-audio-0048') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2141,7 +2158,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-name-sounds-0047'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-name-audio-0048'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2199,7 +2216,7 @@ body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
   font-family: 'Homepage KaiTi';
-  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-name-sounds-0047') format('opentype');
+  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-name-audio-0048') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2231,7 +2248,7 @@ body[data-sky] .hero-motto:lang(zh) { font-family: 'Homepage KaiTi', 'Kaiti SC',
 
 @font-face {
   font-family: 'Site Songti';
-  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-name-sounds-0047') format('woff2');
+  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-name-audio-0048') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
