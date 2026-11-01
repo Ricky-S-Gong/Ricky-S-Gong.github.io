@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-footer-copyright-0058";
+const assetVersion = "20261101-footer-spacing-0059";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
