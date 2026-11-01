@@ -215,7 +215,7 @@ const siteData = {
     },
     {
       label: "Resume Request",
-      detail: "Request a copy of my resume without exposing it publicly on the site.",
+      detail: "For recruiters only.",
       href: "mailto:sgong.recruiting@gmail.com?subject=Resume%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AHere%20is%20some%20context%20on%20my%20interest%20or%20role%3A%0A%0AThanks%21",
       icon: "resume",
       tone: "slate",
@@ -376,7 +376,7 @@ const siteDataZh = {
     },
     {
       label: "请求简历",
-      detail: "如果你需要简历，可以私下向我索取；我不会把简历公开放在网站上。",
+      detail: "仅限招聘人员。",
       href: "mailto:sgong.recruiting@gmail.com?subject=Resume%20Request&body=Hi%20Ricky%2C%0A%0AI%27d%20love%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AHere%20is%20some%20context%20on%20my%20interest%20or%20role%3A%0A%0AThanks%21",
       icon: "resume",
       tone: "slate",
@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-footer-spacing-0059";
+const assetVersion = "20261101-recruiters-only-0060";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
