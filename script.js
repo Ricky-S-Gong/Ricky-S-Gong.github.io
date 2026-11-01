@@ -242,7 +242,7 @@ const siteData = {
 };
 
 const siteDataZh = {
-  heroSubtitle: "“道虽迩，不行不至”",
+  heroSubtitle: "“道虽迩，不行不至。”",
   heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
     { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
@@ -424,7 +424,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-home-motto-0044";
+const assetVersion = "20261101-motto-type-0045";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
