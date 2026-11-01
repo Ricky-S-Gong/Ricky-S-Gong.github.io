@@ -425,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-bilingual-name-0041";
+const assetVersion = "20261101-fangsong-name-0042";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {

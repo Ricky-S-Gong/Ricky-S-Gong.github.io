@@ -2043,7 +2043,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-bilingual-name-0041') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-fangsong-name-0042') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2176,7 +2176,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-bilingual-name-0041'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-fangsong-name-0042'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2233,16 +2233,20 @@ body[data-sky] .focus-role-ml { color: var(--accent-2); }
 body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
-  font-family: 'Homepage Name';
-  src: url('./assets/kunpeng/name-calligraphy.ttf?v=20261101-bilingual-name-0041') format('truetype');
+  font-family: 'Homepage FangSong';
+  src: url('./assets/kunpeng/name-fangsong.otf?v=20261101-fangsong-name-0042') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-body[data-sky] #hero-name { display: flex; justify-content: center; align-items: baseline; gap: .35em; white-space: nowrap; }
+body[data-sky] #hero-name { display: flex; justify-content: center; align-items: baseline; gap: .3em; white-space: nowrap; font-size: clamp(1.65rem, 2.65vw, 2.25rem); }
 body[data-sky] .hero-name-cn {
-  font-family: 'Homepage Name', 'Kaiti SC', 'STKaiti', 'KaiTi', serif;
-  font-size: .6em;
+  font-family: 'Homepage FangSong', 'FangSong', 'STFangsong', serif;
+  font-size: 1em;
   font-weight: 400;
-  letter-spacing: .08em;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 700px) {
+  body[data-sky] #hero-name { font-size: clamp(1.75rem, 7.6vw, 2rem); }
 }

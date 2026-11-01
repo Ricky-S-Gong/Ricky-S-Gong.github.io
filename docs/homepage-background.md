@@ -16,4 +16,4 @@ Run `node tests/home-background.test.mjs`. Browser checks cover desktop and mobi
 
 No live-action footage, generated video, randomized route, or experimental replacement cloud engine is included.
 
-The homepage name is the same in both locales: Ricky Gong, with 宫商羽 beside it. `assets/kunpeng/name-calligraphy.ttf` is a three-character Ma Shan Zheng subset, retrieved from Google Fonts. It shares the OFL license in `assets/kunpeng/OFL.txt` with the existing poem font, and is served locally.
+The homepage name is the same in both locales: Ricky Gong, with 宫商羽 beside it at the same font size. `assets/kunpeng/name-fangsong.otf` is a three-character subset of FandolFang-Regular, a FangSong font by Clerk Ma and Jie Su. It is served locally under GPL with the font exception, preserved in `assets/kunpeng/FANDOL-COPYING.txt`. The font exception is retained for this subset. [Upstream source package and original font](https://ctan.org/tex-archive/fonts/fandol). Subsetting changes only glyph coverage, not outlines. To reproduce: `pyftsubset FandolFang-Regular.otf --text=宫商羽 --output-file=name-fangsong.otf --name-IDs='*' --name-legacy --name-languages='*'`.
