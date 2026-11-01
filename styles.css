@@ -2043,7 +2043,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-role-headings-0037') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-contact-hover-0038') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2157,7 +2157,8 @@ body[data-sky] .research-card-title { white-space: normal; overflow: visible; fo
 body[data-sky] .research-details { max-width: 80ch; }
 body[data-sky] .contact-section { padding: 1rem 0 2rem; gap: 3rem; }
 body[data-sky] .contact-action-card { padding: 1.1rem 0; border-bottom: 1px solid var(--surface-border); }
-body[data-sky] .contact-action-card:hover .contact-action-title { color: var(--accent); }
+body[data-sky] .contact-action-card:hover,
+body[data-sky] .contact-action-card:focus-visible { border-bottom-color: var(--accent); }
 body[data-sky] .site-credits { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--surface-border); font-size: .72rem; line-height: 1.65; color: var(--text-muted); }
 body[data-sky] .site-credits a { color: var(--accent-2); text-decoration: underline; }
 body[data-sky] .detail-topbar { padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
@@ -2175,7 +2176,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-role-headings-0037'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-contact-hover-0038'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }

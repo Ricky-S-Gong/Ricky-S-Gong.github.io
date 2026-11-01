@@ -425,7 +425,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-role-headings-0037";
+const assetVersion = "20261101-contact-hover-0038";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
