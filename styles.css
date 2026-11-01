@@ -2032,7 +2032,7 @@ h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-recruiters-only-0060') center / cover no-repeat;
+  background: #6787a4 url('./assets/sky/cloudsea-desktop.png?v=20261101-lighter-projects-0061') center / cover no-repeat;
 }
 
 .home-sky canvas {
@@ -2131,7 +2131,7 @@ body[data-sky] .project-nav-pill:hover,
 body[data-sky] .project-nav-pill:focus-visible { background: none; border-color: var(--accent); transform: none; }
 body[data-sky] .project-category-heading { padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
 body[data-sky] .project-card {
-  background: rgba(10, 27, 45, .78);
+  background: rgba(10, 27, 45, .42);
   border: 1px solid rgba(216, 225, 232, .22);
   box-shadow: 0 10px 28px rgba(7, 19, 35, .12);
   backdrop-filter: none;
@@ -2139,7 +2139,7 @@ body[data-sky] .project-card {
   transform: none;
   text-shadow: none;
 }
-body[data-sky] .project-card:hover { background: rgba(10, 27, 45, .88); transform: none; }
+body[data-sky] .project-card:hover { background: rgba(10, 27, 45, .52); transform: none; }
 body[data-sky] .research-card-grid { grid-template-columns: 1fr; gap: 0; }
 body[data-sky] .research-card { padding: 1.5rem 0; border-bottom: 1px solid var(--surface-border); max-width: 68rem; }
 body[data-sky] .research-card-title { white-space: normal; overflow: visible; font-size: clamp(1.05rem, 1.7vw, 1.4rem); line-height: 1.4; }
@@ -2165,7 +2165,7 @@ body[data-sky] .project-detail-article td { border-color: var(--surface-border);
   body[data-sky] .home-about { border-top: 1px solid var(--surface-border); }
 }
 @media (max-width: 700px) {
-  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-recruiters-only-0060'); }
+  .home-sky { background-image: url('./assets/sky/cloudsea-mobile.png?v=20261101-lighter-projects-0061'); }
   body[data-sky] .home-sky::after { background: rgba(7, 19, 35, .46); }
   body[data-sky] .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; align-items: center; }
   body[data-sky] .brand { gap: .5rem; }
@@ -2225,7 +2225,7 @@ body[data-sky] .focus-role-product { color: var(--accent-3); }
 
 @font-face {
   font-family: 'Homepage KaiTi';
-  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-recruiters-only-0060') format('opentype');
+  src: url('./assets/kunpeng/name-kaiti.otf?v=20261101-lighter-projects-0061') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2257,7 +2257,7 @@ body[data-sky] .hero-motto:lang(zh) { font-family: 'Homepage KaiTi', 'Kaiti SC',
 
 @font-face {
   font-family: 'Site Songti';
-  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-recruiters-only-0060') format('woff2');
+  src: url('./assets/kunpeng/site-songti.woff2?v=20261101-lighter-projects-0061') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
