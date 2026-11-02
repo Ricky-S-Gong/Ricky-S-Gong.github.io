@@ -405,8 +405,8 @@ const siteChrome = {
     contactHeading: "Connect, coffee chats, and potential opportunities.",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
-    documentTitle: "Shangyu Gong | Data Portfolio",
-    metaDescription: "Portfolio site for Shangyu Gong featuring data projects, research, and teaching.",
+    documentTitle: "Shangyu (Ricky) Gong 宫商羽 | Data Science & AI Portfolio",
+    metaDescription: "Shangyu Gong (Ricky Gong, 宫商羽): data science and AI portfolio featuring machine learning, search and recommendation, causal inference, research, and teaching.",
   },
   zh: {
     nav: { home: "首页", projects: "项目", research: "研究", contact: "联系" },
@@ -423,12 +423,12 @@ const siteChrome = {
     contactHeading: "欢迎联系、预约 coffee chat，或交流合作机会。",
     contactCopy:
       "如果你希望联系我，可以直接预约交流、私下索取简历，或通过邮件和社交媒体进一步联系我。",
-    documentTitle: "宫商羽 | 数据作品集",
-    metaDescription: "宫商羽的个人作品集网站，包含项目、研究与教学内容。",
+    documentTitle: "宫商羽 Shangyu (Ricky) Gong | 数据科学与 AI 作品集",
+    metaDescription: "宫商羽（Shangyu Gong / Ricky Gong）的数据科学与 AI 作品集，展示机器学习、搜索与推荐、因果推断项目，以及研究与教学经历。",
   },
 };
 
-const assetVersion = "20261101-suzhou-intro-0062";
+const assetVersion = "20261101-seo-0063";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
