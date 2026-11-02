@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261101-kunpeng-philosophy-0070";
+const assetVersion = "20261101-kunpeng-totem-0071";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -684,8 +684,8 @@ const renderShellText = () => {
 const renderHero = () => {
   const activeSiteData = getActiveSiteData();
   document.getElementById("hero-background-note").innerHTML = document.documentElement.lang.startsWith("zh")
-    ? '背景取意<a href="https://en.wikipedia.org/wiki/Peng_(mythology)" target="_blank" rel="noreferrer">鲲鹏</a>，是我的一种人生哲学。'
-    : 'Inspired by <a href="https://en.wikipedia.org/wiki/Peng_(mythology)" target="_blank" rel="noreferrer">Kunpeng</a>, reflecting my philosophy of life.';
+    ? '背景取意<a href="https://en.wikipedia.org/wiki/Peng_(mythology)" target="_blank" rel="noreferrer">鲲鹏</a>，是我的精神图腾。'
+    : 'Background inspired by <a href="https://en.wikipedia.org/wiki/Peng_(mythology)?utm_source=chatgpt.com" target="_blank" rel="noreferrer">Kunpeng</a>, my spiritual totem.';
   if (heroSubtitle) {
     heroSubtitle.textContent = activeSiteData.heroSubtitle;
   }
