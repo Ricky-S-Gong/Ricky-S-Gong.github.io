@@ -1,8 +1,18 @@
 const catalog = window.projectCatalog || { projects: [] };
 const params = new URLSearchParams(window.location.search);
-const slug = params.get("slug");
+const projectSlug = document.body.dataset.projectSlug;
+const slug = projectSlug ?? params.get("slug");
 
 const project = catalog.projects.find((item) => item.slug === slug);
+
+// Cloudflare groups page views by path, so resolve legacy links before the beacon runs.
+if (project && !project.externalHref && projectSlug === undefined && document.body.hasAttribute("data-project-paths")) {
+  const projectUrl = new URL(`./project-${project.slug}.html`, window.location.href);
+  params.delete("slug");
+  projectUrl.search = params.toString();
+  projectUrl.hash = window.location.hash;
+  window.history.replaceState(window.history.state, "", projectUrl);
+}
 
 const normalizeLocale = (value) => {
   if (!value) return "en";

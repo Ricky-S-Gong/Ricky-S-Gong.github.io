@@ -428,7 +428,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261102-soft-entry-0073";
+const assetVersion = "20261106-web-analytics-0074";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
