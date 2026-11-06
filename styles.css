@@ -2159,8 +2159,30 @@ body[data-sky] .contact-section { padding: 1rem 0 2rem; gap: 3rem; }
 body[data-sky] .contact-action-card { padding: 1.1rem 0; border-bottom: 1px solid var(--surface-border); }
 body[data-sky] .contact-action-card:hover,
 body[data-sky] .contact-action-card:focus-visible { border-bottom-color: var(--accent); }
-body[data-sky] .site-credits { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--surface-border); font-size: .72rem; line-height: 1.65; color: var(--text-muted); }
+.contact-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
+}
+body[data-sky] .site-credits { flex: 1 1 28rem; margin: 0; font-size: .72rem; line-height: 1.65; color: var(--text-muted); }
 body[data-sky] .site-credits a { color: var(--accent-2); text-decoration: underline; }
+.contact-admin-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-height: 44px;
+  margin-inline-start: auto;
+  padding: .45rem .95rem;
+  border-color: var(--surface-border);
+  font-size: .8rem;
+  white-space: nowrap;
+}
+.contact-admin-button:hover { border-color: var(--accent); }
+.contact-admin-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 body[data-sky] .detail-topbar { padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
 body[data-sky] .detail-topbar .back-link { margin-bottom: 0; }
 body[data-sky] .project-detail-hero { padding: 2rem 0 0; }

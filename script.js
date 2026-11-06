@@ -430,7 +430,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261106-portfolio-admin-0076";
+const assetVersion = "20261106-contact-admin-0077";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
