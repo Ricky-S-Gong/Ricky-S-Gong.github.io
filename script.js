@@ -403,6 +403,7 @@ const siteChrome = {
     viewDetails: "View details",
     hideDetails: "Hide details",
     contactHeading: "Connect, coffee chats, and potential opportunities.",
+    contactAdmin: "Admin",
     contactCopy:
       "If you'd like to connect, you can schedule a conversation, request my resume privately, or follow up by email or social media.",
     documentTitle: "Ricky Gong | Homepage",
@@ -421,6 +422,7 @@ const siteChrome = {
     viewDetails: "查看详情",
     hideDetails: "收起详情",
     contactHeading: "欢迎联系、预约 coffee chat，或交流合作机会。",
+    contactAdmin: "管理后台",
     contactCopy:
       "如果你希望联系我，可以直接预约交流、私下索取简历，或通过邮件和社交媒体进一步联系我。",
     documentTitle: "Ricky Gong | Homepage",
@@ -428,7 +430,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261106-analytics-opt-out-0075";
+const assetVersion = "20261106-portfolio-admin-0076";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
@@ -675,6 +677,7 @@ const renderShellText = () => {
   setText("economics-research-heading", chrome.economicsResearchHeading);
   setText("teaching-heading", chrome.teachingHeading);
   setText("contact-heading", chrome.contactHeading);
+  setText("contact-admin", chrome.contactAdmin);
   setText("contact-copy", chrome.contactCopy);
   document.title = chrome.documentTitle;
   const metaDescription = document.querySelector('meta[name="description"]');
