@@ -1,5 +1,10 @@
 const ACCOUNT = '18ae961b21172ff289555af217be8732';
 const SITE = '04211cb4fe9249819656603091f07a95';
+const STARTED_AT = '2026-11-06T14:45:00.000Z';
+
+function reportStart_(now) {
+  return new Date(Math.max(Date.parse(STARTED_AT), now.getTime() - 30 * 86400000)).toISOString();
+}
 
 function doGet() {
   const viewer = Session.getActiveUser().getEmail().toLowerCase();
@@ -14,7 +19,7 @@ function doGet() {
     content = `<div class="totals">
       <div><span>访问次数</span><strong>${number_(total?.sum.visits ?? 0)}</strong></div>
       <div><span>页面浏览量</span><strong>${number_(total?.count ?? 0)}</strong></div>
-    </div><div class="reports">
+    </div>${map_(countries)}<div class="reports">
       ${ranking_('热门页面', '浏览量', pages, (row) => row.count)}
       ${ranking_('访问来源', '访问次数', sources, (row) => row.sum.visits, (name) => name || '直接访问')}
       ${ranking_('访客国家', '访问次数', countries, (row) => row.sum.visits, (name) => name || '未知')}
@@ -33,20 +38,54 @@ function doGet() {
       .totals,.reports{display:grid;gap:1rem}.totals{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:1rem}
       .totals div,section{background:#102239;padding:clamp(.8rem,2vw,1.4rem);border:1px solid #294059}
       strong{display:block;font-size:clamp(1.7rem,6vw,3rem);font-variant-numeric:tabular-nums;color:#7cf7c1}
-      .reports{grid-template-columns:1.4fr 1fr 1fr}section{min-width:0}h2{margin:0 0 .25rem;font-size:1.15rem}
+      .map{margin-bottom:1rem}.map-chart{width:100%;height:clamp(220px,40vw,480px)}.reports{grid-template-columns:1.4fr 1fr 1fr}section{min-width:0}h2{margin:0 0 .25rem;font-size:1.15rem}
       ol{padding:0;list-style:none;margin:1rem 0 0}li{margin-bottom:.85rem}.row{display:flex;gap:.6rem;justify-content:space-between}
       .row span{color:inherit;overflow-wrap:anywhere}.row b{font-variant-numeric:tabular-nums}
       .track{display:block;background:#294059;height:3px;margin-top:.35rem}.track i{display:block;background:#7cf7c1;height:100%}
       footer{margin-top:1.5rem;color:#b7c6db;font-size:.9rem}@media(max-width:760px){.reports{grid-template-columns:1fr}}
-    </style></head><body><main><header><p>RICKY GONG / ADMIN</p><h1>访问看板</h1><small>最近 24 小时 · ricky-s-gong.github.io</small></header>
+    </style></head><body><main><header><p>RICKY GONG / ADMIN</p><h1>访问看板</h1><small>最近 30 天（最早自 2026-11-06 建立看板起） · ricky-s-gong.github.io</small></header>
     ${content}<footer>数据来自 Cloudflare Web Analytics。已过滤 Cloudflare 标记的机器人流量。</footer></main></body></html>`)
     .setTitle('Portfolio Admin | Ricky Gong').addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+function map_(countries) {
+  const rows = countries.filter((row) => row.dimensions.name && row.sum.visits > 0)
+    .map((row) => [row.dimensions.name, row.sum.visits]);
+  const data = JSON.stringify(rows).replace(/</g, '\\u003c');
+  return `<section class="map"><h2>访客来源地图</h2><small>按国家展示访问次数；地理位置为近似值。</small>
+    <div id="visitor-map" class="map-chart" role="img" aria-label="访客国家分布世界地图"></div>
+    <p id="map-status" role="status">${rows.length ? '正在加载地图…' : '这段时间暂无可定位的访问数据。'}</p></section>
+    <script src="https://www.gstatic.com/charts/loader.js" onerror="document.getElementById('map-status').textContent='地图加载失败，请查看下方国家列表。'"></script>
+    <script>
+      if (window.google && google.charts) {
+        google.charts.load('current', { packages: ['geochart'], language: 'zh-CN' });
+        google.charts.setOnLoadCallback(function () {
+          const data = new google.visualization.DataTable();
+          data.addColumn('string', '国家');
+          data.addColumn('number', '访问次数');
+          data.addRows(${data});
+          const chart = new google.visualization.GeoChart(document.getElementById('visitor-map'));
+          google.visualization.events.addListener(chart, 'error', function () {
+            document.getElementById('map-status').textContent = '地图加载失败，请查看下方国家列表。';
+          });
+          function draw() {
+            chart.draw(data, { backgroundColor: '#102239', datalessRegionColor: '#294059',
+              defaultColor: '#7cf7c1', colorAxis: { colors: ['#438b91', '#7cf7c1'] },
+              legend: { textStyle: { color: '#b7c6db' } }, keepAspectRatio: true });
+          }
+          draw();
+          if (${rows.length} > 0) document.getElementById('map-status').textContent = '悬停国家可查看访问次数。';
+          new ResizeObserver(draw).observe(document.getElementById('visitor-map'));
+        });
+      }
+    </script>`;
 }
 
 function analytics_() {
   const token = PropertiesService.getScriptProperties().getProperty('CF_ANALYTICS_TOKEN');
   if (!token) throw new Error('Missing CF_ANALYTICS_TOKEN');
 
+  const now = new Date();
   const response = UrlFetchApp.fetch('https://api.cloudflare.com/client/v4/graphql', {
     method: 'post',
     contentType: 'application/json',
@@ -62,15 +101,15 @@ function analytics_() {
           sources: rumPageloadEventsAdaptiveGroups(limit: 10, filter: $filter, orderBy: [sum_visits_DESC]) {
             sum { visits } dimensions { name: refererHost }
           }
-          countries: rumPageloadEventsAdaptiveGroups(limit: 10, filter: $filter, orderBy: [sum_visits_DESC]) {
+          countries: rumPageloadEventsAdaptiveGroups(limit: 250, filter: $filter, orderBy: [sum_visits_DESC]) {
             sum { visits } dimensions { name: countryName }
           }
         } }
       }`,
       variables: { account: ACCOUNT, filter: {
         siteTag: SITE, bot: 0,
-        datetime_geq: new Date(Date.now() - 86400000).toISOString(),
-        datetime_lt: new Date().toISOString(),
+        datetime_geq: reportStart_(now),
+        datetime_lt: now.toISOString(),
       } },
     }),
   });
