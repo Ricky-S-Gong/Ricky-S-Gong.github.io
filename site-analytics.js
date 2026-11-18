@@ -20,6 +20,7 @@
 
   const beacon = document.createElement("script");
   beacon.type = "module";
-  beacon.src = "https://static.cloudflareinsights.com/beacon.min.js?token=96cb827025674a6f979b3c184d74c742&spa=false";
+  beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  beacon.dataset.cfBeacon = JSON.stringify({ token: "96cb827025674a6f979b3c184d74c742", spa: false });
   document.body.append(beacon);
 })();

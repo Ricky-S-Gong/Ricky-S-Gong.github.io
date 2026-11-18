@@ -4,9 +4,12 @@ import vm from 'node:vm';
 import test from 'node:test';
 
 const source = readFileSync(new URL('../portfolio-admin/Code.gs', import.meta.url), 'utf8');
-const report = { totals: [], pages: [], sources: [], countries: [] };
+const report = { totals: [{ sum: { visits: 2 }, count: 3 }], pages: [], sources: [], countries: [] };
+const user = { getEmail: () => 'owner@example.com' };
 let request;
 const context = vm.createContext({
+  Session: { getActiveUser: () => user, getEffectiveUser: () => user },
+  HtmlService: { createHtmlOutput: (html) => ({ html, setTitle() { return this; }, addMetaTag() { return this; } }) },
   PropertiesService: { getScriptProperties: () => ({ getProperty: () => 'test-token' }) },
   UrlFetchApp: { fetch: (_, options) => {
     request = JSON.parse(options.payload);
@@ -37,4 +40,10 @@ test('map handles no countries, excludes unknown locations, and escapes script c
   assert.match(html, /\["United States",3\]/);
   assert.doesNotMatch(html, /\["",9\]/);
   assert.doesNotMatch(html, /<script>alert\(1\)/);
+});
+
+test('dashboard renders visits and page views returned by Cloudflare', () => {
+  const { html } = context.doGet();
+  assert.match(html, /访问次数<\/span><strong>2<\/strong>/);
+  assert.match(html, /页面浏览量<\/span><strong>3<\/strong>/);
 });

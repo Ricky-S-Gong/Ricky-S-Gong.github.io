@@ -1,9 +1,9 @@
-const ACCOUNT = '18ae961b21172ff289555af217be8732';
-const SITE = '04211cb4fe9249819656603091f07a95';
-const STARTED_AT = '2026-11-06T14:45:00.000Z';
+const ACCOUNT_TAG = '18ae961b21172ff289555af217be8732';
+const SITE_TAG = '04211cb4fe9249819656603091f07a95';
+const DASHBOARD_CREATED_AT = '2026-11-06T14:45:00.000Z';
 
 function reportStart_(now) {
-  return new Date(Math.max(Date.parse(STARTED_AT), now.getTime() - 30 * 86400000)).toISOString();
+  return new Date(Math.max(Date.parse(DASHBOARD_CREATED_AT), now.getTime() - 30 * 86400000)).toISOString();
 }
 
 function doGet() {
@@ -106,8 +106,8 @@ function analytics_() {
           }
         } }
       }`,
-      variables: { account: ACCOUNT, filter: {
-        siteTag: SITE, bot: 0,
+      variables: { account: ACCOUNT_TAG, filter: {
+        siteTag: SITE_TAG, bot: 0,
         datetime_geq: reportStart_(now),
         datetime_lt: now.toISOString(),
       } },
