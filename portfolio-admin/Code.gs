@@ -20,8 +20,8 @@ function doGet() {
       <div><span>访问次数</span><strong>${number_(total?.sum.visits ?? 0)}</strong></div>
       <div><span>页面浏览量</span><strong>${number_(total?.count ?? 0)}</strong></div>
     </div>${map_(countries)}<div class="reports">
-      ${ranking_('热门页面', '浏览量', pages, (row) => row.count)}
-      ${ranking_('访问来源', '访问次数', sources, (row) => row.sum.visits, (name) => name || '直接访问')}
+      ${ranking_('热门页面', '浏览量', pages.slice(0, 10), (row) => row.count)}
+      ${ranking_('访问来源', '访问次数', sources.slice(0, 10), (row) => row.sum.visits, (name) => name || '直接访问')}
       ${ranking_('访客国家', '访问次数', countries, (row) => row.sum.visits, (name) => name || '未知')}
     </div>`;
   } catch (error) {
@@ -44,7 +44,7 @@ function doGet() {
       .track{display:block;background:#294059;height:3px;margin-top:.35rem}.track i{display:block;background:#7cf7c1;height:100%}
       footer{margin-top:1.5rem;color:#b7c6db;font-size:.9rem}@media(max-width:760px){.reports{grid-template-columns:1fr}}
     </style></head><body><main><header><p>RICKY GONG / ADMIN</p><h1>访问看板</h1><small>最近 30 天（最早自 2026-11-06 建立看板起） · ricky-s-gong.github.io</small></header>
-    ${content}<footer>数据来自 Cloudflare Web Analytics。已过滤 Cloudflare 标记的机器人流量。</footer></main></body></html>`)
+    ${content}<footer>数据来自 Cloudflare Web Analytics。已过滤 Cloudflare 标记的机器人流量。较早数据可能经过采样。</footer></main></body></html>`)
     .setTitle('Portfolio Admin | Ricky Gong').addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
@@ -86,7 +86,13 @@ function analytics_() {
   if (!token) throw new Error('Missing CF_ANALYTICS_TOKEN');
 
   const now = new Date();
-  const response = UrlFetchApp.fetch('https://api.cloudflare.com/client/v4/graphql', {
+  const start = reportStart_(now);
+  const end = now.toISOString();
+  // A single monthly query can sample out a recent low-volume visit.
+  const recentStart = new Date(now.getTime() - 7 * 86400000).toISOString();
+  const boundaries = recentStart > start ? [start, recentStart, end] : [start, end];
+  const requests = boundaries.slice(0, -1).map((from, index) => ({
+    url: 'https://api.cloudflare.com/client/v4/graphql',
     method: 'post',
     contentType: 'application/json',
     headers: { Authorization: `Bearer ${token}` },
@@ -95,10 +101,10 @@ function analytics_() {
       query: `query Traffic($account: string!, $filter: AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject!) {
         viewer { accounts(filter: { accountTag: $account }) {
           totals: rumPageloadEventsAdaptiveGroups(limit: 1, filter: $filter) { count sum { visits } }
-          pages: rumPageloadEventsAdaptiveGroups(limit: 10, filter: $filter, orderBy: [count_DESC]) {
+          pages: rumPageloadEventsAdaptiveGroups(limit: 100, filter: $filter, orderBy: [count_DESC]) {
             count dimensions { name: requestPath }
           }
-          sources: rumPageloadEventsAdaptiveGroups(limit: 10, filter: $filter, orderBy: [sum_visits_DESC]) {
+          sources: rumPageloadEventsAdaptiveGroups(limit: 100, filter: $filter, orderBy: [sum_visits_DESC]) {
             sum { visits } dimensions { name: refererHost }
           }
           countries: rumPageloadEventsAdaptiveGroups(limit: 250, filter: $filter, orderBy: [sum_visits_DESC]) {
@@ -108,17 +114,52 @@ function analytics_() {
       }`,
       variables: { account: ACCOUNT_TAG, filter: {
         siteTag: SITE_TAG, bot: 0,
-        datetime_geq: reportStart_(now),
-        datetime_lt: now.toISOString(),
+        datetime_geq: from,
+        datetime_lt: boundaries[index + 1],
       } },
     }),
-  });
+  }));
+  return mergeReports_(UrlFetchApp.fetchAll(requests).map(readReport_));
+}
+
+function readReport_(response) {
   if (response.getResponseCode() !== 200) throw new Error(`Cloudflare HTTP ${response.getResponseCode()}`);
   const result = JSON.parse(response.getContentText());
   if (result.errors?.length) throw new Error(result.errors[0].message);
   const report = result.data?.viewer.accounts[0];
   if (!report) throw new Error('Cloudflare returned no account');
   return report;
+}
+
+function mergeReports_(reports) {
+  const totals = { count: 0, sum: { visits: 0 } };
+  for (const { totals: rows } of reports) {
+    totals.count += rows[0]?.count ?? 0;
+    totals.sum.visits += rows[0]?.sum.visits ?? 0;
+  }
+
+  function groups(key, metric, value) {
+    const counts = new Map();
+    for (const report of reports) {
+      for (const row of report[key]) {
+        const { name } = row.dimensions;
+        counts.set(name, (counts.get(name) ?? 0) + value(row));
+      }
+    }
+    return [...counts].sort((a, b) => b[1] - a[1]).map(([name, count]) => ({
+      dimensions: { name },
+      ...metric(count),
+    }));
+  }
+
+  const visits = (row) => row.sum.visits;
+  const visitMetric = (count) => ({ sum: { visits: count } });
+  return {
+    totals: [totals],
+    pages: groups('pages', (count) => ({ count }), (row) => row.count),
+    sources: groups('sources', visitMetric, visits),
+    countries: groups('countries', visitMetric, visits),
+  };
 }
 
 function ranking_(title, unit, rows, value, label = (name) => name || '/') {
