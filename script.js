@@ -430,7 +430,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261117-analytics-beacon-0078";
+const assetVersion = "20261123-home-footer-0079";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
