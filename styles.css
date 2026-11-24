@@ -2234,6 +2234,27 @@ body[data-sky] .project-detail-article ul { text-align: left; }
 body[data-view="home"] .view-stage { min-height: 0; padding: 1.25rem 0 0; }
 body[data-view="home"] #home { min-height: 0; padding: 0; }
 
+@media (min-width: 981px) {
+  body[data-view="home"] .page-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+  body[data-view="home"] .view-stage,
+  body[data-view="home"] #home {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  /* Use spare viewport height for a small gap before the footer. */
+  body[data-view="home"] #home::after {
+    content: "";
+    flex: 1 1 0px;
+    max-block-size: 1.25rem;
+  }
+  body[data-view="home"] .home-poem { order: 1; }
+}
+
 @media (min-width: 981px) and (max-height: 980px) {
   body[data-view="home"] .site-header { padding-block: 1rem .75rem; }
   body[data-view="home"] .view-stage { padding-top: .5rem; }
