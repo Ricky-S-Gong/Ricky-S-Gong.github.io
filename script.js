@@ -432,7 +432,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261124-home-flow-0081";
+const assetVersion = "20261124-home-copyright-0082";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
