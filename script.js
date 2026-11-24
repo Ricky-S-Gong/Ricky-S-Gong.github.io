@@ -1,3 +1,5 @@
+const linkedinProfileUrl = "https://www.linkedin.com/in/shangyu-ricky-gong";
+
 const siteData = {
   heroSubtitle: "“Audere est facere.”",
   heroLocation: "Philadelphia, PA",
@@ -8,7 +10,7 @@ const siteData = {
   heroLinks: [
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/shangyu-ricky-gong",
+      href: linkedinProfileUrl,
       icon: "linkedin",
     },
     {
@@ -230,7 +232,7 @@ const siteData = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/shangyu-ricky-gong",
+      href: linkedinProfileUrl,
       icon: "linkedin",
       tone: "blue",
     },
@@ -247,7 +249,7 @@ const siteDataZh = {
   heroSubtitle: "“道虽迩，不行不至。”",
   heroLocation: "费城，宾夕法尼亚州",
   heroLinks: [
-    { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin" },
+    { label: "领英", href: linkedinProfileUrl, icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github" },
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email" },
   ],
@@ -384,7 +386,7 @@ const siteDataZh = {
   ],
   contacts: [
     { label: "邮箱", href: "mailto:sgong.recruiting@gmail.com", icon: "email", tone: "mint" },
-    { label: "领英", href: "https://www.linkedin.com/in/shangyu-ricky-gong", icon: "linkedin", tone: "blue" },
+    { label: "领英", href: linkedinProfileUrl, icon: "linkedin", tone: "blue" },
     { label: "GitHub", href: "https://github.com/Ricky-S-Gong", icon: "github", tone: "slate" },
   ],
 };
@@ -430,7 +432,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261124-home-footer-0080";
+const assetVersion = "20261124-home-flow-0081";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
