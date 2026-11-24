@@ -430,7 +430,7 @@ const siteChrome = {
   },
 };
 
-const assetVersion = "20261123-home-footer-0079";
+const assetVersion = "20261124-home-footer-0080";
 const projectCatalog = window.projectCatalog || { categories: [], projects: [] };
 const realProjectCovers = {
   "sar-cosmos-lab": {
